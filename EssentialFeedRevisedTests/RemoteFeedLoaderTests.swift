@@ -26,6 +26,8 @@ import EssentialFeedRevised
 
 class RemoteFeedLoaderTests: XCTestCase {
     
+    /* test_method_behaviorWeExpect */
+    
     func test_init_doesNotRequestDataFormURL() {
         let client = HTTPClientSpy()
         _ = makeSUT()
@@ -33,7 +35,7 @@ class RemoteFeedLoaderTests: XCTestCase {
         XCTAssertNil(client.requestedURL, "Expected to return nil")
     }
     
-    func test_load_requestDataFromURL() {
+    func test_load_requestsDataFromURL() {
         let url = URL(string: "https://a-given-url.com")!
         let (sut, client) = makeSUT(url: url)
         
