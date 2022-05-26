@@ -7,24 +7,22 @@
 
 import Foundation
 import XCTest
+import EssentialFeedRevised
 
-class RemoteFeedLoader {
-    let client: HTTPClient
-    let url: URL
-    
-    init(url: URL, client: HTTPClient) {
-        self.url = url
-        self.client = client
-    }
-    
-    func load() {
-        client.get(from: url)
-    }
-}
-
-protocol HTTPClient {
-    func get(from url: URL)
-}
+/*
+ Tecture 1.
+ From Singletons and Globals to Proper Dependency Injection
+ 
+ Learning Outcomes
+ How to test-drive an API layer implementation
+ Modular Design
+ Singletons: When and Why
+ Singletons: Better alternatives
+ Singletons: Refactoring steps to gradually remove tight coupling created by singletons
+ Controlling your dependencies: Locating globally shared instances (Implicit) vs. Injecting dependencies (Explicit)
+ Controlling your dependencies: Dependency injection
+ 
+ */
 
 class RemoteFeedLoaderTests: XCTestCase {
     
