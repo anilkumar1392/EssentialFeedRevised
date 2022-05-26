@@ -115,18 +115,18 @@ extension RemoteFeedLoaderTests {
     }
     
     private class HTTPClientSpy: HTTPClient {
-        
-        private var messages = [(url: URL, completions: (Error?, HTTPURLResponse?) -> Void)]()
+
+        private var messages = [(url: URL, completions: (HTTPClientResult) -> Void)]()
         var requestedURLs: [URL] {
             return messages.map { $0.url }
         }
 
-        func get(from url: URL, completion: @escaping (Error?, HTTPURLResponse?) -> Void) {
+        func get(from url: URL, completion: @escaping (HTTPClientResult) -> Void) {
             messages.append((url, completion))
         }
         
         func complete(with error: Error, at index: Int = 0) {
-            messages[index].completions(error, nil)
+            messages[index].completions(.failure(error))
         }
 
         func complete(with statusCode: Int, at index: Int = 0) {
@@ -134,9 +134,9 @@ extension RemoteFeedLoaderTests {
                 url: requestedURLs[index],
                 statusCode: statusCode,
                 httpVersion: nil,
-                headerFields: nil)
+                headerFields: nil)!
             
-            messages[index].completions(nil, httpsResponse)
+            messages[index].completions(.success(httpsResponse))
         }
          
     }
