@@ -16,6 +16,9 @@
 		F5B87CEF283F5C5F00D86464 /* EssentialFeedRevisedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B87CEE283F5C5F00D86464 /* EssentialFeedRevisedTests.swift */; };
 		F5B87CF9283F5C5F00D86464 /* EssentialFeedRevisedUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B87CF8283F5C5F00D86464 /* EssentialFeedRevisedUITests.swift */; };
 		F5B87CFB283F5C5F00D86464 /* EssentialFeedRevisedUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B87CFA283F5C5F00D86464 /* EssentialFeedRevisedUITestsLaunchTests.swift */; };
+		F5B87D09283F5CBC00D86464 /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B87D08283F5CBC00D86464 /* FeedItem.swift */; };
+		F5B87D0B283F5CC600D86464 /* FeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B87D0A283F5CC600D86464 /* FeedLoader.swift */; };
+		F5B87D0D283F5DCA00D86464 /* RemoteFeedLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B87D0C283F5DCA00D86464 /* RemoteFeedLoaderTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		F5B87CF4283F5C5F00D86464 /* EssentialFeedRevisedUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialFeedRevisedUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5B87CF8283F5C5F00D86464 /* EssentialFeedRevisedUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentialFeedRevisedUITests.swift; sourceTree = "<group>"; };
 		F5B87CFA283F5C5F00D86464 /* EssentialFeedRevisedUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentialFeedRevisedUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F5B87D08283F5CBC00D86464 /* FeedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItem.swift; sourceTree = "<group>"; };
+		F5B87D0A283F5CC600D86464 /* FeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoader.swift; sourceTree = "<group>"; };
+		F5B87D0C283F5DCA00D86464 /* RemoteFeedLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedLoaderTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +105,7 @@
 		F5B87CD6283F5C5C00D86464 /* EssentialFeedRevised */ = {
 			isa = PBXGroup;
 			children = (
+				F5B87D07283F5CA800D86464 /* Feed Feature */,
 				F5B87CD7283F5C5C00D86464 /* AppDelegate.swift */,
 				F5B87CD9283F5C5C00D86464 /* SceneDelegate.swift */,
 				F5B87CDB283F5C5C00D86464 /* ViewController.swift */,
@@ -114,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				F5B87CEE283F5C5F00D86464 /* EssentialFeedRevisedTests.swift */,
+				F5B87D0C283F5DCA00D86464 /* RemoteFeedLoaderTests.swift */,
 			);
 			path = EssentialFeedRevisedTests;
 			sourceTree = "<group>";
@@ -125,6 +133,15 @@
 				F5B87CFA283F5C5F00D86464 /* EssentialFeedRevisedUITestsLaunchTests.swift */,
 			);
 			path = EssentialFeedRevisedUITests;
+			sourceTree = "<group>";
+		};
+		F5B87D07283F5CA800D86464 /* Feed Feature */ = {
+			isa = PBXGroup;
+			children = (
+				F5B87D08283F5CBC00D86464 /* FeedItem.swift */,
+				F5B87D0A283F5CC600D86464 /* FeedLoader.swift */,
+			);
+			path = "Feed Feature";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,8 +275,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5B87D09283F5CBC00D86464 /* FeedItem.swift in Sources */,
 				F5B87CDC283F5C5C00D86464 /* ViewController.swift in Sources */,
 				F5B87CD8283F5C5C00D86464 /* AppDelegate.swift in Sources */,
+				F5B87D0B283F5CC600D86464 /* FeedLoader.swift in Sources */,
 				F5B87CDA283F5C5C00D86464 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,6 +287,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5B87D0D283F5DCA00D86464 /* RemoteFeedLoaderTests.swift in Sources */,
 				F5B87CEF283F5C5F00D86464 /* EssentialFeedRevisedTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
