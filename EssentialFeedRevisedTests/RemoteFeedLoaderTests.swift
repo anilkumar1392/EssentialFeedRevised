@@ -117,18 +117,18 @@ class RemoteFeedLoaderTests: XCTestCase {
         }
     }
     
-//    func test_load_deliversNoItemsOn200HttpsResponseWithEmptyJsonList() {
-//        let (sut, client) = makeSUT()
-//
-//        var capturedResult = [RemoteFeedLoader.Error]()
-//        sut.load { result in
-//            capturedResult.append(result)
-//        }
-//        
-//        // let json = ""
-//        client.complete(with: 200, data: <#T##Data#>, at: <#T##Int#>)
-//        XCTAssertEqual(<#T##expression1: Equatable##Equatable#>, <#T##expression2: Equatable##Equatable#>)
-//    }
+    func test_load_deliversNoItemsOn200HttpsResponseWithEmptyJsonList() {
+        let (sut, client) = makeSUT()
+
+        var capturedResult = [RemoteFeedLoader.Result]()
+        sut.load { result in
+            capturedResult.append(result)
+        }
+        
+        let emptyListJson = Data(bytes: "{\"items\": []}".utf8)
+        client.complete(with: 200, data: emptyListJson)
+        XCTAssertEqual(capturedResult, [.success([])])
+    }
 }
 
 //MARK:- Helper methods
