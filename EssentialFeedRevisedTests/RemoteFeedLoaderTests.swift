@@ -42,6 +42,12 @@ import EssentialFeedRevised
  Handling Errors + Stubbing vs. Spying + Eliminating Invalid Paths
  
  Stubs can be easily replaced with Capture that is a better one.
+ Learning Outcomes
+ Handling network errors
+ Differences between stubbing and spying when unit testing
+ How to extend code coverage by using samples of values to test specific test cases
+ Design better code with enums to make invalid paths unrepresentable
+ 
  */
 
 class RemoteFeedLoaderTests: XCTestCase {
@@ -76,7 +82,8 @@ class RemoteFeedLoaderTests: XCTestCase {
         XCTAssertEqual(client.requestedURLs, [url, url])
     }
     
-    // Writing test to test cleint failure
+    // Writing test to test client failure
+    // Handling all the HTTP client errors.
     // No connectivity
     func test_load_deliversErrorOnClientError() {
         let (sut, client) = makeSUT()
@@ -102,6 +109,22 @@ class RemoteFeedLoaderTests: XCTestCase {
             
             XCTAssertEqual(capturedErrors, [.invalidData])
         }
+    }
+    
+    // Writing test for Parsing json
+    
+    func test_load_deliversErrorOn200HttpsReponseWithInvalidJson() {
+        let (sut, client) = makeSUT()
+        let invalidJson = Data(bytes: "Invalid json".utf8)
+        
+        var capturedError = [RemoteFeedLoader.Error]()
+        sut.load { error in
+            capturedError.append(error)
+        }
+        
+        client.complete(with: 200, data: invalidJson, at: 0)
+        
+        XCTAssertNotNil(capturedError, "Expected to complete with an Error.")
     }
 }
 
@@ -129,14 +152,14 @@ extension RemoteFeedLoaderTests {
             messages[index].completions(.failure(error))
         }
 
-        func complete(with statusCode: Int, at index: Int = 0) {
+        func complete(with statusCode: Int, data: Data = Data(), at index: Int = 0) {
             let httpsResponse = HTTPURLResponse(
                 url: requestedURLs[index],
                 statusCode: statusCode,
                 httpVersion: nil,
                 headerFields: nil)!
             
-            messages[index].completions(.success(httpsResponse))
+            messages[index].completions(.success(data, httpsResponse))
         }
          
     }
