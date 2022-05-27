@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct FeedImage {
+public struct FeedImage: Equatable {
     public var id: UUID
     public var description: String?
     public var location: String?
