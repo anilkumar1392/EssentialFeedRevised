@@ -50,6 +50,16 @@ import EssentialFeedRevised
  
  */
 
+/*
+ Lecture 4.
+ A Classicist TDD Approach (No Mocking) to Mapping JSON with Decodable + Domain-Specific Models
+ Learning Outcomes
+ Differences and trade-offs between mocking vs. testing collaborators in integration
+ Mapping JSON data to native models using the Decodable protocol
+ How to protect your architecture abstractions by working with domain-specific models
+ How to simplify tests leveraging factory methods and test helper functions
+ */
+
 class RemoteFeedLoaderTests: XCTestCase {
     
     /* test_method_behaviorWeExpect */
