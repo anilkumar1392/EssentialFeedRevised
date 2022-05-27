@@ -21,11 +21,3 @@ public struct FeedImage: Equatable {
     }
 }
 
-extension FeedImage: Decodable {
-    enum CodingKeys: String, CodingKey {
-        case id
-        case description
-        case location
-        case imageURL = "image"
-    }
-}
