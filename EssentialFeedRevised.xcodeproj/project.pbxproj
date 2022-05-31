@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F586E6C828410FDB00E219D2 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F586E6C728410FDB00E219D2 /* README.md */; };
 		F5B87CD8283F5C5C00D86464 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B87CD7283F5C5C00D86464 /* AppDelegate.swift */; };
 		F5B87CDA283F5C5C00D86464 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B87CD9283F5C5C00D86464 /* SceneDelegate.swift */; };
 		F5B87CDC283F5C5C00D86464 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B87CDB283F5C5C00D86464 /* ViewController.swift */; };
@@ -20,6 +21,7 @@
 		F5B87D0B283F5CC600D86464 /* FeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B87D0A283F5CC600D86464 /* FeedLoader.swift */; };
 		F5B87D0D283F5DCA00D86464 /* RemoteFeedLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B87D0C283F5DCA00D86464 /* RemoteFeedLoaderTests.swift */; };
 		F5B87D10283F7FB900D86464 /* RemoteFeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B87D0F283F7FB900D86464 /* RemoteFeedLoader.swift */; };
+		F5D5C5E82845C484006FA1B0 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D5C5E72845C484006FA1B0 /* HTTPClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F586E6C728410FDB00E219D2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F5B87CD4283F5C5C00D86464 /* EssentialFeedRevised.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EssentialFeedRevised.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5B87CD7283F5C5C00D86464 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5B87CD9283F5C5C00D86464 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +60,7 @@
 		F5B87D0A283F5CC600D86464 /* FeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoader.swift; sourceTree = "<group>"; };
 		F5B87D0C283F5DCA00D86464 /* RemoteFeedLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedLoaderTests.swift; sourceTree = "<group>"; };
 		F5B87D0F283F7FB900D86464 /* RemoteFeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedLoader.swift; sourceTree = "<group>"; };
+		F5D5C5E72845C484006FA1B0 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,8 +111,9 @@
 		F5B87CD6283F5C5C00D86464 /* EssentialFeedRevised */ = {
 			isa = PBXGroup;
 			children = (
-				F5B87D0E283F7FA900D86464 /* Feed Api */,
+				F586E6C728410FDB00E219D2 /* README.md */,
 				F5B87D07283F5CA800D86464 /* Feed Feature */,
+				F5B87D0E283F7FA900D86464 /* Feed Api */,
 				F5B87CD7283F5C5C00D86464 /* AppDelegate.swift */,
 				F5B87CD9283F5C5C00D86464 /* SceneDelegate.swift */,
 				F5B87CDB283F5C5C00D86464 /* ViewController.swift */,
@@ -151,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				F5B87D0F283F7FB900D86464 /* RemoteFeedLoader.swift */,
+				F5D5C5E72845C484006FA1B0 /* HTTPClient.swift */,
 			);
 			path = "Feed Api";
 			sourceTree = "<group>";
@@ -261,6 +267,7 @@
 			files = (
 				F5B87CE4283F5C5F00D86464 /* LaunchScreen.storyboard in Resources */,
 				F5B87CE1283F5C5F00D86464 /* Assets.xcassets in Resources */,
+				F586E6C828410FDB00E219D2 /* README.md in Resources */,
 				F5B87CDF283F5C5C00D86464 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -289,6 +296,7 @@
 				F5B87D09283F5CBC00D86464 /* FeedItem.swift in Sources */,
 				F5B87CDC283F5C5C00D86464 /* ViewController.swift in Sources */,
 				F5B87CD8283F5C5C00D86464 /* AppDelegate.swift in Sources */,
+				F5D5C5E82845C484006FA1B0 /* HTTPClient.swift in Sources */,
 				F5B87D0B283F5CC600D86464 /* FeedLoader.swift in Sources */,
 				F5B87D10283F7FB900D86464 /* RemoteFeedLoader.swift in Sources */,
 				F5B87CDA283F5C5C00D86464 /* SceneDelegate.swift in Sources */,

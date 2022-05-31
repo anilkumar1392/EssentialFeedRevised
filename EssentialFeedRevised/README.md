@@ -9,4 +9,5 @@ Instead, we chose to test the mapping of Data -> [FeedItem] and the appropriate 
 
 This is not to say that testing the mapping in integration with the RemoteFeedLoader is a superior solution. Both solutions have their merits and tradeoffs, as by testing the mapping in integration (as we chose) we risk making debugging more time costly as it might be harder to detect exactly where the mistake was made. We believe it’s a fair trade-off and we’re happy with the result for this specific feature. However, we’ll keep an eye on it and, if it ever becomes a problem, we will refactor it into isolated tests.
 
-
+###lecture 5.
+Automating Memory Leak Detection + Preventing a (Way Too Common) Async Bug

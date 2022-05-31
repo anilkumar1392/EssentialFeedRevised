@@ -8,6 +8,7 @@
 import Foundation
 
 // Public interface for both load from url and load from cache localDB.
+
 enum LoadFeedResult {
     case success([FeedImage])
     case error(Error)

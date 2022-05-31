@@ -94,6 +94,7 @@ class RemoteFeedLoaderTests: XCTestCase {
     
     // Writing test to test client failure
     // Handling all the HTTP client errors.
+    
     // No connectivity
     func test_load_deliversErrorOnClientError() {
         let (sut, client) = makeSUT()
