@@ -36,7 +36,6 @@ class FeedItemsMapper {
               let root = try? JSONDecoder().decode(Root.self, from: data)else {
             return .failure(.invalidData)
         }
-        let items = root.items.map { $0.item }
-        return .success(items)
+        return .success(root.feed)
     }
 }
