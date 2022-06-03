@@ -9,11 +9,11 @@ import Foundation
 
 // Public interface for both load from url and load from cache localDB.
 
-enum LoadFeedResult {
+public enum LoadFeedResult {
     case success([FeedImage])
-    case error(Error)
+    case failure(Error)
 }
 
-protocol FeedLoader {
+public protocol FeedLoader {
     func load(completion: @escaping (LoadFeedResult) -> Void)
 }

@@ -60,6 +60,10 @@ import EssentialFeedRevised
  How to simplify tests leveraging factory methods and test helper functions
  */
 
+/*
+ Conforming to Feature Abstractions While Maintaining System Modularity + Keeping Test Details Out of Production With Enum Pattern Matching and Async Expectations
+ */
+
 class RemoteFeedLoaderTests: XCTestCase {
     
     /* test_method_behaviorWeExpect */
@@ -99,7 +103,7 @@ class RemoteFeedLoaderTests: XCTestCase {
     func test_load_deliversErrorOnClientError() {
         let (sut, client) = makeSUT()
         
-        expect(sut, toCompleteWith: .failure(.connectivity)) {
+        expect(sut, toCompleteWith: .failure(RemoteFeedLoader.Error.connectivity)) {
             let clientError = NSError(domain: "Test", code: 0)
             client.complete(with: clientError, at: 0)
         }
@@ -111,7 +115,7 @@ class RemoteFeedLoaderTests: XCTestCase {
 
         let samples = [199, 210, 300, 400 , 500]
         samples.enumerated().forEach { (index, code) in
-            expect( sut, toCompleteWith: .failure(.invalidData)) {
+            expect( sut, toCompleteWith: .failure(RemoteFeedLoader.Error.invalidData)) {
                 let json = makeItemJson([])
                 client.complete(with: code, data: json, at: index)
             } 
@@ -123,8 +127,8 @@ class RemoteFeedLoaderTests: XCTestCase {
     func test_load_deliversErrorOn200HttpsReponseWithInvalidJson() {
         let (sut, client) = makeSUT()
         
-        expect(sut, toCompleteWith: .failure(.invalidData)) {
-            let invalidJson = Data(bytes: "Invalid json".utf8)
+        expect(sut, toCompleteWith: .failure(RemoteFeedLoader.Error.invalidData)) {
+            let invalidJson = Data("Invalid json".utf8)
             client.complete(with: 200, data: invalidJson, at: 0)
         }
     }
@@ -133,7 +137,7 @@ class RemoteFeedLoaderTests: XCTestCase {
         let (sut, client) = makeSUT()
 
         expect(sut, toCompleteWith: .success([])) {
-            let emptyListJson = Data(bytes: "{\"items\": []}".utf8)
+            let emptyListJson = Data("{\"items\": []}".utf8)
             client.complete(with: 200, data: emptyListJson)
         }
     }
@@ -193,13 +197,31 @@ extension RemoteFeedLoaderTests {
         }
     }
     
-    private func expect(_ sut: RemoteFeedLoader, toCompleteWith result: RemoteFeedLoader.Result, when action: () -> Void, file: StaticString = #filePath, line: UInt = #line) {
-        var capturedResults = [RemoteFeedLoader.Result]()
-        sut.load { capturedResults.append($0) }
+    private func expect(_ sut: RemoteFeedLoader, toCompleteWith expectedResult: RemoteFeedLoader.Result, when action: () -> Void, file: StaticString = #filePath, line: UInt = #line) {
+        // var capturedResults = [RemoteFeedLoader.Result]()
+        // sut.load { capturedResults.append($0) }
     
+        let exp = expectation(description: "Wait for load to complete")
+        
+        sut.load { receivedResult in
+            switch (receivedResult, expectedResult) {
+            case let (.success(receivedItems), .success(expectedItems)):
+                XCTAssertEqual(receivedItems, expectedItems, file: file, line: line)
+                
+            case let (.failure(receivedError as RemoteFeedLoader.Error), .failure(expectedError as RemoteFeedLoader.Error)):
+                XCTAssertEqual(receivedError, expectedError, file: file, line: line)
+                
+            default:
+                XCTFail("Expected result \(expectedResult) got \(receivedResult) instead", file: file, line: line)
+            }
+             
+            exp.fulfill()
+        }
+        
         action()
         
-        XCTAssertEqual(capturedResults, [result], file: file, line: line)
+        wait(for: [exp], timeout: 1.0)
+        // XCTAssertEqual(capturedResults, [result], file: file, line: line)
     }
     
     private func makeItem(id: UUID, description: String? = nil, location: String? = nil, image: URL) -> (model: FeedImage, json: [String: Any]){
