@@ -44,7 +44,7 @@ class URLSessionHTTPClinetURLProtocolTests: XCTestCase {
     // 1. Requested URl
     func test_loadFromURL_performGetRequestWithURL() {
         
-        let url = URL(string: "Http://any-url.com")!
+        let url = anyURL
         let exp = expectation(description: "Wait for load completion")
         
         URLProtocolStub.observeRequests { request in
@@ -67,7 +67,7 @@ class URLSessionHTTPClinetURLProtocolTests: XCTestCase {
     // failed request with an error
     // 2. handling the requested error.
     func test_loadFromUrl_failsOnRequestError() {
-        let url = URL(string: "Http://any-url.com")!
+        let url = anyURL
         let error = NSError(domain: "any error", code: 1)
         URLProtocolStub.stub(data: nil, response: nil, error: error)
                 
@@ -98,6 +98,10 @@ extension URLSessionHTTPClinetURLProtocolTests {
         let sut = HTTPClientURLSession()
         trackForMemoryLeak(sut)
         return sut
+    }
+    
+    func anyURL() -> URL {
+        return URL(string: "Http://any-url.com")!
     }
 }
 
