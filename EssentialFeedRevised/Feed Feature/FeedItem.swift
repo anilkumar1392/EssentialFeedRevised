@@ -21,3 +21,13 @@ public struct FeedImage: Equatable {
     }
 }
 
+
+struct Images: Codable, Equatable {
+    let name: String?
+    let age: Int?
+    let custom: Custom
+}
+
+struct Custom: Codable, Equatable {
+    let data: String?
+}
