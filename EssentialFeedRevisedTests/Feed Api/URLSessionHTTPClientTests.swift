@@ -8,11 +8,26 @@
 import Foundation
 import XCTest
 import EssentialFeedRevised
+/*
+ Approach to test HTTPClient
+ 
+ 1. End-to-end testing
+ 2. Subclass based mocking
+ 2. Protocol based mocking
+ */
 
-class HTTPClieURLSessionHttpClinet {
-    let session: URLSession
+protocol HTTPSession {
+    func dataTask(with url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> HTTPSessionTask
+}
+
+protocol HTTPSessionTask {
+    func resume()
+}
+
+class HTTPClientURLSessionHttpClinet {
+    let session: HTTPSession //URLSession
     
-    init(session: URLSession) {
+    init(session: HTTPSession) { // URLSession
         self.session = session
     }
     
@@ -26,15 +41,16 @@ class HTTPClieURLSessionHttpClinet {
 }
 
 class URLSessionHTTPClinetTests: XCTestCase {
+    /*
     func test_loadFromURL_createsDataTaskWithURL() {
         let url = URL(string: "http://any-url.com")!
         let session = URLSessionSpy()
-        let sut = HTTPClieURLSessionHttpClinet(session: session)
+        let sut = HTTPClientURLSessionHttpClinet(session: session)
         
         sut.get(from: url) { _ in }
         
         XCTAssertEqual(session.requestedURLs, [url])
-    }
+    } */
     
     func test_loadFromURL_resumesDataTaskWithURL() {
         let url = URL(string: "http://any-url.com")!
@@ -42,7 +58,7 @@ class URLSessionHTTPClinetTests: XCTestCase {
         let task = URLSessionDataTaskSpy()
         session.stub(url: url, with: task)
         
-        let sut = HTTPClieURLSessionHttpClinet(session: session)
+        let sut = HTTPClientURLSessionHttpClinet(session: session)
         
         sut.get(from: url) { _ in }
         
@@ -54,12 +70,10 @@ class URLSessionHTTPClinetTests: XCTestCase {
     func test_loadFromUrl_failsOnRequestError() {
         let url = URL(string: "http://any-url.com")!
         let session = URLSessionSpy()
-        let task = URLSessionDataTaskSpy()
-        
         let error = NSError(domain: "Any error", code: 1)
         session.stub(url: url, error: error)
         
-        let sut = HTTPClieURLSessionHttpClinet(session: session)
+        let sut = HTTPClientURLSessionHttpClinet(session: session)
         
         let exp = expectation(description: "Wait for completion")
         sut.get(from: url) { result in
@@ -78,20 +92,25 @@ class URLSessionHTTPClinetTests: XCTestCase {
 }
 
 extension URLSessionHTTPClinetTests {
-    class URLSessionSpy: URLSession {
+    
+    class URLSessionSpy: HTTPSession { // URLSession
         var requestedURLs = [URL]()
         private var stubs = [URL: Stub]()
         
         private struct Stub {
-            let task: URLSessionDataTask
+            let task: HTTPSessionTask // URLSessionDataTask
             let error: Error?
         }
         
-        func stub(url: URL, with task: URLSessionDataTask = FakeURLSessionDataTask(), error: Error? = nil) {
+//        func stub(url: URL, with task: URLSessionDataTask = FakeURLSessionDataTask(), error: Error? = nil) {
+//            stubs[url] = Stub(task: task, error: error)
+//        }
+        
+        func stub(url: URL, with task: HTTPSessionTask = FakeURLSessionDataTask(), error: Error? = nil) {
             stubs[url] = Stub(task: task, error: error)
         }
         
-        override func dataTask(with url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
+        func dataTask(with url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> HTTPSessionTask  { // URLSessionDataTask
             requestedURLs.append(url)
             guard let stub = stubs[url] else {
                 fatalError("Could not find the stub for given \(url)")
@@ -101,15 +120,15 @@ extension URLSessionHTTPClinetTests {
         }
     }
     
-    private class FakeURLSessionDataTask: URLSessionDataTask {
-        override func resume() {
+    private class FakeURLSessionDataTask: HTTPSessionTask { //URLSessionDataTask
+        func resume() {
         }
     }
     
-    private class URLSessionDataTaskSpy: URLSessionDataTask {
+    private class URLSessionDataTaskSpy: HTTPSessionTask { // URLSessionDataTask
         var resumeCallCount = 0
         
-        override func resume() {
+        func resume() {
             resumeCallCount += 1
         }
     }
