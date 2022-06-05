@@ -20,10 +20,14 @@ class HTTPClientURLSession {
         self.session = session
     }
     
+    struct UnexpectedValueRepresentation: Error {}
+    
     func get(from url: URL, completion: @escaping (HTTPClientResult) -> Void) {
         session.dataTask(with: url) { _, _, error in
             if let error = error {
                 completion(.failure(error))
+            } else {
+                completion(.failure(UnexpectedValueRepresentation()))
             }
         }.resume()
     }
@@ -44,7 +48,7 @@ class URLSessionHTTPClinetURLProtocolTests: XCTestCase {
     // 1. Requested URl
     func test_loadFromURL_performGetRequestWithURL() {
         
-        let url = anyURL
+        let url = anyURL()
         let exp = expectation(description: "Wait for load completion")
         
         URLProtocolStub.observeRequests { request in
@@ -67,7 +71,7 @@ class URLSessionHTTPClinetURLProtocolTests: XCTestCase {
     // failed request with an error
     // 2. handling the requested error.
     func test_loadFromUrl_failsOnRequestError() {
-        let url = anyURL
+        let url = anyURL()
         let error = NSError(domain: "any error", code: 1)
         URLProtocolStub.stub(data: nil, response: nil, error: error)
                 
@@ -84,6 +88,33 @@ class URLSessionHTTPClinetURLProtocolTests: XCTestCase {
             default:
                 XCTFail("Expected to complete with \(error), got \(result) instead.")
             }
+            exp.fulfill()
+        }
+        
+        wait(for: [exp], timeout: 3.0)
+    }
+    
+    /*
+     Data = nil
+     URLResponse = nil
+     Error = nil
+     */
+    func test_loadFromUrl_failsOnAllNilValues() {
+        let url = anyURL()
+        let sut = makeSUT()
+        URLProtocolStub.stub(data: nil, response: nil, error: nil)
+        
+        let exp = expectation(description: "Wait for load completion")
+        
+        sut.get(from: url) { result in
+            switch result {
+            case .failure:
+                break
+                
+            default:
+                XCTFail("Expected to complete with error got \(result) instead")
+            }
+            
             exp.fulfill()
         }
         
