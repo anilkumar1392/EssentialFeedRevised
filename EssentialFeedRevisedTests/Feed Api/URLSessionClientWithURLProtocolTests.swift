@@ -116,7 +116,6 @@ class URLSessionHTTPClinetURLProtocolTests: XCTestCase {
      URLResponse = nil
      Error = nil
      result: delivers failure
-
      */
     func test_loadFromUrl_failsOnAllNilValues() {
         /*
@@ -143,6 +142,31 @@ class URLSessionHTTPClinetURLProtocolTests: XCTestCase {
         
         XCTAssertNotNil(resultErrorFor(nil, nil, nil))
     }
+    
+    /*
+     Data = nil
+     URLResponse = Value
+     Error = nil
+     result: delivers failure
+     */
+    func test_loadFromUrl_failsForAllInvalidCases() {
+        let anyData = Data("any data".utf8)
+        let anyError = NSError(domain: "any error", code: 1)
+        let nonHTTPURLResponse = URLResponse(url: anyURL(), mimeType: nil, expectedContentLength: 0, textEncodingName: nil)
+        let anyHTTPURLResponse = HTTPURLResponse(url: anyURL(), mimeType: nil, expectedContentLength: 0, textEncodingName: nil)
+        
+        XCTAssertNotNil(resultErrorFor(nil, nonHTTPURLResponse, nil))
+        XCTAssertNotNil(resultErrorFor(nil, anyHTTPURLResponse, nil))
+        XCTAssertNotNil(resultErrorFor(anyData, nil, nil))
+        XCTAssertNotNil(resultErrorFor(anyData, nil, anyError))
+        XCTAssertNotNil(resultErrorFor(nil, nonHTTPURLResponse, anyError))
+        XCTAssertNotNil(resultErrorFor(nil, anyHTTPURLResponse, anyError))
+        XCTAssertNotNil(resultErrorFor(anyData, nonHTTPURLResponse, anyError))
+        XCTAssertNotNil(resultErrorFor(anyData, anyHTTPURLResponse, anyError))
+        XCTAssertNotNil(resultErrorFor(anyData, nonHTTPURLResponse, nil))
+
+
+    }
 }
  
 //MARK: - Helper methods
@@ -158,7 +182,7 @@ extension URLSessionHTTPClinetURLProtocolTests {
         return URL(string: "Http://any-url.com")!
     }
     
-    func resultErrorFor(_ data: Data?, _ response: HTTPURLResponse?, _ error: Error?, file: StaticString = #file, line: UInt = #line) -> Error? {
+    func resultErrorFor(_ data: Data?, _ response: URLResponse?, _ error: Error?, file: StaticString = #file, line: UInt = #line) -> Error? {
         let url = anyURL()
         let sut = makeSUT(file: file, line: line)
         URLProtocolStub.stub(data: data, response: response, error: error)
