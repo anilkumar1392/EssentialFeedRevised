@@ -13,7 +13,11 @@ import EssentialFeedRevised
  
  1. End-to-end testing
  2. Subclass based mocking
- 2. Protocol based mocking
+ 3. Protocol based mocking
+ 4. URLProtocol Stubbing
+ 
+ This keeps production code clean, Add more our tests more decoupled form the production code.
+ Instead of mocking we are going to stub and intercepting requests and returning stub values.
  */
 
 protocol HTTPSession {
@@ -93,7 +97,7 @@ class URLSessionHTTPClinetTests: XCTestCase {
 
 extension URLSessionHTTPClinetTests {
     
-    class URLSessionSpy: HTTPSession { // URLSession
+    private class URLSessionSpy: HTTPSession { // URLSession
         var requestedURLs = [URL]()
         private var stubs = [URL: Stub]()
         
