@@ -21,7 +21,6 @@ class HTTPClientURLSession {
     }
     
     func get(from url: URL, completion: @escaping (HTTPClientResult) -> Void) {
-        let url = URL(string: "http://wrongurl.com")!
         session.dataTask(with: url) { _, _, error in
             if let error = error {
                 completion(.failure(error))
@@ -33,8 +32,30 @@ class HTTPClientURLSession {
 
 class URLSessionHTTPClinetURLProtocolTests: XCTestCase {
     
-    // failed request with an error
+    // Request data form the provided URL.
+    // 1. Requested URl
+    func test_loadFromURL_performGetRequestWithURL() {
+        URLProtocolStub.startInterseptingRequest()
+        
+        let url = URL(string: "Http://any-url.com")!
+        let exp = expectation(description: "Wait for load completion")
+        
+        URLProtocolStub.observeRequests { request in
+            XCTAssertEqual(request.url, url)
+            XCTAssertEqual(request.httpMethod, "GET")
+
+            exp.fulfill()
+        }
+        
+        HTTPClientURLSession().get(from: url) { _ in }
+
+        wait(for: [exp], timeout: 5.0)
+        URLProtocolStub.stopInterseptingRequest()
+    }
     
+    
+    // failed request with an error
+    // 2. handling the requested error.
     func test_loadFromUrl_failsOnRequestError() {
         URLProtocolStub.startInterseptingRequest()
         let url = URL(string: "Http://any-url.com")!
@@ -68,6 +89,7 @@ extension URLSessionHTTPClinetURLProtocolTests {
     private class URLProtocolStub: URLProtocol {
         
         private static var stub: Stub? //[URL: Stub]()
+        private static var requestObserver: ((URLRequest) -> Void)?
         
         private struct Stub {
             let data: Data?
@@ -83,6 +105,11 @@ extension URLSessionHTTPClinetURLProtocolTests {
             URLProtocol.unregisterClass(URLProtocolStub.self)
             // stub = [:]
             stub = nil
+            requestObserver = nil
+        }
+        
+        static func observeRequests(observer: @escaping (URLRequest) -> Void) {
+            requestObserver = observer
         }
         
         static func stub(data: Data?, response: URLResponse?, error: Error?) {
@@ -96,6 +123,7 @@ extension URLSessionHTTPClinetURLProtocolTests {
          and second we wnat to ake assertion very precise
          */
         override class func canInit(with request: URLRequest) -> Bool {
+            requestObserver?(request)
             return true
             /*
             guard let url = request.url else { return false }
