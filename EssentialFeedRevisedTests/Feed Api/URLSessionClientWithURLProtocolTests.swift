@@ -54,7 +54,7 @@ class URLSessionHTTPClinetURLProtocolTests: XCTestCase {
             exp.fulfill()
         }
         
-        HTTPClientURLSession().get(from: url) { _ in }
+        makeSUT().get(from: url) { _ in }
 
         wait(for: [exp], timeout: 5.0)
     }
@@ -70,12 +70,10 @@ class URLSessionHTTPClinetURLProtocolTests: XCTestCase {
         let url = URL(string: "Http://any-url.com")!
         let error = NSError(domain: "any error", code: 1)
         URLProtocolStub.stub(data: nil, response: nil, error: error)
-        
-        let sut = HTTPClientURLSession()
-        
+                
         let exp = expectation(description: "Wait for load completion")
         
-        sut.get(from: url) { result in
+        makeSUT().get(from: url) { result in
             switch result {
             case .failure(let receivedError as NSError):
                 XCTAssertEqual(receivedError.localizedDescription, error.localizedDescription)
@@ -93,10 +91,20 @@ class URLSessionHTTPClinetURLProtocolTests: XCTestCase {
     }
 }
  
+//MARK: - Helper methods
+
+extension URLSessionHTTPClinetURLProtocolTests {
+    func makeSUT() -> HTTPClientURLSession {
+        let sut = HTTPClientURLSession()
+        trackForMemoryLeak(sut)
+        return sut
+    }
+}
+
 extension URLSessionHTTPClinetURLProtocolTests {
     private class URLProtocolStub: URLProtocol {
         
-        private static var stub: Stub? //[URL: Stub]()
+        private static var stub: Stub? // [URL: Stub]()
         private static var requestObserver: ((URLRequest) -> Void)?
         
         private struct Stub {
