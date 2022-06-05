@@ -10,6 +10,7 @@
 		F586E6C828410FDB00E219D2 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F586E6C728410FDB00E219D2 /* README.md */; };
 		F5AEE6EC284C4439004D7655 /* URLSessionHTTPClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AEE6EB284C4439004D7655 /* URLSessionHTTPClientTests.swift */; };
 		F5AEE6EE284C8A0F004D7655 /* URLSessionClientWithURLProtocolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AEE6ED284C8A0F004D7655 /* URLSessionClientWithURLProtocolTests.swift */; };
+		F5AEE6F1284C9626004D7655 /* HTTPClient.md in Resources */ = {isa = PBXBuildFile; fileRef = F5AEE6F0284C9626004D7655 /* HTTPClient.md */; };
 		F5B87CD8283F5C5C00D86464 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B87CD7283F5C5C00D86464 /* AppDelegate.swift */; };
 		F5B87CDA283F5C5C00D86464 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B87CD9283F5C5C00D86464 /* SceneDelegate.swift */; };
 		F5B87CDC283F5C5C00D86464 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B87CDB283F5C5C00D86464 /* ViewController.swift */; };
@@ -48,6 +49,7 @@
 		F586E6C728410FDB00E219D2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F5AEE6EB284C4439004D7655 /* URLSessionHTTPClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClientTests.swift; sourceTree = "<group>"; };
 		F5AEE6ED284C8A0F004D7655 /* URLSessionClientWithURLProtocolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionClientWithURLProtocolTests.swift; sourceTree = "<group>"; };
+		F5AEE6F0284C9626004D7655 /* HTTPClient.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = HTTPClient.md; sourceTree = "<group>"; };
 		F5B87CD4283F5C5C00D86464 /* EssentialFeedRevised.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EssentialFeedRevised.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5B87CD7283F5C5C00D86464 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5B87CD9283F5C5C00D86464 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				F586E6C728410FDB00E219D2 /* README.md */,
+				F5AEE6F0284C9626004D7655 /* HTTPClient.md */,
 				F5B87D07283F5CA800D86464 /* Feed Feature */,
 				F5B87D0E283F7FA900D86464 /* Feed Api */,
 				F5B87CD7283F5C5C00D86464 /* AppDelegate.swift */,
@@ -286,6 +289,7 @@
 				F5B87CE1283F5C5F00D86464 /* Assets.xcassets in Resources */,
 				F586E6C828410FDB00E219D2 /* README.md in Resources */,
 				F5B87CDF283F5C5C00D86464 /* Main.storyboard in Resources */,
+				F5AEE6F1284C9626004D7655 /* HTTPClient.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
