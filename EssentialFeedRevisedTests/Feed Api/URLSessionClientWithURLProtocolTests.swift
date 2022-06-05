@@ -150,10 +150,10 @@ class URLSessionHTTPClinetURLProtocolTests: XCTestCase {
      result: delivers failure
      */
     func test_loadFromUrl_failsForAllInvalidCases() {
-        let anyData = Data("any data".utf8)
-        let anyError = NSError(domain: "any error", code: 1)
-        let nonHTTPURLResponse = URLResponse(url: anyURL(), mimeType: nil, expectedContentLength: 0, textEncodingName: nil)
-        let anyHTTPURLResponse = HTTPURLResponse(url: anyURL(), mimeType: nil, expectedContentLength: 0, textEncodingName: nil)
+        let anyData = anyData()
+        let anyError = anyError()
+        let nonHTTPURLResponse = anyNonHTTPURLResponse()
+        let anyHTTPURLResponse = anyHTTPURLResponse()
         
         XCTAssertNotNil(resultErrorFor(nil, nonHTTPURLResponse, nil))
         XCTAssertNotNil(resultErrorFor(nil, anyHTTPURLResponse, nil))
@@ -180,6 +180,22 @@ extension URLSessionHTTPClinetURLProtocolTests {
     
     func anyURL() -> URL {
         return URL(string: "Http://any-url.com")!
+    }
+    
+    func anyData() -> Data {
+        return Data("any data".utf8)
+    }
+    
+    func anyError() -> NSError {
+        return NSError(domain: "any error", code: 1)
+    }
+    
+    func anyNonHTTPURLResponse() -> URLResponse {
+        return URLResponse(url: anyURL(), mimeType: nil, expectedContentLength: 0, textEncodingName: nil)
+    }
+    
+    func anyHTTPURLResponse() -> HTTPURLResponse {
+        return HTTPURLResponse(url: anyURL(), mimeType: nil, expectedContentLength: 0, textEncodingName: nil)
     }
     
     func resultErrorFor(_ data: Data?, _ response: URLResponse?, _ error: Error?, file: StaticString = #file, line: UInt = #line) -> Error? {
