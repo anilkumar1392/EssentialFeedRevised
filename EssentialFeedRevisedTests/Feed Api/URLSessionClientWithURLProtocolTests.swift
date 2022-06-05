@@ -32,10 +32,17 @@ class HTTPClientURLSession {
 
 class URLSessionHTTPClinetURLProtocolTests: XCTestCase {
     
+    override func setUp() {
+        URLProtocolStub.startInterseptingRequest()
+    }
+    
+    override func tearDown() {
+        URLProtocolStub.stopInterseptingRequest()
+    }
+    
     // Request data form the provided URL.
     // 1. Requested URl
     func test_loadFromURL_performGetRequestWithURL() {
-        URLProtocolStub.startInterseptingRequest()
         
         let url = URL(string: "Http://any-url.com")!
         let exp = expectation(description: "Wait for load completion")
@@ -50,14 +57,16 @@ class URLSessionHTTPClinetURLProtocolTests: XCTestCase {
         HTTPClientURLSession().get(from: url) { _ in }
 
         wait(for: [exp], timeout: 5.0)
-        URLProtocolStub.stopInterseptingRequest()
     }
+    
+    /*
+     We can use the same technique to test POST requests and also investigate the body of the request and query.
+     */
     
     
     // failed request with an error
     // 2. handling the requested error.
     func test_loadFromUrl_failsOnRequestError() {
-        URLProtocolStub.startInterseptingRequest()
         let url = URL(string: "Http://any-url.com")!
         let error = NSError(domain: "any error", code: 1)
         URLProtocolStub.stub(data: nil, response: nil, error: error)
@@ -81,7 +90,6 @@ class URLSessionHTTPClinetURLProtocolTests: XCTestCase {
         }
         
         wait(for: [exp], timeout: 3.0)
-        URLProtocolStub.stopInterseptingRequest()
     }
 }
  
