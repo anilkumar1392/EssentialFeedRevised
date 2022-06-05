@@ -23,9 +23,11 @@ class HTTPClientURLSession {
     struct UnexpectedValueRepresentation: Error {}
     
     func get(from url: URL, completion: @escaping (HTTPClientResult) -> Void) {
-        session.dataTask(with: url) { _, _, error in
+        session.dataTask(with: url) { data, response, error in
             if let error = error {
                 completion(.failure(error))
+            } else if let data = data, data.count > 0 ,let response = response as? HTTPURLResponse {
+                completion(.success(data, response))
             } else {
                 completion(.failure(UnexpectedValueRepresentation()))
             }
@@ -102,7 +104,7 @@ class URLSessionHTTPClinetURLProtocolTests: XCTestCase {
         wait(for: [exp], timeout: 3.0)
          */
         
-        let requestError = NSError(domain: "any error", code: 1)
+        let requestError = anyError()
 
         let receivedError = resultErrorFor(nil, nil, requestError) as? NSError
         
@@ -164,7 +166,33 @@ class URLSessionHTTPClinetURLProtocolTests: XCTestCase {
         XCTAssertNotNil(resultErrorFor(anyData, nonHTTPURLResponse, anyError))
         XCTAssertNotNil(resultErrorFor(anyData, anyHTTPURLResponse, anyError))
         XCTAssertNotNil(resultErrorFor(anyData, nonHTTPURLResponse, nil))
+    }
+    
+    func test_loadFromURL_suceedsOnHTTPSURLResponseWithData() {
+        let anyData = anyData()
+        let anyHTTPURLResponse = anyHTTPURLResponse()
+        let anyUrl = anyURL()
+        URLProtocolStub.stub(data: anyData, response: anyHTTPURLResponse, error: nil)
 
+        let sut = makeSUT()
+        
+        let exp = expectation(description: "Wait for load complettion")
+        
+        sut.get(from: anyUrl) { result in
+            switch result {
+            case .success(let receivedData, let receivedResponse):
+                XCTAssertEqual(receivedData, anyData)
+                XCTAssertEqual(receivedResponse.url, anyHTTPURLResponse.url)
+                XCTAssertEqual(receivedResponse.statusCode, anyHTTPURLResponse.statusCode)
+
+            default:
+                XCTFail("Expected to complete with success, got \(result) instead")
+            }
+            
+            exp.fulfill()
+        }
+        
+        wait(for: [exp], timeout: 2.0)
 
     }
 }
