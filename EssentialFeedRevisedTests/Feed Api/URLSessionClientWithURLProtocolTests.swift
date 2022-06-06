@@ -13,29 +13,6 @@ import EssentialFeedRevised
  URLProtocol stub based test.
  */
 
-class HTTPClientURLSession {
-    let session : URLSession
-    
-    init(session: URLSession = .shared) {
-        self.session = session
-    }
-    
-    struct UnexpectedValueRepresentation: Error {}
-    
-    func get(from url: URL, completion: @escaping (HTTPClientResult) -> Void) {
-        session.dataTask(with: url) { data, response, error in
-            if let error = error {
-                completion(.failure(error))
-            } else if let data = data, let response = response as? HTTPURLResponse {
-                completion(.success(data, response))
-            } else {
-                completion(.failure(UnexpectedValueRepresentation()))
-            }
-        }.resume()
-    }
-}
-
-
 class URLSessionHTTPClinetURLProtocolTests: XCTestCase {
     
     override func setUp() {
@@ -62,7 +39,7 @@ class URLSessionHTTPClinetURLProtocolTests: XCTestCase {
         
         makeSUT().get(from: url) { _ in }
 
-        wait(for: [exp], timeout: 5.0)
+        wait(for: [exp], timeout: 1.0)
     }
     
     /*
@@ -365,7 +342,7 @@ extension URLSessionHTTPClinetURLProtocolTests {
             exp.fulfill()
         }
         
-        wait(for: [exp], timeout: 3.0)
+        wait(for: [exp], timeout: 1.0)
         return receivedResult
     }
 }
@@ -408,8 +385,9 @@ extension URLSessionHTTPClinetURLProtocolTests {
          and second we wnat to ake assertion very precise
          */
         override class func canInit(with request: URLRequest) -> Bool {
-            requestObserver?(request)
+            // requestObserver?(request)
             return true
+            
             /*
             guard let url = request.url else { return false }
             
@@ -422,6 +400,12 @@ extension URLSessionHTTPClinetURLProtocolTests {
         
         override func startLoading() {
             // guard let url = request.url, let stub = URLProtocolStub.stub[url] else { return }
+            
+            if let requestObserver = URLProtocolStub.requestObserver {
+                client?.urlProtocolDidFinishLoading(self)
+                return requestObserver(request)
+            }
+            
             if let data = URLProtocolStub.stub?.data {
                 client?.urlProtocol(self, didLoad: data)
             }
