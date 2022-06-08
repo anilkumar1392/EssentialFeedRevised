@@ -64,7 +64,7 @@ import EssentialFeedRevised
  Conforming to Feature Abstractions While Maintaining System Modularity + Keeping Test Details Out of Production With Enum Pattern Matching and Async Expectations
  */
 
-class RemoteFeedLoaderTests: XCTestCase {
+class LoadFeedFromRemoteUseCaseTests: XCTestCase {
     
     /* test_method_behaviorWeExpect */
     
@@ -182,7 +182,7 @@ class RemoteFeedLoaderTests: XCTestCase {
 
 //MARK:- Helper methods
 
-extension RemoteFeedLoaderTests {
+extension LoadFeedFromRemoteUseCaseTests {
     private func makeSUT(url: URL = URL(string: "https://a-url.com")!, file: StaticString = #file, line: UInt = #line) -> (sut: RemoteFeedLoader, client: HTTPClientSpy) {
         let client = HTTPClientSpy()
         let sut = RemoteFeedLoader(url: url, client: client)
