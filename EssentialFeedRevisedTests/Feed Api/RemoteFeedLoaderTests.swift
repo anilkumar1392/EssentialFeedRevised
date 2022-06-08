@@ -186,8 +186,8 @@ extension RemoteFeedLoaderTests {
     private func makeSUT(url: URL = URL(string: "https://a-url.com")!, file: StaticString = #file, line: UInt = #line) -> (sut: RemoteFeedLoader, client: HTTPClientSpy) {
         let client = HTTPClientSpy()
         let sut = RemoteFeedLoader(url: url, client: client)
-        trackForMemoryLeak(sut)
-        trackForMemoryLeak(client)
+        trackForMemoryLeaks(sut)
+        trackForMemoryLeaks(client)
         return (sut, client)
     }
     

@@ -10,7 +10,7 @@ import XCTest
 import EssentialFeedRevised
 
 /*
- URLProtocol stub based test.
+    URLProtocol stub based test.
  */
 
 class URLSessionHTTPClinetURLProtocolTests: XCTestCase {
@@ -230,7 +230,7 @@ class URLSessionHTTPClinetURLProtocolTests: XCTestCase {
 extension URLSessionHTTPClinetURLProtocolTests {
     func makeSUT(file: StaticString = #file, line: UInt = #line) -> HTTPClientURLSession {
         let sut = HTTPClientURLSession()
-        trackForMemoryLeak(sut)
+        trackForMemoryLeaks(sut)
         return sut
     }
     
@@ -323,6 +323,7 @@ extension URLSessionHTTPClinetURLProtocolTests {
         switch receivedResult {
         case .success(let data, let response):
             receivedData = (data, response)
+            
         case .failure(let error):
             XCTFail("Expected success got \(error) instead", file: file, line: line)
         }
