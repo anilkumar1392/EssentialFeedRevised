@@ -28,6 +28,8 @@ class URLSessionHTTPClinetURLProtocolTests: XCTestCase {
     func test_loadFromURL_performGetRequestWithURL() {
         
         let url = anyURL()
+        // let urlRequest = URLRequest(url: anyURL())
+
         let exp = expectation(description: "Wait for load completion")
         
         URLProtocolStub.observeRequests { request in
@@ -37,6 +39,8 @@ class URLSessionHTTPClinetURLProtocolTests: XCTestCase {
             exp.fulfill()
         }
         
+        // makeSUT().get(from: url) { _ in }
+
         makeSUT().get(from: url) { _ in }
 
         wait(for: [exp], timeout: 1.0)
@@ -387,6 +391,7 @@ extension URLSessionHTTPClinetURLProtocolTests {
          */
         override class func canInit(with request: URLRequest) -> Bool {
             // requestObserver?(request)
+            print("request -----\(request)")
             return true
             
             /*
@@ -396,6 +401,7 @@ extension URLSessionHTTPClinetURLProtocolTests {
         }
         
         override class func canonicalRequest(for request: URLRequest) -> URLRequest {
+            print("request -----\(request)")
             return request
         }
         
