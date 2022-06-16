@@ -11,6 +11,7 @@ import Foundation
 // HTTPClient trails on foundation type which makes it domain specific and decopuled.
 // refer to image cache- dependency
 
+// Add 'LocalFeedItem' data transfer representation to decouple storage framework from 'FeedItem' data model
 
 public protocol FeedStore {
     typealias DeletionCompletion = (Error?) -> Void
