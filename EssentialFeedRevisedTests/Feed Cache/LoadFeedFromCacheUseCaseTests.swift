@@ -120,6 +120,17 @@ class LoadFeedFromCacheUseCaseTests: XCTestCase {
             store.completeRetrival(with: feed.local, timestamp: lessThanSevenDaysOldTimestamp)
         }
     }
+    
+    func test_load_deliversNoImagesOnSevenDaysOldCache() {
+        let feed = uniqueImageFeed()
+        let fixedCurrentDate = Date()
+        let sevenDaysOldTimestamp = fixedCurrentDate.adding(days: -7)
+        let (sut, store) = makeSUT(currentDate: { fixedCurrentDate })
+
+        expect(sut, toCompleteWithError: .success([])) {
+            store.completeRetrival(with: feed.local, timestamp: sevenDaysOldTimestamp)
+        }
+    }
 }
 
 // MARK: - Helepr methods
