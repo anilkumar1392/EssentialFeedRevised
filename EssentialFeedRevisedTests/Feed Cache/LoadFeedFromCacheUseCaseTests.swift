@@ -22,7 +22,8 @@ import EssentialFeedRevised
 5. System delivers feed items.
 
 #### Error course (sad path):
-1. System delivers error.
+1. System deletes cache
+2. System delivers error.
 
 #### Expired cache course (sad path):
 1. System delivers no feed items.
