@@ -11,3 +11,7 @@ This is not to say that testing the mapping in integration with the RemoteFeedLo
 
 ###lecture 5.
 Automating Memory Leak Detection + Preventing a (Way Too Common) Async Bug
+
+  Technique to decouple Modules:
+  
+  Visualizing and Solving High-Coupling Issues by Decentralizing Components Using Data Transfer Model Representations
