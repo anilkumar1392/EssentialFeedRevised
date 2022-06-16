@@ -23,7 +23,7 @@
 		F5B1BCF9285B10F800AA9D75 /* LoadFeedFromCacheUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B1BCF8285B10F800AA9D75 /* LoadFeedFromCacheUseCaseTests.swift */; };
 		F5B1BCFC285B12AC00AA9D75 /* FeedStoreSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B1BCFB285B12AC00AA9D75 /* FeedStoreSpy.swift */; };
 		F5B1BCFE285B255200AA9D75 /* PersistanceModuleLeaning.md in Resources */ = {isa = PBXBuildFile; fileRef = F5B1BCFD285B255200AA9D75 /* PersistanceModuleLeaning.md */; };
-		F5B1BD00285B271D00AA9D75 /* Persistance_lecture_5.strings in Resources */ = {isa = PBXBuildFile; fileRef = F5B1BCFF285B271D00AA9D75 /* Persistance_lecture_5.strings */; };
+		F5B1BD00285B271D00AA9D75 /* Persistance_lecture_5.md in Resources */ = {isa = PBXBuildFile; fileRef = F5B1BCFF285B271D00AA9D75 /* Persistance_lecture_5.md */; };
 		F5B1BD04285B27C500AA9D75 /* Persistance_lecture_4.md in Resources */ = {isa = PBXBuildFile; fileRef = F5B1BD03285B27C500AA9D75 /* Persistance_lecture_4.md */; };
 		F5B1BD06285B27E600AA9D75 /* Persistance_lecture_6.md in Sources */ = {isa = PBXBuildFile; fileRef = F5B1BD05285B27E600AA9D75 /* Persistance_lecture_6.md */; };
 		F5B1BD08285B288A00AA9D75 /* Persistance_lecture_3.md in Resources */ = {isa = PBXBuildFile; fileRef = F5B1BD07285B288A00AA9D75 /* Persistance_lecture_3.md */; };
@@ -99,7 +99,7 @@
 		F5B1BCF8285B10F800AA9D75 /* LoadFeedFromCacheUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadFeedFromCacheUseCaseTests.swift; sourceTree = "<group>"; };
 		F5B1BCFB285B12AC00AA9D75 /* FeedStoreSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedStoreSpy.swift; sourceTree = "<group>"; };
 		F5B1BCFD285B255200AA9D75 /* PersistanceModuleLeaning.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = PersistanceModuleLeaning.md; sourceTree = "<group>"; };
-		F5B1BCFF285B271D00AA9D75 /* Persistance_lecture_5.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Persistance_lecture_5.strings; sourceTree = "<group>"; };
+		F5B1BCFF285B271D00AA9D75 /* Persistance_lecture_5.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Persistance_lecture_5.md; sourceTree = "<group>"; };
 		F5B1BD03285B27C500AA9D75 /* Persistance_lecture_4.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Persistance_lecture_4.md; sourceTree = "<group>"; };
 		F5B1BD05285B27E600AA9D75 /* Persistance_lecture_6.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Persistance_lecture_6.md; sourceTree = "<group>"; };
 		F5B1BD07285B288A00AA9D75 /* Persistance_lecture_3.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Persistance_lecture_3.md; sourceTree = "<group>"; };
@@ -189,7 +189,7 @@
 				F5B1BD09285B297900AA9D75 /* Persistance_lecture_2.md */,
 				F5B1BD07285B288A00AA9D75 /* Persistance_lecture_3.md */,
 				F5B1BD03285B27C500AA9D75 /* Persistance_lecture_4.md */,
-				F5B1BCFF285B271D00AA9D75 /* Persistance_lecture_5.strings */,
+				F5B1BCFF285B271D00AA9D75 /* Persistance_lecture_5.md */,
 				F5B1BD05285B27E600AA9D75 /* Persistance_lecture_6.md */,
 			);
 			path = "Ref For Persistance Module";
@@ -543,7 +543,7 @@
 				F586E6C828410FDB00E219D2 /* README.md in Resources */,
 				F5B9B263284F0A4800ADA20C /* Screenshot 2022-06-06 at 10.23.32 AM.png in Resources */,
 				F5B87CDF283F5C5C00D86464 /* Main.storyboard in Resources */,
-				F5B1BD00285B271D00AA9D75 /* Persistance_lecture_5.strings in Resources */,
+				F5B1BD00285B271D00AA9D75 /* Persistance_lecture_5.md in Resources */,
 				F5AEE6F1284C9626004D7655 /* HTTPClient.md in Resources */,
 				F5B1BD0A285B297900AA9D75 /* Persistance_lecture_2.md in Resources */,
 				F570DBA7284DBED8000ADC03 /* Screenshot 2022-06-06 at 10.18.50 AM.png in Resources */,
