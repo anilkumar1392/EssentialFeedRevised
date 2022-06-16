@@ -34,7 +34,7 @@ class EssentialFeedApiEndToEndTests: XCTestCase {
         
         switch getFeedResult() {
         case let .success(imageFeed):
-            XCTAssertEqual(imageFeed.count, 8, "Expected 8 images  in the test account image feed")
+            XCTAssertEqual(imageFeed.count, 8, "Expected 8 images in the test account image feed")
             XCTAssertEqual(imageFeed[0], expectedImage(at: 0))
             XCTAssertEqual(imageFeed[1], expectedImage(at: 1))
             XCTAssertEqual(imageFeed[2], expectedImage(at: 2))
@@ -73,12 +73,12 @@ class EssentialFeedApiEndToEndTests: XCTestCase {
         return receivedResult
     }
     
-    private func expectedImage(at index: Int) -> FeedItem {
-        return FeedItem(
+    private func expectedImage(at index: Int) -> FeedImage {
+        return FeedImage(
             id: id(at: index),
             description: description(at: index),
             location: location(at: index),
-            imageURL: image(at: index))
+            url: image(at: index))
     }
     
     private func id(at index: Int) -> UUID {
