@@ -198,6 +198,22 @@ class LoadFeedFromCacheUseCaseTests: XCTestCase {
         
         XCTAssertEqual(store.receivedMessages, [.retrieve, .deleteCacheFeed])
     }
+    
+    func test_load_doesNotDeliverResultAfterSUTInstaceHasBeenDeallocated() {
+        let store = FeedStoreSpy()
+        var sut: LocalFeedLoader? = LocalFeedLoader(store: store, currentDate: Date.init)
+       
+        var capturedResult = [LocalFeedLoader.LoadResult]()
+        
+        sut?.load(completion: { result in
+            capturedResult.append(result)
+        })
+        
+        sut = nil
+        store.completeRetrival(with: anyError())
+        
+        XCTAssertTrue(capturedResult.isEmpty)
+    }
 }
 
 // MARK: - Helepr methods
