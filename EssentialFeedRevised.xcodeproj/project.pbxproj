@@ -28,6 +28,7 @@
 		F5B1BD06285B27E600AA9D75 /* Persistance_lecture_6.md in Sources */ = {isa = PBXBuildFile; fileRef = F5B1BD05285B27E600AA9D75 /* Persistance_lecture_6.md */; };
 		F5B1BD08285B288A00AA9D75 /* Persistance_lecture_3.md in Resources */ = {isa = PBXBuildFile; fileRef = F5B1BD07285B288A00AA9D75 /* Persistance_lecture_3.md */; };
 		F5B1BD0A285B297900AA9D75 /* Persistance_lecture_2.md in Resources */ = {isa = PBXBuildFile; fileRef = F5B1BD09285B297900AA9D75 /* Persistance_lecture_2.md */; };
+		F5B1BD0C285B537F00AA9D75 /* Persistance_lecture_7.md in Sources */ = {isa = PBXBuildFile; fileRef = F5B1BD0B285B537F00AA9D75 /* Persistance_lecture_7.md */; };
 		F5B87CD8283F5C5C00D86464 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B87CD7283F5C5C00D86464 /* AppDelegate.swift */; };
 		F5B87CDA283F5C5C00D86464 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B87CD9283F5C5C00D86464 /* SceneDelegate.swift */; };
 		F5B87CDC283F5C5C00D86464 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B87CDB283F5C5C00D86464 /* ViewController.swift */; };
@@ -104,6 +105,7 @@
 		F5B1BD05285B27E600AA9D75 /* Persistance_lecture_6.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Persistance_lecture_6.md; sourceTree = "<group>"; };
 		F5B1BD07285B288A00AA9D75 /* Persistance_lecture_3.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Persistance_lecture_3.md; sourceTree = "<group>"; };
 		F5B1BD09285B297900AA9D75 /* Persistance_lecture_2.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Persistance_lecture_2.md; sourceTree = "<group>"; };
+		F5B1BD0B285B537F00AA9D75 /* Persistance_lecture_7.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Persistance_lecture_7.md; sourceTree = "<group>"; };
 		F5B87CD4283F5C5C00D86464 /* EssentialFeedRevised.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EssentialFeedRevised.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5B87CD7283F5C5C00D86464 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5B87CD9283F5C5C00D86464 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 				F5B1BD03285B27C500AA9D75 /* Persistance_lecture_4.md */,
 				F5B1BCFF285B271D00AA9D75 /* Persistance_lecture_5.md */,
 				F5B1BD05285B27E600AA9D75 /* Persistance_lecture_6.md */,
+				F5B1BD0B285B537F00AA9D75 /* Persistance_lecture_7.md */,
 			);
 			path = "Ref For Persistance Module";
 			sourceTree = "<group>";
@@ -605,6 +608,7 @@
 				F5D5C5E82845C484006FA1B0 /* HTTPClient.swift in Sources */,
 				F5B87D0B283F5CC600D86464 /* FeedLoader.swift in Sources */,
 				F5B87D10283F7FB900D86464 /* RemoteFeedLoader.swift in Sources */,
+				F5B1BD0C285B537F00AA9D75 /* Persistance_lecture_7.md in Sources */,
 				F5B87CDA283F5C5C00D86464 /* SceneDelegate.swift in Sources */,
 				F5B1BCEF285ACE8900AA9D75 /* FeedStore.swift in Sources */,
 				F5AEE6F6284CD4BD004D7655 /* URLSessionHTTPClient.swift in Sources */,

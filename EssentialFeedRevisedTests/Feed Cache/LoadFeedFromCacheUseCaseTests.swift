@@ -211,7 +211,7 @@ class LoadFeedFromCacheUseCaseTests: XCTestCase {
         
         sut = nil
         store.completeRetrival(with: anyError())
-        
+                
         XCTAssertTrue(capturedResult.isEmpty)
     }
 }

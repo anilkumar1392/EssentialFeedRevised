@@ -54,3 +54,6 @@ Thus, instead of always passing models across boundaries, consider using a data 
 3. Handling Triangulation line less than, equal to and more than.
 4. Calendrical calculations
 When performing date calculation make sure to use system tools that can account for edge cases and scenarios that can be easily missed by developers.
+
+### Lecture 7.
+  Test-driving Cache Invalidation + Identifying Complex (Bloated) Functionality With The Command–Query Separation Principle
