@@ -20,7 +20,8 @@ class FeedStoreSpy: FeedStore {
     // 2. Effective techique to test the sequence
     private var deletionCompletions = [DeletionCompletion]()
     private var insertionCompletions = [InsertionCompletion]()
-    
+    private var retrivalCompletions = [RetrivalCompletion]()
+
     func deleteCachedFeed(completion: @escaping DeletionCompletion) {
         deletionCompletions.append(completion)
         receivedMessages.append(.deleteCacheFeed)
@@ -47,7 +48,15 @@ class FeedStoreSpy: FeedStore {
         insertionCompletions[index](nil)
     }
     
-    func retrieve() {
+    // MARK: - Retrival helper methods
+    
+    func retrieve(completion: @escaping RetrivalCompletion) {
+        retrivalCompletions.append(completion)
         receivedMessages.append(.retrieve)
     }
+    
+    func completeRetrival(with error: NSError, at index: Int = 0) {
+        retrivalCompletions[index](error)
+    }
+    
 }

@@ -15,10 +15,8 @@ import EssentialFeedRevised
 ### Load Feed From Cache Use Case
 
 #### Primary course:
-1. Execute "Retrieve Feed Items" command with above data.
 1. Execute "Load Feed Items" command with above data.
 2. System fetches feed data from cache.
-3. System validates cache age.
 3. System validates cache is less than seven days old.
 4. System creates feed items from cached data.
 5. System delivers feed items.
@@ -36,7 +34,7 @@ import EssentialFeedRevised
 */
 
 class LoadFeedFromCacheUseCaseTests: XCTestCase {
-     // Doing the same thing but in diff context here we are loading.
+    // Doing the same thing but in diff context here we are loading.
     // Currently saving and loading are in same type or class but in future we can sepearte them so we don't want to break our test.
     func test_init_doesNotMessageUponCreation() {
         let (_ , store) = makeSUT()
@@ -47,9 +45,27 @@ class LoadFeedFromCacheUseCaseTests: XCTestCase {
     func test_load_requestCacheRetrival() {
         let (sut, store) = makeSUT()
         
-        sut.load()
+        sut.load { _ in }
         
         XCTAssertEqual(store.receivedMessages, [.retrieve])
+    }
+    
+    func test_load_failsOnRetrivalError() {
+        let (sut, store) = makeSUT()
+        let retrivalError = anyError()
+        
+        let exp = expectation(description: "Wait for load completion")
+        var capturedError: Error?
+        sut.load { receivedError in
+            capturedError = receivedError
+            
+            exp.fulfill()
+        }
+        
+        store.completeRetrival(with: retrivalError)
+        wait(for: [exp], timeout: 1.0)
+        
+        XCTAssertNotNil(capturedError)
     }
 }
 
