@@ -107,7 +107,6 @@ class CacheFeedUseCaseTests: XCTestCase {
             store.completeDeletion(with: deletionError)
 
         }
-        
     }
     
     func test_save_failsOnInsertionError() {
@@ -168,6 +167,21 @@ class CacheFeedUseCaseTests: XCTestCase {
             store.completeDeletionSuccessfully()
             store.completeInsertionSuccessfully()
         }
+    }
+    
+    func test_save_doesNotDeliverDeletionErrorAfterSUTInstacneHasBeenDeallocated() {
+        let store = FeedStoreSpy()
+        var sut: LocalFeedLoader? = LocalFeedLoader(store: store, currentDate: Date.init)
+        let items = [uniqueItem(), uniqueItem()]
+
+        var capturedError: NSError?
+        sut?.save(items) { receivedError in
+            capturedError = receivedError as NSError?
+        }
+        sut = nil
+        store.completeDeletion(with: anyError())
+        
+        XCTAssertNil(capturedError)
     }
 }
 
