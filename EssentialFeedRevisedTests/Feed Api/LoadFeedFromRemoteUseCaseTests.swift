@@ -218,8 +218,8 @@ extension LoadFeedFromRemoteUseCaseTests {
         // XCTAssertEqual(capturedResults, [result], file: file, line: line)
     }
     
-    private func makeItem(id: UUID, description: String? = nil, location: String? = nil, image: URL) -> (model: FeedImage, json: [String: Any]){
-        let item = FeedImage(id: id, description: description, location: location, imageURL: image)
+    private func makeItem(id: UUID, description: String? = nil, location: String? = nil, image: URL) -> (model: FeedItem, json: [String: Any]){
+        let item = FeedItem(id: id, description: description, location: location, imageURL: image)
         let json = [
             "id" : id.uuidString,
             "description": description,
