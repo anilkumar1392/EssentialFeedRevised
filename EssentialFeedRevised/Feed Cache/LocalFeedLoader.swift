@@ -12,15 +12,28 @@ public class LocalFeedLoader {
     private let store: FeedStore
     private let currentDate: () -> Date
     private let calender = Calendar(identifier: .gregorian)
-
+    
     public typealias SaveResult = Error?
     public typealias LoadResult = LoadFeedResult
-
+    
     public init(store: FeedStore, currentDate: @escaping () -> Date) {
         self.store = store
         self.currentDate = currentDate
     }
     
+    var maxCacheAgeInDays: Int {
+        return 7
+    }
+    
+    private func validate(_ timestamp: Date) -> Bool {
+        guard let maxCacheAge = calender.date(byAdding: .day, value: maxCacheAgeInDays, to: timestamp) else { return false }
+        return currentDate() < maxCacheAge
+    }
+}
+
+// MARK: - Save command
+
+extension LocalFeedLoader {
     public func save(_ feed: [FeedImage], completion: @escaping (SaveResult) -> Void) {
         store.deleteCachedFeed { [weak self] error in
             guard let self = self else { return }
@@ -40,7 +53,11 @@ public class LocalFeedLoader {
             completion(error)
         })
     }
-    
+}
+
+// MARK: - Load command
+
+extension LocalFeedLoader {
     public func load(completion: @escaping (LoadResult) -> Void) {
         store.retrieve { [weak self] result in
             guard let self = self else { return }
@@ -59,11 +76,15 @@ public class LocalFeedLoader {
             }
         }
     }
-    
-    /*
-     By using the Query- Command separation principle we have removed all the delete logic form load call.
-     */
-    
+}
+
+/*
+ By using the Query- Command separation principle we have removed all the delete logic form load call.
+ */
+
+// MARK: - Save Validate command
+
+extension LocalFeedLoader {
     public func validateCache() {
         store.retrieve { [weak self] result in
             guard let self = self else { return }
@@ -74,20 +95,11 @@ public class LocalFeedLoader {
                 
             case .found(_, let timestamp) where !self.validate(timestamp):
                 self.store.deleteCachedFeed { _ in }
-
+                
             case .empty, .found:
                 break
             }
         }
-    }
-    
-    var maxCacheAgeInDays: Int {
-        return 7
-    }
-    
-    private func validate(_ timestamp: Date) -> Bool {
-        guard let maxCacheAge = calender.date(byAdding: .day, value: maxCacheAgeInDays, to: timestamp) else { return false }
-        return currentDate() < maxCacheAge
     }
 }
 
