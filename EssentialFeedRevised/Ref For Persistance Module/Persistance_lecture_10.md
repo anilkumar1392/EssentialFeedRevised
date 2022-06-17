@@ -12,9 +12,11 @@ Requirment feed store implementation.
 
 - Retrieve
     - Empty cache
+    - Empty cache twice return empty (no side effects)
     - Non empty cache 
     - Non - empty cache twice returns same data (no side effects)
-    - Error (if applicable, e.g, Invalid Data)
+    - Error return error (if applicable, e.g, Invalid Data)
+    - Error twice returns same error (if applicable, e.g, Invalid Data)
 
 - Insert
     - To empty cache Stores data
