@@ -60,6 +60,7 @@
 		F5DCB325285C9AAD003C9547 /* Core_bounrady_infra.logo.png in Resources */ = {isa = PBXBuildFile; fileRef = F5DCB324285C9AAD003C9547 /* Core_bounrady_infra.logo.png */; };
 		F5DCB327285C9C3B003C9547 /* Persistance_lecture_10.md in Resources */ = {isa = PBXBuildFile; fileRef = F5DCB326285C9C3B003C9547 /* Persistance_lecture_10.md */; };
 		F5DCB329285CAB8A003C9547 /* CodableFeedStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DCB328285CAB8A003C9547 /* CodableFeedStoreTests.swift */; };
+		F5DCB32D285CB7A3003C9547 /* Persistance_lecture_11.md in Resources */ = {isa = PBXBuildFile; fileRef = F5DCB32C285CB7A3003C9547 /* Persistance_lecture_11.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -152,6 +153,7 @@
 		F5DCB324285C9AAD003C9547 /* Core_bounrady_infra.logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Core_bounrady_infra.logo.png; sourceTree = "<group>"; };
 		F5DCB326285C9C3B003C9547 /* Persistance_lecture_10.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Persistance_lecture_10.md; sourceTree = "<group>"; };
 		F5DCB328285CAB8A003C9547 /* CodableFeedStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableFeedStoreTests.swift; sourceTree = "<group>"; };
+		F5DCB32C285CB7A3003C9547 /* Persistance_lecture_11.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Persistance_lecture_11.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,6 +221,7 @@
 				F5DCB31A285C2E0A003C9547 /* Persistance_lecture_8.md */,
 				F5DCB31C285C4998003C9547 /* Persistance_lecture_9.md */,
 				F5DCB326285C9C3B003C9547 /* Persistance_lecture_10.md */,
+				F5DCB32C285CB7A3003C9547 /* Persistance_lecture_11.md */,
 			);
 			path = "Ref For Persistance Module";
 			sourceTree = "<group>";
@@ -584,6 +587,7 @@
 				F5B1BD0A285B297900AA9D75 /* Persistance_lecture_2.md in Resources */,
 				F570DBA7284DBED8000ADC03 /* Screenshot 2022-06-06 at 10.18.50 AM.png in Resources */,
 				F5B1BCF3285ADB3B00AA9D75 /* after data_transfer_objtec.png in Resources */,
+				F5DCB32D285CB7A3003C9547 /* Persistance_lecture_11.md in Resources */,
 				F5DCB323285C9A84003C9547 /* Core_boundary_infra.png in Resources */,
 				F5B1BCFE285B255200AA9D75 /* PersistanceModuleLeaning.md in Resources */,
 			);
