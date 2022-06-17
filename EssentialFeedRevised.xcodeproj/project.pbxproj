@@ -55,6 +55,7 @@
 		F5DCB319285C273D003C9547 /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DCB318285C273D003C9547 /* SharedTestHelpers.swift */; };
 		F5DCB31B285C2E0A003C9547 /* Persistance_lecture_8.md in Sources */ = {isa = PBXBuildFile; fileRef = F5DCB31A285C2E0A003C9547 /* Persistance_lecture_8.md */; };
 		F5DCB31D285C4998003C9547 /* Persistance_lecture_9.md in Resources */ = {isa = PBXBuildFile; fileRef = F5DCB31C285C4998003C9547 /* Persistance_lecture_9.md */; };
+		F5DCB31F285C5614003C9547 /* FeedCachePolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DCB31E285C5614003C9547 /* FeedCachePolicy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,6 +143,7 @@
 		F5DCB318285C273D003C9547 /* SharedTestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTestHelpers.swift; sourceTree = "<group>"; };
 		F5DCB31A285C2E0A003C9547 /* Persistance_lecture_8.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Persistance_lecture_8.md; sourceTree = "<group>"; };
 		F5DCB31C285C4998003C9547 /* Persistance_lecture_9.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Persistance_lecture_9.md; sourceTree = "<group>"; };
+		F5DCB31E285C5614003C9547 /* FeedCachePolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCachePolicy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				F5B1BCEC285ACE2600AA9D75 /* LocalFeedLoader.swift */,
+				F5DCB31E285C5614003C9547 /* FeedCachePolicy.swift */,
 				F5B1BCEE285ACE8900AA9D75 /* FeedStore.swift */,
 				F5B1BCF6285ADBC200AA9D75 /* LocalFeedImage.swift */,
 			);
@@ -620,6 +623,7 @@
 				F5B1BD06285B27E600AA9D75 /* Persistance_lecture_6.md in Sources */,
 				F5B1BCF5285ADB7F00AA9D75 /* RemoteFeedItem.swift in Sources */,
 				F5B87CD8283F5C5C00D86464 /* AppDelegate.swift in Sources */,
+				F5DCB31F285C5614003C9547 /* FeedCachePolicy.swift in Sources */,
 				F5D5C5EB2845C580006FA1B0 /* FeedItemsMapper.swift in Sources */,
 				F5B1BCED285ACE2600AA9D75 /* LocalFeedLoader.swift in Sources */,
 				F5D5C5E82845C484006FA1B0 /* HTTPClient.swift in Sources */,
