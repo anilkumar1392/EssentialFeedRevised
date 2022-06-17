@@ -9,14 +9,15 @@ import Foundation
 import UIKit
 
 private final class FeedCachePolicy {
-    private let calender = Calendar(identifier: .gregorian)
+    private init() {}
+    private static let calender = Calendar(identifier: .gregorian)
     
     /*
-    private let currentDate: () -> Date
-
-    init(currentDate: @escaping () -> Date) {
-        self.currentDate = currentDate
-    } */
+     private let currentDate: () -> Date
+     
+     init(currentDate: @escaping () -> Date) {
+     self.currentDate = currentDate
+     } */
     
     /*
      Currently the current date is impure as It is not deterministic and it may change.
@@ -25,19 +26,19 @@ private final class FeedCachePolicy {
      Now data is a struct and In this case it is Immutable.
      */
     
-    var maxCacheAgeInDays: Int {
+    private static var maxCacheAgeInDays: Int {
         return 7
     }
     
-    public func validate(_ timestamp: Date, against data: Date) -> Bool {
-        guard let maxCacheAge = calender.date(byAdding: .day, value: maxCacheAgeInDays, to: timestamp) else { return false }
+    static func validate(_ timestamp: Date, against data: Date) -> Bool {
+        guard let maxCacheAge = FeedCachePolicy.calender.date(byAdding: .day, value: FeedCachePolicy.maxCacheAgeInDays, to: timestamp) else { return false }
         return data < maxCacheAge
     }
 }
 
 public class LocalFeedLoader {
     private let store: FeedStore
-    private let cachePolicy = FeedCachePolicy()
+    // private let cachePolicy = FeedCachePolicy()
     private let currentDate: () -> Date
 
     public init(store: FeedStore, currentDate: @escaping () -> Date) {
@@ -86,7 +87,7 @@ extension LocalFeedLoader: FeedLoader {
                 // self.store.deleteCachedFeed { _ in }
                 completion(.failure(error))
                 
-            case .found(let feed, let timestamp) where self.cachePolicy.validate(timestamp, against: self.currentDate()):
+            case .found(let feed, let timestamp) where FeedCachePolicy.validate(timestamp, against: self.currentDate()):
                 completion(.success(feed.toModels()))
                 
             case .empty, .found:
@@ -112,7 +113,7 @@ extension LocalFeedLoader {
             case .failure:
                 self.store.deleteCachedFeed { _ in }
                 
-            case .found(_, let timestamp) where !self.cachePolicy.validate(timestamp, against: self.currentDate()):
+            case .found(_, let timestamp) where !FeedCachePolicy.validate(timestamp, against: self.currentDate()):
                 self.store.deleteCachedFeed { _ in }
                 
             case .empty, .found:
