@@ -10,31 +10,39 @@ import UIKit
 
 private final class FeedCachePolicy {
     private let calender = Calendar(identifier: .gregorian)
+    
+    /*
     private let currentDate: () -> Date
 
     init(currentDate: @escaping () -> Date) {
         self.currentDate = currentDate
-    }
+    } */
+    
+    /*
+     Currently the current date is impure as It is not deterministic and it may change.
+     To make it pure fucntion we can pass data instead of fucntion and our method become deterministic.
+     
+     Now data is a struct and In this case it is Immutable.
+     */
     
     var maxCacheAgeInDays: Int {
         return 7
     }
     
-    public func validate(_ timestamp: Date) -> Bool {
+    public func validate(_ timestamp: Date, against data: Date) -> Bool {
         guard let maxCacheAge = calender.date(byAdding: .day, value: maxCacheAgeInDays, to: timestamp) else { return false }
-        return currentDate() < maxCacheAge
+        return data < maxCacheAge
     }
 }
 
 public class LocalFeedLoader {
     private let store: FeedStore
-    private let cachePolicy: FeedCachePolicy
+    private let cachePolicy = FeedCachePolicy()
     private let currentDate: () -> Date
 
     public init(store: FeedStore, currentDate: @escaping () -> Date) {
         self.store = store
         self.currentDate = currentDate
-        self.cachePolicy = FeedCachePolicy(currentDate: currentDate)
     }
 }
 
@@ -78,7 +86,7 @@ extension LocalFeedLoader: FeedLoader {
                 // self.store.deleteCachedFeed { _ in }
                 completion(.failure(error))
                 
-            case .found(let feed, let timestamp) where self.cachePolicy.validate(timestamp):
+            case .found(let feed, let timestamp) where self.cachePolicy.validate(timestamp, against: self.currentDate()):
                 completion(.success(feed.toModels()))
                 
             case .empty, .found:
@@ -104,7 +112,7 @@ extension LocalFeedLoader {
             case .failure:
                 self.store.deleteCachedFeed { _ in }
                 
-            case .found(_, let timestamp) where !self.cachePolicy.validate(timestamp):
+            case .found(_, let timestamp) where !self.cachePolicy.validate(timestamp, against: self.currentDate()):
                 self.store.deleteCachedFeed { _ in }
                 
             case .empty, .found:
