@@ -53,15 +53,16 @@ public class LocalFeedLoader {
             case .found(let feed, let timestamp) where self.validate(timestamp):
                 completion(.success(feed.toModels()))
                 
-            case .empty:
-                completion(.success([]))
-                
-            case .found:
+            case .empty, .found:
                 // self.store.deleteCachedFeed { _ in }
                 completion(.success([]))
             }
         }
     }
+    
+    /*
+     By using the Query- Command separation principle we have removed all the delete logic form load call.
+     */
     
     public func validateCache() {
         store.retrieve { [weak self] result in
