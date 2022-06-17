@@ -10,10 +10,12 @@ import XCTest
 import EssentialFeedRevised
 
 /*
-#### Data:
-- Max age
+
 ### Load Feed From Cache Use Case
 
+#### Data:
+ - Max age
+ 
 #### Primary course:
 1. Execute "Load Feed Items" command with above data.
 2. System fetches feed data from cache.

@@ -1,7 +1,14 @@
 ########
 # Lecture 8
 
-In this lecture, we extract the cache validation from the Load Feed Cache Use Case to its own use case (Validate Feed Cache Use Case), separating the loading from the invalidation (deletion) logic and respecting the Command–Query Separation principle.
+## In this lecture, we extract the cache validation from the Load Feed Cache Use Case to its own use case (Validate Feed Cache Use Case), separating the loading from the invalidation (deletion) logic and respecting the Command–Query Separation principle.
+
+- Separarte query from commands with side effects.
+In this case by using the Command - Query principle we are Separating All tests with side effects in different file.
+
+- we are separating the concerns here.
+    - Separating loading from the invalidation logic.
+
 
 Learning Outcomes
 Separating queries and side-effects by following the Command-Query Separation principle
