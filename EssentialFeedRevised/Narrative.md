@@ -84,7 +84,33 @@ Given the customer doesn't have connectivity
 1. System delivers error.
 1. System delivers connectivity error.
 
-### Load Feed Fallback (Cache) Use Case
+
+## Save Feed Items Use Case
+## Cache Feed Use Case
+
+#### Data:
+- Feed items
+
+#### Primary course (happy path):
+1. Execute "Save Feed Items" command with above data.
+2. System encodes feed items.
+3. System timestamps the new cache.
+4. System replaces the cache with new data.
+5. System delivers success message.
+2. System deletes old cache data.
+3. System encodes feed items.
+4. System timestamps the new cache.
+5. System saves new cache data.
+6. System delivers success message.
+
+#### Deleting error course (sad path):
+1. System delivers error.
+
+#### Saving error course (sad path):
+1. System delivers error.
+
+
+## Load Feed Fallback (Cache) Use Case
 
 #### Data:
 - Max age
@@ -111,30 +137,20 @@ Given the customer doesn't have connectivity
 1. System delivers no feed items.
 
 
-### Save Feed Items Use Case
-### Cache Feed Use Case
+// By following query command principle we are separating deletion from load.
 
-#### Data:
-- Feed items
+## Validate Feed Cache Use Case
 
-#### Primary course (happy path):
-1. Execute "Save Feed Items" command with above data.
-2. System encodes feed items.
-3. System timestamps the new cache.
-4. System replaces the cache with new data.
-5. System delivers success message.
-2. System deletes old cache data.
-3. System encodes feed items.
-4. System timestamps the new cache.
-5. System saves new cache data.
-6. System delivers success message.
+#### Primary course:
+1. Execute "Validate Cache" command with above data.
+2. System retrieves feed data from cache.
+3. System validates cache is less than seven days old.
 
-#### Deleting error course (sad path):
-1. System delivers error.
+#### Retrieval error course (sad path):
+1. System deletes cache.
 
-#### Saving error course (sad path):
-1. System delivers error.
-
+#### Expired cache course (sad path): 
+1. System deletes cache.
 
 ## Flowchart
 

@@ -57,3 +57,7 @@ When performing date calculation make sure to use system tools that can account 
 
 ### Lecture 7.
   Test-driving Cache Invalidation + Identifying Complex (Bloated) Functionality With The Command–Query Separation Principle
+
+// The Command–Query Separation Principle :
+Seperate query from commands with side-effects.
+
