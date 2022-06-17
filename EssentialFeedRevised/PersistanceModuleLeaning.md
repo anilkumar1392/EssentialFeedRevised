@@ -68,3 +68,23 @@ Seperate query from commands with side-effects.
 
  ### Lecture 9
  Separating App-specific, App-agnostic & Framework logic, Entities vs. Value Objects, Establishing Single Sources of Truth, and Designing Side-effect-free (Deterministic) Domain Models with Functional Core, Imperative Shell Principles
+
+    /*
+     Seperate application specifc details from bussiness rules.
+     Controller are not business models.
+     They communicate with bussiness model to solve application specific bussiness rules.
+     By separating bussiness models, controllers and frameworks is key to achieve modularity, freedom.
+     */
+     
+     Bussiness Rule: Policy 
+     Applicaiton specifc bussiness logic : Controllers
+     Applicaiton specifc logic from concrete framework details: FeedStore protocol protects our controller (LocalFeedLoader) from concrete store implementation (like coredata, realm, filesystem).
+
+     So we separated policy from applicaiton specific bu
+     
+     You dictate your architecture.
+     Not the framework dictate our architecture.
+     
+     Side effects happen on the boundaries of the system.
+     
+     Model make then deterministic as much as you can with no side effects.

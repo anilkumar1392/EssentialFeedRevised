@@ -24,7 +24,7 @@ extension Date {
     }
     
     private var feedCacheMaxAgeInDays: Int {
-        return 7
+        return 3
     }
     
     private func adding(days: Int) -> Date {

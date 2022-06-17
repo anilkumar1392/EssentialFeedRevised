@@ -25,8 +25,20 @@ internal final class FeedCachePolicy {
      Now data is a struct and In this case it is Immutable.
      */
     
+    /*
+     Both the test method and controller type are abstracted from policy
+     We can easily change this policy as neeeded with out breaking the test and controller.
+     We can even load this policy from a configuration file.
+     */
+    
+    /*
+     Seperate application specifc details from bussiness rules.
+     Controller are not business models.
+     They communicate with bussiness model to solve application specific bussiness rules.
+     By separating bussiness models, controllers and frameworks is key to achieve modularity, freedom.
+     */
     private static var maxCacheAgeInDays: Int {
-        return 7
+        return 3
     }
     
     internal static func validate(_ timestamp: Date, against data: Date) -> Bool {
