@@ -54,6 +54,7 @@
 		F5DCB317285C2698003C9547 /* FeedCacheTestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DCB316285C2698003C9547 /* FeedCacheTestHelper.swift */; };
 		F5DCB319285C273D003C9547 /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DCB318285C273D003C9547 /* SharedTestHelpers.swift */; };
 		F5DCB31B285C2E0A003C9547 /* Persistance_lecture_8.md in Sources */ = {isa = PBXBuildFile; fileRef = F5DCB31A285C2E0A003C9547 /* Persistance_lecture_8.md */; };
+		F5DCB31D285C4998003C9547 /* Persistance_lecture_9.md in Resources */ = {isa = PBXBuildFile; fileRef = F5DCB31C285C4998003C9547 /* Persistance_lecture_9.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -140,6 +141,7 @@
 		F5DCB316285C2698003C9547 /* FeedCacheTestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCacheTestHelper.swift; sourceTree = "<group>"; };
 		F5DCB318285C273D003C9547 /* SharedTestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTestHelpers.swift; sourceTree = "<group>"; };
 		F5DCB31A285C2E0A003C9547 /* Persistance_lecture_8.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Persistance_lecture_8.md; sourceTree = "<group>"; };
+		F5DCB31C285C4998003C9547 /* Persistance_lecture_9.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Persistance_lecture_9.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,6 +205,7 @@
 				F5B1BD05285B27E600AA9D75 /* Persistance_lecture_6.md */,
 				F5B1BD0B285B537F00AA9D75 /* Persistance_lecture_7.md */,
 				F5DCB31A285C2E0A003C9547 /* Persistance_lecture_8.md */,
+				F5DCB31C285C4998003C9547 /* Persistance_lecture_9.md */,
 			);
 			path = "Ref For Persistance Module";
 			sourceTree = "<group>";
@@ -556,6 +559,7 @@
 				F5B9B273284F0E5D00ADA20C /* feed-case-study-test-api-feed.json in Resources */,
 				F5B1BD08285B288A00AA9D75 /* Persistance_lecture_3.md in Resources */,
 				F586E6C828410FDB00E219D2 /* README.md in Resources */,
+				F5DCB31D285C4998003C9547 /* Persistance_lecture_9.md in Resources */,
 				F5B9B263284F0A4800ADA20C /* Screenshot 2022-06-06 at 10.23.32 AM.png in Resources */,
 				F5B87CDF283F5C5C00D86464 /* Main.storyboard in Resources */,
 				F5B1BD00285B271D00AA9D75 /* Persistance_lecture_5.md in Resources */,

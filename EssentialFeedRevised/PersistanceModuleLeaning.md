@@ -65,3 +65,6 @@ Seperate query from commands with side-effects.
  Separating Queries & Side-effects for Simplicity and Reusability, Choosing Between Enum Switching Strategies, and Differentiating App-Specific from App-Agnostic Logic
  
  // Adding ValidateFeedCacheUseCaseTests to confirm to Command-query principle
+
+ ### Lecture 9
+ Separating App-specific, App-agnostic & Framework logic, Entities vs. Value Objects, Establishing Single Sources of Truth, and Designing Side-effect-free (Deterministic) Domain Models with Functional Core, Imperative Shell Principles
