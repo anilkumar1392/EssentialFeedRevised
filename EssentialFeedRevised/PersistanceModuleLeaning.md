@@ -61,3 +61,7 @@ When performing date calculation make sure to use system tools that can account 
 // The Command–Query Separation Principle :
 Seperate query from commands with side-effects.
 
+### Lecture 8 
+ Separating Queries & Side-effects for Simplicity and Reusability, Choosing Between Enum Switching Strategies, and Differentiating App-Specific from App-Agnostic Logic
+ 
+ // Adding ValidateFeedCacheUseCaseTests to confirm to Command-query principle
