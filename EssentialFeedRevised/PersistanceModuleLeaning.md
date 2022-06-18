@@ -179,3 +179,20 @@ Designing and Testing Thread-safe Components with DispatchQueue, Serial vs. Conc
 ## Protocol vs Class Inheritance, Composite Reuse Principle, and Extracting Reusable Test Specs with Protocol Inheritance, Extensions and Composition
 
 We are going to extract reusable 'FeedStore' SPECS to feclitate implementation of databases such as CoraData, realm.
+
+One assertion per test keeps the test clean.
+1. Breakdown 'CodableFeedStore' tests to guarantee that their is only one assertion per test. The Goal is to clarify the behavior under test unser test in small units. so we can extract the behaviour test in to reusable specs.
+
+2. Extract reusable 'FeedStoreSpecs' helper method in to a shared scope so it can be reused by other 'FeedStore' implementation
+
+Liskov Substitution Principle.
+Interface Segregation Principle (ISP): No client should be forced to depend on methods it does not use.
+
+Liskov Substitution Principle (LSP): Objects in a program should be replaceable with instances of their subtypes without altering the correctness of the program.
+
+Objects in a program should be replaceable with instance of their subtypes with out altering the correctness of the program.
+
+Implementation of feedStrore are subtypes of 'FeedStore' interface.
+
+And any implementation of FeedStore can be passed to those assertion methods which makes thos assertion and helepr methods reusable.
+
