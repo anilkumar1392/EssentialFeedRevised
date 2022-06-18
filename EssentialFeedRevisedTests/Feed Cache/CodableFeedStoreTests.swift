@@ -212,7 +212,9 @@ class CodableFeedStoreTests: XCTestCase, FailableFeedStore {
     func test_insert_deliversNoErrorOnEmptyCache() {
         // let feed = uniqueImageFeed().local
         let sut = makeSUT()
+       
         assertThatInsertDeliversNoErrorOnEmptyCache(on: sut)
+       
         /*
         let timestamp = Date()
         let sut = makeSUT()
@@ -228,6 +230,7 @@ class CodableFeedStoreTests: XCTestCase, FailableFeedStore {
         let sut = makeSUT()
 
         assertThatInsertDeliversNoErrorOnNonEmptyCache(on: sut)
+       
         /*
         let timestamp = Date()
         let sut = makeSUT()
@@ -255,24 +258,34 @@ class CodableFeedStoreTests: XCTestCase, FailableFeedStore {
     }
     
     func test_insert_deliversErrorOnInsertionError() {
-        let storeURL = URL(string: "Invalid://store-url")!
-        let sut = makeSUT(storeURL: storeURL)
+        let invalidStoreURL = URL(string: "Invalid://store-url")!
+        let sut = makeSUT(storeURL: invalidStoreURL)
+        
+        /*
         let feed = uniqueImageFeed().local
         let timestamp = Date()
         
         let insertionError = insert((feed: feed, timestamp: timestamp), to: sut)
         XCTAssertNotNil(insertionError, "Expected cache insertion to fail with an error")
+        */
+        
+        assertThatInsertDeliversErrorOnInsertionError(on: sut)
     }
     
     func test_insert_hasNoSideEffectOnInsertionError() {
-        let storeURL = URL(string: "Invalid://store-url")!
-        let sut = makeSUT(storeURL: storeURL)
+        let invalidStoreURL = URL(string: "Invalid://store-url")!
+        let sut = makeSUT(storeURL: invalidStoreURL)
+        
+        /*
         let feed = uniqueImageFeed().local
         let timestamp = Date()
         
         insert((feed: feed, timestamp: timestamp), to: sut)
         
-        expect(sut, toRetrieve: .empty)
+        expect(sut, toRetrieve: .empty)*/
+        
+        assertThatInsertHasNoSideEffectsOnInsertionError(on: sut)
+        
     }
     
     func test_delete_deliversNoErrorOnEmptyCache() {
