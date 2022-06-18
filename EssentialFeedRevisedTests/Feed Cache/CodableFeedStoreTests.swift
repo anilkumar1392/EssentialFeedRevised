@@ -264,6 +264,33 @@ class CodableFeedStoreTests: XCTestCase {
         XCTAssertNotNil(deletionError, "Expected to complete with error.")
         expect(sut, toRetrieve: .empty)
     }
+    
+    func test_storeSideEffects_runSerially() {
+        let sut = makeSUT()
+        var completedQperationInOrder = [XCTestExpectation]()
+        
+        let op1 = expectation(description: "Wait for op1 to complete")
+        sut.insert(uniqueImageFeed().local, timestamp: Date()) { _ in
+            completedQperationInOrder.append(op1)
+            op1.fulfill()
+        }
+        
+        let op2 = expectation(description: "Wait for op2 to complete")
+        sut.deleteCachedFeed { _ in
+            completedQperationInOrder.append(op2)
+            op2.fulfill()
+        }
+
+        let op3 = expectation(description: "Wait for op3 to complete")
+        sut.insert(uniqueImageFeed().local, timestamp: Date()) { _ in
+            completedQperationInOrder.append(op3)
+            op3.fulfill()
+        }
+        
+        wait(for: [op1, op2, op3], timeout: 5.0)
+        
+        XCTAssertEqual(completedQperationInOrder, [op1, op2, op3], "Expected to complete operation in order")
+    }
 }
 
 // MARK: - Helper methods

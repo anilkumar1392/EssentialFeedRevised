@@ -88,3 +88,36 @@ Seperate query from commands with side-effects.
      Side effects happen on the boundaries of the system.
      
      Model make then deterministic as much as you can with no side effects.
+
+ ### Lecture 10
+## Dependency Inversion Anatomy (High-level | Boundary | Low-level), Defining Inbox Checklists and Contract Specs to Improve Collaboration and Avoid Side-effect Bugs in Multithreaded Environments
+Requirment feed store implementation.
+
+- Retrieve
+    - Empty cache
+    - Empty cache twice return empty (no side effects)
+    - Non empty cache 
+    - Non - empty cache twice returns same data (no side effects)
+    - Error return error (if applicable, e.g, Invalid Data)
+    - Error twice returns same error (if applicable, e.g, Invalid Data)
+
+- Insert
+    - To empty cache Stores data
+    - To non empty cache overrides previous data with new data
+    - Error (if applicable, if not write permission)
+    
+- Delete
+    - Empty cache does nothing (Cache tays empty and does not fail)
+    - Non empty cache leaves cache empty
+    - Error (if applicable, if delete permission)
+    
+- Side effects must run serially to avoid race conditions.
+
+## Lecture 11
+## Persisting/Retrieving Models with Codable+FileSystem, Test-driving in Integration with Real Frameworks Instead of Mocks & Measuring Test Times Overhead with `xcodebuild`
+
+## Lecture 12
+## Deleting Models and Handling Errors with Codable+FileSystem, Making Async Code Look Sync in Tests to Eliminate Arrow Anti-Pattern, and More Essential Test Guidelines to Improve Code Quality and Team Communication
+
+## Lecture 13
+Designing and Testing Thread-safe Components with DispatchQueue, Serial vs. Concurrent Queues, Thread-safe Value Types, and Avoiding Race Conditions
