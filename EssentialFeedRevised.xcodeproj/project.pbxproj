@@ -48,6 +48,8 @@
 		F5D5074128505EE900B16343 /* Narrative.md in Resources */ = {isa = PBXBuildFile; fileRef = F5D5074028505EE900B16343 /* Narrative.md */; };
 		F5D5C5E82845C484006FA1B0 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D5C5E72845C484006FA1B0 /* HTTPClient.swift */; };
 		F5D5C5EB2845C580006FA1B0 /* FeedItemsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D5C5EA2845C580006FA1B0 /* FeedItemsMapper.swift */; };
+		F5D5D777285D722C007493F4 /* Screenshot 2022-06-18 at 8.04.41 AM.png in Resources */ = {isa = PBXBuildFile; fileRef = F5D5D775285D722C007493F4 /* Screenshot 2022-06-18 at 8.04.41 AM.png */; };
+		F5D5D778285D722C007493F4 /* Screenshot 2022-06-18 at 8.04.30 AM.png in Resources */ = {isa = PBXBuildFile; fileRef = F5D5D776285D722C007493F4 /* Screenshot 2022-06-18 at 8.04.30 AM.png */; };
 		F5DA76C82859675F00AA1586 /* CacheFeedUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DA76C72859675F00AA1586 /* CacheFeedUseCaseTests.swift */; };
 		F5DA76D62859E5C900AA1586 /* EssentialFeediOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5DA76CE2859E5C900AA1586 /* EssentialFeediOS.framework */; };
 		F5DCB315285C21C9003C9547 /* ValidateFeedCacheUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DCB314285C21C9003C9547 /* ValidateFeedCacheUseCaseTests.swift */; };
@@ -140,6 +142,8 @@
 		F5D5074028505EE900B16343 /* Narrative.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Narrative.md; sourceTree = "<group>"; };
 		F5D5C5E72845C484006FA1B0 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		F5D5C5EA2845C580006FA1B0 /* FeedItemsMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItemsMapper.swift; sourceTree = "<group>"; };
+		F5D5D775285D722C007493F4 /* Screenshot 2022-06-18 at 8.04.41 AM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screenshot 2022-06-18 at 8.04.41 AM.png"; sourceTree = "<group>"; };
+		F5D5D776285D722C007493F4 /* Screenshot 2022-06-18 at 8.04.30 AM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screenshot 2022-06-18 at 8.04.30 AM.png"; sourceTree = "<group>"; };
 		F5DA76C72859675F00AA1586 /* CacheFeedUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheFeedUseCaseTests.swift; sourceTree = "<group>"; };
 		F5DA76CE2859E5C900AA1586 /* EssentialFeediOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EssentialFeediOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5DA76D52859E5C900AA1586 /* EssentialFeediOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialFeediOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -220,8 +224,7 @@
 				F5B1BD0B285B537F00AA9D75 /* Persistance_lecture_7.md */,
 				F5DCB31A285C2E0A003C9547 /* Persistance_lecture_8.md */,
 				F5DCB31C285C4998003C9547 /* Persistance_lecture_9.md */,
-				F5DCB326285C9C3B003C9547 /* Persistance_lecture_10.md */,
-				F5DCB32C285CB7A3003C9547 /* Persistance_lecture_11.md */,
+				F5D5D774285D720F007493F4 /* Persistance-lecture_10_11 */,
 			);
 			path = "Ref For Persistance Module";
 			sourceTree = "<group>";
@@ -360,6 +363,17 @@
 				F5AEE6ED284C8A0F004D7655 /* URLSessionClientWithURLProtocolTests.swift */,
 			);
 			path = "Feed Api";
+			sourceTree = "<group>";
+		};
+		F5D5D774285D720F007493F4 /* Persistance-lecture_10_11 */ = {
+			isa = PBXGroup;
+			children = (
+				F5DCB326285C9C3B003C9547 /* Persistance_lecture_10.md */,
+				F5DCB32C285CB7A3003C9547 /* Persistance_lecture_11.md */,
+				F5D5D776285D722C007493F4 /* Screenshot 2022-06-18 at 8.04.30 AM.png */,
+				F5D5D775285D722C007493F4 /* Screenshot 2022-06-18 at 8.04.41 AM.png */,
+			);
+			path = "Persistance-lecture_10_11";
 			sourceTree = "<group>";
 		};
 		F5DA76C62859673800AA1586 /* Feed Cache */ = {
@@ -571,6 +585,7 @@
 			files = (
 				F5DCB327285C9C3B003C9547 /* Persistance_lecture_10.md in Resources */,
 				F5B87CE4283F5C5F00D86464 /* LaunchScreen.storyboard in Resources */,
+				F5D5D778285D722C007493F4 /* Screenshot 2022-06-18 at 8.04.30 AM.png in Resources */,
 				F5B87CE1283F5C5F00D86464 /* Assets.xcassets in Resources */,
 				F5B1BD04285B27C500AA9D75 /* Persistance_lecture_4.md in Resources */,
 				F5D5074128505EE900B16343 /* Narrative.md in Resources */,
@@ -588,6 +603,7 @@
 				F570DBA7284DBED8000ADC03 /* Screenshot 2022-06-06 at 10.18.50 AM.png in Resources */,
 				F5B1BCF3285ADB3B00AA9D75 /* after data_transfer_objtec.png in Resources */,
 				F5DCB32D285CB7A3003C9547 /* Persistance_lecture_11.md in Resources */,
+				F5D5D777285D722C007493F4 /* Screenshot 2022-06-18 at 8.04.41 AM.png in Resources */,
 				F5DCB323285C9A84003C9547 /* Core_boundary_infra.png in Resources */,
 				F5B1BCFE285B255200AA9D75 /* PersistanceModuleLeaning.md in Resources */,
 			);
