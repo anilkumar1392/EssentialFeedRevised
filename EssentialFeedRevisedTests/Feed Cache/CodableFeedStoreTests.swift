@@ -126,7 +126,8 @@ class CodableFeedStoreTests: XCTestCase {
     // Retrieve after inserting showuld return inserted result
     // Changeing the shape of code
     
-    func test_retrieveAfterInsertingToEmptyCache_deliversInsertedValues () {
+    func test_retrieve_deliversFoundValuesOnNonEmptyCache() {
+        // test_retrieveAfterInsertingToEmptyCache_deliversInsertedValues
         let sut = makeSUT()
         let feed = uniqueImageFeed().local
         let timestamp = Date()
