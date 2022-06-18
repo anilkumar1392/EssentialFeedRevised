@@ -327,17 +327,17 @@ class CodableFeedStoreTests: XCTestCase {
         expect(sut, toRetrieve: .empty)
     }
     
-    /*
+
     func test_delete_deliverErrorOnDeletionError() {
         // pass any directory that user can't delete
-        let noDeletePermissionURL = cacheDirectory()
+        let noDeletePermissionURL = noDeletePermissionURL()
         let sut = makeSUT(storeURL: noDeletePermissionURL)
         
         let deletionError = delete(sut)
         
         XCTAssertNotNil(deletionError, "Expected to complete with error.")
         expect(sut, toRetrieve: .empty)
-    } */
+    } 
 }
 
 // MARK: - Helper methods
@@ -408,7 +408,7 @@ extension CodableFeedStoreTests {
     // Replace production store url with a test specific store url.
     
     private func testSpecificStoreURL() -> URL {
-        let storeURL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!.appendingPathComponent("\(type(of: self)).store")
+        let storeURL = cacheDirectory().appendingPathComponent("\(type(of: self)).store")
         return storeURL
     }
     
@@ -426,5 +426,9 @@ extension CodableFeedStoreTests {
     
     private func cacheDirectory() -> URL {
         return FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!
+    }
+    
+    private func noDeletePermissionURL() -> URL {
+        return FileManager.default.urls(for: .cachesDirectory, in: .systemDomainMask).first!
     }
 }
