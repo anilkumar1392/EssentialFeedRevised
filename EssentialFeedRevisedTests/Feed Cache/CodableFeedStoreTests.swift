@@ -352,6 +352,50 @@ extension CodableFeedStoreTests {
         trackForMemoryLeaks(sut)
         return sut
     }
+    // Replace production store url with a test specific store url.
+    
+    private func testSpecificStoreURL() -> URL {
+        let storeURL = cacheDirectory().appendingPathComponent("\(type(of: self)).store")
+        return storeURL
+    }
+    
+    private func undoStoreSideEffects() {
+        deleteStoreArtifacts()
+    }
+    
+    private func setupEmptyStoreState() {
+        deleteStoreArtifacts()
+    }
+    
+    private func deleteStoreArtifacts() {
+        try? FileManager.default.removeItem(at: testSpecificStoreURL())
+    }
+    
+    private func cacheDirectory() -> URL {
+        return FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!
+    }
+    
+    private func noDeletePermissionURL() -> URL {
+        return FileManager.default.urls(for: .cachesDirectory, in: .systemDomainMask).first!
+    }
+}
+
+// Reusable code moved to tests helper
+/*
+extension CodableFeedStoreTests {
+    
+    @discardableResult
+    private func insert(_ cache: (feed: [LocalFeedImage], timestamp: Date), to sut: FeedStore, file : StaticString = #file, line: UInt = #line) -> Error? {
+        let exp = expectation(description: "Wait for cache retrival")
+        var insertionError: Error?
+        sut.insert(cache.feed, timestamp: cache.timestamp, completion: { receivedInsertionError in
+            // XCTAssertNil(receivedInsertionError, "Expected feed to be inserted successfully", file: file, line: line)
+            insertionError = receivedInsertionError
+            exp.fulfill()
+        })
+        wait(for: [exp], timeout: 1.0)
+        return insertionError
+    }
     
     @discardableResult
     private func deleteCache(from sut: FeedStore, file : StaticString = #file, line: UInt = #line) -> Error? {
@@ -366,19 +410,6 @@ extension CodableFeedStoreTests {
         wait(for: [exp], timeout: 1.0)
         
         return deletionError
-    }
-    
-    @discardableResult
-    private func insert(_ cache: (feed: [LocalFeedImage], timestamp: Date), to sut: FeedStore, file : StaticString = #file, line: UInt = #line) -> Error? {
-        let exp = expectation(description: "Wait for cache retrival")
-        var insertionError: Error?
-        sut.insert(cache.feed, timestamp: cache.timestamp, completion: { receivedInsertionError in
-            // XCTAssertNil(receivedInsertionError, "Expected feed to be inserted successfully", file: file, line: line)
-            insertionError = receivedInsertionError
-            exp.fulfill()
-        })
-        wait(for: [exp], timeout: 1.0)
-        return insertionError
     }
     
     private func expect(_ sut: FeedStore, toRetrieveTwice expectedResult: RetrieveCachedFeedResult, file : StaticString = #file, line: UInt = #line) {
@@ -409,31 +440,5 @@ extension CodableFeedStoreTests {
         
         wait(for: [exp], timeout: 1.0)
     }
-    
-    // Replace production store url with a test specific store url.
-    
-    private func testSpecificStoreURL() -> URL {
-        let storeURL = cacheDirectory().appendingPathComponent("\(type(of: self)).store")
-        return storeURL
-    }
-    
-    private func undoStoreSideEffects() {
-        deleteStoreArtifacts()
-    }
-    
-    private func setupEmptyStoreState() {
-        deleteStoreArtifacts()
-    }
-    
-    private func deleteStoreArtifacts() {
-        try? FileManager.default.removeItem(at: testSpecificStoreURL())
-    }
-    
-    private func cacheDirectory() -> URL {
-        return FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!
-    }
-    
-    private func noDeletePermissionURL() -> URL {
-        return FileManager.default.urls(for: .cachesDirectory, in: .systemDomainMask).first!
-    }
 }
+ */
