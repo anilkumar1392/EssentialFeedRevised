@@ -9,6 +9,8 @@ import Foundation
 import XCTest
 import EssentialFeedRevised
 
+// We dont know the error that can be thrown by do catch do not matching them just check failure.
+
 class CodableFeedStore {
     private struct Cache: Codable {
         let feed: [CodableFeedImage]
@@ -47,9 +49,14 @@ class CodableFeedStore {
         guard let data = try? Data(contentsOf: storeURL) else {
             return completion(.empty)
         }
-        let decoder = JSONDecoder()
-        let cache = try! decoder.decode(Cache.self, from: data)
-        completion(.found(feed: cache.localFeed, timestamp: cache.timestamp))
+        do {
+            let decoder = JSONDecoder()
+            let cache = try decoder.decode(Cache.self, from: data)
+            completion(.found(feed: cache.localFeed, timestamp: cache.timestamp))
+        } catch {
+            completion(.failure(error))
+        }
+
     }
     
     func insert(_ feed: [LocalFeedImage], timestamp: Date, completion: @escaping FeedStore.InsertionCompletion) {
@@ -195,6 +202,14 @@ class CodableFeedStoreTests: XCTestCase {
         insert((feed, timestamp), to: sut)
         expect(sut, toRetrieveTwice: .found(feed: feed, timestamp: timestamp))
     }
+    
+    func test_retrieve_deliversFailureOnRetrivalError() {
+        let sut = makeSUT()
+
+        try! "Invalid data".write(to: testSpecificStoreURL(), atomically: false, encoding: .utf8)
+        
+        expect(sut, toRetrieve: .failure(anyError()))
+    }
 }
 
 // MARK: - Helper methods
@@ -225,7 +240,9 @@ extension CodableFeedStoreTests {
         
         sut.retrieve { retrievedResult in
             switch (expectedResult, retrievedResult) {
-            case (.empty, .empty):
+            case (.empty, .empty),
+                (.failure, .failure):
+                // We dont know the error that can be thrown by do catch do not matching them just check failure.
                 break
                 
             case let (.found(expectedFeed, expectedTimestamp), .found(retrievedFeed, retrievedTimestamp)):
