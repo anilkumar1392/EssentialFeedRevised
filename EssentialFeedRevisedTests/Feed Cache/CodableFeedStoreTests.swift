@@ -34,36 +34,9 @@ Requirment feed store implementation.
 - Side effects must run serially to avoid race conditions.
 */
 
+typealias FailableFeedStore = FailableRetrieveFeedStoreSpecs & FailableInsertFeedStoreSpecs & FailableDeleteFeedStoreSpecs
 
-protocol FeedStoreSpecs {
-    func test_retrieve_deliverEmptyOnEmptyCache()
-    func test_retrieve_hasNoSideEffectOnEmptyCache()
-    func test_retrieve_deliversFoundValuesOnNonEmptyCache()
-    func test_retrieve_hasNoSideEffectOnNonEmptyCache()
-
-    func test_insert_overridesPreviouslyInsertedCachedValues()
-
-    func test_delete_hasNoSideEffectOnEmptyCache()
-    func test_delete_emptiesPreviouslyInsertedCache()
-
-    func test_storeSideEffects_runSerially()
-}
- 
-protocol FailableRetrieveFeedStoreSpecs {
-    func test_retrieve_deliversFailureOnRetrivalError()
-    func test_retrieve_hadNoSideEffectsOnRetrivalError()
-}
-
-protocol FailableInsertFeedStoreSpecs {
-    func test_insert_deliversErrorOnInsertionError()
-    func test_insert_hasNoSideEffectOnInsertionError()
-}
-
-protocol FailableDeleteFeedStoreSpecs {
-    func test_delete_deliverErrorOnDeletionError()
-}
-
-class CodableFeedStoreTests: XCTestCase {
+class CodableFeedStoreTests: XCTestCase, FailableFeedStore {
     
     override func setUp() {
         super.setUp()
@@ -207,7 +180,7 @@ class CodableFeedStoreTests: XCTestCase {
         expect(sut, toRetrieve: .failure(anyError()))
     }
     
-    func test_retrieve_hadNoSideEffectsOnRetrivalError() {
+    func test_retrieve_hasNoSideEffectsOnRetrivalError() {
         let storeUrl = testSpecificStoreURL()
         let sut = makeSUT(storeURL: storeUrl)
 
@@ -277,6 +250,26 @@ class CodableFeedStoreTests: XCTestCase {
         expect(sut, toRetrieve: .empty)
     }
     
+    func test_delete_hasNoSideEffectOnEmptyCache() {
+        let sut = makeSUT()
+        
+        /*
+        let exp = expectation(description: "wait for delete compeltion")
+        sut.deleteCachedFeed { deletionError in
+            XCTAssertNil(deletionError, "Expected empty cache deletion to complete successfully.")
+            
+            exp.fulfill()
+        }
+        
+        wait(for: [exp], timeout: 1.0)
+         */
+        
+        let deletionError = deleteCache(from: sut)
+        XCTAssertNil(deletionError, "Expected non-empty cache deletion to complete successfully.")
+        
+        expect(sut, toRetrieve: .empty)
+    }
+        
     func test_delete_deliversNoErrorOnNonEmptyCache() {
         let sut = makeSUT()
         insert((uniqueImageFeed().local, Date()), to: sut)
@@ -322,27 +315,6 @@ class CodableFeedStoreTests: XCTestCase {
         
         expect(sut, toRetrieve: .empty)
     }
-    
-    /*
-    func test_delete_hasNoSideEffectOnEmptyCache() {
-        let sut = makeSUT()
-        
-        /*
-        let exp = expectation(description: "wait for delete compeltion")
-        sut.deleteCachedFeed { deletionError in
-            XCTAssertNil(deletionError, "Expected empty cache deletion to complete successfully.")
-            
-            exp.fulfill()
-        }
-        
-        wait(for: [exp], timeout: 1.0)
-         */
-        
-        let deletionError = deleteCache(from: sut)
-        XCTAssertNil(deletionError, "Expected non-empty cache deletion to complete successfully.")
-        
-        expect(sut, toRetrieve: .empty)
-    } */
  
     func test_storeSideEffects_runSerially() {
         let sut = makeSUT()
