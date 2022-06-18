@@ -33,7 +33,36 @@ Requirment feed store implementation.
     
 - Side effects must run serially to avoid race conditions.
 */
+
+
+protocol FeedStoreSpecs {
+    func test_retrieve_deliverEmptyOnEmptyCache()
+    func test_retrieve_hasNoSideEffectOnEmptyCache()
+    func test_retrieve_deliversFoundValuesOnNonEmptyCache()
+    func test_retrieve_hasNoSideEffectOnNonEmptyCache()
+
+    func test_insert_overridesPreviouslyInsertedCachedValues()
+
+    func test_delete_hasNoSideEffectOnEmptyCache()
+    func test_delete_emptiesPreviouslyInsertedCache()
+
+    func test_storeSideEffects_runSerially()
+}
  
+protocol FailableRetrieveFeedStoreSpecs {
+    func test_retrieve_deliversFailureOnRetrivalError()
+    func test_retrieve_hadNoSideEffectsOnRetrivalError()
+}
+
+protocol FailableInsertFeedStoreSpecs {
+    func test_insert_deliversErrorOnInsertionError()
+    func test_insert_hasNoSideEffectOnInsertionError()
+}
+
+protocol FailableDeleteFeedStoreSpecs {
+    func test_delete_deliverErrorOnDeletionError()
+}
+
 class CodableFeedStoreTests: XCTestCase {
     
     override func setUp() {
@@ -211,6 +240,17 @@ class CodableFeedStoreTests: XCTestCase {
         XCTAssertNotNil(insertionError, "Expected cache insertion to fail with an error")
     }
     
+    func test_insert_hasNoSideEffectOnInsertionError() {
+        let storeURL = URL(string: "Invalid://store-url")!
+        let sut = makeSUT(storeURL: storeURL)
+        let feed = uniqueImageFeed().local
+        let timestamp = Date()
+        
+        insert((feed: feed, timestamp: timestamp), to: sut)
+        
+        expect(sut, toRetrieve: .empty)
+    }
+    
     func test_delete_hasNoSideEffectOnEmptyCache() {
         let sut = makeSUT()
         
@@ -255,13 +295,20 @@ class CodableFeedStoreTests: XCTestCase {
     
 
     func test_delete_deliverErrorOnDeletionError() {
-        // pass any directory that user can't delete
         let noDeletePermissionURL = noDeletePermissionURL()
         let sut = makeSUT(storeURL: noDeletePermissionURL)
         
         let deletionError = delete(sut)
         
         XCTAssertNotNil(deletionError, "Expected to complete with error.")
+    }
+    
+    func test_delete_hasNoSideEffectsOnDeletionError() {
+        let noDeletePermissionURL = noDeletePermissionURL()
+        let sut = makeSUT(storeURL: noDeletePermissionURL)
+        
+        delete(sut)
+        
         expect(sut, toRetrieve: .empty)
     }
     
@@ -302,6 +349,7 @@ extension CodableFeedStoreTests {
         return sut
     }
     
+    @discardableResult
     private func delete(_ sut: FeedStore, file : StaticString = #file, line: UInt = #line) -> Error? {
         let exp = expectation(description: "wait for cache deletion")
         

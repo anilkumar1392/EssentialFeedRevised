@@ -80,7 +80,7 @@ Seperate query from commands with side-effects.
      Applicaiton specifc bussiness logic : Controllers
      Applicaiton specifc logic from concrete framework details: FeedStore protocol protects our controller (LocalFeedLoader) from concrete store implementation (like coredata, realm, filesystem).
 
-     So we separated policy from applicaiton specific bu
+     So we separated policy from applicaiton specific logic.
      
      You dictate your architecture.
      Not the framework dictate our architecture.
@@ -116,8 +116,66 @@ Requirment feed store implementation.
 ## Lecture 11
 ## Persisting/Retrieving Models with Codable+FileSystem, Test-driving in Integration with Real Frameworks Instead of Mocks & Measuring Test Times Overhead with `xcodebuild`
 
+- Retrieve
+    ✅ Empty cache returns empty
+    ✅ Empty cache twice returns empty (no side-effects)
+    ✅ Non-empty cache returns data
+    - Non-empty cache twice returns same data (no side-effects)
+    - Error returns error (if applicable, e.g., invalid data)
+    - Error twice returns same error (if applicable, e.g., invalid data)
+
+- Insert
+    ✅ To empty cache stores data
+    - To non-empty cache overrides previous data with new data
+    - Error (if applicable, e.g., no write permission)
+
+- Delete
+    - Empty cache does nothing (cache stays empty and does not fail)
+    - Non-empty cache leaves cache empty
+    - Error (if applicable, e.g., no delete permission)
+
+- Side-effects must run serially to avoid race-conditions
+
 ## Lecture 12
 ## Deleting Models and Handling Errors with Codable+FileSystem, Making Async Code Look Sync in Tests to Eliminate Arrow Anti-Pattern, and More Essential Test Guidelines to Improve Code Quality and Team Communication
+✅ Retrieve
+    ✅ Empty cache returns empty
+    ✅ Empty cache twice returns empty (no side-effects)
+    ✅ Non-empty cache returns data
+    ✅ Non-empty cache twice returns same data (no side-effects)
+    ✅ Error returns error (if applicable, e.g., invalid data)
+    ✅ Error twice returns same error (if applicable, e.g., invalid data)
+✅ Insert
+    ✅ To empty cache stores data
+    ✅ To non-empty cache overrides previous data with new data
+    ✅ Error (if applicable, e.g., no write permission)
+✅ Delete
+    ✅ Empty cache does nothing (cache stays empty and does not fail)
+    ✅ Non-empty cache leaves cache empty
+    ✅ Error (if applicable, e.g., no delete permission)
+- Side-effects must run serially to avoid race-conditions
 
 ## Lecture 13
 Designing and Testing Thread-safe Components with DispatchQueue, Serial vs. Concurrent Queues, Thread-safe Value Types, and Avoiding Race Conditions
+
+✅ Retrieve
+    ✅ Empty cache returns empty
+    ✅ Empty cache twice returns empty (no side-effects)
+    ✅ Non-empty cache returns data
+    ✅ Non-empty cache twice returns same data (no side-effects)
+    ✅ Error returns error (if applicable, e.g., invalid data)
+    ✅ Error twice returns same error (if applicable, e.g., invalid data)
+✅ Insert
+    ✅ To empty cache stores data
+    ✅ To non-empty cache overrides previous data with new data
+    ✅ Error (if applicable, e.g., no write permission)
+✅ Delete
+    ✅ Empty cache does nothing (cache stays empty and does not fail)
+    ✅ Non-empty cache leaves cache empty
+    ✅ Error (if applicable, e.g., no delete permission)
+✅ Side-effects must run serially to avoid race-conditions
+
+## Lecture 14
+## Protocol vs Class Inheritance, Composite Reuse Principle, and Extracting Reusable Test Specs with Protocol Inheritance, Extensions and Composition
+
+We are going to extract reusable 'FeedStore' SPECS to feclitate implementation of databases such as CoraData, realm.

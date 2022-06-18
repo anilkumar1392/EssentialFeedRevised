@@ -54,14 +54,15 @@
 		F5D5D77E285DA419007493F4 /* Persistacne_lecture_12.md in Resources */ = {isa = PBXBuildFile; fileRef = F5D5D77D285DA419007493F4 /* Persistacne_lecture_12.md */; };
 		F5D5D782285DA614007493F4 /* Screenshot 2022-06-18 at 11.49.26 AM.png in Resources */ = {isa = PBXBuildFile; fileRef = F5D5D780285DA614007493F4 /* Screenshot 2022-06-18 at 11.49.26 AM.png */; };
 		F5D5D783285DA614007493F4 /* Screenshot 2022-06-18 at 11.49.20 AM.png in Resources */ = {isa = PBXBuildFile; fileRef = F5D5D781285DA614007493F4 /* Screenshot 2022-06-18 at 11.49.20 AM.png */; };
-		F5D5D787285DCAFD007493F4 /* Persistance_lecture_13.md in Resources */ = {isa = PBXBuildFile; fileRef = F5D5D786285DCAFD007493F4 /* Persistance_lecture_13.md */; };
+		F5D5D787285DCAFD007493F4 /* Persistance_lecture_13_storeCheckList3.md in Resources */ = {isa = PBXBuildFile; fileRef = F5D5D786285DCAFD007493F4 /* Persistance_lecture_13_storeCheckList3.md */; };
+		F5D5D789285DD572007493F4 /* Persistance_lecture_14.md in Resources */ = {isa = PBXBuildFile; fileRef = F5D5D788285DD572007493F4 /* Persistance_lecture_14.md */; };
 		F5DA76C82859675F00AA1586 /* CacheFeedUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DA76C72859675F00AA1586 /* CacheFeedUseCaseTests.swift */; };
 		F5DA76D62859E5C900AA1586 /* EssentialFeediOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5DA76CE2859E5C900AA1586 /* EssentialFeediOS.framework */; };
 		F5DCB315285C21C9003C9547 /* ValidateFeedCacheUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DCB314285C21C9003C9547 /* ValidateFeedCacheUseCaseTests.swift */; };
 		F5DCB317285C2698003C9547 /* FeedCacheTestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DCB316285C2698003C9547 /* FeedCacheTestHelper.swift */; };
 		F5DCB319285C273D003C9547 /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DCB318285C273D003C9547 /* SharedTestHelpers.swift */; };
 		F5DCB31B285C2E0A003C9547 /* Persistance_lecture_8.md in Sources */ = {isa = PBXBuildFile; fileRef = F5DCB31A285C2E0A003C9547 /* Persistance_lecture_8.md */; };
-		F5DCB31D285C4998003C9547 /* Persistance_lecture_9.md in Resources */ = {isa = PBXBuildFile; fileRef = F5DCB31C285C4998003C9547 /* Persistance_lecture_9.md */; };
+		F5DCB31D285C4998003C9547 /* Persistance_lecture_9_testWithSideEffectsInNewFile.md in Resources */ = {isa = PBXBuildFile; fileRef = F5DCB31C285C4998003C9547 /* Persistance_lecture_9_testWithSideEffectsInNewFile.md */; };
 		F5DCB31F285C5614003C9547 /* FeedCachePolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DCB31E285C5614003C9547 /* FeedCachePolicy.swift */; };
 		F5DCB323285C9A84003C9547 /* Core_boundary_infra.png in Resources */ = {isa = PBXBuildFile; fileRef = F5DCB322285C9A84003C9547 /* Core_boundary_infra.png */; };
 		F5DCB325285C9AAD003C9547 /* Core_bounrady_infra.logo.png in Resources */ = {isa = PBXBuildFile; fileRef = F5DCB324285C9AAD003C9547 /* Core_bounrady_infra.logo.png */; };
@@ -153,7 +154,8 @@
 		F5D5D77D285DA419007493F4 /* Persistacne_lecture_12.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Persistacne_lecture_12.md; sourceTree = "<group>"; };
 		F5D5D780285DA614007493F4 /* Screenshot 2022-06-18 at 11.49.26 AM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screenshot 2022-06-18 at 11.49.26 AM.png"; sourceTree = "<group>"; };
 		F5D5D781285DA614007493F4 /* Screenshot 2022-06-18 at 11.49.20 AM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screenshot 2022-06-18 at 11.49.20 AM.png"; sourceTree = "<group>"; };
-		F5D5D786285DCAFD007493F4 /* Persistance_lecture_13.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Persistance_lecture_13.md; sourceTree = "<group>"; };
+		F5D5D786285DCAFD007493F4 /* Persistance_lecture_13_storeCheckList3.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Persistance_lecture_13_storeCheckList3.md; sourceTree = "<group>"; };
+		F5D5D788285DD572007493F4 /* Persistance_lecture_14.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Persistance_lecture_14.md; sourceTree = "<group>"; };
 		F5DA76C72859675F00AA1586 /* CacheFeedUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheFeedUseCaseTests.swift; sourceTree = "<group>"; };
 		F5DA76CE2859E5C900AA1586 /* EssentialFeediOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EssentialFeediOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5DA76D52859E5C900AA1586 /* EssentialFeediOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialFeediOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -161,7 +163,7 @@
 		F5DCB316285C2698003C9547 /* FeedCacheTestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCacheTestHelper.swift; sourceTree = "<group>"; };
 		F5DCB318285C273D003C9547 /* SharedTestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTestHelpers.swift; sourceTree = "<group>"; };
 		F5DCB31A285C2E0A003C9547 /* Persistance_lecture_8.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Persistance_lecture_8.md; sourceTree = "<group>"; };
-		F5DCB31C285C4998003C9547 /* Persistance_lecture_9.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Persistance_lecture_9.md; sourceTree = "<group>"; };
+		F5DCB31C285C4998003C9547 /* Persistance_lecture_9_testWithSideEffectsInNewFile.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Persistance_lecture_9_testWithSideEffectsInNewFile.md; sourceTree = "<group>"; };
 		F5DCB31E285C5614003C9547 /* FeedCachePolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCachePolicy.swift; sourceTree = "<group>"; };
 		F5DCB322285C9A84003C9547 /* Core_boundary_infra.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Core_boundary_infra.png; sourceTree = "<group>"; };
 		F5DCB324285C9AAD003C9547 /* Core_bounrady_infra.logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Core_bounrady_infra.logo.png; sourceTree = "<group>"; };
@@ -233,10 +235,11 @@
 				F5B1BD05285B27E600AA9D75 /* Persistance_lecture_6.md */,
 				F5B1BD0B285B537F00AA9D75 /* Persistance_lecture_7.md */,
 				F5DCB31A285C2E0A003C9547 /* Persistance_lecture_8.md */,
-				F5DCB31C285C4998003C9547 /* Persistance_lecture_9.md */,
-				F5D5D774285D720F007493F4 /* Persistance-lecture_10_11 */,
-				F5D5D77F285DA5F9007493F4 /* Persistance_lecture_12 */,
-				F5D5D786285DCAFD007493F4 /* Persistance_lecture_13.md */,
+				F5DCB31C285C4998003C9547 /* Persistance_lecture_9_testWithSideEffectsInNewFile.md */,
+				F5D5D774285D720F007493F4 /* Persistance-lecture_10_11_storeCheckList1 */,
+				F5D5D77F285DA5F9007493F4 /* Persistance_lecture_12_storeCheckList2 */,
+				F5D5D786285DCAFD007493F4 /* Persistance_lecture_13_storeCheckList3.md */,
+				F5D5D788285DD572007493F4 /* Persistance_lecture_14.md */,
 			);
 			path = "Ref For Persistance Module";
 			sourceTree = "<group>";
@@ -378,7 +381,7 @@
 			path = "Feed Api";
 			sourceTree = "<group>";
 		};
-		F5D5D774285D720F007493F4 /* Persistance-lecture_10_11 */ = {
+		F5D5D774285D720F007493F4 /* Persistance-lecture_10_11_storeCheckList1 */ = {
 			isa = PBXGroup;
 			children = (
 				F5DCB326285C9C3B003C9547 /* Persistance_lecture_10.md */,
@@ -386,17 +389,17 @@
 				F5D5D776285D722C007493F4 /* Screenshot 2022-06-18 at 8.04.30 AM.png */,
 				F5D5D775285D722C007493F4 /* Screenshot 2022-06-18 at 8.04.41 AM.png */,
 			);
-			path = "Persistance-lecture_10_11";
+			path = "Persistance-lecture_10_11_storeCheckList1";
 			sourceTree = "<group>";
 		};
-		F5D5D77F285DA5F9007493F4 /* Persistance_lecture_12 */ = {
+		F5D5D77F285DA5F9007493F4 /* Persistance_lecture_12_storeCheckList2 */ = {
 			isa = PBXGroup;
 			children = (
 				F5D5D781285DA614007493F4 /* Screenshot 2022-06-18 at 11.49.20 AM.png */,
 				F5D5D780285DA614007493F4 /* Screenshot 2022-06-18 at 11.49.26 AM.png */,
 				F5D5D77D285DA419007493F4 /* Persistacne_lecture_12.md */,
 			);
-			path = Persistance_lecture_12;
+			path = Persistance_lecture_12_storeCheckList2;
 			sourceTree = "<group>";
 		};
 		F5DA76C62859673800AA1586 /* Feed Cache */ = {
@@ -612,16 +615,17 @@
 				F5B87CE1283F5C5F00D86464 /* Assets.xcassets in Resources */,
 				F5B1BD04285B27C500AA9D75 /* Persistance_lecture_4.md in Resources */,
 				F5D5074128505EE900B16343 /* Narrative.md in Resources */,
-				F5D5D787285DCAFD007493F4 /* Persistance_lecture_13.md in Resources */,
+				F5D5D787285DCAFD007493F4 /* Persistance_lecture_13_storeCheckList3.md in Resources */,
 				F5B1BCF1285AD16900AA9D75 /* Cache-dependency.png in Resources */,
 				F5B9B273284F0E5D00ADA20C /* feed-case-study-test-api-feed.json in Resources */,
 				F5B1BD08285B288A00AA9D75 /* Persistance_lecture_3.md in Resources */,
 				F586E6C828410FDB00E219D2 /* README.md in Resources */,
-				F5DCB31D285C4998003C9547 /* Persistance_lecture_9.md in Resources */,
+				F5DCB31D285C4998003C9547 /* Persistance_lecture_9_testWithSideEffectsInNewFile.md in Resources */,
 				F5B9B263284F0A4800ADA20C /* Screenshot 2022-06-06 at 10.23.32 AM.png in Resources */,
 				F5D5D783285DA614007493F4 /* Screenshot 2022-06-18 at 11.49.20 AM.png in Resources */,
 				F5DCB325285C9AAD003C9547 /* Core_bounrady_infra.logo.png in Resources */,
 				F5B87CDF283F5C5C00D86464 /* Main.storyboard in Resources */,
+				F5D5D789285DD572007493F4 /* Persistance_lecture_14.md in Resources */,
 				F5D5D77E285DA419007493F4 /* Persistacne_lecture_12.md in Resources */,
 				F5B1BD00285B271D00AA9D75 /* Persistance_lecture_5.md in Resources */,
 				F5AEE6F1284C9626004D7655 /* HTTPClient.md in Resources */,
