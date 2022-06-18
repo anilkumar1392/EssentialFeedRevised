@@ -70,7 +70,9 @@ class CodableFeedStoreTests: XCTestCase, FailableFeedStore {
         wait(for: [exp], timeout: 1.0)
          */
         
-        expect(sut, toRetrieve: .empty)
+        // expect(sut, toRetrieve: .empty)
+        
+        assertThatRetrieveDeliversEmptyOnEmptyCache(on: sut)
     }
 
     func test_retrieve_hasNoSideEffectOnEmptyCache() {
