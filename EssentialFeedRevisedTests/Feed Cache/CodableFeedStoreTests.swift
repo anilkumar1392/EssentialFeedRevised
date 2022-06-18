@@ -337,19 +337,19 @@ class CodableFeedStoreTests: XCTestCase {
         
         XCTAssertNotNil(deletionError, "Expected to complete with error.")
         expect(sut, toRetrieve: .empty)
-    } 
+    }
 }
 
 // MARK: - Helper methods
 
 extension CodableFeedStoreTests {
-    private func makeSUT(storeURL: URL? = nil) -> CodableFeedStore {
+    private func makeSUT(storeURL: URL? = nil) -> FeedStore {
         let sut = CodableFeedStore(storeURL: storeURL ?? testSpecificStoreURL())
         trackForMemoryLeaks(sut)
         return sut
     }
     
-    private func delete(_ sut: CodableFeedStore, file : StaticString = #file, line: UInt = #line) -> Error? {
+    private func delete(_ sut: FeedStore, file : StaticString = #file, line: UInt = #line) -> Error? {
         let exp = expectation(description: "wait for cache deletion")
         
         var deletionError: Error?
@@ -364,7 +364,7 @@ extension CodableFeedStoreTests {
     }
     
     @discardableResult
-    private func insert(_ cache: (feed: [LocalFeedImage], timestamp: Date), to sut: CodableFeedStore, file : StaticString = #file, line: UInt = #line) -> Error? {
+    private func insert(_ cache: (feed: [LocalFeedImage], timestamp: Date), to sut: FeedStore, file : StaticString = #file, line: UInt = #line) -> Error? {
         let exp = expectation(description: "Wait for cache retrival")
         var insertionError: Error?
         sut.insert(cache.feed, timestamp: cache.timestamp, completion: { receivedInsertionError in
@@ -376,12 +376,12 @@ extension CodableFeedStoreTests {
         return insertionError
     }
     
-    private func expect(_ sut: CodableFeedStore, toRetrieveTwice expectedResult: RetrieveCachedFeedResult, file : StaticString = #file, line: UInt = #line) {
+    private func expect(_ sut: FeedStore, toRetrieveTwice expectedResult: RetrieveCachedFeedResult, file : StaticString = #file, line: UInt = #line) {
         expect(sut, toRetrieve: expectedResult, file: file, line: line)
         expect(sut, toRetrieve: expectedResult, file: file, line: line)
     }
     
-    private func expect(_ sut: CodableFeedStore, toRetrieve expectedResult: RetrieveCachedFeedResult, file : StaticString = #file, line: UInt = #line) {
+    private func expect(_ sut: FeedStore, toRetrieve expectedResult: RetrieveCachedFeedResult, file : StaticString = #file, line: UInt = #line) {
         let exp = expectation(description: "Wait for cache retrieval")
         
         sut.retrieve { retrievedResult in
