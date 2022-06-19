@@ -42,6 +42,22 @@ class CoreDataFeedStoreTests: XCTestCase, FailableFeedStore {
         
     }
     
+    func test_insert_deliversNoErrorOnEmptyCache() {
+        let sut = makeSUT()
+
+        assertThatInsertDeliversNoErrorOnEmptyCache(on: sut)
+    }
+    
+    func test_insert_deliversNoErrorOnNonEmptyCache() {
+        let sut = makeSUT()
+
+        assertThatInsertDeliversNoErrorOnNonEmptyCache(on: sut)
+    }
+    
+    func test_insert_overridesPreviouslyInsertedCachedValues() {
+        
+    }
+    
     func test_insert_deliversErrorOnInsertionError() {
         
     }
@@ -55,18 +71,6 @@ class CoreDataFeedStoreTests: XCTestCase, FailableFeedStore {
     }
     
     func test_delete_hasNoSideEffectsOnDeletionError() {
-        
-    }
-    
-    func test_insert_deliversNoErrorOnEmptyCache() {
-        
-    }
-    
-    func test_insert_deliversNoErrorOnNonEmptyCache() {
-        
-    }
-    
-    func test_insert_overridesPreviouslyInsertedCachedValues() {
         
     }
     
