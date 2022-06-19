@@ -10,6 +10,7 @@
 		F56F94A9285EAD3900CFBC5E /* Persistacne_lecture_15.md in Resources */ = {isa = PBXBuildFile; fileRef = F56F94A8285EAD3900CFBC5E /* Persistacne_lecture_15.md */; };
 		F56F94AB285EAF8600CFBC5E /* CoreDataFeedStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56F94AA285EAF8600CFBC5E /* CoreDataFeedStoreTests.swift */; };
 		F56F94AD285EB01A00CFBC5E /* CoreDataFeedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56F94AC285EB01A00CFBC5E /* CoreDataFeedStore.swift */; };
+		F56F94B3285EB31900CFBC5E /* FeedStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F56F94B1285EB31900CFBC5E /* FeedStore.xcdatamodeld */; };
 		F570DBA7284DBED8000ADC03 /* Screenshot 2022-06-06 at 10.18.50 AM.png in Resources */ = {isa = PBXBuildFile; fileRef = F570DBA6284DBED8000ADC03 /* Screenshot 2022-06-06 at 10.18.50 AM.png */; };
 		F586E6C828410FDB00E219D2 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F586E6C728410FDB00E219D2 /* README.md */; };
 		F5AEE6EC284C4439004D7655 /* URLSessionHTTPClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AEE6EB284C4439004D7655 /* URLSessionHTTPClientTests.swift */; };
@@ -116,6 +117,7 @@
 		F56F94A8285EAD3900CFBC5E /* Persistacne_lecture_15.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Persistacne_lecture_15.md; sourceTree = "<group>"; };
 		F56F94AA285EAF8600CFBC5E /* CoreDataFeedStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataFeedStoreTests.swift; sourceTree = "<group>"; };
 		F56F94AC285EB01A00CFBC5E /* CoreDataFeedStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataFeedStore.swift; sourceTree = "<group>"; };
+		F56F94B2285EB31900CFBC5E /* FeedStore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FeedStore.xcdatamodel; sourceTree = "<group>"; };
 		F570DBA6284DBED8000ADC03 /* Screenshot 2022-06-06 at 10.18.50 AM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screenshot 2022-06-06 at 10.18.50 AM.png"; sourceTree = "<group>"; };
 		F586E6C728410FDB00E219D2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F5AEE6EB284C4439004D7655 /* URLSessionHTTPClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClientTests.swift; sourceTree = "<group>"; };
@@ -239,6 +241,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F56F94AE285EB2D200CFBC5E /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				F56F94B0285EB2F200CFBC5E /* CoreData */,
+				F56F94AF285EB2E800CFBC5E /* Codable */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		F56F94AF285EB2E800CFBC5E /* Codable */ = {
+			isa = PBXGroup;
+			children = (
+				F5D5D779285DA339007493F4 /* CodableFeedStore.swift */,
+			);
+			path = Codable;
+			sourceTree = "<group>";
+		};
+		F56F94B0285EB2F200CFBC5E /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				F56F94AC285EB01A00CFBC5E /* CoreDataFeedStore.swift */,
+				F56F94B1285EB31900CFBC5E /* FeedStore.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		F570DBA8284DBEDE000ADC03 /* Ref For Persistance Module */ = {
 			isa = PBXGroup;
 			children = (
@@ -276,12 +304,11 @@
 		F5B1BCEB285ACE1400AA9D75 /* Feed Cache */ = {
 			isa = PBXGroup;
 			children = (
+				F56F94AE285EB2D200CFBC5E /* Infrastructure */,
 				F5B1BCEC285ACE2600AA9D75 /* LocalFeedLoader.swift */,
 				F5DCB31E285C5614003C9547 /* FeedCachePolicy.swift */,
 				F5B1BCEE285ACE8900AA9D75 /* FeedStore.swift */,
 				F5B1BCF6285ADBC200AA9D75 /* LocalFeedImage.swift */,
-				F5D5D779285DA339007493F4 /* CodableFeedStore.swift */,
-				F56F94AC285EB01A00CFBC5E /* CoreDataFeedStore.swift */,
 			);
 			path = "Feed Cache";
 			sourceTree = "<group>";
@@ -742,6 +769,7 @@
 				F5D5C5EB2845C580006FA1B0 /* FeedItemsMapper.swift in Sources */,
 				F5B1BCED285ACE2600AA9D75 /* LocalFeedLoader.swift in Sources */,
 				F5D5C5E82845C484006FA1B0 /* HTTPClient.swift in Sources */,
+				F56F94B3285EB31900CFBC5E /* FeedStore.xcdatamodeld in Sources */,
 				F5B87D0B283F5CC600D86464 /* FeedLoader.swift in Sources */,
 				F5B87D10283F7FB900D86464 /* RemoteFeedLoader.swift in Sources */,
 				F5B1BD0C285B537F00AA9D75 /* Persistance_lecture_7.md in Sources */,
@@ -1295,6 +1323,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F56F94B1285EB31900CFBC5E /* FeedStore.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F56F94B2285EB31900CFBC5E /* FeedStore.xcdatamodel */,
+			);
+			currentVersion = F56F94B2285EB31900CFBC5E /* FeedStore.xcdatamodel */;
+			path = FeedStore.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = F5B87CCC283F5C5C00D86464 /* Project object */;
 }
