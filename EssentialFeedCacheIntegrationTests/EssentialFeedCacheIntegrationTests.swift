@@ -44,7 +44,7 @@ class EssentialFeedCacheIntegrationTests: XCTestCase {
         
         let loadExp = expectation(description: "wait for load completion")
 
-        expect(sut: sutToPerformLoad, toLoad: feed[])
+        expect(sut: sutToPerformLoad, toLoad: feed)
     }
 }
 
