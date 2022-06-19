@@ -69,7 +69,7 @@ class CoreDataFeedStoreTests: XCTestCase, FailableFeedStore {
     }
     
     func test_delete_deliverErrorOnDeletionError() {
-        
+
     }
     
     func test_delete_hasNoSideEffectsOnDeletionError() {
@@ -77,7 +77,9 @@ class CoreDataFeedStoreTests: XCTestCase, FailableFeedStore {
     }
     
     func test_delete_deliversNoErrorOnEmptyCache() {
-        
+        let sut = makeSUT()
+
+        assertThatDeleteDeliversNoErrorOnEmptyCache(on: sut)
     }
     
     func test_delete_hasNoSideEffectOnEmptyCache() {
