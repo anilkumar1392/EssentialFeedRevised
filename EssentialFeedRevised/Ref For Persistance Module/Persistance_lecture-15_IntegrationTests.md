@@ -29,3 +29,6 @@ In Unit/isolated tests, we preper to run operations in memory when possible, whi
 
 In Integration tests, we prefer to use a stack of production instances, with no test doubles.
 This includes a physical file URL to make sure we can create and load the CoreData SQLLite artifacts to disk, which can slow down the tests.
+
+When we isolate the components we have the cost of integrating them.
+and if we don't manage, this create a mess in the codebase.
