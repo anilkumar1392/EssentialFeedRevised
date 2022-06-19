@@ -206,3 +206,26 @@ Codabase will be more complex when we mix both bussiness logic and infrastructur
 
 Thats why this seperation between them is so important.
 You end up with less complexity and less mistakes.
+
+## Lecture 16
+## Finishing the Cache Implementation with Business Logic + Core Data Integration Tests—Unit vs. Integration: Pros/Cons, Performance, Complexity & How to Achieve The ideal Testing Pyramid Distribution
+
+1. How to create and separate integration test from Unit(Isolated) tests.
+
+Goal: To keep isolated test as fast as possible.
+
+Unit Test: are the primary feedback mechanism.
+Unit Test(Isolated test): Should be fast, so you can run them several times a day without affecting productivity.
+Isolated test give us fast and continuous feedback and also confidence that our components work as intended.
+
+##Integration Tests:
+
+Give us confidence that components collaborate as intended.
+With no mocks and any other ttpes of testables.
+
+However Integration tests can be slow so you won't be running them as often as fast as isolated tests.
+
+While calling api
+Interacting with databases or filesystems.
+
+All tests (isolated & Integartion) hould run in your continuous integration pipeline.
