@@ -16,6 +16,20 @@ class CoreDataFeedStoreTests: XCTestCase, FailableFeedStore {
         assertThatRetrieveDeliversEmptyOnEmptyCache(on: sut)
     }
     
+    func test_retrieve_hasNoSideEffectOnEmptyCache() {
+        let sut = makeSUT()
+
+        assertThatRetrieveHasNoSideEffectsOnEmptyCache(on: sut)
+    }
+    
+    func test_retrieve_deliversFoundValuesOnNonEmptyCache() {
+        
+    }
+    
+    func test_retrieve_hasNoSideEffectOnNonEmptyCache() {
+        
+    }
+    
     func test_retrieve_deliversFailureOnRetrivalError() {
         
     }
@@ -37,18 +51,6 @@ class CoreDataFeedStoreTests: XCTestCase, FailableFeedStore {
     }
     
     func test_delete_hasNoSideEffectsOnDeletionError() {
-        
-    }
-    
-    func test_retrieve_hasNoSideEffectOnEmptyCache() {
-        
-    }
-    
-    func test_retrieve_deliversFoundValuesOnNonEmptyCache() {
-        
-    }
-    
-    func test_retrieve_hasNoSideEffectOnNonEmptyCache() {
         
     }
     
