@@ -18,6 +18,14 @@ func uniqueImage() -> FeedImage {
     return FeedImage(id: UUID(), description: "Any description", location: "A location", url: anyURL())
 }
 
+func anyURL() -> URL {
+    return URL(string: "Http://any-url.com")!
+}
+
+func anyError() -> NSError {
+    return NSError(domain: "any error", code: 1)
+}
+
 extension Date {
     func minusFeedCacheMaxAge() -> Date {
         return self.adding(days: -feedCacheMaxAgeInDays)

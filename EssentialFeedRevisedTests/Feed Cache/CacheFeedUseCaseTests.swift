@@ -193,7 +193,7 @@ class CacheFeedUseCaseTests: XCTestCase {
 // MARK: - Helepr methods
 
 extension CacheFeedUseCaseTests {
-    func makeSUT(currentDate: @escaping () -> Date = Date.init, file: StaticString = #file, line: UInt = #line) -> (sut: LocalFeedLoader, store: FeedStoreSpy){
+    func makeSUT(currentDate: @escaping () -> Date = Date.init, file: StaticString = #file, line: UInt = #line) -> (sut: LocalFeedLoader, store: FeedStoreSpy) {
         let store = FeedStoreSpy()
         let sut = LocalFeedLoader(store: store, currentDate: currentDate)
         trackForMemoryLeaks(store, file: file, line: line)
@@ -226,14 +226,6 @@ extension CacheFeedUseCaseTests {
     
     private func uniqueImage() -> FeedImage {
         return FeedImage(id: UUID(), description: "Any description", location: "A location", url: anyURL())
-    }
-    
-    func anyURL() -> URL {
-        return URL(string: "Http://any-url.com")!
-    }
-    
-    func anyError() -> NSError {
-        return NSError(domain: "any error", code: 1)
     }
 }
 
