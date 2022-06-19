@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F56F94A9285EAD3900CFBC5E /* Persistacne_lecture_15.md in Resources */ = {isa = PBXBuildFile; fileRef = F56F94A8285EAD3900CFBC5E /* Persistacne_lecture_15.md */; };
+		F56F94AB285EAF8600CFBC5E /* CoreDataFeedStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56F94AA285EAF8600CFBC5E /* CoreDataFeedStoreTests.swift */; };
 		F570DBA7284DBED8000ADC03 /* Screenshot 2022-06-06 at 10.18.50 AM.png in Resources */ = {isa = PBXBuildFile; fileRef = F570DBA6284DBED8000ADC03 /* Screenshot 2022-06-06 at 10.18.50 AM.png */; };
 		F586E6C828410FDB00E219D2 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F586E6C728410FDB00E219D2 /* README.md */; };
 		F5AEE6EC284C4439004D7655 /* URLSessionHTTPClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AEE6EB284C4439004D7655 /* URLSessionHTTPClientTests.swift */; };
@@ -110,6 +112,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F56F94A8285EAD3900CFBC5E /* Persistacne_lecture_15.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Persistacne_lecture_15.md; sourceTree = "<group>"; };
+		F56F94AA285EAF8600CFBC5E /* CoreDataFeedStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataFeedStoreTests.swift; sourceTree = "<group>"; };
 		F570DBA6284DBED8000ADC03 /* Screenshot 2022-06-06 at 10.18.50 AM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screenshot 2022-06-06 at 10.18.50 AM.png"; sourceTree = "<group>"; };
 		F586E6C728410FDB00E219D2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F5AEE6EB284C4439004D7655 /* URLSessionHTTPClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClientTests.swift; sourceTree = "<group>"; };
@@ -422,6 +426,7 @@
 				F5D5D78F285DE7EC007493F4 /* Screenshot 2022-06-18 at 4.19.46 PM.png */,
 				F5D5D790285DE7EC007493F4 /* Screenshot 2022-06-18 at 4.20.04 PM.png */,
 				F5D5D788285DD572007493F4 /* Persistance_lecture_14.md */,
+				F56F94A8285EAD3900CFBC5E /* Persistacne_lecture_15.md */,
 			);
 			path = Persistance_lecture_14_testSpecs;
 			sourceTree = "<group>";
@@ -447,6 +452,7 @@
 				F5B1BCF8285B10F800AA9D75 /* LoadFeedFromCacheUseCaseTests.swift */,
 				F5DCB314285C21C9003C9547 /* ValidateFeedCacheUseCaseTests.swift */,
 				F5DCB328285CAB8A003C9547 /* CodableFeedStoreTests.swift */,
+				F56F94AA285EAF8600CFBC5E /* CoreDataFeedStoreTests.swift */,
 			);
 			path = "Feed Cache";
 			sourceTree = "<group>";
@@ -658,6 +664,7 @@
 				F5B9B273284F0E5D00ADA20C /* feed-case-study-test-api-feed.json in Resources */,
 				F5B1BD08285B288A00AA9D75 /* Persistance_lecture_3.md in Resources */,
 				F586E6C828410FDB00E219D2 /* README.md in Resources */,
+				F56F94A9285EAD3900CFBC5E /* Persistacne_lecture_15.md in Resources */,
 				F5DCB31D285C4998003C9547 /* Persistance_lecture_9_testWithSideEffectsInNewFile.md in Resources */,
 				F5B9B263284F0A4800ADA20C /* Screenshot 2022-06-06 at 10.23.32 AM.png in Resources */,
 				F5D5D783285DA614007493F4 /* Screenshot 2022-06-18 at 11.49.20 AM.png in Resources */,
@@ -749,6 +756,7 @@
 				F5D5D78D285DE108007493F4 /* XCTestCase+FeedStoreSpecs.swift in Sources */,
 				F5DCB329285CAB8A003C9547 /* CodableFeedStoreTests.swift in Sources */,
 				F5B87D0D283F5DCA00D86464 /* LoadFeedFromRemoteUseCaseTests.swift in Sources */,
+				F56F94AB285EAF8600CFBC5E /* CoreDataFeedStoreTests.swift in Sources */,
 				F5AEE6F4284CB3CB004D7655 /* SCTestCase+MemoryLeakTracking.swift in Sources */,
 				F5DCB319285C273D003C9547 /* SharedTestHelpers.swift in Sources */,
 				F5AEE6EC284C4439004D7655 /* URLSessionHTTPClientTests.swift in Sources */,
