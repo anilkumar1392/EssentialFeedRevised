@@ -7,8 +7,15 @@
 
 import Foundation
 import XCTest
+import EssentialFeedRevised
 
 class CoreDataFeedStoreTests: XCTestCase, FailableFeedStore {
+    func test_retrieve_deliverEmptyOnEmptyCache() {
+        let sut = makeSUT()
+        
+        assertThatRetrieveDeliversEmptyOnEmptyCache(on: sut)
+    }
+    
     func test_retrieve_deliversFailureOnRetrivalError() {
         
     }
@@ -30,10 +37,6 @@ class CoreDataFeedStoreTests: XCTestCase, FailableFeedStore {
     }
     
     func test_delete_hasNoSideEffectsOnDeletionError() {
-        
-    }
-    
-    func test_retrieve_deliverEmptyOnEmptyCache() {
         
     }
     
@@ -81,4 +84,12 @@ class CoreDataFeedStoreTests: XCTestCase, FailableFeedStore {
         
     }
     
+}
+
+extension CoreDataFeedStoreTests {
+    private func makeSUT(file: StaticString = #file, line: UInt = #line) -> FeedStore {
+        let sut = CoreDataFeedStore()
+        trackForMemoryLeaks(sut)
+        return sut
+    }
 }
