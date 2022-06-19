@@ -24,3 +24,8 @@ All tests (isolated & Integartion) hould run in your continuous integration pipe
 ## The Goal
 
 The idea is to integrate all the cache model objects and see how they behave in collaboration or in integration.
+
+In Unit/isolated tests, we preper to run operations in memory when possible, which should be ultra fast.
+
+In Integration tests, we prefer to use a stack of production instances, with no test doubles.
+This includes a physical file URL to make sure we can create and load the CoreData SQLLite artifacts to disk, which can slow down the tests.

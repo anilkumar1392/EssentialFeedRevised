@@ -40,6 +40,7 @@
 		F5B1BD0C285B537F00AA9D75 /* Persistance_lecture_7.md in Sources */ = {isa = PBXBuildFile; fileRef = F5B1BD0B285B537F00AA9D75 /* Persistance_lecture_7.md */; };
 		F5B300B1285F20F500253FAC /* EssentialFeedCacheIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B300B0285F20F500253FAC /* EssentialFeedCacheIntegrationTests.swift */; };
 		F5B300BA285F215600253FAC /* Persistance_lecture-15_IntegrationTests.md in Resources */ = {isa = PBXBuildFile; fileRef = F5B300B9285F215600253FAC /* Persistance_lecture-15_IntegrationTests.md */; };
+		F5B300BB285F2A3300253FAC /* SCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AEE6F3284CB3CB004D7655 /* SCTestCase+MemoryLeakTracking.swift */; };
 		F5B87CD8283F5C5C00D86464 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B87CD7283F5C5C00D86464 /* AppDelegate.swift */; };
 		F5B87CDA283F5C5C00D86464 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B87CD9283F5C5C00D86464 /* SceneDelegate.swift */; };
 		F5B87CDC283F5C5C00D86464 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B87CDB283F5C5C00D86464 /* ViewController.swift */; };
@@ -852,6 +853,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5B300BB285F2A3300253FAC /* SCTestCase+MemoryLeakTracking.swift in Sources */,
 				F5B300B1285F20F500253FAC /* EssentialFeedCacheIntegrationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
