@@ -83,6 +83,7 @@
 		F5D35183287051C800C94DB5 /* FeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B87D0A283F5CC600D86464 /* FeedLoader.swift */; };
 		F5D35184287051DD00C94DB5 /* FeedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B87D08283F5CBC00D86464 /* FeedImage.swift */; };
 		F5D35185287051DE00C94DB5 /* FeedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B87D08283F5CBC00D86464 /* FeedImage.swift */; };
+		F5D35186287052B400C94DB5 /* SCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AEE6F3284CB3CB004D7655 /* SCTestCase+MemoryLeakTracking.swift */; };
 		F5D5074128505EE900B16343 /* Narrative.md in Resources */ = {isa = PBXBuildFile; fileRef = F5D5074028505EE900B16343 /* Narrative.md */; };
 		F5D5C5E82845C484006FA1B0 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D5C5E72845C484006FA1B0 /* HTTPClient.swift */; };
 		F5D5C5EB2845C580006FA1B0 /* FeedItemsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D5C5EA2845C580006FA1B0 /* FeedItemsMapper.swift */; };
@@ -1043,6 +1044,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5D35186287052B400C94DB5 /* SCTestCase+MemoryLeakTracking.swift in Sources */,
 				F5D35183287051C800C94DB5 /* FeedLoader.swift in Sources */,
 				F5D35181287017EB00C94DB5 /* FeedViewControllerTests.swift in Sources */,
 				F5D35185287051DE00C94DB5 /* FeedImage.swift in Sources */,
