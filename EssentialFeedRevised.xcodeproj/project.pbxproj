@@ -72,13 +72,13 @@
 		F5B9B271284F0C2600ADA20C /* SCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AEE6F3284CB3CB004D7655 /* SCTestCase+MemoryLeakTracking.swift */; };
 		F5B9B273284F0E5D00ADA20C /* feed-case-study-test-api-feed.json in Resources */ = {isa = PBXBuildFile; fileRef = F5B9B272284F0E5D00ADA20C /* feed-case-study-test-api-feed.json */; };
 		F5D3515F2870106E00C94DB5 /* EssentialFeediOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5D351572870106D00C94DB5 /* EssentialFeediOS.framework */; };
-		F5D351662870106E00C94DB5 /* EssentialFeediOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D351652870106E00C94DB5 /* EssentialFeediOSTests.swift */; };
-		F5D351672870106E00C94DB5 /* EssentialFeediOS.h in Headers */ = {isa = PBXBuildFile; fileRef = F5D351592870106D00C94DB5 /* EssentialFeediOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F5D3516A2870106E00C94DB5 /* EssentialFeediOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5D351572870106D00C94DB5 /* EssentialFeediOS.framework */; };
 		F5D3516B2870106E00C94DB5 /* EssentialFeediOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F5D351572870106D00C94DB5 /* EssentialFeediOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F5D35176287012E900C94DB5 /* UI_Lecture_1.md in Resources */ = {isa = PBXBuildFile; fileRef = F5D35175287012E900C94DB5 /* UI_Lecture_1.md */; };
 		F5D35179287014E200C94DB5 /* UI+Lecture+02.md in Resources */ = {isa = PBXBuildFile; fileRef = F5D35178287014E200C94DB5 /* UI+Lecture+02.md */; };
 		F5D3517B287015D800C94DB5 /* UI+Lecture_02_1.png in Resources */ = {isa = PBXBuildFile; fileRef = F5D3517A287015D800C94DB5 /* UI+Lecture_02_1.png */; };
+		F5D3517E2870165A00C94DB5 /* UI_Lecture_03.md in Resources */ = {isa = PBXBuildFile; fileRef = F5D3517D2870165A00C94DB5 /* UI_Lecture_03.md */; };
+		F5D35181287017EB00C94DB5 /* FeedViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D3517F287017C500C94DB5 /* FeedViewControllerTests.swift */; };
 		F5D5074128505EE900B16343 /* Narrative.md in Resources */ = {isa = PBXBuildFile; fileRef = F5D5074028505EE900B16343 /* Narrative.md */; };
 		F5D5C5E82845C484006FA1B0 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D5C5E72845C484006FA1B0 /* HTTPClient.swift */; };
 		F5D5C5EB2845C580006FA1B0 /* FeedItemsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D5C5EA2845C580006FA1B0 /* FeedItemsMapper.swift */; };
@@ -238,12 +238,12 @@
 		F5B9B26A284F0BB100ADA20C /* EssentialFeedApiEndToEndTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentialFeedApiEndToEndTests.swift; sourceTree = "<group>"; };
 		F5B9B272284F0E5D00ADA20C /* feed-case-study-test-api-feed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "feed-case-study-test-api-feed.json"; sourceTree = "<group>"; };
 		F5D351572870106D00C94DB5 /* EssentialFeediOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EssentialFeediOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F5D351592870106D00C94DB5 /* EssentialFeediOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EssentialFeediOS.h; sourceTree = "<group>"; };
 		F5D3515E2870106E00C94DB5 /* EssentialFeediOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialFeediOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F5D351652870106E00C94DB5 /* EssentialFeediOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentialFeediOSTests.swift; sourceTree = "<group>"; };
 		F5D35175287012E900C94DB5 /* UI_Lecture_1.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = UI_Lecture_1.md; sourceTree = "<group>"; };
 		F5D35178287014E200C94DB5 /* UI+Lecture+02.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "UI+Lecture+02.md"; sourceTree = "<group>"; };
 		F5D3517A287015D800C94DB5 /* UI+Lecture_02_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UI+Lecture_02_1.png"; sourceTree = "<group>"; };
+		F5D3517D2870165A00C94DB5 /* UI_Lecture_03.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = UI_Lecture_03.md; sourceTree = "<group>"; };
+		F5D3517F287017C500C94DB5 /* FeedViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewControllerTests.swift; sourceTree = "<group>"; };
 		F5D5074028505EE900B16343 /* Narrative.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Narrative.md; sourceTree = "<group>"; };
 		F5D5C5E72845C484006FA1B0 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		F5D5C5EA2845C580006FA1B0 /* FeedItemsMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItemsMapper.swift; sourceTree = "<group>"; };
@@ -558,7 +558,6 @@
 		F5D351582870106D00C94DB5 /* EssentialFeediOS */ = {
 			isa = PBXGroup;
 			children = (
-				F5D351592870106D00C94DB5 /* EssentialFeediOS.h */,
 			);
 			path = EssentialFeediOS;
 			sourceTree = "<group>";
@@ -566,7 +565,7 @@
 		F5D351642870106E00C94DB5 /* EssentialFeediOSTests */ = {
 			isa = PBXGroup;
 			children = (
-				F5D351652870106E00C94DB5 /* EssentialFeediOSTests.swift */,
+				F5D3517F287017C500C94DB5 /* FeedViewControllerTests.swift */,
 			);
 			path = EssentialFeediOSTests;
 			sourceTree = "<group>";
@@ -574,6 +573,7 @@
 		F5D35173287012B000C94DB5 /* UI + Presentation Module+ Readme */ = {
 			isa = PBXGroup;
 			children = (
+				F5D3517C2870162D00C94DB5 /* UI_Lecture_03 */,
 				F5D35177287014CE00C94DB5 /* UI_Lecture_02 */,
 				F5D35174287012CD00C94DB5 /* UI_Lecture_1 */,
 			);
@@ -595,6 +595,14 @@
 				F5D35178287014E200C94DB5 /* UI+Lecture+02.md */,
 			);
 			path = UI_Lecture_02;
+			sourceTree = "<group>";
+		};
+		F5D3517C2870162D00C94DB5 /* UI_Lecture_03 */ = {
+			isa = PBXGroup;
+			children = (
+				F5D3517D2870165A00C94DB5 /* UI_Lecture_03.md */,
+			);
+			path = UI_Lecture_03;
 			sourceTree = "<group>";
 		};
 		F5D5C5EC2845D04A006FA1B0 /* Feed Api */ = {
@@ -672,7 +680,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F5D351672870106E00C94DB5 /* EssentialFeediOS.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -816,6 +823,7 @@
 					};
 					F5D351562870106D00C94DB5 = {
 						CreatedOnToolsVersion = 13.3;
+						LastSwiftMigration = 1330;
 					};
 					F5D3515D2870106E00C94DB5 = {
 						CreatedOnToolsVersion = 13.3;
@@ -876,6 +884,7 @@
 				F5B9B273284F0E5D00ADA20C /* feed-case-study-test-api-feed.json in Resources */,
 				F5B300CE285F459600253FAC /* Unit:Isolated vs. Integration testing performance.png in Resources */,
 				F5B300DB285F483900253FAC /* Investigating the number of files.png in Resources */,
+				F5D3517E2870165A00C94DB5 /* UI_Lecture_03.md in Resources */,
 				F5B300D6285F47B300253FAC /* Screenshot 2022-06-19 at 5.28.53 PM.png in Resources */,
 				F5B1BD08285B288A00AA9D75 /* Persistance_lecture_3.md in Resources */,
 				F586E6C828410FDB00E219D2 /* README.md in Resources */,
@@ -1028,7 +1037,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F5D351662870106E00C94DB5 /* EssentialFeediOSTests.swift in Sources */,
+				F5D35181287017EB00C94DB5 /* FeedViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1372,6 +1381,7 @@
 		F5D3516D2870106E00C94DB5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -1392,6 +1402,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1402,6 +1413,7 @@
 		F5D3516E2870106E00C94DB5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -1432,7 +1444,6 @@
 		F5D351712870106E00C94DB5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = L2WG7FZ7D7;
@@ -1450,7 +1461,6 @@
 		F5D351722870106E00C94DB5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = L2WG7FZ7D7;
