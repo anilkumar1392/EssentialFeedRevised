@@ -10,7 +10,7 @@ import XCTest
 import UIKit
 import EssentialFeedRevised
 
-final class FeedViewController: UIViewController {
+final class FeedViewController: UITableViewController {
     private var loader: FeedLoader?
     
     convenience init(loader: FeedLoader) {
@@ -20,11 +20,21 @@ final class FeedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        refreshControl = UIRefreshControl()
+        refreshControl?.addTarget(self, action: #selector(load), for: .valueChanged)
+        refreshControl?.beginRefreshing()
+        load()
+    }
+    
+    @objc private func load() {
         loader?.load(completion: { _ in })
     }
 }
 
 final class FeedViewControllerTests: XCTestCase {
+    
+    // MARK: - Load feed automatically when view is presented
     
     func test_init_doesNotLoadFeed() {
         let (_, loader) = makeSUT()
@@ -38,7 +48,30 @@ final class FeedViewControllerTests: XCTestCase {
         sut.loadViewIfNeeded()
         
         XCTAssertEqual(loader.loaderCallCount, 1)
-    }    
+    }
+    
+    //MARK: - Allow customer to manually reload feed (pull to refresh)
+    
+    func test_pullToRefresh_loadsFeed() {
+        let (sut, loader) = makeSUT()
+        sut.loadViewIfNeeded()
+        
+        sut.refreshControl?.simulatePullToReferesh()
+        XCTAssertEqual(loader.loaderCallCount, 2)
+        
+        sut.refreshControl?.simulatePullToReferesh()
+        XCTAssertEqual(loader.loaderCallCount, 3)
+    }
+    
+    //MARK: - Show a loading indicator while loading feed
+    
+    func test_viewDidLoad_showsLoadingIndicator() {
+        let (sut, _) = makeSUT()
+        
+        sut.loadViewIfNeeded()
+        
+        XCTAssertEqual(sut.refreshControl?.isRefreshing, true)
+    }
 }
 
 extension FeedViewControllerTests {
@@ -61,3 +94,13 @@ extension FeedViewControllerTests {
     }
 }
 
+extension UIRefreshControl {
+    func simulatePullToReferesh() {
+        allTargets.forEach({ target in
+            actions(forTarget: target,
+                    forControlEvent: .valueChanged)?.forEach {
+                (target as NSObject).perform(Selector($0))
+            }
+        })
+    }
+}
