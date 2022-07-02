@@ -31,4 +31,6 @@ We arre coupling our code with specific UIControl the UIRefreshControl if we eve
 The refresh control is an implementation detail it would be better to hide it from the tests.
 As always it's always a good idea to decouple implementation details from tests.
 
+// Now after changes if we ever decide to change this we do not need to change tests but we just need to change the DSL implementations.
 
+This way we can guarante clean, felixible, and reliable behaviour tests that also serves as a great documentations.
