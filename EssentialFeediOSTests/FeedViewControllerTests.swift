@@ -9,30 +9,7 @@ import Foundation
 import XCTest
 import UIKit
 import EssentialFeedRevised
-
-final class FeedViewController: UITableViewController {
-    private var loader: FeedLoader?
-    
-    convenience init(loader: FeedLoader) {
-        self.init()
-        self.loader = loader
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        refreshControl = UIRefreshControl()
-        refreshControl?.addTarget(self, action: #selector(load), for: .valueChanged)
-        load()
-    }
-    
-    @objc private func load() {
-        refreshControl?.beginRefreshing()
-        loader?.load(completion: { [weak self] _ in
-            self?.refreshControl?.endRefreshing()
-        })
-    }
-}
+import EssentialFeediOS
 
 final class FeedViewControllerTests: XCTestCase {
     
@@ -164,7 +141,7 @@ extension FeedViewControllerTests {
 }
 
 extension FeedViewControllerTests {
-    final class LoaderSpy: FeedLoader {
+    class LoaderSpy: FeedLoader {
         private var completions = [(LoadFeedResult) -> Void]()
         
         var loaderCallCount: Int {
