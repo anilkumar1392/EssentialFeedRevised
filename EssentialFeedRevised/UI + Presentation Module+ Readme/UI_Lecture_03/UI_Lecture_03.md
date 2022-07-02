@@ -26,4 +26,9 @@ Infact a screen can be composed of many small MVC's.
 
 so while writing tests will not write test for viewDidLoad is actually invoked instead we just test what our implementation does when the framework tells us that the view is loaded.
 
+We arre coupling our code with specific UIControl the UIRefreshControl if we ever decide to change the control and add button on navigation to refresh we will have to rewrite the tests.
+
+The refresh control is an implementation detail it would be better to hide it from the tests.
+As always it's always a good idea to decouple implementation details from tests.
+
 

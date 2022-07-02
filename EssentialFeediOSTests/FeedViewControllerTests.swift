@@ -54,14 +54,20 @@ final class FeedViewControllerTests: XCTestCase {
     
     //MARK: - Allow customer to manually reload feed (pull to refresh)
     
-    func test_pullToRefresh_loadsFeed() {
+    /*
+     The refresh control is an implementation detail it would be better to hide it from the tests.
+     As always it's always a good idea to decouple implementation details from tests.
+     */
+    
+    func test_userInitiatedFeedReload_loadsFeed() {
+        // test_pullToRefresh_loadsFeed
         let (sut, loader) = makeSUT()
         sut.loadViewIfNeeded()
         
-        sut.refreshControl?.simulatePullToReferesh()
+        sut.simulateUserInitiatedFeedReload()
         XCTAssertEqual(loader.loaderCallCount, 2)
         
-        sut.refreshControl?.simulatePullToReferesh()
+        sut.simulateUserInitiatedFeedReload()
         XCTAssertEqual(loader.loaderCallCount, 3)
     }
     
@@ -84,18 +90,18 @@ final class FeedViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.refreshControl?.isRefreshing, false)
     }
     
-    func test_pullToRefresh_showsLoadingIndicator() {
+    func test_userInitiatedFeedReload_showsLoadingIndicator() {
         let (sut, _) = makeSUT()
         
-        sut.refreshControl?.simulatePullToReferesh()
+        sut.simulateUserInitiatedFeedReload()
         
         XCTAssertEqual(sut.refreshControl?.isRefreshing, true)
     }
     
-    func test_pullToRefresh_hidesLoadingIndicatorOnLoaderCompletion() {
+    func test_userInitiatedFeedReload_hidesLoadingIndicatorOnLoaderCompletion() {
         let (sut, loader) = makeSUT()
         
-        sut.refreshControl?.simulatePullToReferesh()
+        sut.simulateUserInitiatedFeedReload()
         loader.completeFeedLoading()
         
         XCTAssertEqual(sut.refreshControl?.isRefreshing, false)
@@ -127,6 +133,12 @@ extension FeedViewControllerTests {
         func completeFeedLoading(index: Int = 0) {
             completions[index](.success([]))
         }
+    }
+}
+
+private extension FeedViewController {
+    func simulateUserInitiatedFeedReload() {
+        refreshControl?.simulatePullToReferesh()
     }
 }
 
