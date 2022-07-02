@@ -23,11 +23,11 @@ final class FeedViewController: UITableViewController {
         
         refreshControl = UIRefreshControl()
         refreshControl?.addTarget(self, action: #selector(load), for: .valueChanged)
-        refreshControl?.beginRefreshing()
         load()
     }
     
     @objc private func load() {
+        refreshControl?.beginRefreshing()
         loader?.load(completion: { [weak self] _ in
             self?.refreshControl?.endRefreshing()
         })
@@ -38,6 +38,7 @@ final class FeedViewControllerTests: XCTestCase {
     
     // MARK: - Load feed automatically when view is presented
     
+    /*
     func test_init_doesNotLoadFeed() {
         let (_, loader) = makeSUT()
         
@@ -51,6 +52,7 @@ final class FeedViewControllerTests: XCTestCase {
         
         XCTAssertEqual(loader.loaderCallCount, 1)
     }
+     */
     
     //MARK: - Allow customer to manually reload feed (pull to refresh)
     
@@ -59,8 +61,8 @@ final class FeedViewControllerTests: XCTestCase {
      As always it's always a good idea to decouple implementation details from tests.
      */
     
-    func test_userInitiatedFeedReload_loadsFeed() {
-        // test_pullToRefresh_loadsFeed
+    /*
+    func test_loadFeedActions_requestFeedFromLoader() {
         let (sut, loader) = makeSUT()
         sut.loadViewIfNeeded()
         
@@ -69,10 +71,52 @@ final class FeedViewControllerTests: XCTestCase {
         
         sut.simulateUserInitiatedFeedReload()
         XCTAssertEqual(loader.loaderCallCount, 3)
-    }
+    } */
     
+    // We are merging them because they are creating temporal coupling.
+    /*
+     like our third test depends on viewDidLoad to call loadFeed()
+     because of which we are checking for loaderCallCount from 2, because we know loaderCallCount is 1 in previous test this is called temporal coupling.
+     
+     So to remove temporal coupling we have merged similar kind of tests.
+     */
+    
+    func test_userInitiatedFeedReload_loadsFeed() {
+        // test_pullToRefresh_loadsFeed
+        let (sut, loader) = makeSUT()
+        XCTAssertEqual(loader.loaderCallCount, 0)
+
+        sut.loadViewIfNeeded()
+        XCTAssertEqual(loader.loaderCallCount, 1)
+
+        sut.simulateUserInitiatedFeedReload()
+        XCTAssertEqual(loader.loaderCallCount, 2)
+        
+        sut.simulateUserInitiatedFeedReload()
+        XCTAssertEqual(loader.loaderCallCount, 3)
+    }
+
     //MARK: - Show a loading indicator while loading feed
     
+    // Same temporal coupling is in the loading indicator so let;s couple them to.
+    func test_loadingFeedIndicator_isVisibleWhenLoadingFeed() {
+        //test_viewDidLoad_showsLoadingIndicator
+        let (sut, loader) = makeSUT()
+        
+        sut.loadViewIfNeeded()
+        XCTAssertTrue(sut.isShowingLoadingIndicator)
+        
+        loader.completeFeedLoading(at: 0)
+        XCTAssertFalse(sut.isShowingLoadingIndicator)
+        
+        sut.simulateUserInitiatedFeedReload()
+        XCTAssertTrue(sut.isShowingLoadingIndicator)
+        
+        loader.completeFeedLoading(at: 1)
+        XCTAssertEqual(sut.isShowingLoadingIndicator, false)
+    }
+    
+    /*
     func test_viewDidLoad_showsLoadingIndicator() {
         let (sut, _) = makeSUT()
         
@@ -106,6 +150,7 @@ final class FeedViewControllerTests: XCTestCase {
         
         XCTAssertEqual(sut.isShowingLoadingIndicator, false)
     }
+     */
 }
 
 extension FeedViewControllerTests {
@@ -130,7 +175,7 @@ extension FeedViewControllerTests {
             completions.append(completion)
         }
         
-        func completeFeedLoading(index: Int = 0) {
+        func completeFeedLoading(at index: Int = 0) {
             completions[index](.success([]))
         }
     }

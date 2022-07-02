@@ -34,3 +34,16 @@ As always it's always a good idea to decouple implementation details from tests.
 // Now after changes if we ever decide to change this we do not need to change tests but we just need to change the DSL implementations.
 
 This way we can guarante clean, felixible, and reliable behaviour tests that also serves as a great documentations.
+
+## Temporal Coupling
+
+Requiring certain methods of a class to be called in specific order.
+
+Usually it is desired to have a single assertion per test.
+however when working with frameworks temporal coupling is dangerous.
+YOu don't have much control over the framework events.
+So when testing framwork events that have temporal coupling or in other words a specific order it's offen a good idea to unify the related events and assertions in one test.
+
+While combining assertion be sure to add good assertion messages to document the steps better.
+
+While you have more than one assertion it's critical to give more context of what was expected.
