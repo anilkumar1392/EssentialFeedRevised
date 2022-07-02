@@ -238,18 +238,6 @@ extension URLSessionHTTPClinetURLProtocolTests {
         return sut
     }
     
-    func anyURL() -> URL {
-        return URL(string: "Http://any-url.com")!
-    }
-    
-    func anyData() -> Data {
-        return Data("any data".utf8)
-    }
-    
-    func anyError() -> NSError {
-        return NSError(domain: "any error", code: 1)
-    }
-    
     func anyNonHTTPURLResponse() -> URLResponse {
         return URLResponse(url: anyURL(), mimeType: nil, expectedContentLength: 0, textEncodingName: nil)
     }

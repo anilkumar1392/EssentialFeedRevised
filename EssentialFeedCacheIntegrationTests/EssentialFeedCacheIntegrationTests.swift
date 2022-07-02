@@ -8,6 +8,8 @@
 import XCTest
 import EssentialFeedRevised
 
+// Intergration test to test load and save in collobaration.
+
 class EssentialFeedCacheIntegrationTests: XCTestCase {
 
     override func setUp() {
