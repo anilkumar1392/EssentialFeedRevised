@@ -79,6 +79,10 @@
 		F5D3517B287015D800C94DB5 /* UI+Lecture_02_1.png in Resources */ = {isa = PBXBuildFile; fileRef = F5D3517A287015D800C94DB5 /* UI+Lecture_02_1.png */; };
 		F5D3517E2870165A00C94DB5 /* UI_Lecture_03.md in Resources */ = {isa = PBXBuildFile; fileRef = F5D3517D2870165A00C94DB5 /* UI_Lecture_03.md */; };
 		F5D35181287017EB00C94DB5 /* FeedViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D3517F287017C500C94DB5 /* FeedViewControllerTests.swift */; };
+		F5D35182287051C700C94DB5 /* FeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B87D0A283F5CC600D86464 /* FeedLoader.swift */; };
+		F5D35183287051C800C94DB5 /* FeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B87D0A283F5CC600D86464 /* FeedLoader.swift */; };
+		F5D35184287051DD00C94DB5 /* FeedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B87D08283F5CBC00D86464 /* FeedImage.swift */; };
+		F5D35185287051DE00C94DB5 /* FeedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B87D08283F5CBC00D86464 /* FeedImage.swift */; };
 		F5D5074128505EE900B16343 /* Narrative.md in Resources */ = {isa = PBXBuildFile; fileRef = F5D5074028505EE900B16343 /* Narrative.md */; };
 		F5D5C5E82845C484006FA1B0 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D5C5E72845C484006FA1B0 /* HTTPClient.swift */; };
 		F5D5C5EB2845C580006FA1B0 /* FeedItemsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D5C5EA2845C580006FA1B0 /* FeedItemsMapper.swift */; };
@@ -1030,6 +1034,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5D35182287051C700C94DB5 /* FeedLoader.swift in Sources */,
+				F5D35184287051DD00C94DB5 /* FeedImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1037,7 +1043,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5D35183287051C800C94DB5 /* FeedLoader.swift in Sources */,
 				F5D35181287017EB00C94DB5 /* FeedViewControllerTests.swift in Sources */,
+				F5D35185287051DE00C94DB5 /* FeedImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1249,6 +1257,7 @@
 		F5B87CFF283F5C5F00D86464 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -1277,6 +1286,7 @@
 		F5B87D00283F5C5F00D86464 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -1444,6 +1454,7 @@
 		F5D351712870106E00C94DB5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = L2WG7FZ7D7;
@@ -1461,6 +1472,7 @@
 		F5D351722870106E00C94DB5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = L2WG7FZ7D7;
