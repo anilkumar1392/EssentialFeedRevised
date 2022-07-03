@@ -148,6 +148,21 @@ final class FeedViewControllerTests: XCTestCase {
         loader.completeFeedLoading(with: [image0, image1, image2, image3], at: 1)
         assertThat(sut, isRendering: [image0, image1, image2, image3])
     }
+    
+    // If we have already validated the current feed we don't want to invalidata the current feed.
+    
+    func test_loadFeedCompletion_doesNotAlterCurrentRenderingStateOnError() {
+        let image0 = makeImage(description: "a description", location: "a location")
+        let (sut, loader) = makeSUT()
+
+        sut.loadViewIfNeeded()
+        loader.completeFeedLoading(with: [image0], at: 0)
+        assertThat(sut, isRendering: [image0])
+
+        sut.simulateUserInitiatedFeedReload()
+        loader.completeLoadingWithError(at: 1)
+        assertThat(sut, isRendering: [image0])
+    }
 }
 
 extension FeedViewControllerTests {
@@ -204,6 +219,10 @@ extension FeedViewControllerTests {
         
         func completeFeedLoading(with feed: [FeedImage] = [], at index: Int = 0) {
             completions[index](.success(feed))
+        }
+        
+        func completeLoadingWithError(at index: Int) {
+            completions[index](.failure(anyError()))
         }
     }
 }
