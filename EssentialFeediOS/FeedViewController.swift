@@ -8,14 +8,18 @@
 import Foundation
 import UIKit
 
+public protocol FeedImageDataLoaderTask {
+    func cancel()
+}
+
 public protocol FeedImageDataLoader {
-    func loadImageData(from url: URL)
-    func cancelFeedImageDataLoad(from url: URL)
+    func loadImageData(from url: URL) -> FeedImageDataLoaderTask
 }
 
 public final class FeedViewController: UITableViewController {
     private var feedLoader: FeedLoader?
     private var imageLoader: FeedImageDataLoader?
+    private var tasks = [IndexPath: FeedImageDataLoaderTask]()
 
     private var tableModel = [FeedImage]()
     
@@ -58,12 +62,12 @@ public final class FeedViewController: UITableViewController {
         cell.locationLabel.text = cellModel.location
         cell.descriptionLabel.text = cellModel.description
         cell.locationContainer.isHidden = (cellModel.location == nil)
-        imageLoader?.loadImageData(from: cellModel.url)
+        tasks[indexPath] = imageLoader?.loadImageData(from: cellModel.url)
         return cell
     }
     
     public override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let cellModel = tableModel[indexPath.row]
-        imageLoader?.cancelFeedImageDataLoad(from: cellModel.url)
+        tasks[indexPath]?.cancel()
+        tasks[indexPath] = nil
     }
 }

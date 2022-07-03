@@ -40,3 +40,26 @@ To decouple loading from url session we are using an abstraction of 'FeedIamgeDa
 
 We can ether pass two different instances or only one that implements both protocol.
 This means we can add, remove, change features just by composing. 
+
+// Two methods in a protocol will force it's impementation to crete a state.
+public protocol FeedImageDataLoader {
+    func loadImageData(from url: URL)
+    func cancelFeedImageDataLoad(from url: URL)
+}
+
+it needs to be state ful because to be able to cancel from url you need to hold a state of a previous request to load an image from an url.
+So we are forcing the implementation of this protocol to be statefull.
+
+
+we can pass this responsibilty to the client to hold the state by returning something.
+
+e.g:
+public protocol FeedImageDataLoaderTask {
+    func cancel()
+}
+
+public protocol FeedImageDataLoader {
+    func loadImageData(from url: URL) -> FeedImageDataLoaderTask
+}
+
+## So this is the technique to move state mamagement to the client.
