@@ -16,4 +16,11 @@ Testing UIKit components without mocking
 Creating in-memory UIImage representations for fast and reliable tests
 Following the Open Closed, Interface Segregation, and Dependency Inversion Principles
 
+// We are hiding all the implementation of tableView from the tests using DSL's.
 
+// Every time we test in collection we test in 
+1. zero case 
+2. one element
+3. Many element
+
+This is a classic triangulation.

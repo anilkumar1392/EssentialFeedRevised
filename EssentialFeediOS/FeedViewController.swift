@@ -10,6 +10,7 @@ import UIKit
 
 public final class FeedViewController: UITableViewController {
     private var loader: FeedLoader?
+    private var tableModel = [FeedImage]()
     
     public convenience init(loader: FeedLoader) {
         self.init()
@@ -26,8 +27,29 @@ public final class FeedViewController: UITableViewController {
     
     @objc private func load() {
         refreshControl?.beginRefreshing()
-        loader?.load(completion: { [weak self] _ in
+        loader?.load { [weak self] result in
+            switch result {
+            case .success(let feed):
+                self?.tableModel = feed
+
+            case .failure:
+                break
+            }
+            self?.tableView.reloadData()
             self?.refreshControl?.endRefreshing()
-        })
+        }
+    }
+    
+    public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tableModel.count
+    }
+    
+    public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cellModel = tableModel[indexPath.row]
+        let cell = FeedImageCell()
+        cell.locationLabel.text = cellModel.location
+        cell.descriptionLabel.text = cellModel.description
+        cell.locationContainer.isHidden = (cellModel.location == nil)
+        return cell
     }
 }
