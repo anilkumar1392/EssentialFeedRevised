@@ -58,39 +58,40 @@ final class FeedViewControllerTests: XCTestCase {
      So to remove temporal coupling we have merged similar kind of tests.
      */
     
-    func test_userInitiatedFeedReload_loadsFeed() {
-        // test_pullToRefresh_loadsFeed
+    func test_loadFeedActions_requestFeedFromLoader() {
         let (sut, loader) = makeSUT()
-        XCTAssertEqual(loader.loaderCallCount, 0)
-
+        XCTAssertEqual(loader.loadCallCount, 0, "Expected no loading requests before view is loaded")
+        
         sut.loadViewIfNeeded()
-        XCTAssertEqual(loader.loaderCallCount, 1)
-
-        sut.simulateUserInitiatedFeedReload()
-        XCTAssertEqual(loader.loaderCallCount, 2)
+        XCTAssertEqual(loader.loadCallCount, 1, "Expected a loading request once view is loaded")
         
         sut.simulateUserInitiatedFeedReload()
-        XCTAssertEqual(loader.loaderCallCount, 3)
+        XCTAssertEqual(loader.loadCallCount, 2, "Expected another loading request once user initiates a reload")
+        
+        sut.simulateUserInitiatedFeedReload()
+        XCTAssertEqual(loader.loadCallCount, 3, "Expected yet another loading request once user initiates another reload")
     }
 
     //MARK: - Show a loading indicator while loading feed
     
     // Same temporal coupling is in the loading indicator so let;s couple them to.
-    func test_loadingFeedIndicator_isVisibleWhenLoadingFeed() {
-        //test_viewDidLoad_showsLoadingIndicator
+    func test_loadingFeedIndicator_isVisibleWhileLoadingFeed() {
         let (sut, loader) = makeSUT()
         
         sut.loadViewIfNeeded()
-        XCTAssertTrue(sut.isShowingLoadingIndicator)
-        
+        XCTAssertTrue(sut.isShowingLoadingIndicator, "Expected loading indicator once view is loaded")
+
         loader.completeFeedLoading(at: 0)
-        XCTAssertFalse(sut.isShowingLoadingIndicator)
-        
+        XCTAssertFalse(sut.isShowingLoadingIndicator, "Expected no loading indicator once loading is completed")
+        XCTAssertFalse(sut.isShowingLoadingIndicator, "Expected no loading indicator once loading completes successfully")
+
         sut.simulateUserInitiatedFeedReload()
-        XCTAssertTrue(sut.isShowingLoadingIndicator)
-        
+        XCTAssertTrue(sut.isShowingLoadingIndicator, "Expected loading indicator once user initiates a reload")
+
         loader.completeFeedLoading(at: 1)
-        XCTAssertEqual(sut.isShowingLoadingIndicator, false)
+        XCTAssertFalse(sut.isShowingLoadingIndicator, "Expected no loading indicator once user initiated loading is completed")
+        loader.completeFeedLoadingWithError(at: 1)
+        XCTAssertFalse(sut.isShowingLoadingIndicator, "Expected no loading indicator once user initiated loading completes with error")
     }
     
     /*
@@ -160,7 +161,7 @@ final class FeedViewControllerTests: XCTestCase {
         assertThat(sut, isRendering: [image0])
 
         sut.simulateUserInitiatedFeedReload()
-        loader.completeLoadingWithError(at: 1)
+        loader.completeFeedLoadingWithError(at: 1)
         assertThat(sut, isRendering: [image0])
     }
 }
@@ -209,7 +210,7 @@ extension FeedViewControllerTests {
     class LoaderSpy: FeedLoader {
         private var completions = [(LoadFeedResult) -> Void]()
         
-        var loaderCallCount: Int {
+        var loadCallCount: Int {
             return completions.count
         }
 
@@ -221,7 +222,7 @@ extension FeedViewControllerTests {
             completions[index](.success(feed))
         }
         
-        func completeLoadingWithError(at index: Int) {
+        func completeFeedLoadingWithError(at index: Int) {
             completions[index](.failure(anyError()))
         }
     }

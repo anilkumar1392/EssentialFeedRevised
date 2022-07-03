@@ -19,7 +19,7 @@ public final class FeedViewController: UITableViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        
+         
         refreshControl = UIRefreshControl()
         refreshControl?.addTarget(self, action: #selector(load), for: .valueChanged)
         load()
@@ -32,11 +32,11 @@ public final class FeedViewController: UITableViewController {
             case .success(let feed):
                 self?.tableModel = feed
                 self?.tableView.reloadData()
-                self?.refreshControl?.endRefreshing()
                 
             case .failure:
                 break
             }
+            self?.refreshControl?.endRefreshing()
         }
     }
     
