@@ -24,3 +24,19 @@ Following the Open Closed, Interface Segregation, and Dependency Inversion Princ
 3. Many element
 
 This is a classic triangulation.
+
+
+## To load image from URl for a cell.
+
+To decouple loading from url session we are using an abstraction of 'FeedIamgeDataLoader'
+
+ By adding the 'FeedIamgeDataLoader' protocol abstraction, we decouple the 'FeedViewController' from concrete implementation like URLSession.
+ 
+ The controller does not care where the image data comes from (e.g, Cache or network.) This way we are free to change the implementation or add more functionality (e.g, In memory caching, logging, monitoring) on demand without having to modify the controller (open/close principle).
+ 
+ of Course it also facilitates testing as we do not need to make network call. 
+
+## Dependency injection + Interface segregration principle unleashes the power of composition.
+
+We can ether pass two different instances or only one that implements both protocol.
+This means we can add, remove, change features just by composing. 
