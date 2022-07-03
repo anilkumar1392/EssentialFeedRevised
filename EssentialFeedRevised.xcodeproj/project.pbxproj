@@ -120,6 +120,16 @@
 		F5DC8FB828717EF600FB425D /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DCB318285C273D003C9547 /* SharedTestHelpers.swift */; };
 		F5DC8FBA2871997700FB425D /* UIView+Shimmering.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DC8FB92871997700FB425D /* UIView+Shimmering.swift */; };
 		F5DC8FBB287199D400FB425D /* UIView+Shimmering.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DC8FB92871997700FB425D /* UIView+Shimmering.swift */; };
+		F5DC8FBD2871D80000FB425D /* Architecture overview.png in Resources */ = {isa = PBXBuildFile; fileRef = F5DC8FBC2871D80000FB425D /* Architecture overview.png */; };
+		F5DC8FBF2871D85300FB425D /* Inside-out_1.png in Resources */ = {isa = PBXBuildFile; fileRef = F5DC8FBE2871D85300FB425D /* Inside-out_1.png */; };
+		F5DC8FC12871D89200FB425D /* Inside-out_2.png in Resources */ = {isa = PBXBuildFile; fileRef = F5DC8FC02871D89200FB425D /* Inside-out_2.png */; };
+		F5DC8FC32871D92600FB425D /* Inside-out_3.png in Resources */ = {isa = PBXBuildFile; fileRef = F5DC8FC22871D92600FB425D /* Inside-out_3.png */; };
+		F5DC8FC52871D98000FB425D /*  start of a massive.png in Resources */ = {isa = PBXBuildFile; fileRef = F5DC8FC42871D98000FB425D /*  start of a massive.png */; };
+		F5DC8FC72871DA2B00FB425D /* Open Closed Principle.png in Resources */ = {isa = PBXBuildFile; fileRef = F5DC8FC62871DA2B00FB425D /* Open Closed Principle.png */; };
+		F5DC8FC92871DB6D00FB425D /* Open Closed Principle_2.png in Resources */ = {isa = PBXBuildFile; fileRef = F5DC8FC82871DB6D00FB425D /* Open Closed Principle_2.png */; };
+		F5DC8FCC2871DBB800FB425D /* Open Closed Principl_3.png in Resources */ = {isa = PBXBuildFile; fileRef = F5DC8FCA2871DBB700FB425D /* Open Closed Principl_3.png */; };
+		F5DC8FCD2871DBB800FB425D /* Open Closed Principle_4.png in Resources */ = {isa = PBXBuildFile; fileRef = F5DC8FCB2871DBB800FB425D /* Open Closed Principle_4.png */; };
+		F5DC8FCF2871DCC500FB425D /* simulate_01.png in Resources */ = {isa = PBXBuildFile; fileRef = F5DC8FCE2871DCC500FB425D /* simulate_01.png */; };
 		F5DCB315285C21C9003C9547 /* ValidateFeedCacheUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DCB314285C21C9003C9547 /* ValidateFeedCacheUseCaseTests.swift */; };
 		F5DCB317285C2698003C9547 /* FeedCacheTestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DCB316285C2698003C9547 /* FeedCacheTestHelper.swift */; };
 		F5DCB319285C273D003C9547 /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DCB318285C273D003C9547 /* SharedTestHelpers.swift */; };
@@ -297,6 +307,16 @@
 		F5DA76C72859675F00AA1586 /* CacheFeedUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheFeedUseCaseTests.swift; sourceTree = "<group>"; };
 		F5DC8FB4287152F200FB425D /* FeedImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageCell.swift; sourceTree = "<group>"; };
 		F5DC8FB92871997700FB425D /* UIView+Shimmering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shimmering.swift"; sourceTree = "<group>"; };
+		F5DC8FBC2871D80000FB425D /* Architecture overview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Architecture overview.png"; sourceTree = "<group>"; };
+		F5DC8FBE2871D85300FB425D /* Inside-out_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Inside-out_1.png"; sourceTree = "<group>"; };
+		F5DC8FC02871D89200FB425D /* Inside-out_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Inside-out_2.png"; sourceTree = "<group>"; };
+		F5DC8FC22871D92600FB425D /* Inside-out_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Inside-out_3.png"; sourceTree = "<group>"; };
+		F5DC8FC42871D98000FB425D /*  start of a massive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = " start of a massive.png"; sourceTree = "<group>"; };
+		F5DC8FC62871DA2B00FB425D /* Open Closed Principle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Open Closed Principle.png"; sourceTree = "<group>"; };
+		F5DC8FC82871DB6D00FB425D /* Open Closed Principle_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Open Closed Principle_2.png"; sourceTree = "<group>"; };
+		F5DC8FCA2871DBB700FB425D /* Open Closed Principl_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Open Closed Principl_3.png"; sourceTree = "<group>"; };
+		F5DC8FCB2871DBB800FB425D /* Open Closed Principle_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Open Closed Principle_4.png"; sourceTree = "<group>"; };
+		F5DC8FCE2871DCC500FB425D /* simulate_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = simulate_01.png; sourceTree = "<group>"; };
 		F5DCB314285C21C9003C9547 /* ValidateFeedCacheUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateFeedCacheUseCaseTests.swift; sourceTree = "<group>"; };
 		F5DCB316285C2698003C9547 /* FeedCacheTestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCacheTestHelper.swift; sourceTree = "<group>"; };
 		F5DCB318285C273D003C9547 /* SharedTestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTestHelpers.swift; sourceTree = "<group>"; };
@@ -654,6 +674,16 @@
 		F5D3518A287071F300C94DB5 /* UI_Lecture_04 */ = {
 			isa = PBXGroup;
 			children = (
+				F5DC8FCE2871DCC500FB425D /* simulate_01.png */,
+				F5DC8FCA2871DBB700FB425D /* Open Closed Principl_3.png */,
+				F5DC8FCB2871DBB800FB425D /* Open Closed Principle_4.png */,
+				F5DC8FC82871DB6D00FB425D /* Open Closed Principle_2.png */,
+				F5DC8FC62871DA2B00FB425D /* Open Closed Principle.png */,
+				F5DC8FC42871D98000FB425D /*  start of a massive.png */,
+				F5DC8FC22871D92600FB425D /* Inside-out_3.png */,
+				F5DC8FC02871D89200FB425D /* Inside-out_2.png */,
+				F5DC8FBE2871D85300FB425D /* Inside-out_1.png */,
+				F5DC8FBC2871D80000FB425D /* Architecture overview.png */,
 				F5D3518B2870720B00C94DB5 /* UI+Lecture+04.md */,
 			);
 			path = UI_Lecture_04;
@@ -928,9 +958,11 @@
 				F5B87CE4283F5C5F00D86464 /* LaunchScreen.storyboard in Resources */,
 				F5D5D778285D722C007493F4 /* Screenshot 2022-06-18 at 8.04.30 AM.png in Resources */,
 				F5B87CE1283F5C5F00D86464 /* Assets.xcassets in Resources */,
+				F5DC8FBD2871D80000FB425D /* Architecture overview.png in Resources */,
 				F5B300D0285F465300253FAC /* Unit:Isolated + Integration tests.png in Resources */,
 				F5B1BD04285B27C500AA9D75 /* Persistance_lecture_4.md in Resources */,
 				F5D5074128505EE900B16343 /* Narrative.md in Resources */,
+				F5DC8FC52871D98000FB425D /*  start of a massive.png in Resources */,
 				F5D35199287072D000C94DB5 /* lecture_03_3.png in Resources */,
 				F5D5D787285DCAFD007493F4 /* Persistance_lecture_13_storeCheckList3.md in Resources */,
 				F56F94BF285EDB7400CFBC5E /* Screenshot 2022-06-19 at 9.35.37 AM.png in Resources */,
@@ -940,6 +972,7 @@
 				F5B9B273284F0E5D00ADA20C /* feed-case-study-test-api-feed.json in Resources */,
 				F5B300CE285F459600253FAC /* Unit:Isolated vs. Integration testing performance.png in Resources */,
 				F5B300DB285F483900253FAC /* Investigating the number of files.png in Resources */,
+				F5DC8FC72871DA2B00FB425D /* Open Closed Principle.png in Resources */,
 				F5D3517E2870165A00C94DB5 /* UI_Lecture_03.md in Resources */,
 				F5B300D6285F47B300253FAC /* Screenshot 2022-06-19 at 5.28.53 PM.png in Resources */,
 				F5B1BD08285B288A00AA9D75 /* Persistance_lecture_3.md in Resources */,
@@ -947,6 +980,7 @@
 				F5D3519C287072D000C94DB5 /* lecture_03_4.png in Resources */,
 				F5B300C5285F434500253FAC /* Screenshot 2022-06-19 at 5.06.45 PM.png in Resources */,
 				F56F94A9285EAD3900CFBC5E /* Persistacne_lecture_15.md in Resources */,
+				F5DC8FC92871DB6D00FB425D /* Open Closed Principle_2.png in Resources */,
 				F5DCB31D285C4998003C9547 /* Persistance_lecture_9_testWithSideEffectsInNewFile.md in Resources */,
 				F5B9B263284F0A4800ADA20C /* Screenshot 2022-06-06 at 10.23.32 AM.png in Resources */,
 				F5B300D5285F47B300253FAC /* Working in small batches.png in Resources */,
@@ -956,6 +990,7 @@
 				F5D35179287014E200C94DB5 /* UI+Lecture+02.md in Resources */,
 				F5B87CDF283F5C5C00D86464 /* Main.storyboard in Resources */,
 				F5D35197287072D000C94DB5 /* lecture_03_7.png in Resources */,
+				F5DC8FC12871D89200FB425D /* Inside-out_2.png in Resources */,
 				F5D5D789285DD572007493F4 /* Persistance_lecture_14.md in Resources */,
 				F5D5D77E285DA419007493F4 /* Persistacne_lecture_12.md in Resources */,
 				F5B1BD00285B271D00AA9D75 /* Persistance_lecture_5.md in Resources */,
@@ -963,20 +998,25 @@
 				F56F94BE285EDB7400CFBC5E /* Screenshot 2022-06-19 at 9.46.58 AM.png in Resources */,
 				F5D35198287072D000C94DB5 /* lecture_03_2.png in Resources */,
 				F5B1BD0A285B297900AA9D75 /* Persistance_lecture_2.md in Resources */,
+				F5DC8FCC2871DBB800FB425D /* Open Closed Principl_3.png in Resources */,
 				F5D35196287072D000C94DB5 /* lecture_03_6.png in Resources */,
 				F5B300C6285F434500253FAC /* Screenshot 2022-06-19 at 5.07.21 PM.png in Resources */,
 				F5D3518C2870720B00C94DB5 /* UI+Lecture+04.md in Resources */,
 				F570DBA7284DBED8000ADC03 /* Screenshot 2022-06-06 at 10.18.50 AM.png in Resources */,
 				F5B300DC285F483900253FAC /* Visualizing the number of files.png in Resources */,
+				F5DC8FCF2871DCC500FB425D /* simulate_01.png in Resources */,
 				F5B1BCF3285ADB3B00AA9D75 /* after data_transfer_objtec.png in Resources */,
 				F5D35195287072D000C94DB5 /* lecture_03_5.png in Resources */,
 				F5B300DD285F483900253FAC /* Test-first curve in the codebase.png in Resources */,
+				F5DC8FBF2871D85300FB425D /* Inside-out_1.png in Resources */,
 				F5B300D7285F47B300253FAC /* Developing independent modules.png in Resources */,
 				F5B300CA285F43FB00253FAC /* Limited team collaboration.png in Resources */,
 				F5DCB32D285CB7A3003C9547 /* Persistance_lecture_11.md in Resources */,
 				F5B300CC285F44A500253FAC /* Unit:Isolated vs. Integration Tests.png in Resources */,
+				F5DC8FCD2871DBB800FB425D /* Open Closed Principle_4.png in Resources */,
 				F5D3519A287072D000C94DB5 /* lecture_03_1.png in Resources */,
 				F5D5D782285DA614007493F4 /* Screenshot 2022-06-18 at 11.49.26 AM.png in Resources */,
+				F5DC8FC32871D92600FB425D /* Inside-out_3.png in Resources */,
 				F5B300BA285F215600253FAC /* Persistance_lecture-15_IntegrationTests.md in Resources */,
 				F5D5D777285D722C007493F4 /* Screenshot 2022-06-18 at 8.04.41 AM.png in Resources */,
 				F5DCB323285C9A84003C9547 /* Core_boundary_infra.png in Resources */,
