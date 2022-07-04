@@ -35,3 +35,43 @@ Let's keep an eye on this as we don't want to create dependency
     
     ## Creating your own dependencies can be a problem.
     
+    After having FeedViewController, FeedImageCellController, FeedRefreshViewController diagram shows now we have more dependencies than previous beacuse FeedViewController has to create its dependencies.
+    
+    So clean code and separate responsibilites are must bu tnot enough we must also manage dependencies smartly.
+
+##1. Clean Code
+##2. Separate Responsibilities
+##3. Manage dependency
+
+we need to create dependency creation and injection in to a separate component.
+
+Since FeedViewController Create RefreshController thats why it need FeedLoader as a dependency.
+
+        self.refreshController = FeedRefreshViewController(feedLoader: feedLoader)
+        
+        Then it creates FeedImageCellController for every cell adn since cellControlelr needs a image loader the feedViewController also depends on  image loader.
+        
+        So we need to separate the creation.
+        The FeedViewCOntroller should onkly use its dependency.
+        
+        1. One solution is to inject it as a dependency.
+        
+## We need to create FeedImageCellController on demand
+
+1. A common approach to solve this problem is to use factory.
+ factory will have a reference to the image loader then we can decouple the feedViewController from the image loader.
+ 
+ but now we have a extra dependency. ## The Factory and the factory depends on the image loader.
+ although its a popular solution but it does not solve the problem.
+ 
+ So factory don't solve our dependency problem.
+ 
+ ## also FeedViewCOntroller also depends on tableModel just to pass it to the cell controller so ideally FeedViewCOntroller should not depend on FeedImage or imag e loader.
+ 
+ ##Solution: 
+ 
+ So we have tableModel an array of FeedImages 
+ 1. but we don not need FeedImages we need CellControllers.
+ So what if instead of tableModel we get cell Controllers. that is created by someone else then we can decouple the 'FeedViewController' from 'Feed' and 'ImageLoader' at teh same time and move the responsibility of creation to another component.
+        
+    Now we have all the object creation in one function so we can move it to another fucntion.

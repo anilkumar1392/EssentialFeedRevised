@@ -33,6 +33,7 @@
 		F5AF14A32872A1250004B4C2 /* REfactor_2.png in Resources */ = {isa = PBXBuildFile; fileRef = F5AF149F2872A1250004B4C2 /* REfactor_2.png */; };
 		F5AF14A42872A1250004B4C2 /* REfactor_4.png in Resources */ = {isa = PBXBuildFile; fileRef = F5AF14A02872A1250004B4C2 /* REfactor_4.png */; };
 		F5AF14A52872A1250004B4C2 /* REfactor_1.png in Resources */ = {isa = PBXBuildFile; fileRef = F5AF14A12872A1250004B4C2 /* REfactor_1.png */; };
+		F5AF14A62872CD8A0004B4C2 /* FeedImageCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AF149C28729FDC0004B4C2 /* FeedImageCellController.swift */; };
 		F5B1BCED285ACE2600AA9D75 /* LocalFeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B1BCEC285ACE2600AA9D75 /* LocalFeedLoader.swift */; };
 		F5B1BCEF285ACE8900AA9D75 /* FeedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B1BCEE285ACE8900AA9D75 /* FeedStore.swift */; };
 		F5B1BCF1285AD16900AA9D75 /* Cache-dependency.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B1BCF0285AD16900AA9D75 /* Cache-dependency.png */; };
@@ -1262,6 +1263,7 @@
 				F5D35181287017EB00C94DB5 /* FeedViewControllerTests.swift in Sources */,
 				F5D35185287051DE00C94DB5 /* FeedImage.swift in Sources */,
 				F5AF1498287291300004B4C2 /* FeedImageLoader.swift in Sources */,
+				F5AF14A62872CD8A0004B4C2 /* FeedImageCellController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
