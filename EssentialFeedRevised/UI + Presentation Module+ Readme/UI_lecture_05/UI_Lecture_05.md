@@ -30,3 +30,8 @@ Let's keep an eye on this as we don't want to create dependency
     it is more suitable to move it to a initializer injection.
     
     This calss does not need to manage more than one model or more than one imageLoader. So initializer injection is best here.
+    
+    We moved several responsibilities to the 'FeedIamgeCellController' but again FeedViewController gain another two more responsibility Creating and communicating with the 'FeedImageCellController' 
+    
+    ## Creating your own dependencies can be a problem.
+    

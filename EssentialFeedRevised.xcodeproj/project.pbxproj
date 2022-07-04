@@ -29,6 +29,10 @@
 		F5AF149A287291660004B4C2 /* FeedRefreshViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AF1499287291660004B4C2 /* FeedRefreshViewController.swift */; };
 		F5AF149B287291710004B4C2 /* FeedRefreshViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AF1499287291660004B4C2 /* FeedRefreshViewController.swift */; };
 		F5AF149D28729FDC0004B4C2 /* FeedImageCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AF149C28729FDC0004B4C2 /* FeedImageCellController.swift */; };
+		F5AF14A22872A1250004B4C2 /* REfactor_3.png in Resources */ = {isa = PBXBuildFile; fileRef = F5AF149E2872A1250004B4C2 /* REfactor_3.png */; };
+		F5AF14A32872A1250004B4C2 /* REfactor_2.png in Resources */ = {isa = PBXBuildFile; fileRef = F5AF149F2872A1250004B4C2 /* REfactor_2.png */; };
+		F5AF14A42872A1250004B4C2 /* REfactor_4.png in Resources */ = {isa = PBXBuildFile; fileRef = F5AF14A02872A1250004B4C2 /* REfactor_4.png */; };
+		F5AF14A52872A1250004B4C2 /* REfactor_1.png in Resources */ = {isa = PBXBuildFile; fileRef = F5AF14A12872A1250004B4C2 /* REfactor_1.png */; };
 		F5B1BCED285ACE2600AA9D75 /* LocalFeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B1BCEC285ACE2600AA9D75 /* LocalFeedLoader.swift */; };
 		F5B1BCEF285ACE8900AA9D75 /* FeedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B1BCEE285ACE8900AA9D75 /* FeedStore.swift */; };
 		F5B1BCF1285AD16900AA9D75 /* Cache-dependency.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B1BCF0285AD16900AA9D75 /* Cache-dependency.png */; };
@@ -229,6 +233,10 @@
 		F5AF149228728E620004B4C2 /* FeedImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageLoader.swift; sourceTree = "<group>"; };
 		F5AF1499287291660004B4C2 /* FeedRefreshViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedRefreshViewController.swift; sourceTree = "<group>"; };
 		F5AF149C28729FDC0004B4C2 /* FeedImageCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageCellController.swift; sourceTree = "<group>"; };
+		F5AF149E2872A1250004B4C2 /* REfactor_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = REfactor_3.png; sourceTree = "<group>"; };
+		F5AF149F2872A1250004B4C2 /* REfactor_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = REfactor_2.png; sourceTree = "<group>"; };
+		F5AF14A02872A1250004B4C2 /* REfactor_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = REfactor_4.png; sourceTree = "<group>"; };
+		F5AF14A12872A1250004B4C2 /* REfactor_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = REfactor_1.png; sourceTree = "<group>"; };
 		F5B1BCEC285ACE2600AA9D75 /* LocalFeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFeedLoader.swift; sourceTree = "<group>"; };
 		F5B1BCEE285ACE8900AA9D75 /* FeedStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedStore.swift; sourceTree = "<group>"; };
 		F5B1BCF0285AD16900AA9D75 /* Cache-dependency.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Cache-dependency.png"; sourceTree = "<group>"; };
@@ -473,6 +481,10 @@
 		F5AF148B28728D050004B4C2 /* UI_lecture_05 */ = {
 			isa = PBXGroup;
 			children = (
+				F5AF14A12872A1250004B4C2 /* REfactor_1.png */,
+				F5AF149F2872A1250004B4C2 /* REfactor_2.png */,
+				F5AF149E2872A1250004B4C2 /* REfactor_3.png */,
+				F5AF14A02872A1250004B4C2 /* REfactor_4.png */,
 				F5AF148C28728D150004B4C2 /* UI_Lecture_05.md */,
 			);
 			path = UI_lecture_05;
@@ -1063,9 +1075,11 @@
 				F5B300D6285F47B300253FAC /* Screenshot 2022-06-19 at 5.28.53 PM.png in Resources */,
 				F5B1BD08285B288A00AA9D75 /* Persistance_lecture_3.md in Resources */,
 				F586E6C828410FDB00E219D2 /* README.md in Resources */,
+				F5AF14A52872A1250004B4C2 /* REfactor_1.png in Resources */,
 				F5D3519C287072D000C94DB5 /* lecture_03_4.png in Resources */,
 				F5B300C5285F434500253FAC /* Screenshot 2022-06-19 at 5.06.45 PM.png in Resources */,
 				F56F94A9285EAD3900CFBC5E /* Persistacne_lecture_15.md in Resources */,
+				F5AF14A42872A1250004B4C2 /* REfactor_4.png in Resources */,
 				F5DC8FC92871DB6D00FB425D /* Open Closed Principle_2.png in Resources */,
 				F5DCB31D285C4998003C9547 /* Persistance_lecture_9_testWithSideEffectsInNewFile.md in Resources */,
 				F5B9B263284F0A4800ADA20C /* Screenshot 2022-06-06 at 10.23.32 AM.png in Resources */,
@@ -1085,6 +1099,7 @@
 				F56F94BE285EDB7400CFBC5E /* Screenshot 2022-06-19 at 9.46.58 AM.png in Resources */,
 				F5D35198287072D000C94DB5 /* lecture_03_2.png in Resources */,
 				F5B1BD0A285B297900AA9D75 /* Persistance_lecture_2.md in Resources */,
+				F5AF14A22872A1250004B4C2 /* REfactor_3.png in Resources */,
 				F5DC8FCC2871DBB800FB425D /* Open Closed Principl_3.png in Resources */,
 				F5D35196287072D000C94DB5 /* lecture_03_6.png in Resources */,
 				F5B300C6285F434500253FAC /* Screenshot 2022-06-19 at 5.07.21 PM.png in Resources */,
@@ -1107,6 +1122,7 @@
 				F5B300BA285F215600253FAC /* Persistance_lecture-15_IntegrationTests.md in Resources */,
 				F5D5D777285D722C007493F4 /* Screenshot 2022-06-18 at 8.04.41 AM.png in Resources */,
 				F5DCB323285C9A84003C9547 /* Core_boundary_infra.png in Resources */,
+				F5AF14A32872A1250004B4C2 /* REfactor_2.png in Resources */,
 				F5B1BCFE285B255200AA9D75 /* PersistanceModuleLeaning.md in Resources */,
 				F5D35176287012E900C94DB5 /* UI_Lecture_1.md in Resources */,
 			);
