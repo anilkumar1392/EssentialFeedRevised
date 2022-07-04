@@ -8,10 +8,6 @@
 import Foundation
 import UIKit
 
-final class FeedUIComposer {
-    
-}
-
 public final class FeedViewController: UITableViewController, UITableViewDataSourcePrefetching {
     
     // private var feedLoader: FeedLoader?
@@ -27,18 +23,19 @@ public final class FeedViewController: UITableViewController, UITableViewDataSou
         }
     } */
     
-    private var tableModel = [FeedImageCellController]() {
+    var tableModel = [FeedImageCellController]() {
         didSet { tableView.reloadData() }
     }
     
-    public convenience init(feedLoader: FeedLoader, imageLoader: FeedImageDataLoader) {
+    convenience init(refereshController: FeedRefreshViewController) {
         self.init()
-        self.refreshController = FeedRefreshViewController(feedLoader: feedLoader)
+        self.refreshController = refereshController
+        // self.refreshController = FeedRefreshViewController(feedLoader: feedLoader)
         // self.imageLoader = imageLoader
-        
+        /*
         self.refreshController?.onRefresh = { [weak self] feed in
             self?.tableModel = feed.map { FeedImageCellController(model: $0, imageLoader: imageLoader) }
-        }
+        } */
     }
     
     public override func viewDidLoad() {
