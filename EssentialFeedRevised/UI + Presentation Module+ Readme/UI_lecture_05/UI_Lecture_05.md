@@ -75,3 +75,17 @@ Since FeedViewController Create RefreshController thats why it need FeedLoader a
  So what if instead of tableModel we get cell Controllers. that is created by someone else then we can decouple the 'FeedViewController' from 'Feed' and 'ImageLoader' at teh same time and move the responsibility of creation to another component.
         
     Now we have all the object creation in one function so we can move it to another fucntion.
+
+## Closure in composer
+// closure here we may fine it odd but that'a the adapter pattern. it is very common in composer types to adapt unmatching types.
+
+        // closure here we may fine it odd but that'a the adapter pattern. it is very common in composer types to adapt unmatching types.
+        
+        //1. Refresh controller delegates array of 'FeedImages' but the 'FeedViewController' ecpects array of 'FeedImageCellController'
+        // So while composing types the adapter pattern conenct a matching api's.
+        
+        // [FeedImages] -> Adapts -> [FeedImageCellController]
+        
+        // To keep the responsibilty of creating dependencies away from types that uses the dependencies.
+        
+        // We can even move it to a separate function to clarify the intent.
