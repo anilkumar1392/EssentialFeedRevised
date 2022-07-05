@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F560D4B52873EB60003F6D26 /* UI+Module+lecture+06.md in Resources */ = {isa = PBXBuildFile; fileRef = F560D4B42873EB60003F6D26 /* UI+Module+lecture+06.md */; };
+		F560D4B82873F3F8003F6D26 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F560D4B72873F3F8003F6D26 /* FeedViewModel.swift */; };
+		F560D4B92873F898003F6D26 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F560D4B72873F3F8003F6D26 /* FeedViewModel.swift */; };
 		F56F94A9285EAD3900CFBC5E /* Persistacne_lecture_15.md in Resources */ = {isa = PBXBuildFile; fileRef = F56F94A8285EAD3900CFBC5E /* Persistacne_lecture_15.md */; };
 		F56F94AB285EAF8600CFBC5E /* CoreDataFeedStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56F94AA285EAF8600CFBC5E /* CoreDataFeedStoreTests.swift */; };
 		F56F94AD285EB01A00CFBC5E /* CoreDataFeedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56F94AC285EB01A00CFBC5E /* CoreDataFeedStore.swift */; };
@@ -224,6 +227,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F560D4B42873EB60003F6D26 /* UI+Module+lecture+06.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "UI+Module+lecture+06.md"; sourceTree = "<group>"; };
+		F560D4B72873F3F8003F6D26 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 		F56F94A8285EAD3900CFBC5E /* Persistacne_lecture_15.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Persistacne_lecture_15.md; sourceTree = "<group>"; };
 		F56F94AA285EAF8600CFBC5E /* CoreDataFeedStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataFeedStoreTests.swift; sourceTree = "<group>"; };
 		F56F94AC285EB01A00CFBC5E /* CoreDataFeedStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataFeedStore.swift; sourceTree = "<group>"; };
@@ -416,6 +421,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F560D4B32873EB45003F6D26 /* UI_lecture_06 */ = {
+			isa = PBXGroup;
+			children = (
+				F560D4B42873EB60003F6D26 /* UI+Module+lecture+06.md */,
+			);
+			path = UI_lecture_06;
+			sourceTree = "<group>";
+		};
+		F560D4B62873F3EA003F6D26 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F560D4B72873F3F8003F6D26 /* FeedViewModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		F56F94AE285EB2D200CFBC5E /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
@@ -529,6 +550,7 @@
 		F5AF148F28728E2B0004B4C2 /* FeedUI */ = {
 			isa = PBXGroup;
 			children = (
+				F560D4B62873F3EA003F6D26 /* Models */,
 				F5AF14AF2872D1B50004B4C2 /* Composer */,
 				F5AF149128728E480004B4C2 /* Views */,
 				F5AF149028728E320004B4C2 /* Controllers */,
@@ -764,6 +786,7 @@
 		F5D35173287012B000C94DB5 /* UI + Presentation Module+ Readme */ = {
 			isa = PBXGroup;
 			children = (
+				F560D4B32873EB45003F6D26 /* UI_lecture_06 */,
 				F5AF148B28728D050004B4C2 /* UI_lecture_05 */,
 				F5D3518A287071F300C94DB5 /* UI_Lecture_04 */,
 				F5D3517C2870162D00C94DB5 /* UI_Lecture_03 */,
@@ -1170,6 +1193,7 @@
 				F5AF14A32872A1250004B4C2 /* REfactor_2.png in Resources */,
 				F5B1BCFE285B255200AA9D75 /* PersistanceModuleLeaning.md in Resources */,
 				F5D35176287012E900C94DB5 /* UI_Lecture_1.md in Resources */,
+				F560D4B52873EB60003F6D26 /* UI+Module+lecture+06.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1286,6 +1310,7 @@
 				F5AF149D28729FDC0004B4C2 /* FeedImageCellController.swift in Sources */,
 				F5AF149328728E620004B4C2 /* FeedImageLoader.swift in Sources */,
 				F5DC8FB728717EF500FB425D /* SharedTestHelpers.swift in Sources */,
+				F560D4B82873F3F8003F6D26 /* FeedViewModel.swift in Sources */,
 				F5AF149A287291660004B4C2 /* FeedRefreshViewController.swift in Sources */,
 				F5DC8FBA2871997700FB425D /* UIView+Shimmering.swift in Sources */,
 				F5D351882870642800C94DB5 /* FeedViewController.swift in Sources */,
@@ -1310,6 +1335,7 @@
 				F5D35185287051DE00C94DB5 /* FeedImage.swift in Sources */,
 				F5AF1498287291300004B4C2 /* FeedImageLoader.swift in Sources */,
 				F5AF14A62872CD8A0004B4C2 /* FeedImageCellController.swift in Sources */,
+				F560D4B92873F898003F6D26 /* FeedViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
