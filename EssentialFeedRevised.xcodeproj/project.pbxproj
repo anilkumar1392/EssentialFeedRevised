@@ -70,6 +70,11 @@
 		F5B1BD08285B288A00AA9D75 /* Persistance_lecture_3.md in Resources */ = {isa = PBXBuildFile; fileRef = F5B1BD07285B288A00AA9D75 /* Persistance_lecture_3.md */; };
 		F5B1BD0A285B297900AA9D75 /* Persistance_lecture_2.md in Resources */ = {isa = PBXBuildFile; fileRef = F5B1BD09285B297900AA9D75 /* Persistance_lecture_2.md */; };
 		F5B1BD0C285B537F00AA9D75 /* Persistance_lecture_7.md in Sources */ = {isa = PBXBuildFile; fileRef = F5B1BD0B285B537F00AA9D75 /* Persistance_lecture_7.md */; };
+		F5B200E1287494BA00966F41 /* FeedImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B200E0287494BA00966F41 /* FeedImageViewModel.swift */; };
+		F5B200E52874968B00966F41 /* dependency.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B200E22874968B00966F41 /* dependency.png */; };
+		F5B200E62874968B00966F41 /* moving_dependency_with_viewModel.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B200E32874968B00966F41 /* moving_dependency_with_viewModel.png */; };
+		F5B200E72874968B00966F41 /* Updated_architecute.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B200E42874968B00966F41 /* Updated_architecute.png */; };
+		F5B200E8287499A600966F41 /* FeedImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B200E0287494BA00966F41 /* FeedImageViewModel.swift */; };
 		F5B300B1285F20F500253FAC /* EssentialFeedCacheIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B300B0285F20F500253FAC /* EssentialFeedCacheIntegrationTests.swift */; };
 		F5B300BA285F215600253FAC /* Persistance_lecture-15_IntegrationTests.md in Resources */ = {isa = PBXBuildFile; fileRef = F5B300B9285F215600253FAC /* Persistance_lecture-15_IntegrationTests.md */; };
 		F5B300BB285F2A3300253FAC /* SCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AEE6F3284CB3CB004D7655 /* SCTestCase+MemoryLeakTracking.swift */; };
@@ -293,6 +298,10 @@
 		F5B1BD07285B288A00AA9D75 /* Persistance_lecture_3.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Persistance_lecture_3.md; sourceTree = "<group>"; };
 		F5B1BD09285B297900AA9D75 /* Persistance_lecture_2.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Persistance_lecture_2.md; sourceTree = "<group>"; };
 		F5B1BD0B285B537F00AA9D75 /* Persistance_lecture_7.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Persistance_lecture_7.md; sourceTree = "<group>"; };
+		F5B200E0287494BA00966F41 /* FeedImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageViewModel.swift; sourceTree = "<group>"; };
+		F5B200E22874968B00966F41 /* dependency.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dependency.png; sourceTree = "<group>"; };
+		F5B200E32874968B00966F41 /* moving_dependency_with_viewModel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = moving_dependency_with_viewModel.png; sourceTree = "<group>"; };
+		F5B200E42874968B00966F41 /* Updated_architecute.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Updated_architecute.png; sourceTree = "<group>"; };
 		F5B300AE285F20F500253FAC /* EssentialFeedCacheIntegrationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialFeedCacheIntegrationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5B300B0285F20F500253FAC /* EssentialFeedCacheIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentialFeedCacheIntegrationTests.swift; sourceTree = "<group>"; };
 		F5B300B9285F215600253FAC /* Persistance_lecture-15_IntegrationTests.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "Persistance_lecture-15_IntegrationTests.md"; sourceTree = "<group>"; };
@@ -448,6 +457,9 @@
 				F560D4BA28740EE4003F6D26 /* ModelAgnostic_ViewController.png */,
 				F560D4BD28740EE5003F6D26 /* StateFull_version_viewModel.png */,
 				F560D4C828741152003F6D26 /* stateLess_viewMOdel.png */,
+				F5B200E22874968B00966F41 /* dependency.png */,
+				F5B200E32874968B00966F41 /* moving_dependency_with_viewModel.png */,
+				F5B200E42874968B00966F41 /* Updated_architecute.png */,
 				F560D4B42873EB60003F6D26 /* UI+Module+lecture+06.md */,
 			);
 			path = UI_lecture_06;
@@ -457,6 +469,7 @@
 			isa = PBXGroup;
 			children = (
 				F560D4B72873F3F8003F6D26 /* FeedViewModel.swift */,
+				F5B200E0287494BA00966F41 /* FeedImageViewModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1154,6 +1167,7 @@
 				F56F94BF285EDB7400CFBC5E /* Screenshot 2022-06-19 at 9.35.37 AM.png in Resources */,
 				F5D5D792285DE7EC007493F4 /* Screenshot 2022-06-18 at 4.20.04 PM.png in Resources */,
 				F5B300C4285F434500253FAC /* Screenshot 2022-06-19 at 5.06.54 PM.png in Resources */,
+				F5B200E52874968B00966F41 /* dependency.png in Resources */,
 				F5B1BCF1285AD16900AA9D75 /* Cache-dependency.png in Resources */,
 				F5B9B273284F0E5D00ADA20C /* feed-case-study-test-api-feed.json in Resources */,
 				F560D4C328740EE5003F6D26 /* lecture_6_4.png in Resources */,
@@ -1180,6 +1194,7 @@
 				F5D5D783285DA614007493F4 /* Screenshot 2022-06-18 at 11.49.20 AM.png in Resources */,
 				F5D5D791285DE7EC007493F4 /* Screenshot 2022-06-18 at 4.19.46 PM.png in Resources */,
 				F5DCB325285C9AAD003C9547 /* Core_bounrady_infra.logo.png in Resources */,
+				F5B200E72874968B00966F41 /* Updated_architecute.png in Resources */,
 				F5D35179287014E200C94DB5 /* UI+Lecture+02.md in Resources */,
 				F5B87CDF283F5C5C00D86464 /* Main.storyboard in Resources */,
 				F5D35197287072D000C94DB5 /* lecture_03_7.png in Resources */,
@@ -1222,6 +1237,7 @@
 				F5B300BA285F215600253FAC /* Persistance_lecture-15_IntegrationTests.md in Resources */,
 				F5D5D777285D722C007493F4 /* Screenshot 2022-06-18 at 8.04.41 AM.png in Resources */,
 				F5DCB323285C9A84003C9547 /* Core_boundary_infra.png in Resources */,
+				F5B200E62874968B00966F41 /* moving_dependency_with_viewModel.png in Resources */,
 				F5AF14A32872A1250004B4C2 /* REfactor_2.png in Resources */,
 				F5B1BCFE285B255200AA9D75 /* PersistanceModuleLeaning.md in Resources */,
 				F5D35176287012E900C94DB5 /* UI_Lecture_1.md in Resources */,
@@ -1339,6 +1355,7 @@
 			files = (
 				F5D35182287051C700C94DB5 /* FeedLoader.swift in Sources */,
 				F5DC8FB5287152F200FB425D /* FeedImageCell.swift in Sources */,
+				F5B200E1287494BA00966F41 /* FeedImageViewModel.swift in Sources */,
 				F5AF149D28729FDC0004B4C2 /* FeedImageCellController.swift in Sources */,
 				F5AF149328728E620004B4C2 /* FeedImageLoader.swift in Sources */,
 				F5DC8FB728717EF500FB425D /* SharedTestHelpers.swift in Sources */,
@@ -1355,6 +1372,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5B200E8287499A600966F41 /* FeedImageViewModel.swift in Sources */,
 				F5D35186287052B400C94DB5 /* SCTestCase+MemoryLeakTracking.swift in Sources */,
 				F5AF14B22872D1E00004B4C2 /* FeedUIComposer.swift in Sources */,
 				F5DC8FBB287199D400FB425D /* UIView+Shimmering.swift in Sources */,

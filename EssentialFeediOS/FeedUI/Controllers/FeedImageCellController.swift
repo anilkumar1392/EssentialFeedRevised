@@ -13,62 +13,11 @@ import UIKit
 // replace MVC implementation with MVVM for cell controller.
 // MARK: - MVVM Version
 
-public final class FeedImageViewModel {
-    typealias Observer<T> = (T) -> Void
-
-    private var task: FeedImageDataLoaderTask?
-    private let model: FeedImage
-    private let imageLoader: FeedImageDataLoader
-    
-    init(model: FeedImage, imageLoader: FeedImageDataLoader) {
-        self.model = model
-        self.imageLoader = imageLoader
-    }
-    
-    var hasLocation: Bool {
-        return model.location != nil
-    }
-    
-    var location: String? {
-        return model.location
-    }
-    
-    var description: String? {
-        return model.description
-    }
-    
-    var onImageLoad: Observer<UIImage>?
-    var onImageLoadingStateChange: Observer<Bool>?
-    var onShouldRetryImageLoadStateChange: Observer<Bool>?
-    
-    func loadImageData() {
-        onImageLoadingStateChange?(true)
-        onShouldRetryImageLoadStateChange?(false)
-        task = imageLoader.loadImageData(from: model.url) { [weak self] result in
-            self?.handle(result)
-        }
-    }
-    
-    private func handle(_ result: FeedImageDataLoader.Result) {
-        if let image = (try? result.get()).flatMap(UIImage.init) {
-            onImageLoad?(image)
-        } else {
-            onShouldRetryImageLoadStateChange?(true)
-        }
-        onImageLoadingStateChange?(false)
-    }
-    
-    func cancelLoad() {
-        task?.cancel()
-        task = nil
-    }
-}
-
 public final class FeedImageCellController {
-    private var viewModel: FeedImageViewModel
+    private var viewModel: FeedImageViewModel<UIImage>
     private var task: FeedImageDataLoaderTask?
     
-    init(viewModel: FeedImageViewModel) {
+    init(viewModel: FeedImageViewModel<UIImage>) {
         self.viewModel = viewModel
     }
     

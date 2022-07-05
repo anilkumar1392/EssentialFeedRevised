@@ -68,5 +68,33 @@ Instead of holding state we could have a specifc closure observer for each state
 
 So insetad of isLoading we could have onLoadingStateChange closure.
 
+## FeedImageCellController 
 
+we moved the state management to the 'FeedImageViewModel' so FeedImageCellController now acts as a binder between 'View' and 'ViewModel'.
+SO the cell controller create and binds the cell with the viewModel.
 
+## So properties that can change have their on closure observer.
+
+Transformation from data to UIImage happeing in viewModel however this data to UIImage transformation creates a strign dependency with UIKIt.
+
+SO our viewModel is coupled with UIKIt and can not be used with cross platforms that dopnt support UIKIt.
+## View model has strign dependency with UIIMage (UIKIt)
+This way we can't use viewMOdel in a watchOS applciation.
+
+## It's common to see viewMOdel with UIKIt components or platform specifc components.
+but it does not have to.
+
+to make ViewModel agnostic of UIKit we need to remove references from UIKIt.
+
+## To do so we can use generics.
+class FeedImageViewModel<Image> {
+
+} 
+
+and use dependency injection to pass transformation closure.
+
+private let imageTransformer: (Data) -> Image?
+
+so the transforer method will be injected in viewModel.
+
+## now 'FeedImageViewMOdel' does not depend on UIKIt any more.
