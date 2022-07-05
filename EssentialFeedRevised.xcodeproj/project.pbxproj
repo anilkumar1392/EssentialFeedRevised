@@ -78,6 +78,16 @@
 		F5B200EB28749A7200966F41 /* Dependency+diagram.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B200E928749A7200966F41 /* Dependency+diagram.png */; };
 		F5B200EC28749A7200966F41 /* viewModel+NoDependency+UIKit.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B200EA28749A7200966F41 /* viewModel+NoDependency+UIKit.png */; };
 		F5B200EE28749B5800966F41 /* MVVM_recap.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B200ED28749B5800966F41 /* MVVM_recap.png */; };
+		F5B200F028749BA100966F41 /* separation_userinterface _coreComponents.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B200EF28749BA100966F41 /* separation_userinterface _coreComponents.png */; };
+		F5B200F228749C7200966F41 /* Architecture overview.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B200F128749C7200966F41 /* Architecture overview.png */; };
+		F5B200F428749C9F00966F41 /* Comparing MVC to MVVM.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B200F328749C9F00966F41 /* Comparing MVC to MVVM.png */; };
+		F5B200F728749CEE00966F41 /* MVVM_2.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B200F528749CEE00966F41 /* MVVM_2.png */; };
+		F5B200F828749CEE00966F41 /* MVVM_1.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B200F628749CEE00966F41 /* MVVM_1.png */; };
+		F5B200FB28749D4500966F41 /* Presentation logic_1.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B200F928749D4500966F41 /* Presentation logic_1.png */; };
+		F5B200FC28749D4500966F41 /* Presentation logic_2.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B200FA28749D4500966F41 /* Presentation logic_2.png */; };
+		F5B200FE28749D7F00966F41 /* Referencing UIKit types in View Models.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B200FD28749D7F00966F41 /* Referencing UIKit types in View Models.png */; };
+		F5B2010028749DB900966F41 /* Decoupling Presentation from UI frameworks.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B200FF28749DB900966F41 /* Decoupling Presentation from UI frameworks.png */; };
+		F5B2010228749DF200966F41 /* Decoupling Presentation from UI frameworks_2.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B2010128749DF200966F41 /* Decoupling Presentation from UI frameworks_2.png */; };
 		F5B300B1285F20F500253FAC /* EssentialFeedCacheIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B300B0285F20F500253FAC /* EssentialFeedCacheIntegrationTests.swift */; };
 		F5B300BA285F215600253FAC /* Persistance_lecture-15_IntegrationTests.md in Resources */ = {isa = PBXBuildFile; fileRef = F5B300B9285F215600253FAC /* Persistance_lecture-15_IntegrationTests.md */; };
 		F5B300BB285F2A3300253FAC /* SCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AEE6F3284CB3CB004D7655 /* SCTestCase+MemoryLeakTracking.swift */; };
@@ -308,6 +318,16 @@
 		F5B200E928749A7200966F41 /* Dependency+diagram.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Dependency+diagram.png"; sourceTree = "<group>"; };
 		F5B200EA28749A7200966F41 /* viewModel+NoDependency+UIKit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "viewModel+NoDependency+UIKit.png"; sourceTree = "<group>"; };
 		F5B200ED28749B5800966F41 /* MVVM_recap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MVVM_recap.png; sourceTree = "<group>"; };
+		F5B200EF28749BA100966F41 /* separation_userinterface _coreComponents.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "separation_userinterface _coreComponents.png"; sourceTree = "<group>"; };
+		F5B200F128749C7200966F41 /* Architecture overview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Architecture overview.png"; sourceTree = "<group>"; };
+		F5B200F328749C9F00966F41 /* Comparing MVC to MVVM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Comparing MVC to MVVM.png"; sourceTree = "<group>"; };
+		F5B200F528749CEE00966F41 /* MVVM_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MVVM_2.png; sourceTree = "<group>"; };
+		F5B200F628749CEE00966F41 /* MVVM_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MVVM_1.png; sourceTree = "<group>"; };
+		F5B200F928749D4500966F41 /* Presentation logic_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Presentation logic_1.png"; sourceTree = "<group>"; };
+		F5B200FA28749D4500966F41 /* Presentation logic_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Presentation logic_2.png"; sourceTree = "<group>"; };
+		F5B200FD28749D7F00966F41 /* Referencing UIKit types in View Models.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Referencing UIKit types in View Models.png"; sourceTree = "<group>"; };
+		F5B200FF28749DB900966F41 /* Decoupling Presentation from UI frameworks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Decoupling Presentation from UI frameworks.png"; sourceTree = "<group>"; };
+		F5B2010128749DF200966F41 /* Decoupling Presentation from UI frameworks_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Decoupling Presentation from UI frameworks_2.png"; sourceTree = "<group>"; };
 		F5B300AE285F20F500253FAC /* EssentialFeedCacheIntegrationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialFeedCacheIntegrationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5B300B0285F20F500253FAC /* EssentialFeedCacheIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentialFeedCacheIntegrationTests.swift; sourceTree = "<group>"; };
 		F5B300B9285F215600253FAC /* Persistance_lecture-15_IntegrationTests.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "Persistance_lecture-15_IntegrationTests.md"; sourceTree = "<group>"; };
@@ -469,6 +489,16 @@
 				F5B200E928749A7200966F41 /* Dependency+diagram.png */,
 				F5B200EA28749A7200966F41 /* viewModel+NoDependency+UIKit.png */,
 				F5B200ED28749B5800966F41 /* MVVM_recap.png */,
+				F5B200EF28749BA100966F41 /* separation_userinterface _coreComponents.png */,
+				F5B200F128749C7200966F41 /* Architecture overview.png */,
+				F5B200F328749C9F00966F41 /* Comparing MVC to MVVM.png */,
+				F5B200F628749CEE00966F41 /* MVVM_1.png */,
+				F5B200F528749CEE00966F41 /* MVVM_2.png */,
+				F5B200F928749D4500966F41 /* Presentation logic_1.png */,
+				F5B200FA28749D4500966F41 /* Presentation logic_2.png */,
+				F5B200FD28749D7F00966F41 /* Referencing UIKit types in View Models.png */,
+				F5B200FF28749DB900966F41 /* Decoupling Presentation from UI frameworks.png */,
+				F5B2010128749DF200966F41 /* Decoupling Presentation from UI frameworks_2.png */,
 				F560D4B42873EB60003F6D26 /* UI+Module+lecture+06.md */,
 			);
 			path = UI_lecture_06;
@@ -1157,6 +1187,7 @@
 				F5D3517B287015D800C94DB5 /* UI+Lecture_02_1.png in Resources */,
 				F5B300C7285F434500253FAC /* Screenshot 2022-06-19 at 5.07.26 PM.png in Resources */,
 				F560D4C428740EE5003F6D26 /* StateFull_version_viewModel.png in Resources */,
+				F5B200FC28749D4500966F41 /* Presentation logic_2.png in Resources */,
 				F5D3519B287072D000C94DB5 /* lecture_03_8.png in Resources */,
 				F5DCB327285C9C3B003C9547 /* Persistance_lecture_10.md in Resources */,
 				F5B300C8285F434500253FAC /* Screenshot 2022-06-19 at 5.07.34 PM.png in Resources */,
@@ -1168,8 +1199,10 @@
 				F5AF14BA2872D8B20004B4C2 /* adapter.png in Resources */,
 				F5B300D0285F465300253FAC /* Unit:Isolated + Integration tests.png in Resources */,
 				F560D4C528740EE5003F6D26 /* lecture_6_2.png in Resources */,
+				F5B200F228749C7200966F41 /* Architecture overview.png in Resources */,
 				F5B1BD04285B27C500AA9D75 /* Persistance_lecture_4.md in Resources */,
 				F5D5074128505EE900B16343 /* Narrative.md in Resources */,
+				F5B200FE28749D7F00966F41 /* Referencing UIKit types in View Models.png in Resources */,
 				F5DC8FC52871D98000FB425D /*  start of a massive.png in Resources */,
 				F5D35199287072D000C94DB5 /* lecture_03_3.png in Resources */,
 				F5D5D787285DCAFD007493F4 /* Persistance_lecture_13_storeCheckList3.md in Resources */,
@@ -1180,6 +1213,8 @@
 				F5B200E52874968B00966F41 /* dependency.png in Resources */,
 				F5B1BCF1285AD16900AA9D75 /* Cache-dependency.png in Resources */,
 				F5B9B273284F0E5D00ADA20C /* feed-case-study-test-api-feed.json in Resources */,
+				F5B2010028749DB900966F41 /* Decoupling Presentation from UI frameworks.png in Resources */,
+				F5B200F428749C9F00966F41 /* Comparing MVC to MVVM.png in Resources */,
 				F560D4C328740EE5003F6D26 /* lecture_6_4.png in Resources */,
 				F5B300CE285F459600253FAC /* Unit:Isolated vs. Integration testing performance.png in Resources */,
 				F5B300DB285F483900253FAC /* Investigating the number of files.png in Resources */,
@@ -1189,6 +1224,7 @@
 				F5B300D6285F47B300253FAC /* Screenshot 2022-06-19 at 5.28.53 PM.png in Resources */,
 				F5B1BD08285B288A00AA9D75 /* Persistance_lecture_3.md in Resources */,
 				F586E6C828410FDB00E219D2 /* README.md in Resources */,
+				F5B200FB28749D4500966F41 /* Presentation logic_1.png in Resources */,
 				F5AF14A52872A1250004B4C2 /* REfactor_1.png in Resources */,
 				F5D3519C287072D000C94DB5 /* lecture_03_4.png in Resources */,
 				F5AF14B52872D5DC0004B4C2 /* diagram _1.png in Resources */,
@@ -1212,11 +1248,13 @@
 				F5AF14AD2872D00B0004B4C2 /* FeedContoller_1.png in Resources */,
 				F5D5D789285DD572007493F4 /* Persistance_lecture_14.md in Resources */,
 				F5D5D77E285DA419007493F4 /* Persistacne_lecture_12.md in Resources */,
+				F5B200F728749CEE00966F41 /* MVVM_2.png in Resources */,
 				F5AF148D28728D150004B4C2 /* UI_Lecture_05.md in Resources */,
 				F5B1BD00285B271D00AA9D75 /* Persistance_lecture_5.md in Resources */,
 				F560D4C228740EE5003F6D26 /* lecture_6_3.png in Resources */,
 				F5AEE6F1284C9626004D7655 /* HTTPClient.md in Resources */,
 				F56F94BE285EDB7400CFBC5E /* Screenshot 2022-06-19 at 9.46.58 AM.png in Resources */,
+				F5B200F828749CEE00966F41 /* MVVM_1.png in Resources */,
 				F5D35198287072D000C94DB5 /* lecture_03_2.png in Resources */,
 				F560D4C928741152003F6D26 /* stateLess_viewMOdel.png in Resources */,
 				F5B1BD0A285B297900AA9D75 /* Persistance_lecture_2.md in Resources */,
@@ -1226,6 +1264,7 @@
 				F5B300C6285F434500253FAC /* Screenshot 2022-06-19 at 5.07.21 PM.png in Resources */,
 				F5D3518C2870720B00C94DB5 /* UI+Lecture+04.md in Resources */,
 				F5B200EC28749A7200966F41 /* viewModel+NoDependency+UIKit.png in Resources */,
+				F5B200F028749BA100966F41 /* separation_userinterface _coreComponents.png in Resources */,
 				F570DBA7284DBED8000ADC03 /* Screenshot 2022-06-06 at 10.18.50 AM.png in Resources */,
 				F5B300DC285F483900253FAC /* Visualizing the number of files.png in Resources */,
 				F5DC8FCF2871DCC500FB425D /* simulate_01.png in Resources */,
@@ -1252,6 +1291,7 @@
 				F5B200E62874968B00966F41 /* moving_dependency_with_viewModel.png in Resources */,
 				F5AF14A32872A1250004B4C2 /* REfactor_2.png in Resources */,
 				F5B1BCFE285B255200AA9D75 /* PersistanceModuleLeaning.md in Resources */,
+				F5B2010228749DF200966F41 /* Decoupling Presentation from UI frameworks_2.png in Resources */,
 				F5D35176287012E900C94DB5 /* UI_Lecture_1.md in Resources */,
 				F560D4B52873EB60003F6D26 /* UI+Module+lecture+06.md in Resources */,
 			);

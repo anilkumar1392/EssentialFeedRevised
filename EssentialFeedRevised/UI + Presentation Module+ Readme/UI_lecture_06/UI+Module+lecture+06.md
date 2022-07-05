@@ -98,3 +98,28 @@ private let imageTransformer: (Data) -> Image?
 so the transforer method will be injected in viewModel.
 
 ## now 'FeedImageViewMOdel' does not depend on UIKIt any more.
+
+1. FeedViewController does not need to manage any state so it does not need viewMOdel.
+2. FeedRefreshController and 'FeedImageCellController' bith require model state thus they have their own view model.
+
+## In this lecture, you’ll learn how MVVM can help you reduce boilerplate code and create a reusable cross-platform Presentation layer.
+
+## Learning Outcomes
+
+Improving architectural separation between UI and core components with View Models
+Creating a reusable cross-platform Presentation layer with MVVM
+Implementing Stateful and Stateless View Models
+Using Generics to create reusable components
+
+## Introduction to MVVM (Model-View-ViewModel)
+MVVM is a UI architectural pattern, and it stands for Model-View-ViewModel. MVVM is an MVC variant created by Microsoft aiming to eliminate the boilerplate of syncing View events and Model updates that Controllers hold in an MVC implementation.
+
+Microsoft’s MVVM solution binds View events with Model updates automatically, with the help of a ViewModel component in between.
+
+MVVM was incorporated in Microsoft’s .NET graphics system, where developers define the ViewModel bindings along with the View declarations in XAML, and the framework performs the runtime bindings automatically.
+
+Outside the Microsoft platforms, MVVM is also known as Model-View-Binder, since most platforms don’t offer the automatic wiring as the .NET graphics system does.
+
+For example, in UIKit, there’s no automatic way of binding a ViewModel with a View, so it’s up to the developer to implement the Binder components.
+
+To facilitate the bindings between the View and the ViewModel, it’s common for iOS teams to use frameworks like RxSwift or Combine.
