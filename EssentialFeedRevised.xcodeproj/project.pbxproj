@@ -77,6 +77,7 @@
 		F5B200E8287499A600966F41 /* FeedImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B200E0287494BA00966F41 /* FeedImageViewModel.swift */; };
 		F5B200EB28749A7200966F41 /* Dependency+diagram.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B200E928749A7200966F41 /* Dependency+diagram.png */; };
 		F5B200EC28749A7200966F41 /* viewModel+NoDependency+UIKit.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B200EA28749A7200966F41 /* viewModel+NoDependency+UIKit.png */; };
+		F5B200EE28749B5800966F41 /* MVVM_recap.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B200ED28749B5800966F41 /* MVVM_recap.png */; };
 		F5B300B1285F20F500253FAC /* EssentialFeedCacheIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B300B0285F20F500253FAC /* EssentialFeedCacheIntegrationTests.swift */; };
 		F5B300BA285F215600253FAC /* Persistance_lecture-15_IntegrationTests.md in Resources */ = {isa = PBXBuildFile; fileRef = F5B300B9285F215600253FAC /* Persistance_lecture-15_IntegrationTests.md */; };
 		F5B300BB285F2A3300253FAC /* SCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AEE6F3284CB3CB004D7655 /* SCTestCase+MemoryLeakTracking.swift */; };
@@ -306,6 +307,7 @@
 		F5B200E42874968B00966F41 /* Updated_architecute.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Updated_architecute.png; sourceTree = "<group>"; };
 		F5B200E928749A7200966F41 /* Dependency+diagram.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Dependency+diagram.png"; sourceTree = "<group>"; };
 		F5B200EA28749A7200966F41 /* viewModel+NoDependency+UIKit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "viewModel+NoDependency+UIKit.png"; sourceTree = "<group>"; };
+		F5B200ED28749B5800966F41 /* MVVM_recap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MVVM_recap.png; sourceTree = "<group>"; };
 		F5B300AE285F20F500253FAC /* EssentialFeedCacheIntegrationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialFeedCacheIntegrationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5B300B0285F20F500253FAC /* EssentialFeedCacheIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentialFeedCacheIntegrationTests.swift; sourceTree = "<group>"; };
 		F5B300B9285F215600253FAC /* Persistance_lecture-15_IntegrationTests.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "Persistance_lecture-15_IntegrationTests.md"; sourceTree = "<group>"; };
@@ -466,6 +468,7 @@
 				F5B200E42874968B00966F41 /* Updated_architecute.png */,
 				F5B200E928749A7200966F41 /* Dependency+diagram.png */,
 				F5B200EA28749A7200966F41 /* viewModel+NoDependency+UIKit.png */,
+				F5B200ED28749B5800966F41 /* MVVM_recap.png */,
 				F560D4B42873EB60003F6D26 /* UI+Module+lecture+06.md */,
 			);
 			path = UI_lecture_06;
@@ -1236,6 +1239,7 @@
 				F5AF14AB2872D00B0004B4C2 /* Controller_dependecy.png in Resources */,
 				F5AF14B62872D5DC0004B4C2 /* diagram _2.png in Resources */,
 				F5DCB32D285CB7A3003C9547 /* Persistance_lecture_11.md in Resources */,
+				F5B200EE28749B5800966F41 /* MVVM_recap.png in Resources */,
 				F5B300CC285F44A500253FAC /* Unit:Isolated vs. Integration Tests.png in Resources */,
 				F5AF14AE2872D00B0004B4C2 /* async_loading.png in Resources */,
 				F5DC8FCD2871DBB800FB425D /* Open Closed Principle_4.png in Resources */,
