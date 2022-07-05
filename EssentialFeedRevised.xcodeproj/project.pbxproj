@@ -75,6 +75,8 @@
 		F5B200E62874968B00966F41 /* moving_dependency_with_viewModel.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B200E32874968B00966F41 /* moving_dependency_with_viewModel.png */; };
 		F5B200E72874968B00966F41 /* Updated_architecute.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B200E42874968B00966F41 /* Updated_architecute.png */; };
 		F5B200E8287499A600966F41 /* FeedImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B200E0287494BA00966F41 /* FeedImageViewModel.swift */; };
+		F5B200EB28749A7200966F41 /* Dependency+diagram.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B200E928749A7200966F41 /* Dependency+diagram.png */; };
+		F5B200EC28749A7200966F41 /* viewModel+NoDependency+UIKit.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B200EA28749A7200966F41 /* viewModel+NoDependency+UIKit.png */; };
 		F5B300B1285F20F500253FAC /* EssentialFeedCacheIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B300B0285F20F500253FAC /* EssentialFeedCacheIntegrationTests.swift */; };
 		F5B300BA285F215600253FAC /* Persistance_lecture-15_IntegrationTests.md in Resources */ = {isa = PBXBuildFile; fileRef = F5B300B9285F215600253FAC /* Persistance_lecture-15_IntegrationTests.md */; };
 		F5B300BB285F2A3300253FAC /* SCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AEE6F3284CB3CB004D7655 /* SCTestCase+MemoryLeakTracking.swift */; };
@@ -302,6 +304,8 @@
 		F5B200E22874968B00966F41 /* dependency.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dependency.png; sourceTree = "<group>"; };
 		F5B200E32874968B00966F41 /* moving_dependency_with_viewModel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = moving_dependency_with_viewModel.png; sourceTree = "<group>"; };
 		F5B200E42874968B00966F41 /* Updated_architecute.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Updated_architecute.png; sourceTree = "<group>"; };
+		F5B200E928749A7200966F41 /* Dependency+diagram.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Dependency+diagram.png"; sourceTree = "<group>"; };
+		F5B200EA28749A7200966F41 /* viewModel+NoDependency+UIKit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "viewModel+NoDependency+UIKit.png"; sourceTree = "<group>"; };
 		F5B300AE285F20F500253FAC /* EssentialFeedCacheIntegrationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialFeedCacheIntegrationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5B300B0285F20F500253FAC /* EssentialFeedCacheIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentialFeedCacheIntegrationTests.swift; sourceTree = "<group>"; };
 		F5B300B9285F215600253FAC /* Persistance_lecture-15_IntegrationTests.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "Persistance_lecture-15_IntegrationTests.md"; sourceTree = "<group>"; };
@@ -460,6 +464,8 @@
 				F5B200E22874968B00966F41 /* dependency.png */,
 				F5B200E32874968B00966F41 /* moving_dependency_with_viewModel.png */,
 				F5B200E42874968B00966F41 /* Updated_architecute.png */,
+				F5B200E928749A7200966F41 /* Dependency+diagram.png */,
+				F5B200EA28749A7200966F41 /* viewModel+NoDependency+UIKit.png */,
 				F560D4B42873EB60003F6D26 /* UI+Module+lecture+06.md */,
 			);
 			path = UI_lecture_06;
@@ -1153,6 +1159,7 @@
 				F5B300C8285F434500253FAC /* Screenshot 2022-06-19 at 5.07.34 PM.png in Resources */,
 				F5B87CE4283F5C5F00D86464 /* LaunchScreen.storyboard in Resources */,
 				F5D5D778285D722C007493F4 /* Screenshot 2022-06-18 at 8.04.30 AM.png in Resources */,
+				F5B200EB28749A7200966F41 /* Dependency+diagram.png in Resources */,
 				F5B87CE1283F5C5F00D86464 /* Assets.xcassets in Resources */,
 				F5DC8FBD2871D80000FB425D /* Architecture overview.png in Resources */,
 				F5AF14BA2872D8B20004B4C2 /* adapter.png in Resources */,
@@ -1215,6 +1222,7 @@
 				F5D35196287072D000C94DB5 /* lecture_03_6.png in Resources */,
 				F5B300C6285F434500253FAC /* Screenshot 2022-06-19 at 5.07.21 PM.png in Resources */,
 				F5D3518C2870720B00C94DB5 /* UI+Lecture+04.md in Resources */,
+				F5B200EC28749A7200966F41 /* viewModel+NoDependency+UIKit.png in Resources */,
 				F570DBA7284DBED8000ADC03 /* Screenshot 2022-06-06 at 10.18.50 AM.png in Resources */,
 				F5B300DC285F483900253FAC /* Visualizing the number of files.png in Resources */,
 				F5DC8FCF2871DCC500FB425D /* simulate_01.png in Resources */,
