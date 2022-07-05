@@ -10,6 +10,14 @@
 		F560D4B52873EB60003F6D26 /* UI+Module+lecture+06.md in Resources */ = {isa = PBXBuildFile; fileRef = F560D4B42873EB60003F6D26 /* UI+Module+lecture+06.md */; };
 		F560D4B82873F3F8003F6D26 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F560D4B72873F3F8003F6D26 /* FeedViewModel.swift */; };
 		F560D4B92873F898003F6D26 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F560D4B72873F3F8003F6D26 /* FeedViewModel.swift */; };
+		F560D4C128740EE5003F6D26 /* ModelAgnostic_ViewController.png in Resources */ = {isa = PBXBuildFile; fileRef = F560D4BA28740EE4003F6D26 /* ModelAgnostic_ViewController.png */; };
+		F560D4C228740EE5003F6D26 /* lecture_6_3.png in Resources */ = {isa = PBXBuildFile; fileRef = F560D4BB28740EE5003F6D26 /* lecture_6_3.png */; };
+		F560D4C328740EE5003F6D26 /* lecture_6_4.png in Resources */ = {isa = PBXBuildFile; fileRef = F560D4BC28740EE5003F6D26 /* lecture_6_4.png */; };
+		F560D4C428740EE5003F6D26 /* StateFull_version_viewModel.png in Resources */ = {isa = PBXBuildFile; fileRef = F560D4BD28740EE5003F6D26 /* StateFull_version_viewModel.png */; };
+		F560D4C528740EE5003F6D26 /* lecture_6_2.png in Resources */ = {isa = PBXBuildFile; fileRef = F560D4BE28740EE5003F6D26 /* lecture_6_2.png */; };
+		F560D4C628740EE5003F6D26 /* lecture_6_1.png in Resources */ = {isa = PBXBuildFile; fileRef = F560D4BF28740EE5003F6D26 /* lecture_6_1.png */; };
+		F560D4C728740EE5003F6D26 /* dependency_management.png in Resources */ = {isa = PBXBuildFile; fileRef = F560D4C028740EE5003F6D26 /* dependency_management.png */; };
+		F560D4C928741152003F6D26 /* stateLess_viewMOdel.png in Resources */ = {isa = PBXBuildFile; fileRef = F560D4C828741152003F6D26 /* stateLess_viewMOdel.png */; };
 		F56F94A9285EAD3900CFBC5E /* Persistacne_lecture_15.md in Resources */ = {isa = PBXBuildFile; fileRef = F56F94A8285EAD3900CFBC5E /* Persistacne_lecture_15.md */; };
 		F56F94AB285EAF8600CFBC5E /* CoreDataFeedStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56F94AA285EAF8600CFBC5E /* CoreDataFeedStoreTests.swift */; };
 		F56F94AD285EB01A00CFBC5E /* CoreDataFeedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56F94AC285EB01A00CFBC5E /* CoreDataFeedStore.swift */; };
@@ -229,6 +237,14 @@
 /* Begin PBXFileReference section */
 		F560D4B42873EB60003F6D26 /* UI+Module+lecture+06.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "UI+Module+lecture+06.md"; sourceTree = "<group>"; };
 		F560D4B72873F3F8003F6D26 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
+		F560D4BA28740EE4003F6D26 /* ModelAgnostic_ViewController.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ModelAgnostic_ViewController.png; sourceTree = "<group>"; };
+		F560D4BB28740EE5003F6D26 /* lecture_6_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lecture_6_3.png; sourceTree = "<group>"; };
+		F560D4BC28740EE5003F6D26 /* lecture_6_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lecture_6_4.png; sourceTree = "<group>"; };
+		F560D4BD28740EE5003F6D26 /* StateFull_version_viewModel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StateFull_version_viewModel.png; sourceTree = "<group>"; };
+		F560D4BE28740EE5003F6D26 /* lecture_6_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lecture_6_2.png; sourceTree = "<group>"; };
+		F560D4BF28740EE5003F6D26 /* lecture_6_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lecture_6_1.png; sourceTree = "<group>"; };
+		F560D4C028740EE5003F6D26 /* dependency_management.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dependency_management.png; sourceTree = "<group>"; };
+		F560D4C828741152003F6D26 /* stateLess_viewMOdel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stateLess_viewMOdel.png; sourceTree = "<group>"; };
 		F56F94A8285EAD3900CFBC5E /* Persistacne_lecture_15.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Persistacne_lecture_15.md; sourceTree = "<group>"; };
 		F56F94AA285EAF8600CFBC5E /* CoreDataFeedStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataFeedStoreTests.swift; sourceTree = "<group>"; };
 		F56F94AC285EB01A00CFBC5E /* CoreDataFeedStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataFeedStore.swift; sourceTree = "<group>"; };
@@ -424,6 +440,14 @@
 		F560D4B32873EB45003F6D26 /* UI_lecture_06 */ = {
 			isa = PBXGroup;
 			children = (
+				F560D4C028740EE5003F6D26 /* dependency_management.png */,
+				F560D4BF28740EE5003F6D26 /* lecture_6_1.png */,
+				F560D4BE28740EE5003F6D26 /* lecture_6_2.png */,
+				F560D4BB28740EE5003F6D26 /* lecture_6_3.png */,
+				F560D4BC28740EE5003F6D26 /* lecture_6_4.png */,
+				F560D4BA28740EE4003F6D26 /* ModelAgnostic_ViewController.png */,
+				F560D4BD28740EE5003F6D26 /* StateFull_version_viewModel.png */,
+				F560D4C828741152003F6D26 /* stateLess_viewMOdel.png */,
 				F560D4B42873EB60003F6D26 /* UI+Module+lecture+06.md */,
 			);
 			path = UI_lecture_06;
@@ -1110,6 +1134,7 @@
 			files = (
 				F5D3517B287015D800C94DB5 /* UI+Lecture_02_1.png in Resources */,
 				F5B300C7285F434500253FAC /* Screenshot 2022-06-19 at 5.07.26 PM.png in Resources */,
+				F560D4C428740EE5003F6D26 /* StateFull_version_viewModel.png in Resources */,
 				F5D3519B287072D000C94DB5 /* lecture_03_8.png in Resources */,
 				F5DCB327285C9C3B003C9547 /* Persistance_lecture_10.md in Resources */,
 				F5B300C8285F434500253FAC /* Screenshot 2022-06-19 at 5.07.34 PM.png in Resources */,
@@ -1119,6 +1144,7 @@
 				F5DC8FBD2871D80000FB425D /* Architecture overview.png in Resources */,
 				F5AF14BA2872D8B20004B4C2 /* adapter.png in Resources */,
 				F5B300D0285F465300253FAC /* Unit:Isolated + Integration tests.png in Resources */,
+				F560D4C528740EE5003F6D26 /* lecture_6_2.png in Resources */,
 				F5B1BD04285B27C500AA9D75 /* Persistance_lecture_4.md in Resources */,
 				F5D5074128505EE900B16343 /* Narrative.md in Resources */,
 				F5DC8FC52871D98000FB425D /*  start of a massive.png in Resources */,
@@ -1130,6 +1156,7 @@
 				F5B300C4285F434500253FAC /* Screenshot 2022-06-19 at 5.06.54 PM.png in Resources */,
 				F5B1BCF1285AD16900AA9D75 /* Cache-dependency.png in Resources */,
 				F5B9B273284F0E5D00ADA20C /* feed-case-study-test-api-feed.json in Resources */,
+				F560D4C328740EE5003F6D26 /* lecture_6_4.png in Resources */,
 				F5B300CE285F459600253FAC /* Unit:Isolated vs. Integration testing performance.png in Resources */,
 				F5B300DB285F483900253FAC /* Investigating the number of files.png in Resources */,
 				F5AF14AC2872D00B0004B4C2 /* factory_approcach.png in Resources */,
@@ -1141,12 +1168,14 @@
 				F5AF14A52872A1250004B4C2 /* REfactor_1.png in Resources */,
 				F5D3519C287072D000C94DB5 /* lecture_03_4.png in Resources */,
 				F5AF14B52872D5DC0004B4C2 /* diagram _1.png in Resources */,
+				F560D4C128740EE5003F6D26 /* ModelAgnostic_ViewController.png in Resources */,
 				F5B300C5285F434500253FAC /* Screenshot 2022-06-19 at 5.06.45 PM.png in Resources */,
 				F56F94A9285EAD3900CFBC5E /* Persistacne_lecture_15.md in Resources */,
 				F5AF14A42872A1250004B4C2 /* REfactor_4.png in Resources */,
 				F5DC8FC92871DB6D00FB425D /* Open Closed Principle_2.png in Resources */,
 				F5DCB31D285C4998003C9547 /* Persistance_lecture_9_testWithSideEffectsInNewFile.md in Resources */,
 				F5B9B263284F0A4800ADA20C /* Screenshot 2022-06-06 at 10.23.32 AM.png in Resources */,
+				F560D4C628740EE5003F6D26 /* lecture_6_1.png in Resources */,
 				F5B300D5285F47B300253FAC /* Working in small batches.png in Resources */,
 				F5D5D783285DA614007493F4 /* Screenshot 2022-06-18 at 11.49.20 AM.png in Resources */,
 				F5D5D791285DE7EC007493F4 /* Screenshot 2022-06-18 at 4.19.46 PM.png in Resources */,
@@ -1160,9 +1189,11 @@
 				F5D5D77E285DA419007493F4 /* Persistacne_lecture_12.md in Resources */,
 				F5AF148D28728D150004B4C2 /* UI_Lecture_05.md in Resources */,
 				F5B1BD00285B271D00AA9D75 /* Persistance_lecture_5.md in Resources */,
+				F560D4C228740EE5003F6D26 /* lecture_6_3.png in Resources */,
 				F5AEE6F1284C9626004D7655 /* HTTPClient.md in Resources */,
 				F56F94BE285EDB7400CFBC5E /* Screenshot 2022-06-19 at 9.46.58 AM.png in Resources */,
 				F5D35198287072D000C94DB5 /* lecture_03_2.png in Resources */,
+				F560D4C928741152003F6D26 /* stateLess_viewMOdel.png in Resources */,
 				F5B1BD0A285B297900AA9D75 /* Persistance_lecture_2.md in Resources */,
 				F5AF14A22872A1250004B4C2 /* REfactor_3.png in Resources */,
 				F5DC8FCC2871DBB800FB425D /* Open Closed Principl_3.png in Resources */,
@@ -1173,6 +1204,7 @@
 				F5B300DC285F483900253FAC /* Visualizing the number of files.png in Resources */,
 				F5DC8FCF2871DCC500FB425D /* simulate_01.png in Resources */,
 				F5B1BCF3285ADB3B00AA9D75 /* after data_transfer_objtec.png in Resources */,
+				F560D4C728740EE5003F6D26 /* dependency_management.png in Resources */,
 				F5D35195287072D000C94DB5 /* lecture_03_5.png in Resources */,
 				F5B300DD285F483900253FAC /* Test-first curve in the codebase.png in Resources */,
 				F5DC8FBF2871D85300FB425D /* Inside-out_1.png in Resources */,

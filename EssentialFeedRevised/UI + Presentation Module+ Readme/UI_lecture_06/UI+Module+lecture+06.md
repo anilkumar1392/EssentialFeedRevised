@@ -61,3 +61,12 @@ by moving onRefresh to ViewModel as FeedRefershViewController is just forwarding
 ## Now FeedRefershViewController does not holds any state it just binds the view with viewModel.
 All the state management now leaves in viewModel the platform agnostic the reusable component.
 
+Now we have stateFull ViewMOdel ready with us.
+
+But it does not need to have states instead of holding state we could only have transient state.
+Instead of holding state we could have a specifc closure observer for each state change.
+
+So insetad of isLoading we could have onLoadingStateChange closure.
+
+
+
