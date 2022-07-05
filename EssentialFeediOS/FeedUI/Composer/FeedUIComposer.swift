@@ -20,7 +20,8 @@ final class FeedUIComposer {
         } */
         
         // can be done
-        refreshController.onRefresh = adaptFeedToCellControllers(forwardingTo: feedContoller, loader: imageLoader)
+        // refreshController.onRefresh = adaptFeedToCellControllers(forwardingTo: feedContoller, loader: imageLoader)
+        viewModel.onFeedLoad = adaptFeedToCellControllers(forwardingTo: feedContoller, loader: imageLoader)
         
         // closure here we may fine it odd but that'a the adapter pattern. it is very common in composer types to adapt unmatching types.
         

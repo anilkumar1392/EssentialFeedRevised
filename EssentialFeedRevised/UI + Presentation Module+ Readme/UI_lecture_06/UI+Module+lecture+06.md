@@ -47,3 +47,17 @@ Thats why we kept target action relationship with the controller.
 1. ViewModel should be platform agnostic.
 2. Move all the state management to viewModel means controller should be free from models
 
+FeedRefershViewController is creating FeedViewModel and as we recommend objects should not create their own dependencies.
+
+
+// For now communication is like
+FeedViewModel -> FeedRefershViewController -> FeedController
+
+// we can make it.
+FeedViewModel -> FeedController
+
+by moving onRefresh to ViewModel as FeedRefershViewController is just forwarding the data.
+
+## Now FeedRefershViewController does not holds any state it just binds the view with viewModel.
+All the state management now leaves in viewModel the platform agnostic the reusable component.
+

@@ -17,7 +17,8 @@ public final class FeedRefreshViewController: NSObject {
         self.viewModel = viewModel
     }
     
-    var onRefresh: (([FeedImage]) -> Void)?
+    // var onRefresh: (([FeedImage]) -> Void)?
+    // Moving on refresh to viewModel to make FeedRefreshViewController decouple from FeedImage.
     
     @objc func refresh() {
         viewModel.loadFeed()
@@ -31,9 +32,9 @@ public final class FeedRefreshViewController: NSObject {
                 self?.view.endRefreshing()
             }
             
-            if let feed = viewModel.feed {
-                self?.onRefresh?(feed)
-            }
+//            if let feed = viewModel.feed {
+//                self?.onRefresh?(feed)
+//            }
         }
         view.addTarget(self, action: #selector(refresh), for: .valueChanged)
         return view
@@ -44,6 +45,8 @@ public final class FeedRefreshViewController: NSObject {
     }
 
 }
+
+
 
 // MARK: - MVC VERSION
 
