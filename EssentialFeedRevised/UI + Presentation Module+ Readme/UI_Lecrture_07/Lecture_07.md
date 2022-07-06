@@ -113,3 +113,8 @@ To decouple Controller from presenter we can use a adapter in between.
     }
 
 and now we need a adapter component to delegate this responsibility.
+
+So MVP is very flexible you can play around with different compositions and couple and decouple your layers as needed.
+
+As long as you have composition layer you can easily make those changes without breakin g exte3rnal clients.
+
