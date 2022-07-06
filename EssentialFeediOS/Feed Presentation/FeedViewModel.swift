@@ -7,6 +7,10 @@
 
 import Foundation
 
+struct FeedViewModel {
+    let feed: [FeedImage]
+}
+
 /*
 final class FeedViewModel {
     typealias Observer<T> = (T) -> Void
