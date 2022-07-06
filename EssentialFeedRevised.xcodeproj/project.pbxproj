@@ -194,6 +194,19 @@
 		F5DC9DE72875EB200022D457 /* FeedImagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DC9DE62875EB200022D457 /* FeedImagePresenter.swift */; };
 		F5DC9DE82875F06C0022D457 /* FeedImagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DC9DE62875EB200022D457 /* FeedImagePresenter.swift */; };
 		F5DC9DEA2875F0C80022D457 /* FeedLoadingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DC9DE92875F0C80022D457 /* FeedLoadingViewModel.swift */; };
+		F5DC9DEB2875F1340022D457 /* FeedLoadingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DC9DE92875F0C80022D457 /* FeedLoadingViewModel.swift */; };
+		F5DC9DED2875F1940022D457 /* MVP_architecture_overvew.png in Resources */ = {isa = PBXBuildFile; fileRef = F5DC9DEC2875F1940022D457 /* MVP_architecture_overvew.png */; };
+		F5DC9DF12875F1DF0022D457 /* MVP_01.png in Resources */ = {isa = PBXBuildFile; fileRef = F5DC9DEE2875F1DE0022D457 /* MVP_01.png */; };
+		F5DC9DF22875F1DF0022D457 /* MVP_02.png in Resources */ = {isa = PBXBuildFile; fileRef = F5DC9DEF2875F1DE0022D457 /* MVP_02.png */; };
+		F5DC9DF32875F1DF0022D457 /* MVP_03.png in Resources */ = {isa = PBXBuildFile; fileRef = F5DC9DF02875F1DE0022D457 /* MVP_03.png */; };
+		F5DC9DF72875F2B40022D457 /* adapter.png in Resources */ = {isa = PBXBuildFile; fileRef = F5DC9DF42875F2B30022D457 /* adapter.png */; };
+		F5DC9DF82875F2B40022D457 /* final_responsibilitues.png in Resources */ = {isa = PBXBuildFile; fileRef = F5DC9DF52875F2B40022D457 /* final_responsibilitues.png */; };
+		F5DC9DF92875F2B40022D457 /* unidirectional.png in Resources */ = {isa = PBXBuildFile; fileRef = F5DC9DF62875F2B40022D457 /* unidirectional.png */; };
+		F5DC9DFF2875F3940022D457 /* cyclic_dependency_03.png in Resources */ = {isa = PBXBuildFile; fileRef = F5DC9DFA2875F3930022D457 /* cyclic_dependency_03.png */; };
+		F5DC9E002875F3940022D457 /* cyclic_dependency_02.png in Resources */ = {isa = PBXBuildFile; fileRef = F5DC9DFB2875F3930022D457 /* cyclic_dependency_02.png */; };
+		F5DC9E012875F3940022D457 /* Memory Management to the Composer.png in Resources */ = {isa = PBXBuildFile; fileRef = F5DC9DFC2875F3930022D457 /* Memory Management to the Composer.png */; };
+		F5DC9E022875F3940022D457 /* cyclic_dependency_04.png in Resources */ = {isa = PBXBuildFile; fileRef = F5DC9DFD2875F3930022D457 /* cyclic_dependency_04.png */; };
+		F5DC9E032875F3940022D457 /* cyclic_dependency_01.png in Resources */ = {isa = PBXBuildFile; fileRef = F5DC9DFE2875F3930022D457 /* cyclic_dependency_01.png */; };
 		F5DCB315285C21C9003C9547 /* ValidateFeedCacheUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DCB314285C21C9003C9547 /* ValidateFeedCacheUseCaseTests.swift */; };
 		F5DCB317285C2698003C9547 /* FeedCacheTestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DCB316285C2698003C9547 /* FeedCacheTestHelper.swift */; };
 		F5DCB319285C273D003C9547 /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DCB318285C273D003C9547 /* SharedTestHelpers.swift */; };
@@ -437,6 +450,18 @@
 		F5DC8FCE2871DCC500FB425D /* simulate_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = simulate_01.png; sourceTree = "<group>"; };
 		F5DC9DE62875EB200022D457 /* FeedImagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImagePresenter.swift; sourceTree = "<group>"; };
 		F5DC9DE92875F0C80022D457 /* FeedLoadingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoadingViewModel.swift; sourceTree = "<group>"; };
+		F5DC9DEC2875F1940022D457 /* MVP_architecture_overvew.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MVP_architecture_overvew.png; sourceTree = "<group>"; };
+		F5DC9DEE2875F1DE0022D457 /* MVP_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MVP_01.png; sourceTree = "<group>"; };
+		F5DC9DEF2875F1DE0022D457 /* MVP_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MVP_02.png; sourceTree = "<group>"; };
+		F5DC9DF02875F1DE0022D457 /* MVP_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MVP_03.png; sourceTree = "<group>"; };
+		F5DC9DF42875F2B30022D457 /* adapter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = adapter.png; sourceTree = "<group>"; };
+		F5DC9DF52875F2B40022D457 /* final_responsibilitues.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = final_responsibilitues.png; sourceTree = "<group>"; };
+		F5DC9DF62875F2B40022D457 /* unidirectional.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unidirectional.png; sourceTree = "<group>"; };
+		F5DC9DFA2875F3930022D457 /* cyclic_dependency_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cyclic_dependency_03.png; sourceTree = "<group>"; };
+		F5DC9DFB2875F3930022D457 /* cyclic_dependency_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cyclic_dependency_02.png; sourceTree = "<group>"; };
+		F5DC9DFC2875F3930022D457 /* Memory Management to the Composer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Memory Management to the Composer.png"; sourceTree = "<group>"; };
+		F5DC9DFD2875F3930022D457 /* cyclic_dependency_04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cyclic_dependency_04.png; sourceTree = "<group>"; };
+		F5DC9DFE2875F3930022D457 /* cyclic_dependency_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cyclic_dependency_01.png; sourceTree = "<group>"; };
 		F5DCB314285C21C9003C9547 /* ValidateFeedCacheUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateFeedCacheUseCaseTests.swift; sourceTree = "<group>"; };
 		F5DCB316285C2698003C9547 /* FeedCacheTestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCacheTestHelper.swift; sourceTree = "<group>"; };
 		F5DCB318285C273D003C9547 /* SharedTestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTestHelpers.swift; sourceTree = "<group>"; };
@@ -718,6 +743,18 @@
 				F5B0F12928754ED00062C513 /* MVP+Diagram.png */,
 				F5B0F12C28754ED00062C513 /* MVP+FLOW+1.png */,
 				F5B0F12B28754ED00062C513 /* MVP+FLOW+2.png */,
+				F5DC9DEC2875F1940022D457 /* MVP_architecture_overvew.png */,
+				F5DC9DEE2875F1DE0022D457 /* MVP_01.png */,
+				F5DC9DEF2875F1DE0022D457 /* MVP_02.png */,
+				F5DC9DF02875F1DE0022D457 /* MVP_03.png */,
+				F5DC9DF42875F2B30022D457 /* adapter.png */,
+				F5DC9DF52875F2B40022D457 /* final_responsibilitues.png */,
+				F5DC9DF62875F2B40022D457 /* unidirectional.png */,
+				F5DC9DFE2875F3930022D457 /* cyclic_dependency_01.png */,
+				F5DC9DFB2875F3930022D457 /* cyclic_dependency_02.png */,
+				F5DC9DFA2875F3930022D457 /* cyclic_dependency_03.png */,
+				F5DC9DFD2875F3930022D457 /* cyclic_dependency_04.png */,
+				F5DC9DFC2875F3930022D457 /* Memory Management to the Composer.png */,
 				F5B0F11C28751A3C0062C513 /* Lecture_07.md */,
 			);
 			path = UI_Lecrture_07;
@@ -1235,12 +1272,16 @@
 				F560D4C428740EE5003F6D26 /* StateFull_version_viewModel.png in Resources */,
 				F5B200FC28749D4500966F41 /* Presentation logic_2.png in Resources */,
 				F5D3519B287072D000C94DB5 /* lecture_03_8.png in Resources */,
+				F5DC9DF82875F2B40022D457 /* final_responsibilitues.png in Resources */,
 				F5B0F12E28754ED00062C513 /* MVP+Diagram.png in Resources */,
 				F5DCB327285C9C3B003C9547 /* Persistance_lecture_10.md in Resources */,
+				F5DC9DF22875F1DF0022D457 /* MVP_02.png in Resources */,
+				F5DC9E012875F3940022D457 /* Memory Management to the Composer.png in Resources */,
 				F5B300C8285F434500253FAC /* Screenshot 2022-06-19 at 5.07.34 PM.png in Resources */,
 				F5B87CE4283F5C5F00D86464 /* LaunchScreen.storyboard in Resources */,
 				F5D5D778285D722C007493F4 /* Screenshot 2022-06-18 at 8.04.30 AM.png in Resources */,
 				F5B200EB28749A7200966F41 /* Dependency+diagram.png in Resources */,
+				F5DC9E032875F3940022D457 /* cyclic_dependency_01.png in Resources */,
 				F5B87CE1283F5C5F00D86464 /* Assets.xcassets in Resources */,
 				F5DC8FBD2871D80000FB425D /* Architecture overview.png in Resources */,
 				F5AF14BA2872D8B20004B4C2 /* adapter.png in Resources */,
@@ -1252,6 +1293,7 @@
 				F5D5074128505EE900B16343 /* Narrative.md in Resources */,
 				F5B200FE28749D7F00966F41 /* Referencing UIKit types in View Models.png in Resources */,
 				F5DC8FC52871D98000FB425D /*  start of a massive.png in Resources */,
+				F5DC9DFF2875F3940022D457 /* cyclic_dependency_03.png in Resources */,
 				F5D35199287072D000C94DB5 /* lecture_03_3.png in Resources */,
 				F5D5D787285DCAFD007493F4 /* Persistance_lecture_13_storeCheckList3.md in Resources */,
 				F5AF14B92872D8B20004B4C2 /* diagram_3.png in Resources */,
@@ -1261,6 +1303,7 @@
 				F5B0F13128754ED00062C513 /* MVP+FLOW+1.png in Resources */,
 				F5B0F12D28754ED00062C513 /* MVP_4.png in Resources */,
 				F5B200E52874968B00966F41 /* dependency.png in Resources */,
+				F5DC9DF32875F1DF0022D457 /* MVP_03.png in Resources */,
 				F5B1BCF1285AD16900AA9D75 /* Cache-dependency.png in Resources */,
 				F5B9B273284F0E5D00ADA20C /* feed-case-study-test-api-feed.json in Resources */,
 				F5B2010028749DB900966F41 /* Decoupling Presentation from UI frameworks.png in Resources */,
@@ -1278,6 +1321,7 @@
 				F5AF14A52872A1250004B4C2 /* REfactor_1.png in Resources */,
 				F5D3519C287072D000C94DB5 /* lecture_03_4.png in Resources */,
 				F5AF14B52872D5DC0004B4C2 /* diagram _1.png in Resources */,
+				F5DC9DF92875F2B40022D457 /* unidirectional.png in Resources */,
 				F560D4C128740EE5003F6D26 /* ModelAgnostic_ViewController.png in Resources */,
 				F5B300C5285F434500253FAC /* Screenshot 2022-06-19 at 5.06.45 PM.png in Resources */,
 				F56F94A9285EAD3900CFBC5E /* Persistacne_lecture_15.md in Resources */,
@@ -1287,8 +1331,10 @@
 				F5B9B263284F0A4800ADA20C /* Screenshot 2022-06-06 at 10.23.32 AM.png in Resources */,
 				F560D4C628740EE5003F6D26 /* lecture_6_1.png in Resources */,
 				F5B300D5285F47B300253FAC /* Working in small batches.png in Resources */,
+				F5DC9DED2875F1940022D457 /* MVP_architecture_overvew.png in Resources */,
 				F5D5D783285DA614007493F4 /* Screenshot 2022-06-18 at 11.49.20 AM.png in Resources */,
 				F5D5D791285DE7EC007493F4 /* Screenshot 2022-06-18 at 4.19.46 PM.png in Resources */,
+				F5DC9E002875F3940022D457 /* cyclic_dependency_02.png in Resources */,
 				F5DCB325285C9AAD003C9547 /* Core_bounrady_infra.logo.png in Resources */,
 				F5B200E72874968B00966F41 /* Updated_architecute.png in Resources */,
 				F5D35179287014E200C94DB5 /* UI+Lecture+02.md in Resources */,
@@ -1298,11 +1344,13 @@
 				F5DC8FC12871D89200FB425D /* Inside-out_2.png in Resources */,
 				F5AF14AD2872D00B0004B4C2 /* FeedContoller_1.png in Resources */,
 				F5D5D789285DD572007493F4 /* Persistance_lecture_14.md in Resources */,
+				F5DC9DF72875F2B40022D457 /* adapter.png in Resources */,
 				F5D5D77E285DA419007493F4 /* Persistacne_lecture_12.md in Resources */,
 				F5B200F728749CEE00966F41 /* MVVM_2.png in Resources */,
 				F5AF148D28728D150004B4C2 /* UI_Lecture_05.md in Resources */,
 				F5B1BD00285B271D00AA9D75 /* Persistance_lecture_5.md in Resources */,
 				F560D4C228740EE5003F6D26 /* lecture_6_3.png in Resources */,
+				F5DC9DF12875F1DF0022D457 /* MVP_01.png in Resources */,
 				F5AEE6F1284C9626004D7655 /* HTTPClient.md in Resources */,
 				F56F94BE285EDB7400CFBC5E /* Screenshot 2022-06-19 at 9.46.58 AM.png in Resources */,
 				F5B0F12F28754ED00062C513 /* MVP+adapter.png in Resources */,
@@ -1339,6 +1387,7 @@
 				F5DC8FCD2871DBB800FB425D /* Open Closed Principle_4.png in Resources */,
 				F5D3519A287072D000C94DB5 /* lecture_03_1.png in Resources */,
 				F5D5D782285DA614007493F4 /* Screenshot 2022-06-18 at 11.49.26 AM.png in Resources */,
+				F5DC9E022875F3940022D457 /* cyclic_dependency_04.png in Resources */,
 				F5DC8FC32871D92600FB425D /* Inside-out_3.png in Resources */,
 				F5B300BA285F215600253FAC /* Persistance_lecture-15_IntegrationTests.md in Resources */,
 				F5D5D777285D722C007493F4 /* Screenshot 2022-06-18 at 8.04.41 AM.png in Resources */,
@@ -1492,6 +1541,7 @@
 				F5DC8FB828717EF600FB425D /* SharedTestHelpers.swift in Sources */,
 				F5D35183287051C800C94DB5 /* FeedLoader.swift in Sources */,
 				F5D3518928706DA400C94DB5 /* FeedViewController.swift in Sources */,
+				F5DC9DEB2875F1340022D457 /* FeedLoadingViewModel.swift in Sources */,
 				F5AF149B287291710004B4C2 /* FeedRefreshViewController.swift in Sources */,
 				F5D35181287017EB00C94DB5 /* FeedViewControllerTests.swift in Sources */,
 				F5D35185287051DE00C94DB5 /* FeedImage.swift in Sources */,

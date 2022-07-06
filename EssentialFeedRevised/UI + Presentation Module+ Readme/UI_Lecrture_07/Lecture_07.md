@@ -161,3 +161,26 @@ however in the feedPresenter the views are optional.
 
 ## Its up to the compositon layer to 
 Organize, compose and inject the instances including memory management and object life time.
+
+
+## In this lecture, you'll learn how MVP can help us create a clean separation between UI and Presentation logic. You’ll also learn how, similar to MVVM, MVP allows us to create a cross-platform and reusable Presentation layer. Moreover, you’ll learn how to solve Cyclic Dependencies (the Chicken or the Egg causality dilemma) and Memory Management issues with the Proxy pattern.
+
+## Learning Outcomes
+
+Creating a reusable cross-platform Presentation Layer with MVP
+Improving architectural separation between UI and core components with Presenters
+Implementing various MVP solutions
+Differences between ViewModels in MVVM, MVC, and MVP
+Implementing the Proxy design pattern
+Identifying and solving Cyclic Dependencies
+Dealing with Memory Management in the Composer layer to prevent leaking composition details into components
+
+
+## A Composition Adapter is responsible for connecting the interfaces. The Adapter translates View events into <Service> commands/requests and delegates responses and state transitions to the Presenter.
+“An ADAPTER is a wrapper that allows a client to use a different protocol than that understood by the implementer of the behavior. When a client sends a message to an ADAPTER, it is converted to a semantically equivalent message and sent on to the “adaptee.” The response is converted and passed back[…]
+
+For each SERVICE we define, we need an ADAPTER that supports the SERVICE’S interface and knows how to make equivalent requests of the other system[…]
+
+The ADAPTER’S job is to know how to make a request. The actual conversion of conceptual objects or data is a distinct, complex task that can be placed in its own object, making them both much easier to understand. A translator can be a lightweight object that is instantiated when needed."—Eric Evans “Domain-Driven Design: Tackling Complexity in the Heart of Software
+
+
