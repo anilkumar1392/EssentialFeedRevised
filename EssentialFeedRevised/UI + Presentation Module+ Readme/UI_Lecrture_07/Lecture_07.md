@@ -34,7 +34,7 @@ Configuring Presenter.
 1. we can't make a method confirm to a protocol.
 to do that we can use a FeedViewAdapter
 
-The tow way communication between the view and the presenter can lead to retain cycle.
+## The two way communication between the view and the presenter can lead to retain cycle.
 1. Presenter holds a string ref to view
 2. and the view also holds a strgin ref to the presenter.
 
@@ -42,3 +42,29 @@ A common solution is to make the presenter ref to the view weak.
 
 To make protocol weak in presenter weak we need to make protocol as class only as only calss can be weakly referenced.
 
+So test are passing but I don't like how the composition detail amde us change the implementation of the Presentar component. 
+
+## Memory management is a responsibilty that belong to composer not your component.
+otherwise you will be leaking infrastrucutre detail in to your componenets.
+
+## So let's move memroy management away from presenter. 
+
+This can be done through composer
+
+final class WeakRefVirtualProxy<T: AnyObject> {
+    private weak var object: T?
+    
+    init(_ object: T) {
+        self.object = object
+    }
+}
+
+extension WeakRefVirtualProxy: FeedLoadingView where T: FeedLoadingView {
+    func display(isLoading: Bool) {
+        object?.display(isLoading: isLoading)
+    }
+}
+
+This way we can safely forward the message to weak instance with compile check guaranted.
+So retain cycle is now solved and memory management now leave in composer.
+away from MVP component.

@@ -18,7 +18,7 @@ final class FeedUIComposer {
         
         // Compose the presenter
         
-        presenter.loadingView = refreshController
+        presenter.loadingView = WeakRefVirtualProxy(refreshController)
         presenter.feedView =  FeedViewAdapter(controller: feedContoller, loader: imageLoader)
         /*
         refreshController.onRefresh = { [weak feedContoller] feed in
@@ -44,13 +44,28 @@ final class FeedUIComposer {
     
     private static func adaptFeedToCellControllers(forwardingTo controller: FeedViewController, loader: FeedImageDataLoader) -> ([FeedImage]) -> Void {
         return { [weak controller] feed in
-//            controller?.tableModel = feed.map { FeedImageCellController(model: $0, imageLoader: loader) }
+//            controller?.tableModel = feed.map { FeedImageCellController(model: $0, imageLoader: loader) 
             
             controller?.tableModel = feed.map { FeedImageCellController(viewModel: FeedImageViewModel(model: $0, imageLoader: loader, imageTransformer: UIImage.init)) }
 
         }
     }
 }
+
+final class WeakRefVirtualProxy<T: AnyObject> {
+    private weak var object: T?
+    
+    init(_ object: T) {
+        self.object = object
+    }
+}
+
+extension WeakRefVirtualProxy: FeedLoadingView where T: FeedLoadingView {
+    func display(isLoading: Bool) {
+        object?.display(isLoading: isLoading)
+    }
+}
+
 
 // Same adapter now has been change to an objects as a method can not confirm to a delegate.
 // so moving our adapter to an object.
