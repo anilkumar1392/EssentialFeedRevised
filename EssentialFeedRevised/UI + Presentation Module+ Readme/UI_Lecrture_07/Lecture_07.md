@@ -68,3 +68,13 @@ extension WeakRefVirtualProxy: FeedLoadingView where T: FeedLoadingView {
 This way we can safely forward the message to weak instance with compile check guaranted.
 So retain cycle is now solved and memory management now leave in composer.
 away from MVP component.
+
+So presenter translates modelValues in to view Data.
+however we are representing ore loading state as a simple boolean. this not the ideal. as it lacks content we are not just passing a boolean. 
+we are passign a model required for FeedLoadingView rendering.
+
+SO instead of Bool we can pass a model.
+Bool -> 
+struct FeedLoadingViewModel {
+    var isLoading: Bool
+} 
