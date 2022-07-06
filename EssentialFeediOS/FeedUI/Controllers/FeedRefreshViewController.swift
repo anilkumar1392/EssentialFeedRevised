@@ -8,6 +8,38 @@
 import Foundation
 import UIKit
 
+// MARK: - MVP
+
+public final class FeedRefreshViewController: NSObject, FeedLoadingView {
+    private(set) public lazy var view = loadView()
+
+    private let presenter: FeedPresenter
+    
+    init(presenter: FeedPresenter) {
+        self.presenter = presenter
+    }
+
+    @objc func refresh() {
+        presenter.loadFeed()
+    }
+    
+    func display(isLoading: Bool) {
+        if isLoading {
+            view.beginRefreshing()
+        } else {
+            view.endRefreshing()
+        }
+    }
+    
+    private func loadView() -> UIRefreshControl {
+        let view = UIRefreshControl()
+        view.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        return view
+    }
+}
+
+// MARK: - MVVM
+/*
 public final class FeedRefreshViewController: NSObject {
     private(set) public lazy var view = binded(UIRefreshControl())
 
@@ -31,10 +63,7 @@ public final class FeedRefreshViewController: NSObject {
             } else {
                 view?.endRefreshing()
             }
-            
-//            if let feed = viewModel.feed {
-//                self?.onRefresh?(feed)
-//            }
+
         }
         view.addTarget(self, action: #selector(refresh), for: .valueChanged)
         return view
@@ -43,8 +72,8 @@ public final class FeedRefreshViewController: NSObject {
         // view.addTarget(viewModel, action: #selector(loadFeed), for: .valueChanged)
 
     }
-
 }
+ */
 
 
 

@@ -97,7 +97,7 @@ private let imageTransformer: (Data) -> Image?
 
 so the transforer method will be injected in viewModel.
 
-## now 'FeedImageViewMOdel' does not depend on UIKIt any more.
+## now 'FeedImageViewModel' does not depend on UIKIt any more.
 
 1. FeedViewController does not need to manage any state so it does not need viewMOdel.
 2. FeedRefreshController and 'FeedImageCellController' bith require model state thus they have their own view model.

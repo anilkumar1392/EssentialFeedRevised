@@ -55,6 +55,9 @@
 		F5AF14B62872D5DC0004B4C2 /* diagram _2.png in Resources */ = {isa = PBXBuildFile; fileRef = F5AF14B42872D5DC0004B4C2 /* diagram _2.png */; };
 		F5AF14B92872D8B20004B4C2 /* diagram_3.png in Resources */ = {isa = PBXBuildFile; fileRef = F5AF14B72872D8B20004B4C2 /* diagram_3.png */; };
 		F5AF14BA2872D8B20004B4C2 /* adapter.png in Resources */ = {isa = PBXBuildFile; fileRef = F5AF14B82872D8B20004B4C2 /* adapter.png */; };
+		F5B0F11D28751A3C0062C513 /* Lecture_07.md in Resources */ = {isa = PBXBuildFile; fileRef = F5B0F11C28751A3C0062C513 /* Lecture_07.md */; };
+		F5B0F12028751D720062C513 /* FeedPresentor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B0F11F28751D720062C513 /* FeedPresentor.swift */; };
+		F5B0F121287525640062C513 /* FeedPresentor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B0F11F28751D720062C513 /* FeedPresentor.swift */; };
 		F5B1BCED285ACE2600AA9D75 /* LocalFeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B1BCEC285ACE2600AA9D75 /* LocalFeedLoader.swift */; };
 		F5B1BCEF285ACE8900AA9D75 /* FeedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B1BCEE285ACE8900AA9D75 /* FeedStore.swift */; };
 		F5B1BCF1285AD16900AA9D75 /* Cache-dependency.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B1BCF0285AD16900AA9D75 /* Cache-dependency.png */; };
@@ -79,7 +82,7 @@
 		F5B200EC28749A7200966F41 /* viewModel+NoDependency+UIKit.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B200EA28749A7200966F41 /* viewModel+NoDependency+UIKit.png */; };
 		F5B200EE28749B5800966F41 /* MVVM_recap.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B200ED28749B5800966F41 /* MVVM_recap.png */; };
 		F5B200F028749BA100966F41 /* separation_userinterface _coreComponents.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B200EF28749BA100966F41 /* separation_userinterface _coreComponents.png */; };
-		F5B200F228749C7200966F41 /* Architecture overview.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B200F128749C7200966F41 /* Architecture overview.png */; };
+		F5B200F228749C7200966F41 /* Architecture overview!.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B200F128749C7200966F41 /* Architecture overview!.png */; };
 		F5B200F428749C9F00966F41 /* Comparing MVC to MVVM.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B200F328749C9F00966F41 /* Comparing MVC to MVVM.png */; };
 		F5B200F728749CEE00966F41 /* MVVM_2.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B200F528749CEE00966F41 /* MVVM_2.png */; };
 		F5B200F828749CEE00966F41 /* MVVM_1.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B200F628749CEE00966F41 /* MVVM_1.png */; };
@@ -296,6 +299,8 @@
 		F5AF14B42872D5DC0004B4C2 /* diagram _2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "diagram _2.png"; sourceTree = "<group>"; };
 		F5AF14B72872D8B20004B4C2 /* diagram_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = diagram_3.png; sourceTree = "<group>"; };
 		F5AF14B82872D8B20004B4C2 /* adapter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = adapter.png; sourceTree = "<group>"; };
+		F5B0F11C28751A3C0062C513 /* Lecture_07.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Lecture_07.md; sourceTree = "<group>"; };
+		F5B0F11F28751D720062C513 /* FeedPresentor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPresentor.swift; sourceTree = "<group>"; };
 		F5B1BCEC285ACE2600AA9D75 /* LocalFeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFeedLoader.swift; sourceTree = "<group>"; };
 		F5B1BCEE285ACE8900AA9D75 /* FeedStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedStore.swift; sourceTree = "<group>"; };
 		F5B1BCF0285AD16900AA9D75 /* Cache-dependency.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Cache-dependency.png"; sourceTree = "<group>"; };
@@ -319,7 +324,7 @@
 		F5B200EA28749A7200966F41 /* viewModel+NoDependency+UIKit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "viewModel+NoDependency+UIKit.png"; sourceTree = "<group>"; };
 		F5B200ED28749B5800966F41 /* MVVM_recap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MVVM_recap.png; sourceTree = "<group>"; };
 		F5B200EF28749BA100966F41 /* separation_userinterface _coreComponents.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "separation_userinterface _coreComponents.png"; sourceTree = "<group>"; };
-		F5B200F128749C7200966F41 /* Architecture overview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Architecture overview.png"; sourceTree = "<group>"; };
+		F5B200F128749C7200966F41 /* Architecture overview!.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Architecture overview!.png"; sourceTree = "<group>"; };
 		F5B200F328749C9F00966F41 /* Comparing MVC to MVVM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Comparing MVC to MVVM.png"; sourceTree = "<group>"; };
 		F5B200F528749CEE00966F41 /* MVVM_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MVVM_2.png; sourceTree = "<group>"; };
 		F5B200F628749CEE00966F41 /* MVVM_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MVVM_1.png; sourceTree = "<group>"; };
@@ -490,7 +495,7 @@
 				F5B200EA28749A7200966F41 /* viewModel+NoDependency+UIKit.png */,
 				F5B200ED28749B5800966F41 /* MVVM_recap.png */,
 				F5B200EF28749BA100966F41 /* separation_userinterface _coreComponents.png */,
-				F5B200F128749C7200966F41 /* Architecture overview.png */,
+				F5B200F128749C7200966F41 /* Architecture overview!.png */,
 				F5B200F328749C9F00966F41 /* Comparing MVC to MVVM.png */,
 				F5B200F628749CEE00966F41 /* MVVM_1.png */,
 				F5B200F528749CEE00966F41 /* MVVM_2.png */,
@@ -502,15 +507,6 @@
 				F560D4B42873EB60003F6D26 /* UI+Module+lecture+06.md */,
 			);
 			path = UI_lecture_06;
-			sourceTree = "<group>";
-		};
-		F560D4B62873F3EA003F6D26 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				F560D4B72873F3F8003F6D26 /* FeedViewModel.swift */,
-				F5B200E0287494BA00966F41 /* FeedImageViewModel.swift */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		F56F94AE285EB2D200CFBC5E /* Infrastructure */ = {
@@ -626,7 +622,6 @@
 		F5AF148F28728E2B0004B4C2 /* FeedUI */ = {
 			isa = PBXGroup;
 			children = (
-				F560D4B62873F3EA003F6D26 /* Models */,
 				F5AF14AF2872D1B50004B4C2 /* Composer */,
 				F5AF149128728E480004B4C2 /* Views */,
 				F5AF149028728E320004B4C2 /* Controllers */,
@@ -689,6 +684,24 @@
 				F5AF14B02872D1BE0004B4C2 /* FeedUIComposer.swift */,
 			);
 			path = Composer;
+			sourceTree = "<group>";
+		};
+		F5B0F11B28751A240062C513 /* UI_Lecrture_07 */ = {
+			isa = PBXGroup;
+			children = (
+				F5B0F11C28751A3C0062C513 /* Lecture_07.md */,
+			);
+			path = UI_Lecrture_07;
+			sourceTree = "<group>";
+		};
+		F5B0F11E28751D310062C513 /* Feed Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				F5B0F11F28751D720062C513 /* FeedPresentor.swift */,
+				F560D4B72873F3F8003F6D26 /* FeedViewModel.swift */,
+				F5B200E0287494BA00966F41 /* FeedImageViewModel.swift */,
+			);
+			path = "Feed Presentation";
 			sourceTree = "<group>";
 		};
 		F5B1BCEB285ACE1400AA9D75 /* Feed Cache */ = {
@@ -843,6 +856,7 @@
 		F5D351582870106D00C94DB5 /* EssentialFeediOS */ = {
 			isa = PBXGroup;
 			children = (
+				F5B0F11E28751D310062C513 /* Feed Presentation */,
 				F5AF148E28728E1B0004B4C2 /* Feed Image Loader */,
 				F5AF148F28728E2B0004B4C2 /* FeedUI */,
 			);
@@ -862,6 +876,7 @@
 		F5D35173287012B000C94DB5 /* UI + Presentation Module+ Readme */ = {
 			isa = PBXGroup;
 			children = (
+				F5B0F11B28751A240062C513 /* UI_Lecrture_07 */,
 				F560D4B32873EB45003F6D26 /* UI_lecture_06 */,
 				F5AF148B28728D050004B4C2 /* UI_lecture_05 */,
 				F5D3518A287071F300C94DB5 /* UI_Lecture_04 */,
@@ -1199,7 +1214,7 @@
 				F5AF14BA2872D8B20004B4C2 /* adapter.png in Resources */,
 				F5B300D0285F465300253FAC /* Unit:Isolated + Integration tests.png in Resources */,
 				F560D4C528740EE5003F6D26 /* lecture_6_2.png in Resources */,
-				F5B200F228749C7200966F41 /* Architecture overview.png in Resources */,
+				F5B200F228749C7200966F41 /* Architecture overview!.png in Resources */,
 				F5B1BD04285B27C500AA9D75 /* Persistance_lecture_4.md in Resources */,
 				F5D5074128505EE900B16343 /* Narrative.md in Resources */,
 				F5B200FE28749D7F00966F41 /* Referencing UIKit types in View Models.png in Resources */,
@@ -1268,6 +1283,7 @@
 				F570DBA7284DBED8000ADC03 /* Screenshot 2022-06-06 at 10.18.50 AM.png in Resources */,
 				F5B300DC285F483900253FAC /* Visualizing the number of files.png in Resources */,
 				F5DC8FCF2871DCC500FB425D /* simulate_01.png in Resources */,
+				F5B0F11D28751A3C0062C513 /* Lecture_07.md in Resources */,
 				F5B1BCF3285ADB3B00AA9D75 /* after data_transfer_objtec.png in Resources */,
 				F560D4C728740EE5003F6D26 /* dependency_management.png in Resources */,
 				F5D35195287072D000C94DB5 /* lecture_03_5.png in Resources */,
@@ -1410,6 +1426,7 @@
 				F5B200E1287494BA00966F41 /* FeedImageViewModel.swift in Sources */,
 				F5AF149D28729FDC0004B4C2 /* FeedImageCellController.swift in Sources */,
 				F5AF149328728E620004B4C2 /* FeedImageLoader.swift in Sources */,
+				F5B0F12028751D720062C513 /* FeedPresentor.swift in Sources */,
 				F5DC8FB728717EF500FB425D /* SharedTestHelpers.swift in Sources */,
 				F560D4B82873F3F8003F6D26 /* FeedViewModel.swift in Sources */,
 				F5AF149A287291660004B4C2 /* FeedRefreshViewController.swift in Sources */,
@@ -1424,6 +1441,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5B0F121287525640062C513 /* FeedPresentor.swift in Sources */,
 				F5B200E8287499A600966F41 /* FeedImageViewModel.swift in Sources */,
 				F5D35186287052B400C94DB5 /* SCTestCase+MemoryLeakTracking.swift in Sources */,
 				F5AF14B22872D1E00004B4C2 /* FeedUIComposer.swift in Sources */,

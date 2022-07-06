@@ -15,31 +15,10 @@ final class FeedViewModel {
     init(feedLoader: FeedLoader) {
         self.feedLoader = feedLoader
     }
-    
-//    private enum State {
-//        case pending
-//        case loading
-//    }
-//
-//    private var state = State.pending {
-//        didSet { onChange?(self) }
-//    }
-    
-    // var onChange: ((FeedViewModel) -> Void)?
+
     var onLoadingStateChange: Observer<Bool>?
     var onFeedLoad: Observer<[FeedImage]>?
-    
-//    private(set) var isLoading: Bool = false {
-//        didSet { onChange?(self) }
-//    }
-    
-//    var feed: [FeedImage]? {
-//        switch state {
-//        case .loaded(let feed): return feed
-//        default: return nil
-//        }
-//    }
-    
+
     func loadFeed() {
         onLoadingStateChange?(true)
         feedLoader.load { [weak self] result in

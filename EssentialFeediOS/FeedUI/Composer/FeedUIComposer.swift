@@ -12,9 +12,14 @@ final class FeedUIComposer {
     private init() {}
     
     public static func feedComposedWith(feedLoader: FeedLoader, imageLoader: FeedImageDataLoader) -> FeedViewController {
-        let viewModel = FeedViewModel(feedLoader: feedLoader)
-        let refreshController = FeedRefreshViewController(viewModel: viewModel)
+        let presenter = FeedPresenter(feedLoader: feedLoader)
+        let refreshController = FeedRefreshViewController(presenter: presenter)
         let feedContoller = FeedViewController(refereshController: refreshController)
+        
+        // Compose the presenter
+        
+        presenter.loadingView = refreshController
+        presenter.feedView =  FeedViewAdapter(controller: feedContoller, loader: imageLoader)
         /*
         refreshController.onRefresh = { [weak feedContoller] feed in
             feedContoller?.tableModel = feed.map { FeedImageCellController(model: $0, imageLoader: imageLoader) }
@@ -22,7 +27,7 @@ final class FeedUIComposer {
         
         // can be done
         // refreshController.onRefresh = adaptFeedToCellControllers(forwardingTo: feedContoller, loader: imageLoader)
-        viewModel.onFeedLoad = adaptFeedToCellControllers(forwardingTo: feedContoller, loader: imageLoader)
+        // viewModel.onFeedLoad = adaptFeedToCellControllers(forwardingTo: feedContoller, loader: imageLoader)
         
         // closure here we may fine it odd but that'a the adapter pattern. it is very common in composer types to adapt unmatching types.
         
@@ -44,5 +49,22 @@ final class FeedUIComposer {
             controller?.tableModel = feed.map { FeedImageCellController(viewModel: FeedImageViewModel(model: $0, imageLoader: loader, imageTransformer: UIImage.init)) }
 
         }
+    }
+}
+
+// Same adapter now has been change to an objects as a method can not confirm to a delegate.
+// so moving our adapter to an object.
+
+final class FeedViewAdapter: FeedView {
+    private weak var controller: FeedViewController?
+    private let loader: FeedImageDataLoader
+    
+    init(controller: FeedViewController, loader: FeedImageDataLoader) {
+        self.controller = controller
+        self.loader = loader
+    }
+    
+    func display(feed: [FeedImage]) {
+        controller?.tableModel = feed.map { FeedImageCellController(viewModel: FeedImageViewModel(model: $0, imageLoader: loader, imageTransformer: UIImage.init)) }
     }
 }
