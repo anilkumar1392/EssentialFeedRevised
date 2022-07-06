@@ -78,3 +78,8 @@ Bool ->
 struct FeedLoadingViewModel {
     var isLoading: Bool
 } 
+
+## Add presentable ViewModel to clarify communication between presentation and UI 
+
+InMVp a viewModel is also called viewData or presentableModel, and it only holds the necessary data for the view rendering it has no behaviour.
+so it is differnt form ViewModel as a viewModel has dependency and behaviour.
