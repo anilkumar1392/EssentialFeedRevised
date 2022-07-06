@@ -118,3 +118,46 @@ So MVP is very flexible you can play around with different compositions and coup
 
 As long as you have composition layer you can easily make those changes without breakin g exte3rnal clients.
 
+## Replace Closure event handler with delegate Protocol to demonstrate different composition approaches
+
+        // let refreshController = FeedRefreshViewController(loadFeed: presentationAdapter.loadFeed)
+        let refreshController = FeedRefreshViewController(delegate: presentationAdapter)
+        
+private final class FeedLoaderPresentationAdapter: FeedRefreshViewControllerDelegate {
+    private let feedLoader: FeedLoader
+    private let presenter: FeedPresenter
+
+    init(feedLoader: FeedLoader, presenter: FeedPresenter) {
+        self.feedLoader = feedLoader
+        self.presenter = presenter
+    }
+
+    func didRequestFeedRefresh() {
+        presenter.didStartLoadingFeed()
+
+        feedLoader.load { [weak self] result in
+            switch result {
+            case let .success(feed):
+                self?.presenter.didFinishLoadingFeed(with: feed)
+                
+            case let .failure(error):
+                self?.presenter.didFinishLoadingFeed(with: error)
+            }
+        }
+    }
+}
+
+## In MVP a Presenter must have a reference to a View protocol 
+
+however in the feedPresenter the views are optional.
+ View are optional because we are composing them via property injection.
+ 
+ Ideally view ref in the presenter should not be optional.
+ because a presenter must have a view.
+ 
+ So to improve our design intead of property inejction we are moving to constructor injection to we always have ref to view.
+ 
+ So constructor injection is preferred to guarantee that our components has reference to all necesssary dependecies.
+
+## Its up to the compositon layer to 
+Organize, compose and inject the instances including memory management and object life time.
