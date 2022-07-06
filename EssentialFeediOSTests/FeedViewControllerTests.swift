@@ -74,7 +74,7 @@ final class FeedViewControllerTests: XCTestCase {
     
     //MARK: - Show a loading indicator while loading feed
     
-    // Same temporal coupling is in the loading indicator so let;s couple them to.
+    // Same temporal coupling is in the loading indicator so let's couple them to.
     func test_loadingFeedIndicator_isVisibleWhileLoadingFeed() {
         let (sut, loader) = makeSUT()
         

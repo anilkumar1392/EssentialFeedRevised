@@ -83,3 +83,33 @@ struct FeedLoadingViewModel {
 
 InMVp a viewModel is also called viewData or presentableModel, and it only holds the necessary data for the view rendering it has no behaviour.
 so it is differnt form ViewModel as a viewModel has dependency and behaviour.
+
+To decouple Controller from presenter we can use a adapter in between.
+
+
+2. In Presenter remove feedLoader dependency from presenter.
+3. Sicne we dont have a reference to feedLoader we need a mechanism to know when the loading begins and finishes.
+4. To do so we can use delegation instead of current closure approach.
+
+    replace this with this.
+    /*
+     1. 
+    private var feedLoader: FeedLoader
+    
+    init(feedLoader: FeedLoader) {
+        self.feedLoader = feedLoader
+    } */
+    
+    func didStartLoadingFeed() {
+        self.loadingView?.display(FeedLoadingViewModel(isLoading: true))
+    }
+    
+    func didFinishLoadingFeed(with feed: [FeedImage]) {
+        self.feedView?.display(FeedViewModel(feed: feed))
+    }
+    
+    func didFinishLaodingFeed(with error: Error) {
+        self.loadingView?.display(FeedLoadingViewModel(isLoading: false))
+    }
+
+and now we need a adapter component to delegate this responsibility.
