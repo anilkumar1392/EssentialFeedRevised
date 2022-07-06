@@ -7,6 +7,21 @@
 
 import Foundation
 
+struct FeedImageViewModel<Image> {
+    let description: String?
+    let location: String?
+    let image: Image?
+    let isLoading: Bool
+    let shouldRetry: Bool
+    
+    var hasLocation: Bool {
+        return location != nil
+    }
+}
+
+
+/*
+// MARK: - MVVM Version
 public final class FeedImageViewModel<Image> {
     typealias Observer<T> = (T) -> Void
 
@@ -59,3 +74,4 @@ public final class FeedImageViewModel<Image> {
         task = nil
     }
 }
+ */
