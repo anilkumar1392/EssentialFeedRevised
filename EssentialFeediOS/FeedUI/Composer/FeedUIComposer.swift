@@ -29,7 +29,8 @@ final class FeedUIComposer {
         // refreshController.delegate = presentationAdapter
         
         feedContoller.delegate = presentationAdapter
-        
+        feedContoller.title = FeedPresenter.title
+
         
         //feedContoller.refreshController = refreshController
         

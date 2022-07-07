@@ -17,3 +17,5 @@ In MVVM presentaiton strings should be created by ViewModel.
 In MVP presentation strings should be created by Presenters.
 
 for us now move string creation to presenter.
+
+Since our title does not change a static property will do just fine other ways we can pass title in model.
