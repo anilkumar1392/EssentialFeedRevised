@@ -10,3 +10,10 @@ Creating and managing customer-facing strings in the Presentation Layer (away fr
 Testing customer-facing strings
 
 
+String values like title belong to Presentation layer.
+Created by contoller or directly by the views.
+
+In MVVM presentaiton strings should be created by ViewModel.
+In MVP presentation strings should be created by Presenters.
+
+for us now move string creation to presenter.
