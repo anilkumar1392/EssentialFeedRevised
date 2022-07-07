@@ -8,6 +8,10 @@
 import Foundation
 import UIKit
 
+protocol FeedViewControllerDelegate {
+    func didRequestFeedRefresh()
+}
+
 public final class FeedViewController: UITableViewController, UITableViewDataSourcePrefetching {
     
     // private var feedLoader: FeedLoader?
@@ -15,7 +19,8 @@ public final class FeedViewController: UITableViewController, UITableViewDataSou
     // var refreshController: FeedRefreshViewController?
     // FeedRefreshViewController is created by the storyboard as well.
     // we need to create an outlet as well we need to create an outler.
-    @IBOutlet var refreshController: FeedRefreshViewController?
+    // @IBOutlet var refreshController: FeedRefreshViewController?
+    var delegate: FeedViewControllerDelegate?
     
     // private var imageLoader: FeedImageDataLoader?
     // private var cellControllers = [IndexPath: FeedImageCellController]()
@@ -48,7 +53,7 @@ public final class FeedViewController: UITableViewController, UITableViewDataSou
          
         // refreshControl = refreshController?.view
         tableView.prefetchDataSource = self
-        refreshController?.refresh()
+        refresh()
     }
 
     public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -89,5 +94,21 @@ public final class FeedViewController: UITableViewController, UITableViewDataSou
     private func cancelCellControllerLoad(forRowAt indexPath: IndexPath) {
         // cellControllers[indexPath] = nil
         cellController(forRowAt: indexPath).cancelLoad()
+    }
+}
+
+// MARK: - MARGING feedRefreshViewController with FeedViewCOntroller
+
+extension FeedViewController: FeedLoadingView {
+    @IBAction private func refresh() {
+        delegate?.didRequestFeedRefresh()
+    }
+    
+    func display(_ viewModel: FeedLoadingViewModel) {
+        if viewModel.isLoading {
+            refreshControl?.beginRefreshing()
+        } else {
+            refreshControl?.endRefreshing()
+        }
     }
 }
