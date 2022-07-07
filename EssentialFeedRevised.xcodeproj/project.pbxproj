@@ -123,6 +123,13 @@
 		F5B49A112876795D00A3E16F /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5B49A0F2876715400A3E16F /* Feed.storyboard */; };
 		F5B49A132876887900A3E16F /* UITableView+dequeueing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B49A122876887900A3E16F /* UITableView+dequeueing.swift */; };
 		F5B49A15287689C300A3E16F /* UIImageView+Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B49A14287689C300A3E16F /* UIImageView+Animations.swift */; };
+		F5B49A1728768A4000A3E16F /* UI_Acrhitecture.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B49A1628768A4000A3E16F /* UI_Acrhitecture.png */; };
+		F5B49A1A28768C2C00A3E16F /* Storyboards and the Constrained Construction anti-pattern.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B49A1828768C2C00A3E16F /* Storyboards and the Constrained Construction anti-pattern.png */; };
+		F5B49A1B28768C2C00A3E16F /* Storyboard vs. Code.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B49A1928768C2C00A3E16F /* Storyboard vs. Code.png */; };
+		F5B49A1D28768C8200A3E16F /* Initializer Injection and Storyboards on iOS13.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B49A1C28768C8200A3E16F /* Initializer Injection and Storyboards on iOS13.png */; };
+		F5B49A1F28768CA000A3E16F /* CellResue.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B49A1E28768C9F00A3E16F /* CellResue.png */; };
+		F5B49A2228768D6C00A3E16F /* Fixing unexpected bugs caused by optimizations.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B49A2028768D6C00A3E16F /* Fixing unexpected bugs caused by optimizations.png */; };
+		F5B49A2328768D6C00A3E16F /* Responsibilities.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B49A2128768D6C00A3E16F /* Responsibilities.png */; };
 		F5B87CD8283F5C5C00D86464 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B87CD7283F5C5C00D86464 /* AppDelegate.swift */; };
 		F5B87CDA283F5C5C00D86464 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B87CD9283F5C5C00D86464 /* SceneDelegate.swift */; };
 		F5B87CDC283F5C5C00D86464 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B87CDB283F5C5C00D86464 /* ViewController.swift */; };
@@ -392,6 +399,13 @@
 		F5B49A0F2876715400A3E16F /* Feed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Feed.storyboard; sourceTree = "<group>"; };
 		F5B49A122876887900A3E16F /* UITableView+dequeueing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+dequeueing.swift"; sourceTree = "<group>"; };
 		F5B49A14287689C300A3E16F /* UIImageView+Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Animations.swift"; sourceTree = "<group>"; };
+		F5B49A1628768A4000A3E16F /* UI_Acrhitecture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UI_Acrhitecture.png; sourceTree = "<group>"; };
+		F5B49A1828768C2C00A3E16F /* Storyboards and the Constrained Construction anti-pattern.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Storyboards and the Constrained Construction anti-pattern.png"; sourceTree = "<group>"; };
+		F5B49A1928768C2C00A3E16F /* Storyboard vs. Code.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Storyboard vs. Code.png"; sourceTree = "<group>"; };
+		F5B49A1C28768C8200A3E16F /* Initializer Injection and Storyboards on iOS13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Initializer Injection and Storyboards on iOS13.png"; sourceTree = "<group>"; };
+		F5B49A1E28768C9F00A3E16F /* CellResue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CellResue.png; sourceTree = "<group>"; };
+		F5B49A2028768D6C00A3E16F /* Fixing unexpected bugs caused by optimizations.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Fixing unexpected bugs caused by optimizations.png"; sourceTree = "<group>"; };
+		F5B49A2128768D6C00A3E16F /* Responsibilities.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Responsibilities.png; sourceTree = "<group>"; };
 		F5B87CD4283F5C5C00D86464 /* EssentialFeedRevised.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EssentialFeedRevised.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5B87CD7283F5C5C00D86464 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5B87CD9283F5C5C00D86464 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -844,12 +858,19 @@
 			path = "Key Stats";
 			sourceTree = "<group>";
 		};
-		F5B49A0C2876707A00A3E16F /* UI_lecture_08 */ = {
+		F5B49A0C2876707A00A3E16F /* UI_lecture_08 StoryBoard And UI */ = {
 			isa = PBXGroup;
 			children = (
+				F5B49A1928768C2C00A3E16F /* Storyboard vs. Code.png */,
+				F5B49A1828768C2C00A3E16F /* Storyboards and the Constrained Construction anti-pattern.png */,
+				F5B49A1628768A4000A3E16F /* UI_Acrhitecture.png */,
+				F5B49A1C28768C8200A3E16F /* Initializer Injection and Storyboards on iOS13.png */,
+				F5B49A1E28768C9F00A3E16F /* CellResue.png */,
+				F5B49A2028768D6C00A3E16F /* Fixing unexpected bugs caused by optimizations.png */,
+				F5B49A2128768D6C00A3E16F /* Responsibilities.png */,
 				F5B49A0D2876709200A3E16F /* Lecture+08.md */,
 			);
-			path = UI_lecture_08;
+			path = "UI_lecture_08 StoryBoard And UI";
 			sourceTree = "<group>";
 		};
 		F5B87CCB283F5C5C00D86464 = {
@@ -964,7 +985,7 @@
 		F5D35173287012B000C94DB5 /* UI + Presentation Module+ Readme */ = {
 			isa = PBXGroup;
 			children = (
-				F5B49A0C2876707A00A3E16F /* UI_lecture_08 */,
+				F5B49A0C2876707A00A3E16F /* UI_lecture_08 StoryBoard And UI */,
 				F5B0F11B28751A240062C513 /* UI_Lecrture_07 */,
 				F560D4B32873EB45003F6D26 /* UI_lecture_06 */,
 				F5AF148B28728D050004B4C2 /* UI_lecture_05 */,
@@ -1289,11 +1310,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5D3517B287015D800C94DB5 /* UI+Lecture_02_1.png in Resources */,
+				F5B49A1728768A4000A3E16F /* UI_Acrhitecture.png in Resources */,
+				F5B49A2228768D6C00A3E16F /* Fixing unexpected bugs caused by optimizations.png in Resources */,
 				F5B300C7285F434500253FAC /* Screenshot 2022-06-19 at 5.07.26 PM.png in Resources */,
 				F560D4C428740EE5003F6D26 /* StateFull_version_viewModel.png in Resources */,
 				F5B200FC28749D4500966F41 /* Presentation logic_2.png in Resources */,
 				F5D3519B287072D000C94DB5 /* lecture_03_8.png in Resources */,
 				F5DC9DF82875F2B40022D457 /* final_responsibilitues.png in Resources */,
+				F5B49A2328768D6C00A3E16F /* Responsibilities.png in Resources */,
 				F5B0F12E28754ED00062C513 /* MVP+Diagram.png in Resources */,
 				F5DCB327285C9C3B003C9547 /* Persistance_lecture_10.md in Resources */,
 				F5DC9DF22875F1DF0022D457 /* MVP_02.png in Resources */,
@@ -1367,12 +1391,14 @@
 				F5AF14AD2872D00B0004B4C2 /* FeedContoller_1.png in Resources */,
 				F5D5D789285DD572007493F4 /* Persistance_lecture_14.md in Resources */,
 				F5DC9DF72875F2B40022D457 /* adapter_MVP.png in Resources */,
+				F5B49A1A28768C2C00A3E16F /* Storyboards and the Constrained Construction anti-pattern.png in Resources */,
 				F5D5D77E285DA419007493F4 /* Persistacne_lecture_12.md in Resources */,
 				F5B200F728749CEE00966F41 /* MVVM_2.png in Resources */,
 				F5AF148D28728D150004B4C2 /* UI_Lecture_05.md in Resources */,
 				F5B1BD00285B271D00AA9D75 /* Persistance_lecture_5.md in Resources */,
 				F560D4C228740EE5003F6D26 /* lecture_6_3.png in Resources */,
 				F5DC9DF12875F1DF0022D457 /* MVP_01.png in Resources */,
+				F5B49A1D28768C8200A3E16F /* Initializer Injection and Storyboards on iOS13.png in Resources */,
 				F5AEE6F1284C9626004D7655 /* HTTPClient.md in Resources */,
 				F56F94BE285EDB7400CFBC5E /* Screenshot 2022-06-19 at 9.46.58 AM.png in Resources */,
 				F5B0F12F28754ED00062C513 /* MVP+adapter.png in Resources */,
@@ -1380,6 +1406,7 @@
 				F5D35198287072D000C94DB5 /* lecture_03_2.png in Resources */,
 				F560D4C928741152003F6D26 /* stateLess_viewMOdel.png in Resources */,
 				F5B1BD0A285B297900AA9D75 /* Persistance_lecture_2.md in Resources */,
+				F5B49A1B28768C2C00A3E16F /* Storyboard vs. Code.png in Resources */,
 				F5B0F12728754E330062C513 /* MVP.png in Resources */,
 				F5AF14A22872A1250004B4C2 /* REfactor_3.png in Resources */,
 				F5DC8FCC2871DBB800FB425D /* Open Closed Principl_3.png in Resources */,
@@ -1420,6 +1447,7 @@
 				F5B2010228749DF200966F41 /* Decoupling Presentation from UI frameworks_2.png in Resources */,
 				F5D35176287012E900C94DB5 /* UI_Lecture_1.md in Resources */,
 				F560D4B52873EB60003F6D26 /* UI+Module+lecture+06.md in Resources */,
+				F5B49A1F28768CA000A3E16F /* CellResue.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
