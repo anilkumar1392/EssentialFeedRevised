@@ -6,3 +6,6 @@ To use storyboard we need to use property injection instead of constructor injec
 // Down sides of using storyboards
 
 we loose compile time composition checks we can get with constructor injection.
+
+using objects in storyboard we can confgure FeedRefreshViewController from storyboard.
+So whole view configuration now leaves in stroyboard.

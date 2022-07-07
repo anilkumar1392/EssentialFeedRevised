@@ -12,7 +12,11 @@ public final class FeedViewController: UITableViewController, UITableViewDataSou
     
     // private var feedLoader: FeedLoader?
     
-    var refreshController: FeedRefreshViewController?
+    // var refreshController: FeedRefreshViewController?
+    // FeedRefreshViewController is created by the storyboard as well.
+    // we need to create an outlet as well we need to create an outler.
+    @IBOutlet var refreshController: FeedRefreshViewController?
+    
     // private var imageLoader: FeedImageDataLoader?
     // private var cellControllers = [IndexPath: FeedImageCellController]()
 
@@ -42,7 +46,7 @@ public final class FeedViewController: UITableViewController, UITableViewDataSou
     public override func viewDidLoad() {
         super.viewDidLoad()
          
-        refreshControl = refreshController?.view
+        // refreshControl = refreshController?.view
         tableView.prefetchDataSource = self
         refreshController?.refresh()
     }
