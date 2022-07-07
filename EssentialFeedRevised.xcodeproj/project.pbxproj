@@ -120,6 +120,7 @@
 		F5B300DD285F483900253FAC /* Test-first curve in the codebase.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B300DA285F483900253FAC /* Test-first curve in the codebase.png */; };
 		F5B49A0E2876709200A3E16F /* Lecture+08.md in Resources */ = {isa = PBXBuildFile; fileRef = F5B49A0D2876709200A3E16F /* Lecture+08.md */; };
 		F5B49A102876715400A3E16F /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5B49A0F2876715400A3E16F /* Feed.storyboard */; };
+		F5B49A112876795D00A3E16F /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5B49A0F2876715400A3E16F /* Feed.storyboard */; };
 		F5B87CD8283F5C5C00D86464 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B87CD7283F5C5C00D86464 /* AppDelegate.swift */; };
 		F5B87CDA283F5C5C00D86464 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B87CD9283F5C5C00D86464 /* SceneDelegate.swift */; };
 		F5B87CDC283F5C5C00D86464 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B87CDB283F5C5C00D86464 /* ViewController.swift */; };
@@ -1442,6 +1443,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5B49A112876795D00A3E16F /* Feed.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

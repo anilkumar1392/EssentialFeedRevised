@@ -12,7 +12,7 @@ public final class FeedViewController: UITableViewController, UITableViewDataSou
     
     // private var feedLoader: FeedLoader?
     
-    private var refreshController: FeedRefreshViewController?
+    var refreshController: FeedRefreshViewController?
     // private var imageLoader: FeedImageDataLoader?
     // private var cellControllers = [IndexPath: FeedImageCellController]()
 
@@ -27,6 +27,7 @@ public final class FeedViewController: UITableViewController, UITableViewDataSou
         didSet { tableView.reloadData() }
     }
     
+    /*
     convenience init(refereshController: FeedRefreshViewController) {
         self.init()
         self.refreshController = refereshController
@@ -36,7 +37,7 @@ public final class FeedViewController: UITableViewController, UITableViewDataSou
         self.refreshController?.onRefresh = { [weak self] feed in
             self?.tableModel = feed.map { FeedImageCellController(model: $0, imageLoader: imageLoader) }
         } */
-    }
+    } */
     
     public override func viewDidLoad() {
         super.viewDidLoad()
