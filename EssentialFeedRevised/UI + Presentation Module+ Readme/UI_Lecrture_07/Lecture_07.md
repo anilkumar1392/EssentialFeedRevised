@@ -184,3 +184,11 @@ For each SERVICE we define, we need an ADAPTER that supports the SERVICE’S int
 The ADAPTER’S job is to know how to make a request. The actual conversion of conceptual objects or data is a distinct, complex task that can be placed in its own object, making them both much easier to understand. A translator can be a lightweight object that is instantiated when needed."—Eric Evans “Domain-Driven Design: Tackling Complexity in the Heart of Software
 
 
+
+// Feed image presenter
+/*
+ Same as MVVM the presenter does not depend on UIKIt.
+ So same as earlier presenter just received state change events and translate to viewModel data.
+ 1. The data to image converiosn is done via generic image type.
+ 2. ViewModel holds only data no behaviour
+ */

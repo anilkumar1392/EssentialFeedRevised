@@ -7,6 +7,20 @@
 
 import Foundation
 
+// Feed image presenter
+/*
+ Same as MVVM the presenter does not depend on UIKIt.
+ So same as earlier presenter just received state change events and translate to viewModel data.
+ 1. The data to image converiosn is done via generic image type.
+ 2. ViewModel holds only data no behaviour
+ */
+
+/*
+ This is presentter for feedImageDataLoad
+ it haolds a ref to view
+ 2. and get state change events and translate to viewModel data.
+ */
+
 protocol FeedImageView {
     associatedtype Image
     func display(_ model: FeedImageViewModel<Image>)
