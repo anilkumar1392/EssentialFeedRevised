@@ -230,6 +230,7 @@
 		F5DCB327285C9C3B003C9547 /* Persistance_lecture_10.md in Resources */ = {isa = PBXBuildFile; fileRef = F5DCB326285C9C3B003C9547 /* Persistance_lecture_10.md */; };
 		F5DCB329285CAB8A003C9547 /* CodableFeedStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DCB328285CAB8A003C9547 /* CodableFeedStoreTests.swift */; };
 		F5DCB32D285CB7A3003C9547 /* Persistance_lecture_11.md in Resources */ = {isa = PBXBuildFile; fileRef = F5DCB32C285CB7A3003C9547 /* Persistance_lecture_11.md */; };
+		F5E1D48828772D6500E8497B /* UI_Lecture_08_Localization.md in Resources */ = {isa = PBXBuildFile; fileRef = F5E1D48728772D6500E8497B /* UI_Lecture_08_Localization.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -496,6 +497,7 @@
 		F5DCB326285C9C3B003C9547 /* Persistance_lecture_10.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Persistance_lecture_10.md; sourceTree = "<group>"; };
 		F5DCB328285CAB8A003C9547 /* CodableFeedStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableFeedStoreTests.swift; sourceTree = "<group>"; };
 		F5DCB32C285CB7A3003C9547 /* Persistance_lecture_11.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Persistance_lecture_11.md; sourceTree = "<group>"; };
+		F5E1D48728772D6500E8497B /* UI_Lecture_08_Localization.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = UI_Lecture_08_Localization.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -985,6 +987,7 @@
 		F5D35173287012B000C94DB5 /* UI + Presentation Module+ Readme */ = {
 			isa = PBXGroup;
 			children = (
+				F5E1D48628772D3F00E8497B /* UI_Lecture_08_localization */,
 				F5B49A0C2876707A00A3E16F /* UI_lecture_08 StoryBoard And UI */,
 				F5B0F11B28751A240062C513 /* UI_Lecrture_07 */,
 				F560D4B32873EB45003F6D26 /* UI_lecture_06 */,
@@ -1114,6 +1117,14 @@
 				F56F94AA285EAF8600CFBC5E /* CoreDataFeedStoreTests.swift */,
 			);
 			path = "Feed Cache";
+			sourceTree = "<group>";
+		};
+		F5E1D48628772D3F00E8497B /* UI_Lecture_08_localization */ = {
+			isa = PBXGroup;
+			children = (
+				F5E1D48728772D6500E8497B /* UI_Lecture_08_Localization.md */,
+			);
+			path = UI_Lecture_08_localization;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1393,6 +1404,7 @@
 				F5DC9DF72875F2B40022D457 /* adapter_MVP.png in Resources */,
 				F5B49A1A28768C2C00A3E16F /* Storyboards and the Constrained Construction anti-pattern.png in Resources */,
 				F5D5D77E285DA419007493F4 /* Persistacne_lecture_12.md in Resources */,
+				F5E1D48828772D6500E8497B /* UI_Lecture_08_Localization.md in Resources */,
 				F5B200F728749CEE00966F41 /* MVVM_2.png in Resources */,
 				F5AF148D28728D150004B4C2 /* UI_Lecture_05.md in Resources */,
 				F5B1BD00285B271D00AA9D75 /* Persistance_lecture_5.md in Resources */,
