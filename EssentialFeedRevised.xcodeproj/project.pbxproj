@@ -231,6 +231,8 @@
 		F5DCB329285CAB8A003C9547 /* CodableFeedStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DCB328285CAB8A003C9547 /* CodableFeedStoreTests.swift */; };
 		F5DCB32D285CB7A3003C9547 /* Persistance_lecture_11.md in Resources */ = {isa = PBXBuildFile; fileRef = F5DCB32C285CB7A3003C9547 /* Persistance_lecture_11.md */; };
 		F5E1D48828772D6500E8497B /* UI_Lecture_08_Localization.md in Resources */ = {isa = PBXBuildFile; fileRef = F5E1D48728772D6500E8497B /* UI_Lecture_08_Localization.md */; };
+		F5E1D48A28773DDE00E8497B /* Feed.strings in Resources */ = {isa = PBXBuildFile; fileRef = F5E1D48928773DDE00E8497B /* Feed.strings */; };
+		F5E1D48B28773FD000E8497B /* Feed.strings in Resources */ = {isa = PBXBuildFile; fileRef = F5E1D48928773DDE00E8497B /* Feed.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -498,6 +500,7 @@
 		F5DCB328285CAB8A003C9547 /* CodableFeedStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableFeedStoreTests.swift; sourceTree = "<group>"; };
 		F5DCB32C285CB7A3003C9547 /* Persistance_lecture_11.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Persistance_lecture_11.md; sourceTree = "<group>"; };
 		F5E1D48728772D6500E8497B /* UI_Lecture_08_Localization.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = UI_Lecture_08_Localization.md; sourceTree = "<group>"; };
+		F5E1D48928773DDE00E8497B /* Feed.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Feed.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -796,6 +799,7 @@
 				F560D4B72873F3F8003F6D26 /* FeedViewModel.swift */,
 				F5B200E0287494BA00966F41 /* FeedImageViewModel.swift */,
 				F5DC9DE92875F0C80022D457 /* FeedLoadingViewModel.swift */,
+				F5E1D48928773DDE00E8497B /* Feed.strings */,
 			);
 			path = "Feed Presentation";
 			sourceTree = "<group>";
@@ -1481,6 +1485,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5E1D48A28773DDE00E8497B /* Feed.strings in Resources */,
 				F5B49A102876715400A3E16F /* Feed.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1489,6 +1494,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5E1D48B28773FD000E8497B /* Feed.strings in Resources */,
 				F5B49A112876795D00A3E16F /* Feed.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
