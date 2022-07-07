@@ -20,24 +20,14 @@ final class FeedUIComposer {
         
         // With code
         // let feedContoller = FeedViewController(refereshController: refreshController)
-        
-        // With Storyboard
-        let bundle = Bundle(for: FeedViewController.self)
-        let storyboard = UIStoryboard(name: "Feed", bundle: bundle)
-        let feedContoller = storyboard.instantiateInitialViewController() as! FeedViewController
-        // let refreshController = feedContoller.refreshController!
-        // refreshController.delegate = presentationAdapter
-        
-        feedContoller.delegate = presentationAdapter
-        feedContoller.title = FeedPresenter.title
-
+        let feedController = FeedViewController.makeWith(delegate: presentationAdapter, title: FeedPresenter.title)
         
         //feedContoller.refreshController = refreshController
         
         // Compose the presenter
         presentationAdapter.presenter = FeedPresenter(
-            feedView: FeedViewAdapter(controller: feedContoller, imageLoader: imageLoader),
-            loadingView:  WeakRefVirtualProxy(feedContoller))
+            feedView: FeedViewAdapter(controller: feedController, imageLoader: imageLoader),
+            loadingView:  WeakRefVirtualProxy(feedController))
 
         /*
         refreshController.onRefresh = { [weak feedContoller] feed in
@@ -58,7 +48,7 @@ final class FeedUIComposer {
         // To keep the responsibilty of creating dependencies away from types that uses the dependencies.
         
         // We can even move it to a separate function to clarify the intent.
-        return feedContoller
+        return feedController
     }
     
     /*
@@ -70,6 +60,21 @@ final class FeedUIComposer {
 
         }
     } */
+}
+
+extension FeedViewController {
+    static func makeWith(delegate: FeedViewControllerDelegate, title: String) -> FeedViewController {
+        // With Storyboard
+        let bundle = Bundle(for: FeedViewController.self)
+        let storyboard = UIStoryboard(name: "Feed", bundle: bundle)
+        let feedContoller = storyboard.instantiateInitialViewController() as! FeedViewController
+        // let refreshController = feedContoller.refreshController!
+        // refreshController.delegate = presentationAdapter
+        
+        feedContoller.delegate = delegate
+        feedContoller.title = title
+        return feedContoller
+    }
 }
 
 final class WeakRefVirtualProxy<T: AnyObject> {
