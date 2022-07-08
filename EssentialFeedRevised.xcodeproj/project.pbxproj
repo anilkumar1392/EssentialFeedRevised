@@ -195,6 +195,7 @@
 		F5DC7BC22877BD8A009B801D /* UIControl+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DC7BC12877BD8A009B801D /* UIControl+TestHelpers.swift */; };
 		F5DC7BC32877BEA2009B801D /* Feed.strings in Resources */ = {isa = PBXBuildFile; fileRef = F5DC7BC62877BEA2009B801D /* Feed.strings */; };
 		F5DC7BC42877BEA2009B801D /* Feed.strings in Resources */ = {isa = PBXBuildFile; fileRef = F5DC7BC62877BEA2009B801D /* Feed.strings */; };
+		F5DC7BCE2877BF7F009B801D /* FeedLocalizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DC7BCD2877BF7F009B801D /* FeedLocalizationTests.swift */; };
 		F5DC8FB5287152F200FB425D /* FeedImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DC8FB4287152F200FB425D /* FeedImageCell.swift */; };
 		F5DC8FB62871556B00FB425D /* FeedImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DC8FB4287152F200FB425D /* FeedImageCell.swift */; };
 		F5DC8FB728717EF500FB425D /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DCB318285C273D003C9547 /* SharedTestHelpers.swift */; };
@@ -481,6 +482,7 @@
 		F5DC7BCA2877BF29009B801D /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/Main.strings; sourceTree = "<group>"; };
 		F5DC7BCB2877BF29009B801D /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		F5DC7BCC2877BF29009B801D /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/Feed.strings; sourceTree = "<group>"; };
+		F5DC7BCD2877BF7F009B801D /* FeedLocalizationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLocalizationTests.swift; sourceTree = "<group>"; };
 		F5DC8FB4287152F200FB425D /* FeedImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageCell.swift; sourceTree = "<group>"; };
 		F5DC8FB92871997700FB425D /* UIView+Shimmering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shimmering.swift"; sourceTree = "<group>"; };
 		F5DC8FBC2871D80000FB425D /* Architecture overview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Architecture overview.png"; sourceTree = "<group>"; };
@@ -1007,6 +1009,7 @@
 			children = (
 				F5AF149528728E8B0004B4C2 /* Feed UI */,
 				F5D3517F287017C500C94DB5 /* FeedUIIntegrationTests.swift */,
+				F5DC7BCD2877BF7F009B801D /* FeedLocalizationTests.swift */,
 				F5AF149428728E820004B4C2 /* Helpers */,
 			);
 			path = EssentialFeediOSTests;
@@ -1643,6 +1646,7 @@
 				F5DC7BB82877BB76009B801D /* FeedUIIntegrationTest+Localization.swift in Sources */,
 				F5DC7BBA2877BBCB009B801D /* FeedUIIntegrationTest+LoaderSpy.swift in Sources */,
 				F5D3518928706DA400C94DB5 /* FeedViewController.swift in Sources */,
+				F5DC7BCE2877BF7F009B801D /* FeedLocalizationTests.swift in Sources */,
 				F5DC9DEB2875F1340022D457 /* FeedLoadingViewModel.swift in Sources */,
 				F5DC7BC02877BD6A009B801D /* UIButton+TestHelpers.swift in Sources */,
 				F5AF149B287291710004B4C2 /* FeedRefreshViewController.swift in Sources */,

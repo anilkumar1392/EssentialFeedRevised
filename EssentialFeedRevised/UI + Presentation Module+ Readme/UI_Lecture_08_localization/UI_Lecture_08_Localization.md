@@ -61,3 +61,16 @@ so we are setting the value for right key not the localized value.
 ## So FeedViewController tests are actually intergration tests.
 
 It test whole composition of Feed UI and the presentation.
+
+
+# we are not testing the volatile translations
+we are testing that all localized keys have a corresponding value in all suported localizations.
+
+
+# Recap
+
+1. Static and lcoalized belong to the presentaiton module or view model.
+2. The UI Module is passive it does not make presentation decision.
+3. The UI module just renders data passed to it.
+4. which makes it much easier to develop, maintain extend and test reuse and even replace.
+
