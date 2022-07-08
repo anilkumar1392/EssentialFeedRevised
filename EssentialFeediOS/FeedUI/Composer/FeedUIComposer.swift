@@ -20,7 +20,7 @@ final class FeedUIComposer {
         
         // With code
         // let feedContoller = FeedViewController(refereshController: refreshController)
-        let feedController = FeedViewController.makeWith(
+        let feedController = makeFeedViewController(
             delegate: presentationAdapter,
             title: FeedPresenter.title)
         
@@ -64,10 +64,8 @@ final class FeedUIComposer {
 
         }
     } */
-}
-
-extension FeedViewController {
-    static func makeWith(delegate: FeedViewControllerDelegate, title: String) -> FeedViewController {
+    
+    private static func makeFeedViewController(delegate: FeedViewControllerDelegate, title: String) -> FeedViewController {
         // With Storyboard
         let bundle = Bundle(for: FeedViewController.self)
         let storyboard = UIStoryboard(name: "Feed", bundle: bundle)
