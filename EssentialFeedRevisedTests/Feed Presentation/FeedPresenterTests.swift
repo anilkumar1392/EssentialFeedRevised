@@ -31,6 +31,10 @@ import XCTest
  First behaviour tested but now their are two things happening so now add second behaviour in to it.
  */
 
+/*
+ we have no temporal coupling the order does not matter
+ */
+
 struct FeedLoadingViewModel {
     let isLoading: Bool
 }
@@ -104,19 +108,21 @@ extension FeedPresenterTests {
 
 extension FeedPresenterTests {
     private class ViewSpy: FeedErrorView, FeedLoadingView {
-        enum Message: Equatable {
+        enum Message: Equatable, Hashable {
             case display(errorMessage: String?)
             case display(isLoading: Bool)
         }
         
-        private(set) var messages = [Message]()
+        private(set) var messages = Set<Message>() //[Message]()
         
         func display(_ viewModel: FeedErrorViewModel) {
-            messages.append(.display(errorMessage: viewModel.message))
+            // messages.append(.display(errorMessage: viewModel.message))
+            messages.insert(.display(errorMessage: viewModel.message))
+
         }
         
         func display(_ viewModel: FeedLoadingViewModel) {
-            messages.append(.display(isLoading: viewModel.isLoading))
+            messages.insert(.display(isLoading: viewModel.isLoading))
         }
     }
 }
