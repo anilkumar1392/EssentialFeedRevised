@@ -38,6 +38,9 @@
                                 <constraint firstAttribute="bottom" secondItem="ycq-bv-lXY" secondAttribute="bottom" constant="8" id="aJC-uG-crO"/>
                                 <constraint firstItem="ycq-bv-lXY" firstAttribute="leading" secondItem="2J5-Mf-V8p" secondAttribute="leading" constant="8" id="bMq-p9-5v1"/>
                             </constraints>
+                            <connections>
+                                <outlet property="label" destination="ycq-bv-lXY" id="w84-5l-if4"/>
+                            </connections>
                         </view>
                         <view key="tableFooterView" contentMode="scaleToFill" id="BgI-hw-Tkv">
                             <rect key="frame" x="0.0" y="578" width="414" height="16"/>

@@ -212,6 +212,8 @@
 		F5DC7BE728785011009B801D /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DC7BE628785011009B801D /* ErrorView.swift */; };
 		F5DC7BEA2878530F009B801D /* FeedErrorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DC7BE92878530F009B801D /* FeedErrorViewModel.swift */; };
 		F5DC7BEC287853C4009B801D /* UIRefreshControl+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DC7BEB287853C4009B801D /* UIRefreshControl+Helpers.swift */; };
+		F5DC7BED28785550009B801D /* FeedErrorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DC7BE92878530F009B801D /* FeedErrorViewModel.swift */; };
+		F5DC7BEE2878559E009B801D /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DC7BE628785011009B801D /* ErrorView.swift */; };
 		F5DC8FB5287152F200FB425D /* FeedImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DC8FB4287152F200FB425D /* FeedImageCell.swift */; };
 		F5DC8FB62871556B00FB425D /* FeedImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DC8FB4287152F200FB425D /* FeedImageCell.swift */; };
 		F5DC8FB728717EF500FB425D /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DCB318285C273D003C9547 /* SharedTestHelpers.swift */; };
@@ -1710,6 +1712,7 @@
 				F5DC7BBE2877BD49009B801D /* UIRefreshControl+TestHelpers.swift in Sources */,
 				F5AF14B22872D1E00004B4C2 /* FeedUIComposer.swift in Sources */,
 				F5DC7BDA2877F360009B801D /* FeedImageDataLoaderPresentationAdapter.swift in Sources */,
+				F5DC7BEE2878559E009B801D /* ErrorView.swift in Sources */,
 				F5DC7BD42877F0FB009B801D /* MainQueueDispatchDecorator.swift in Sources */,
 				F5DC8FB62871556B00FB425D /* FeedImageCell.swift in Sources */,
 				F5DC7BBC2877BD15009B801D /* UIImgae+TestHelpers.swift in Sources */,
@@ -1730,6 +1733,7 @@
 				F5AF14A62872CD8A0004B4C2 /* FeedImageCellController.swift in Sources */,
 				F5DC7BD72877F279009B801D /* WeakRefVirtualProxy.swift in Sources */,
 				F5DC7BDD2877F3A8009B801D /* FeedLoaderPresentationAdapter.swift in Sources */,
+				F5DC7BED28785550009B801D /* FeedErrorViewModel.swift in Sources */,
 				F5DC7BE528784660009B801D /* FeedViewController+TestHelpers.swift in Sources */,
 				F560D4B92873F898003F6D26 /* FeedViewModel.swift in Sources */,
 			);

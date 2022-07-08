@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-extension UIRefreshControl {
+public extension UIRefreshControl {
     func update(isRefreshing: Bool) {
         isRefreshing ? beginRefreshing() : endRefreshing()
     }
