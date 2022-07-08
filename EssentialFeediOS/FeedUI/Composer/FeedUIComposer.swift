@@ -62,22 +62,27 @@ final class FeedUIComposer {
     } */
 }
 
-final class MainQueueDispatchDecorator: FeedLoader {
-    let decoratee: FeedLoader
+final class MainQueueDispatchDecorator<T> {
+    let decoratee: T
     
-    init(decoratee: FeedLoader) {
+    init(decoratee: T) {
         self.decoratee = decoratee
     }
     
+    func dispatch(completion: @escaping () -> Void) {
+        guard Thread.isMainThread else {
+            return DispatchQueue.main.async { completion() }
+        }
+        
+        completion()
+    }
+}
+// and we can move the conformance to a extension
+
+extension MainQueueDispatchDecorator: FeedLoader where T == FeedLoader {
     func load(completion: @escaping (LoadFeedResult) -> Void) {
         decoratee.load { result in
-            if Thread.isMainThread {
-                completion(result)
-            } else {
-                DispatchQueue.main.async {
-                    completion(result)
-                }
-            }
+            self.dispatch { completion(result) }
         }
     }
 }

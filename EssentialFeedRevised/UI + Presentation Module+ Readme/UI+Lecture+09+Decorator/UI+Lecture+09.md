@@ -67,3 +67,66 @@ We still keep our implementations decoupled without leaking the concrete types.
 
 ths composer layer is responsible for arranging and composing the components.
 
+## So Decorator pattern is a fantasic way of adding a behaviour with out alerting the while class.
+
+So thats the key for decoupled module.
+if you want to decouple your module from each other.
+ A change in UI requirment should not require change in a database or a network module.
+ 
+ ## if you find your self creating so many decorator you can create a generic one.
+ ## Generic implementation.
+ 
+ final class MainQueueDispatchDecorator<T> {
+    let decoratee: T
+    
+    init(decoratee: T) {
+        self.decoratee = decoratee
+    }
+}
+// and we can move the conformance to a extension
+
+extension MainQueueDispatchDecorator: FeedLoader where T == FeedLoader {
+    func load(completion: @escaping (LoadFeedResult) -> Void) {
+        decoratee.load { result in
+            if Thread.isMainThread {
+                completion(result)
+            } else {
+                DispatchQueue.main.async {
+                    completion(result)
+                }
+            }
+        }
+    }
+}
+
+## Updated one
+ 
+final class MainQueueDispatchDecorator<T> {
+    let decoratee: T
+    
+    init(decoratee: T) {
+        self.decoratee = decoratee
+    }
+    
+    func dispatch(completion: @escaping () -> Void) {
+        if Thread.isMainThread {
+            completion()
+        } else {
+            DispatchQueue.main.async {
+                completion()
+            }
+        }
+    }
+}
+// and we can move the conformance to a extension
+
+extension MainQueueDispatchDecorator: FeedLoader where T == FeedLoader {
+    func load(completion: @escaping (LoadFeedResult) -> Void) {
+        decoratee.load { result in
+            self.dispatch { completion(result) }
+        }
+    }
+}
+
+## Now you have a reusable mainqueue dispatch decorater
+
