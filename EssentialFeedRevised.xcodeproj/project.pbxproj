@@ -478,6 +478,9 @@
 		F5DC7BC72877BED6009B801D /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Main.strings"; sourceTree = "<group>"; };
 		F5DC7BC82877BED6009B801D /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		F5DC7BC92877BED6009B801D /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Feed.strings"; sourceTree = "<group>"; };
+		F5DC7BCA2877BF29009B801D /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/Main.strings; sourceTree = "<group>"; };
+		F5DC7BCB2877BF29009B801D /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		F5DC7BCC2877BF29009B801D /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/Feed.strings; sourceTree = "<group>"; };
 		F5DC8FB4287152F200FB425D /* FeedImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageCell.swift; sourceTree = "<group>"; };
 		F5DC8FB92871997700FB425D /* UIView+Shimmering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shimmering.swift"; sourceTree = "<group>"; };
 		F5DC8FBC2871D80000FB425D /* Architecture overview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Architecture overview.png"; sourceTree = "<group>"; };
@@ -1318,6 +1321,7 @@
 				en,
 				Base,
 				"pt-BR",
+				el,
 			);
 			mainGroup = F5B87CCB283F5C5C00D86464;
 			productRefGroup = F5B87CD5283F5C5C00D86464 /* Products */;
@@ -1692,6 +1696,7 @@
 			children = (
 				F5B87CDE283F5C5C00D86464 /* Base */,
 				F5DC7BC72877BED6009B801D /* pt-BR */,
+				F5DC7BCA2877BF29009B801D /* el */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -1701,6 +1706,7 @@
 			children = (
 				F5B87CE3283F5C5F00D86464 /* Base */,
 				F5DC7BC82877BED6009B801D /* pt-BR */,
+				F5DC7BCB2877BF29009B801D /* el */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -1710,6 +1716,7 @@
 			children = (
 				F5DC7BC52877BEA2009B801D /* en */,
 				F5DC7BC92877BED6009B801D /* pt-BR */,
+				F5DC7BCC2877BF29009B801D /* el */,
 			);
 			name = Feed.strings;
 			sourceTree = "<group>";
