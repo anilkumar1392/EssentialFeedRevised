@@ -196,6 +196,7 @@
 		F5DC7BC32877BEA2009B801D /* Feed.strings in Resources */ = {isa = PBXBuildFile; fileRef = F5DC7BC62877BEA2009B801D /* Feed.strings */; };
 		F5DC7BC42877BEA2009B801D /* Feed.strings in Resources */ = {isa = PBXBuildFile; fileRef = F5DC7BC62877BEA2009B801D /* Feed.strings */; };
 		F5DC7BCE2877BF7F009B801D /* FeedLocalizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DC7BCD2877BF7F009B801D /* FeedLocalizationTests.swift */; };
+		F5DC7BD12877C93D009B801D /* UI+Lecture+09.md in Resources */ = {isa = PBXBuildFile; fileRef = F5DC7BD02877C93D009B801D /* UI+Lecture+09.md */; };
 		F5DC8FB5287152F200FB425D /* FeedImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DC8FB4287152F200FB425D /* FeedImageCell.swift */; };
 		F5DC8FB62871556B00FB425D /* FeedImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DC8FB4287152F200FB425D /* FeedImageCell.swift */; };
 		F5DC8FB728717EF500FB425D /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DCB318285C273D003C9547 /* SharedTestHelpers.swift */; };
@@ -483,6 +484,7 @@
 		F5DC7BCB2877BF29009B801D /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		F5DC7BCC2877BF29009B801D /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/Feed.strings; sourceTree = "<group>"; };
 		F5DC7BCD2877BF7F009B801D /* FeedLocalizationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLocalizationTests.swift; sourceTree = "<group>"; };
+		F5DC7BD02877C93D009B801D /* UI+Lecture+09.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "UI+Lecture+09.md"; sourceTree = "<group>"; };
 		F5DC8FB4287152F200FB425D /* FeedImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageCell.swift; sourceTree = "<group>"; };
 		F5DC8FB92871997700FB425D /* UIView+Shimmering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shimmering.swift"; sourceTree = "<group>"; };
 		F5DC8FBC2871D80000FB425D /* Architecture overview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Architecture overview.png"; sourceTree = "<group>"; };
@@ -1018,6 +1020,7 @@
 		F5D35173287012B000C94DB5 /* UI + Presentation Module+ Readme */ = {
 			isa = PBXGroup;
 			children = (
+				F5DC7BCF2877C910009B801D /* UI+Lecture+09+Decorator */,
 				F5E1D48628772D3F00E8497B /* UI_Lecture_08_localization */,
 				F5B49A0C2876707A00A3E16F /* UI_lecture_08 StoryBoard And UI */,
 				F5B0F11B28751A240062C513 /* UI_Lecrture_07 */,
@@ -1148,6 +1151,14 @@
 				F56F94AA285EAF8600CFBC5E /* CoreDataFeedStoreTests.swift */,
 			);
 			path = "Feed Cache";
+			sourceTree = "<group>";
+		};
+		F5DC7BCF2877C910009B801D /* UI+Lecture+09+Decorator */ = {
+			isa = PBXGroup;
+			children = (
+				F5DC7BD02877C93D009B801D /* UI+Lecture+09.md */,
+			);
+			path = "UI+Lecture+09+Decorator";
 			sourceTree = "<group>";
 		};
 		F5E1D48628772D3F00E8497B /* UI_Lecture_08_localization */ = {
@@ -1382,6 +1393,7 @@
 				F5D5074128505EE900B16343 /* Narrative.md in Resources */,
 				F5B200FE28749D7F00966F41 /* Referencing UIKit types in View Models.png in Resources */,
 				F5DC8FC52871D98000FB425D /*  start of a massive.png in Resources */,
+				F5DC7BD12877C93D009B801D /* UI+Lecture+09.md in Resources */,
 				F5DC9DFF2875F3940022D457 /* cyclic_dependency_03.png in Resources */,
 				F5D35199287072D000C94DB5 /* lecture_03_3.png in Resources */,
 				F5D5D787285DCAFD007493F4 /* Persistance_lecture_13_storeCheckList3.md in Resources */,

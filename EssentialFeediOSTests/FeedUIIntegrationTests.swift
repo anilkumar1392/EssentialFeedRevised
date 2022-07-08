@@ -400,12 +400,29 @@ final class FeedUIIntegrationTests: XCTestCase { // FeedViewControllerTests
     
 }
 
+// MARK: - Mainthread tests
+
+extension FeedUIIntegrationTests {
+    func test_loadFeedCompletion_dispatchesFromBackgroundToMainQueue() {
+        let (sut, loader) = makeSUT()
+        sut.loadViewIfNeeded()
+        
+        let exp = expectation(description: "Wait for background queue..")
+        DispatchQueue.global().async {
+            loader.completeFeedLoading(at: 0)
+
+            exp.fulfill()
+        }
+        wait(for: [exp], timeout: 1.0)
+    }
+}
+
 extension FeedUIIntegrationTests {
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: FeedViewController, loader: LoaderSpy) {
         let loader = LoaderSpy()
         let sut = FeedUIComposer.feedComposedWith(feedLoader: loader, imageLoader: loader)
-        trackForMemoryLeaks(loader)
-        trackForMemoryLeaks(sut)
+        trackForMemoryLeaks(loader, file: file, line: line)
+        trackForMemoryLeaks(sut, file: file, line: line)
         return (sut, loader)
     }
     
