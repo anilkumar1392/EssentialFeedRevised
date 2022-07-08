@@ -127,3 +127,11 @@ extension FeedViewController: FeedLoadingView {
         }
     }
 }
+
+// MARK: - Error view protocol
+
+extension FeedViewController: FeedErrorView {
+    func display(_ viewModel: FeedErrorViewModel) {
+        errorView.message = viewModel.message
+    }
+}
