@@ -58,3 +58,6 @@ if you pass nil it will look for the default localized table.
 and we don't want volatile and fragile tests.
 so we are setting the value for right key not the localized value.
 
+## So FeedViewController tests are actually intergration tests.
+
+It test whole composition of Feed UI and the presentation.

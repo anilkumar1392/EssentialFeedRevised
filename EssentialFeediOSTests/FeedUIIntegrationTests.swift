@@ -11,7 +11,7 @@ import UIKit
 import EssentialFeedRevised
 import EssentialFeediOS
 
-final class FeedViewControllerTests: XCTestCase {
+final class FeedUIIntegrationTests: XCTestCase { // FeedViewControllerTests
     
     func test_feedView_hasTitle() {
         let (sut, _) = makeSUT()
@@ -400,7 +400,7 @@ final class FeedViewControllerTests: XCTestCase {
     
 }
 
-extension FeedViewControllerTests {
+extension FeedUIIntegrationTests {
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: FeedViewController, loader: LoaderSpy) {
         let loader = LoaderSpy()
         let sut = FeedUIComposer.feedComposedWith(feedLoader: loader, imageLoader: loader)
@@ -531,36 +531,6 @@ private extension FeedImageCell {
     }
 }
 
-private extension UIButton {
-    func simulateTap() {
-        allTargets.forEach { target in
-            actions(forTarget: target, forControlEvent: .touchUpInside)?.forEach {
-                (target as NSObject).perform(Selector($0))
-            }
-        }
-    }
-}
 
-extension UIRefreshControl {
-    func simulatePullToReferesh() {
-        allTargets.forEach({ target in
-            actions(forTarget: target,
-                    forControlEvent: .valueChanged)?.forEach {
-                (target as NSObject).perform(Selector($0))
-            }
-        })
-    }
-}
 
-extension UIImage {
-    static func make(withColor color: UIColor) -> UIImage {
-        let rect = CGRect(x: 0, y: 0, width: 1, height: 1)
-        UIGraphicsBeginImageContext(rect.size)
-        let context = UIGraphicsGetCurrentContext()!
-        context.setFillColor(color.cgColor)
-        context.fill(rect)
-        let img = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return img!
-    }
-}
+
