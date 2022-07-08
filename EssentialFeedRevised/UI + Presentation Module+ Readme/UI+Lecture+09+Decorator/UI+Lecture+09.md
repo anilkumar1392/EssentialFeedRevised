@@ -14,3 +14,6 @@ as we are using main Thread cheack closure but no weakifying it.
 
 ## It's not a memory leak but we are jsut holding the instacne longer than needed.
 
+One solutiont to check for main thread is move threading one level up.
+So in this case one level up will be the presentation level.
+
