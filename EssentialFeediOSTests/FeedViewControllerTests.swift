@@ -18,12 +18,13 @@ final class FeedViewControllerTests: XCTestCase {
         
         sut.loadViewIfNeeded()
         
+        /*
         let bundle = Bundle(for: FeedViewController.self)
         let localizedKey = "FEED_VIEW_TITLE"
         let localizedTitle = bundle.localizedString(forKey: "FEED_VIEW_TITLE", value: nil, table: "Feed")
         
-        XCTAssertNotEqual(localizedKey, localizedTitle, "Missing localized string for the key: \(localizedKey)")
-        XCTAssertEqual(sut.title, localizedTitle)
+        XCTAssertNotEqual(localizedKey, localizedTitle, "Missing localized string for the key: \(localizedKey)") */
+        XCTAssertEqual(sut.title, localized("FEED_VIEW_TITLE"))
     }
     
     // MARK: - Load feed automatically when view is presented
@@ -441,68 +442,6 @@ extension FeedViewControllerTests {
         return FeedImage(id: UUID(), description: description, location: location, url: url)
     }
     
-}
-
-extension FeedViewControllerTests {
-    class LoaderSpy: FeedLoader, FeedImageDataLoader {
-        
-        // MARK: - FeedLoader
-        
-        private var feedRequests = [(LoadFeedResult) -> Void]()
-        
-        var loadFeedCallCount: Int {
-            return feedRequests.count
-        }
-        
-        func load(completion: @escaping (LoadFeedResult) -> Void) {
-            feedRequests.append(completion)
-        }
-        
-        func completeFeedLoading(with feed: [FeedImage] = [], at index: Int = 0) {
-            feedRequests[index](.success(feed))
-        }
-        
-        func completeFeedLoadingWithError(at index: Int) {
-            feedRequests[index](.failure(anyError()))
-        }
-        
-        // MARK: - FeedImageDataLoader
-        
-        private struct TaskSpy: FeedImageDataLoaderTask {
-            let cancelCallBack: () -> Void
-            func cancel() {
-                cancelCallBack()
-            }
-        }
-        
-        private var imageRequests = [(url: URL, completion: (FeedImageDataLoader.Result) -> Void)]()
-
-        var loadedImageURLs: [URL] {
-            return imageRequests.map { $0.url }
-        }
-        
-        private(set) var cancelledImageURLs = [URL]()
-        
-        func loadImageData(from url: URL, completion: @escaping (FeedImageDataLoader.Result) -> Void) -> FeedImageDataLoaderTask {
-            imageRequests.append((url, completion))
-            return TaskSpy { [weak self] in
-                self?.cancelledImageURLs.append(url)
-            }
-        }
-        
-        func cancelFeedImageDataLoad(from url: URL) {
-            cancelledImageURLs.append(url)
-        }
-        
-        func completeImageLoading(with imageData: Data = Data(), at index: Int) {
-            imageRequests[index].completion(.success(imageData))
-        }
-        
-        func completeImageLoadingWithError(at index: Int) {
-            let error = NSError(domain: "an error", code: 0)
-            imageRequests[index].completion(.failure(error))
-        }
-    }
 }
 
 // MARK: - DSL Helpers
