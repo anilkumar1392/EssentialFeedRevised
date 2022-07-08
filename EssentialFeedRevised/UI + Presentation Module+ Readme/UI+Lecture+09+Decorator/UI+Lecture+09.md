@@ -128,5 +128,7 @@ extension MainQueueDispatchDecorator: FeedLoader where T == FeedLoader {
     }
 }
 
-## Now you have a reusable mainqueue dispatch decorater
+## Now you have a reusable MainQueueDispatch decorater
 
+Do the same in FeedImageDataLoader 
+and see no change in any class aonly change in composition.
