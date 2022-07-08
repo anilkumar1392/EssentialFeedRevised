@@ -12,7 +12,7 @@ final class FeedUIComposer {
     private init() {}
     
     public static func feedComposedWith(feedLoader: FeedLoader, imageLoader: FeedImageDataLoader) -> FeedViewController {
-        let presentationAdapter = FeedLoaderPresentationAdapter(feedLoader: feedLoader)
+        let presentationAdapter = FeedLoaderPresentationAdapter(feedLoader: MainQueueDispatchDecorator(decoratee: feedLoader))
         // let refreshController = FeedRefreshViewController(loadFeed: presentationAdapter.loadFeed)
         // let refreshController = FeedRefreshViewController(delegate: presentationAdapter)
         // Create refresh control With Storyboard
@@ -60,6 +60,26 @@ final class FeedUIComposer {
 
         }
     } */
+}
+
+final class MainQueueDispatchDecorator: FeedLoader {
+    let decoratee: FeedLoader
+    
+    init(decoratee: FeedLoader) {
+        self.decoratee = decoratee
+    }
+    
+    func load(completion: @escaping (LoadFeedResult) -> Void) {
+        decoratee.load { result in
+            if Thread.isMainThread {
+                completion(result)
+            } else {
+                DispatchQueue.main.async {
+                    completion(result)
+                }
+            }
+        }
+    }
 }
 
 extension FeedViewController {
