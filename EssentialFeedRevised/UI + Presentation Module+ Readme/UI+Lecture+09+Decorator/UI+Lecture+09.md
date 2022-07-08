@@ -132,3 +132,59 @@ extension MainQueueDispatchDecorator: FeedLoader where T == FeedLoader {
 
 Do the same in FeedImageDataLoader 
 and see no change in any class aonly change in composition.
+
+## Learning Outcomes
+
+Decoupling UIKit components (and any other client) from threading details
+Removing duplication and centralizing threading logic in the composition layer
+Decorator pattern: Extending behavior of individual objects without changing its implementation (Liskov Substitution + Open/Closed Principles)
+Decorator pattern: Implementing Cross-Cutting concerns (Single Responsibility Principle)
+
+## Hiding threading details from clients
+
+Threading is an implementation detail. And, as always, we want to hide concrete implementation details from client components.
+
+# Hide concrete detials from client components
+
+For example, the <FeedLoader> protocol hides implementation details of how the feed is actually loaded from its clients. The feed can be loaded from disk, from an in-memory cache, from a backend server, etc.
+
+The UI and Presentation modules, for instance, use the <FeedLoader> protocol. So the UI and Presentation modules are clients of the protocol, and they shouldn’t be aware of the concrete protocol implementations or the feed’s provenance.
+
+However, some <FeedLoader> implementations may perform work in background threads. And the UIKit UI module requires its components to be used in the main thread.
+
+## Important: Use UIKit classes only from your app’s main thread or main dispatch queue, unless otherwise indicated. This restriction particularly applies to classes derived from UIResponder or that involve manipulating your app’s user interface in any way.
+
+### If the UI or Presentation components dispatch the result callback to the main thread, then we would be leaking details of how the protocol was implemented, implying that the <FeedLoader>’s completion was invoked in background threads.
+
+In other words, we would be leaking threading details of the <FeedLoader> implementations into distinct modules.
+
+### But the reason we create abstractions such as protocols is to hide concrete details from their clients. If you hide implementation details from clients, you can easily make changes to the code in isolation, without affecting multiple parts of the system.
+
+To achieve such desired separation, even threading details should be hidden from the clients.
+
+Moreover, when a component is aware of threading details, it’s common to see a lot of duplicate code forming and defensively dispatching work to the specific queues.
+
+To hide concrete implementation details, you can move dispatch queues and threading to the Composer layer by using Decorators.
+
+Decorating the behavior of specific objects, based on your clients’ needs, should make your components lighter, reduce duplication, and contribute to their open/closed nature.
+
+## The Decorator pattern
+
+The Decorator pattern offers a way of adding behavior to an individual object and extending its functionality without subclassing or changing the object’s class.
+
+Decorators are useful when you want to add or alter the behavior of individual objects instead of an entire class of objects. For example, we only want the instance of <FeedLoader> that will be used in the UI to complete in the Main queue, instead of the <FeedLoader> instances.
+
+To implement the Decorator pattern, you create a new object (decorator) that encloses and conforms to the interface of the component (decoratee) it decorates. The decorator class will contain the extended behavior and forward messages to the decoratee.
+
+By doing so, the decorator can be used by the clients of the interface, extending the behavior of the system without needing to alter any existing components.
+
+The Decorator pattern is supported by the SOLID principles, especially the Single Responsibility, Liskov Substitution, and Open/Closed Principles.
+
+You can use Decorators to add Cross-Cutting concerns such as Logging, Analytics, Threading, Security, etc. into your modules in a clean way while maintaining low coupling in your applications.
+
+## References
+Design Patterns: Decorator https://www.goodreads.com/book/show/85009.Design_Patterns
+Diagnosing Memory, Thread, and Crash Issues Early https://developer.apple.com/documentation/xcode/diagnosing-memory-thread-and-crash-issues-early
+Thread reference https://developer.apple.com/documentation/foundation/thread
+DispatchQueue reference https://developer.apple.com/documentation/dispatch/dispatchqueue
+UIKit reference https://developer.apple.com/documentation/uikit

@@ -207,6 +207,8 @@
 		F5DC7BDD2877F3A8009B801D /* FeedLoaderPresentationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DC7BDB2877F390009B801D /* FeedLoaderPresentationAdapter.swift */; };
 		F5DC7BDF2877F3DD009B801D /* FeedViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DC7BDE2877F3DD009B801D /* FeedViewAdapter.swift */; };
 		F5DC7BE02877F3EC009B801D /* FeedViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DC7BDE2877F3DD009B801D /* FeedViewAdapter.swift */; };
+		F5DC7BE328781662009B801D /* UI+Lecture10+LegacyCode.md in Resources */ = {isa = PBXBuildFile; fileRef = F5DC7BE228781662009B801D /* UI+Lecture10+LegacyCode.md */; };
+		F5DC7BE528784660009B801D /* FeedViewController+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DC7BE428784660009B801D /* FeedViewController+TestHelpers.swift */; };
 		F5DC8FB5287152F200FB425D /* FeedImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DC8FB4287152F200FB425D /* FeedImageCell.swift */; };
 		F5DC8FB62871556B00FB425D /* FeedImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DC8FB4287152F200FB425D /* FeedImageCell.swift */; };
 		F5DC8FB728717EF500FB425D /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DCB318285C273D003C9547 /* SharedTestHelpers.swift */; };
@@ -500,6 +502,8 @@
 		F5DC7BD82877F324009B801D /* FeedImageDataLoaderPresentationAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataLoaderPresentationAdapter.swift; sourceTree = "<group>"; };
 		F5DC7BDB2877F390009B801D /* FeedLoaderPresentationAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoaderPresentationAdapter.swift; sourceTree = "<group>"; };
 		F5DC7BDE2877F3DD009B801D /* FeedViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewAdapter.swift; sourceTree = "<group>"; };
+		F5DC7BE228781662009B801D /* UI+Lecture10+LegacyCode.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "UI+Lecture10+LegacyCode.md"; sourceTree = "<group>"; };
+		F5DC7BE428784660009B801D /* FeedViewController+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedViewController+TestHelpers.swift"; sourceTree = "<group>"; };
 		F5DC8FB4287152F200FB425D /* FeedImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageCell.swift; sourceTree = "<group>"; };
 		F5DC8FB92871997700FB425D /* UIView+Shimmering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shimmering.swift"; sourceTree = "<group>"; };
 		F5DC8FBC2871D80000FB425D /* Architecture overview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Architecture overview.png"; sourceTree = "<group>"; };
@@ -792,6 +796,7 @@
 				F5DC7BBD2877BD49009B801D /* UIRefreshControl+TestHelpers.swift */,
 				F5DC7BBF2877BD6A009B801D /* UIButton+TestHelpers.swift */,
 				F5DC7BC12877BD8A009B801D /* UIControl+TestHelpers.swift */,
+				F5DC7BE428784660009B801D /* FeedViewController+TestHelpers.swift */,
 				F5DC7BB72877BB76009B801D /* FeedUIIntegrationTest+Localization.swift */,
 				F5DC7BB92877BBCB009B801D /* FeedUIIntegrationTest+LoaderSpy.swift */,
 			);
@@ -1040,6 +1045,7 @@
 		F5D35173287012B000C94DB5 /* UI + Presentation Module+ Readme */ = {
 			isa = PBXGroup;
 			children = (
+				F5DC7BE128781633009B801D /* UI+Lecture+10+DealWithLegacyCode */,
 				F5DC7BCF2877C910009B801D /* UI+Lecture+09+Decorator */,
 				F5E1D48628772D3F00E8497B /* UI_Lecture_08_localization */,
 				F5B49A0C2876707A00A3E16F /* UI_lecture_08 StoryBoard And UI */,
@@ -1179,6 +1185,14 @@
 				F5DC7BD02877C93D009B801D /* UI+Lecture+09.md */,
 			);
 			path = "UI+Lecture+09+Decorator";
+			sourceTree = "<group>";
+		};
+		F5DC7BE128781633009B801D /* UI+Lecture+10+DealWithLegacyCode */ = {
+			isa = PBXGroup;
+			children = (
+				F5DC7BE228781662009B801D /* UI+Lecture10+LegacyCode.md */,
+			);
+			path = "UI+Lecture+10+DealWithLegacyCode";
 			sourceTree = "<group>";
 		};
 		F5E1D48628772D3F00E8497B /* UI_Lecture_08_localization */ = {
@@ -1434,6 +1448,7 @@
 				F5B300DB285F483900253FAC /* Investigating the number of files.png in Resources */,
 				F5AF14AC2872D00B0004B4C2 /* factory_approcach.png in Resources */,
 				F5DC8FC72871DA2B00FB425D /* Open Closed Principle.png in Resources */,
+				F5DC7BE328781662009B801D /* UI+Lecture10+LegacyCode.md in Resources */,
 				F5D3517E2870165A00C94DB5 /* UI_Lecture_03.md in Resources */,
 				F5B300D6285F47B300253FAC /* Screenshot 2022-06-19 at 5.28.53 PM.png in Resources */,
 				F5B1BD08285B288A00AA9D75 /* Persistance_lecture_3.md in Resources */,
@@ -1697,6 +1712,7 @@
 				F5AF14A62872CD8A0004B4C2 /* FeedImageCellController.swift in Sources */,
 				F5DC7BD72877F279009B801D /* WeakRefVirtualProxy.swift in Sources */,
 				F5DC7BDD2877F3A8009B801D /* FeedLoaderPresentationAdapter.swift in Sources */,
+				F5DC7BE528784660009B801D /* FeedViewController+TestHelpers.swift in Sources */,
 				F560D4B92873F898003F6D26 /* FeedViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
