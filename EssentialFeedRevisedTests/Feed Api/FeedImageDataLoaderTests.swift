@@ -8,6 +8,7 @@
 import Foundation
 import XCTest
 import EssentialFeedRevised
+import EssentialFeediOS
 
 final class RemoteFeedImageDataLoader {
     private let client: HTTPClient
@@ -16,8 +17,13 @@ final class RemoteFeedImageDataLoader {
         self.client = client
     }
     
-    func loadImageData(from url: URL, completion: @escaping (Any) -> Void) {
-        client.get(from: url, completion: { _ in })
+    func loadImageData(from url: URL, completion: @escaping (FeedImageDataLoader.Result) -> Void) {
+        client.get(from: url, completion: { result in
+            switch result {
+            case let .failure(error): completion(.failure(error))
+            default: break
+            }
+        })
     }
 }
 
@@ -31,7 +37,7 @@ class FeedImageDataLoaderTests: XCTestCase {
     
     func test_loadImageDataFromURL_requestsDataFromURL() {
         let url = anyURL()
-        let (sut , loader) = makeSUT(url: url)
+        let (sut, loader) = makeSUT(url: url)
         
         sut.loadImageData(from: url) { _ in }
         
@@ -40,12 +46,35 @@ class FeedImageDataLoaderTests: XCTestCase {
     
     func test_loadImageDataFromURLTwice_requetsDataFromURLTwice() {
         let url = anyURL()
-        let (sut , loader) = makeSUT(url: url)
+        let (sut, loader) = makeSUT(url: url)
         
         sut.loadImageData(from: url) { _ in }
         sut.loadImageData(from: url) { _ in }
 
         XCTAssertEqual(loader.requestedURLs, [url, url])
+    }
+    
+    // Connectivity error
+    func test_loadImageDataFromURL_deliversErrorOnClientError() {
+        let clientError = anyError()
+        let (sut, loader) = makeSUT()
+        
+        let exp = expectation(description: "Wait for load completion...")
+        sut.loadImageData(from: anyURL()) { result in
+            switch result {
+            case .success:
+                XCTFail("Expected failure, got \(result) instead.")
+                
+            case let .failure(error):
+                XCTAssertEqual(error as NSError, clientError)
+            }
+            
+            exp.fulfill()
+        }
+        
+        loader.complete(with: clientError)
+
+        wait(for: [exp], timeout: 1.0)
     }
 }
 
@@ -63,9 +92,15 @@ extension FeedImageDataLoaderTests {
 extension FeedImageDataLoaderTests {
     class HTTPClientSpy: HTTPClient {
         var requestedURLs = [URL]()
-        
+        var completions = [(HTTPClientResult) -> Void]()
+
         func get(from url: URL, completion: @escaping (HTTPClientResult) -> Void) {
             requestedURLs.append(url)
+            completions.append(completion)
+        }
+        
+        func complete(with error: NSError, at index: Int = 0) {
+            completions[index](.failure(error))
         }
     }
 }
