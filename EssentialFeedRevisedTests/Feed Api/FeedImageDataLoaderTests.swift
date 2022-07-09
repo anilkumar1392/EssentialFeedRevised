@@ -37,6 +37,16 @@ class FeedImageDataLoaderTests: XCTestCase {
         
         XCTAssertEqual(loader.requestedURLs, [url])
     }
+    
+    func test_loadImageDataFromURLTwice_requetsDataFromURLTwice() {
+        let url = anyURL()
+        let (sut , loader) = makeSUT(url: url)
+        
+        sut.loadImageData(from: url) { _ in }
+        sut.loadImageData(from: url) { _ in }
+
+        XCTAssertEqual(loader.requestedURLs, [url, url])
+    }
 }
 
 extension FeedImageDataLoaderTests {
