@@ -36,6 +36,7 @@
 		F578EF4A2879AE6800CD43F3 /* RemoteFeedImageDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F578EF492879AE6800CD43F3 /* RemoteFeedImageDataLoader.swift */; };
 		F578EF4B2879AEAC00CD43F3 /* FeedImageDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AF149228728E620004B4C2 /* FeedImageDataLoader.swift */; };
 		F578EF4C2879AEB000CD43F3 /* FeedImageDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AF149228728E620004B4C2 /* FeedImageDataLoader.swift */; };
+		F578EF4F2879B37600CD43F3 /* HTTPURLResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F578EF4E2879B37600CD43F3 /* HTTPURLResponse.swift */; };
 		F586E6C828410FDB00E219D2 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F586E6C728410FDB00E219D2 /* README.md */; };
 		F5AEE6EC284C4439004D7655 /* URLSessionHTTPClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AEE6EB284C4439004D7655 /* URLSessionHTTPClientTests.swift */; };
 		F5AEE6EE284C8A0F004D7655 /* URLSessionClientWithURLProtocolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AEE6ED284C8A0F004D7655 /* URLSessionClientWithURLProtocolTests.swift */; };
@@ -360,6 +361,7 @@
 		F578EF4128794BA300CD43F3 /* FeedImageDataLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataLoaderTests.swift; sourceTree = "<group>"; };
 		F578EF452879AC2B00CD43F3 /* HTTPClientSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientSpy.swift; sourceTree = "<group>"; };
 		F578EF492879AE6800CD43F3 /* RemoteFeedImageDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedImageDataLoader.swift; sourceTree = "<group>"; };
+		F578EF4E2879B37600CD43F3 /* HTTPURLResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPURLResponse.swift; sourceTree = "<group>"; };
 		F586E6C728410FDB00E219D2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F5AEE6EB284C4439004D7655 /* URLSessionHTTPClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClientTests.swift; sourceTree = "<group>"; };
 		F5AEE6ED284C8A0F004D7655 /* URLSessionClientWithURLProtocolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionClientWithURLProtocolTests.swift; sourceTree = "<group>"; };
@@ -751,6 +753,14 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		F578EF4D2879B37100CD43F3 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				F578EF4E2879B37600CD43F3 /* HTTPURLResponse.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		F5AEE6F2284CB3A4004D7655 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -1043,6 +1053,7 @@
 		F5B87D0E283F7FA900D86464 /* Feed Api */ = {
 			isa = PBXGroup;
 			children = (
+				F578EF4D2879B37100CD43F3 /* Helpers */,
 				F5B87D0F283F7FB900D86464 /* RemoteFeedLoader.swift */,
 				F578EF492879AE6800CD43F3 /* RemoteFeedImageDataLoader.swift */,
 				F5D5C5EA2845C580006FA1B0 /* FeedItemsMapper.swift */,
@@ -1672,6 +1683,7 @@
 			files = (
 				F5DA844928791E63004647BA /* FeedViewModel.swift in Sources */,
 				F5B1BCF7285ADBC200AA9D75 /* LocalFeedImage.swift in Sources */,
+				F578EF4F2879B37600CD43F3 /* HTTPURLResponse.swift in Sources */,
 				F5DCB31B285C2E0A003C9547 /* Persistance_lecture_8.md in Sources */,
 				F56F94B7285ED41F00CFBC5E /* ManagedCache.swift in Sources */,
 				F578EF4B2879AEAC00CD43F3 /* FeedImageDataLoader.swift in Sources */,
@@ -1965,7 +1977,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -2020,7 +2032,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

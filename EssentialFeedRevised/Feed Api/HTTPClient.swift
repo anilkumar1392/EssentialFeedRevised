@@ -7,20 +7,21 @@
 
 import Foundation
 
-public enum HTTPClientResult {
-    case success(Data, HTTPURLResponse)
-    case failure(Error)
-}
+//public enum HTTPClientResult {
+//    case success(Data, HTTPURLResponse)
+//    case failure(Error)
+//}
 
 public protocol HTTPClientTask {
     func cancel()
 }
 
 public protocol HTTPClient {
+    typealias Result = Swift.Result<((Data, HTTPURLResponse)), Error>
     /// Completion handler can be invoked in any thread.
     /// Clients are responsible to dispatch to appropriate thread, if needed.
     ///
     @discardableResult
-    func get(from url: URL, completion: @escaping (HTTPClientResult) -> Void) -> HTTPClientTask
+    func get(from url: URL, completion: @escaping (Result) -> Void) -> HTTPClientTask
 }
 

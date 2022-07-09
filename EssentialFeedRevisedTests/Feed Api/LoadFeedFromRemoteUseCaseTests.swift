@@ -245,13 +245,13 @@ extension LoadFeedFromRemoteUseCaseTests {
             func cancel() { }
         }
         
-        private var messages = [(url: URL, completions: (HTTPClientResult) -> Void)]()
+        private var messages = [(url: URL, completions: (HTTPClient.Result) -> Void)]()
         
         var requestedURLs: [URL] {
             return messages.map { $0.url }
         }
         
-        func get(from url: URL, completion: @escaping (HTTPClientResult) -> Void) -> HTTPClientTask {
+        func get(from url: URL, completion: @escaping (HTTPClient.Result) -> Void) -> HTTPClientTask {
             messages.append((url, completion))
             return Task()
         }
@@ -267,7 +267,7 @@ extension LoadFeedFromRemoteUseCaseTests {
                 httpVersion: nil,
                 headerFields: nil)!
             
-            messages[index].completions(.success(data, httpsResponse))
+            messages[index].completions(.success((data, httpsResponse)))
         }
     }
 }
