@@ -38,11 +38,11 @@ class FeedImageDataLoaderTests: XCTestCase {
     }
     
     // Connectivity error
-    func test_loadImageDataFromURL_deliversErrorOnClientError() {
+    func test_loadImageDataFromURL_deliversConnectivityErrorOnClientError() {
         let clientError = NSError(domain: "a client error", code: 0)
         let (sut, loader) = makeSUT()
         
-        expect(sut: sut, toCompleteWith: failure(.clientError)) {
+        expect(sut: sut, toCompleteWith: failure(.connectivity)) {
             loader.complete(with: clientError)
         }
         
