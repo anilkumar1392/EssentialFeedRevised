@@ -318,102 +318,102 @@ extension URLSessionHTTPClinetURLProtocolTests {
 }
 
 extension URLSessionHTTPClinetURLProtocolTests {
-    private class URLProtocolStub: URLProtocol {
-        
-//        private static var stub: Stub? // [URL: Stub]()
-//        private static var requestObserver: ((URLRequest) -> Void)?
-        
-        private struct Stub {
-            let data: Data?
-            let response: URLResponse?
-            let error: Error?
-            let requestReceiver: ((URLRequest) -> Void)?
-        }
-        
-        private static var _stub: Stub?
-        private static var stub: Stub? {
-            get { return queue.sync { _stub } }
-            set { queue.sync { _stub = newValue } }
-        }
-        
-        private static let queue = DispatchQueue(label: "URLProtocolStub.queue")
-
-//        static func startInterseptingRequest() {
-//            URLProtocol.registerClass(URLProtocolStub.self)
+//    private class URLProtocolStub: URLProtocol {
+//        
+////        private static var stub: Stub? // [URL: Stub]()
+////        private static var requestObserver: ((URLRequest) -> Void)?
+//        
+//        private struct Stub {
+//            let data: Data?
+//            let response: URLResponse?
+//            let error: Error?
+//            let requestReceiver: ((URLRequest) -> Void)?
 //        }
+//        
+//        private static var _stub: Stub?
+//        private static var stub: Stub? {
+//            get { return queue.sync { _stub } }
+//            set { queue.sync { _stub = newValue } }
+//        }
+//        
+//        private static let queue = DispatchQueue(label: "URLProtocolStub.queue")
 //
-//        static func stopInterseptingRequest() {
-//            URLProtocol.unregisterClass(URLProtocolStub.self)
-//            // stub = [:]
+////        static func startInterseptingRequest() {
+////            URLProtocol.registerClass(URLProtocolStub.self)
+////        }
+////
+////        static func stopInterseptingRequest() {
+////            URLProtocol.unregisterClass(URLProtocolStub.self)
+////            // stub = [:]
+////            stub = nil
+////            // requestObserver = nil
+////        }
+//        
+//        static func removeStub() {
 //            stub = nil
-//            // requestObserver = nil
 //        }
-        
-        static func removeStub() {
-            stub = nil
-        }
-        
-        static func stub(data: Data?, response: URLResponse?, error: Error?) {
-            // stub[url] = Stub(data: data, response: response, error: error)
-            // stub = Stub(data: data, response: response, error: error)
-            stub = Stub(data: data, response: response, error: error, requestReceiver: nil)
-        }
-        
-        static func observeRequests(observer: @escaping (URLRequest) -> Void) {
-            // requestObserver = observer
-            stub = Stub(data: nil, response: nil, error: nil, requestReceiver: observer)
-        }
-        
-        // Return status if you can handle it.
-        /*
-         we never want to make any api calls so we are intercepting all the calls.
-         and second we wnat to ake assertion very precise
-         */
-        override class func canInit(with request: URLRequest) -> Bool {
-            // requestObserver?(request)
-            print("request -----\(request)")
-            return true
-            
-            /*
-            guard let url = request.url else { return false }
-            
-            return stub[url] != nil */
-        }
-        
-        override class func canonicalRequest(for request: URLRequest) -> URLRequest {
-            print("request -----\(request)")
-            return request
-        }
-        
-        override func startLoading() {
-            // guard let url = request.url, let stub = URLProtocolStub.stub[url] else { return }
-            
-//            if let requestObserver = URLProtocolStub.requestObserver {
-//                client?.urlProtocolDidFinishLoading(self)
-//                return requestObserver(request)
+//        
+//        static func stub(data: Data?, response: URLResponse?, error: Error?) {
+//            // stub[url] = Stub(data: data, response: response, error: error)
+//            // stub = Stub(data: data, response: response, error: error)
+//            stub = Stub(data: data, response: response, error: error, requestReceiver: nil)
+//        }
+//        
+//        static func observeRequests(observer: @escaping (URLRequest) -> Void) {
+//            // requestObserver = observer
+//            stub = Stub(data: nil, response: nil, error: nil, requestReceiver: observer)
+//        }
+//        
+//        // Return status if you can handle it.
+//        /*
+//         we never want to make any api calls so we are intercepting all the calls.
+//         and second we wnat to ake assertion very precise
+//         */
+//        override class func canInit(with request: URLRequest) -> Bool {
+//            // requestObserver?(request)
+//            print("request -----\(request)")
+//            return true
+//            
+//            /*
+//            guard let url = request.url else { return false }
+//            
+//            return stub[url] != nil */
+//        }
+//        
+//        override class func canonicalRequest(for request: URLRequest) -> URLRequest {
+//            print("request -----\(request)")
+//            return request
+//        }
+//        
+//        override func startLoading() {
+//            // guard let url = request.url, let stub = URLProtocolStub.stub[url] else { return }
+//            
+////            if let requestObserver = URLProtocolStub.requestObserver {
+////                client?.urlProtocolDidFinishLoading(self)
+////                return requestObserver(request)
+////            }
+//            
+//            guard let stub = URLProtocolStub.stub else { return }
+//            
+//            if let data = stub.data {
+//                client?.urlProtocol(self, didLoad: data)
 //            }
-            
-            guard let stub = URLProtocolStub.stub else { return }
-            
-            if let data = stub.data {
-                client?.urlProtocol(self, didLoad: data)
-            }
-            
-            if let response = stub.response {
-                client?.urlProtocol(self, didReceive: response, cacheStoragePolicy: .notAllowed)
-            }
-            
-            if let error = stub.error {
-                client?.urlProtocol(self, didFailWithError: error)
-            } else {
-                client?.urlProtocolDidFinishLoading(self)
-            }
-            
-            stub.requestReceiver?(request)
-        }
-        
-        override func stopLoading() {
-            
-        }
-    }
+//            
+//            if let response = stub.response {
+//                client?.urlProtocol(self, didReceive: response, cacheStoragePolicy: .notAllowed)
+//            }
+//            
+//            if let error = stub.error {
+//                client?.urlProtocol(self, didFailWithError: error)
+//            } else {
+//                client?.urlProtocolDidFinishLoading(self)
+//            }
+//            
+//            stub.requestReceiver?(request)
+//        }
+//        
+//        override func stopLoading() {
+//            
+//        }
+//    }
 }
