@@ -215,10 +215,6 @@ extension FeedImageDataLoaderTests {
         return (sut, client)
     }
     
-    private func anyData() -> Data {
-        return Data("any data".utf8)
-    }
-    
     private func failure(_ error: RemoteFeedImageDataLoader.Error) -> FeedImageDataLoader.Result {
         return .failure(error)
     }
@@ -249,6 +245,7 @@ extension FeedImageDataLoaderTests {
 }
 
 
+/*
 extension FeedImageDataLoaderTests {
     
     class HTTPClientSpy: HTTPClient {
@@ -287,6 +284,7 @@ extension FeedImageDataLoaderTests {
         }
     }
 }
+ */
  
 
 /*
