@@ -121,16 +121,18 @@ extension FeedImageDataLoaderTests {
 
 extension FeedImageDataLoaderTests {
     class HTTPClientSpy: HTTPClient {
-        var requestedURLs = [URL]()
-        var completions = [(HTTPClientResult) -> Void]()
+        private var messages = [(url: URL, completion: (HTTPClientResult) -> Void)]()
 
+        var requestedURLs: [URL] {
+            return messages.map { $0.url }
+        }
+        
         func get(from url: URL, completion: @escaping (HTTPClientResult) -> Void) {
-            requestedURLs.append(url)
-            completions.append(completion)
+            messages.append((url, completion))
         }
         
         func complete(with error: NSError, at index: Int = 0) {
-            completions[index](.failure(error))
+            messages[index].completion(.failure(error))
         }
     }
 }

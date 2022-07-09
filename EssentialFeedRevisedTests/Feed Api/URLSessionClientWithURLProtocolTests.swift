@@ -15,13 +15,20 @@ import EssentialFeedRevised
 
 class URLSessionHTTPClinetURLProtocolTests: XCTestCase {
     
-    override func setUp() {
-        URLProtocolStub.startInterseptingRequest()
-    }
+//    override func setUp() {
+//        URLProtocolStub.startInterseptingRequest()
+//    }
+//
+//    override func tearDown() {
+//        URLProtocolStub.stopInterseptingRequest()
+//    }
     
     override func tearDown() {
-        URLProtocolStub.stopInterseptingRequest()
+        super.tearDown()
+
+        URLProtocolStub.removeStub()
     }
+    
     
     // Request data form the provided URL.
     // 1. Requested URl
@@ -233,7 +240,11 @@ class URLSessionHTTPClinetURLProtocolTests: XCTestCase {
 
 extension URLSessionHTTPClinetURLProtocolTests {
     func makeSUT(file: StaticString = #file, line: UInt = #line) -> HTTPClientURLSession {
-        let sut = HTTPClientURLSession()
+        var configuration = URLSessionConfiguration.ephemeral
+        configuration.protocolClasses = [URLProtocolStub.self]
+        let session = URLSession(configuration: configuration)
+        
+        let sut = HTTPClientURLSession(session: session)
         trackForMemoryLeaks(sut)
         return sut
     }
@@ -352,15 +363,19 @@ extension URLSessionHTTPClinetURLProtocolTests {
             let error: Error?
         }
         
-        static func startInterseptingRequest() {
-            URLProtocol.registerClass(URLProtocolStub.self)
-        }
+//        static func startInterseptingRequest() {
+//            URLProtocol.registerClass(URLProtocolStub.self)
+//        }
+//
+//        static func stopInterseptingRequest() {
+//            URLProtocol.unregisterClass(URLProtocolStub.self)
+//            // stub = [:]
+//            stub = nil
+//            requestObserver = nil
+//        }
         
-        static func stopInterseptingRequest() {
-            URLProtocol.unregisterClass(URLProtocolStub.self)
-            // stub = [:]
+        static func removeStub() {
             stub = nil
-            requestObserver = nil
         }
         
         static func observeRequests(observer: @escaping (URLRequest) -> Void) {
