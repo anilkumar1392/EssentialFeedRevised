@@ -102,13 +102,22 @@ class FeedImageDataLoaderTests: XCTestCase {
     // Invalid data on non 200 Https response
     
     func test_loadImageDataFromURL_deliversInvalidDataErrorONNon200HTTPResponse() {
-        let (sut, clinet) = makeSUT()
+        let (sut, client) = makeSUT()
 
         let samples = [199, 201, 300, 400, 500]
         samples.enumerated().forEach { index, code in
             expect(sut: sut, toCompleteWith: failure(.invalidData)) {
-                clinet.complete(withStatusCode: code, data: anyData(), at: index)
+                client.complete(withStatusCode: code, data: anyData(), at: index)
             }
+        }
+    }
+    
+    func test_loadImageDataFromURL_deliversErrorOn200HttpsResponseWithEmptyData() {
+        let (sut, client) = makeSUT()
+
+        expect(sut: sut, toCompleteWith: failure(.invalidData)) {
+            let emptyData = Data()
+            client.complete(withStatusCode: 200, data: emptyData)
         }
     }
 }
