@@ -36,6 +36,16 @@ import XCTest
  So chaning order should not break the tests.
  */
 
+/*
+ Moving code from one module to another is an delicate process we need to do it step by step.
+ fi you don't have test for your code usign this TDD approach to existing code it's going to help you mistakes.
+ */
+
+/*
+ Now we have isolated tests in cross paltform module
+ and integration test in the iOS module.
+ */
+
 struct FeedViewModel {
     let feed: [FeedImage]
 }
@@ -79,14 +89,26 @@ final class FeedPresenter {
         self.feedView = feedView
     }
     
+    private var feedLoadError: String {
+        return NSLocalizedString("FEED_VIEW_CONNECTION_ERROR",
+             tableName: "Feed",
+             bundle: Bundle(for: FeedPresenter.self),
+             comment: "Error message displayed when we can't load the image feed from the server")
+    }
+    
     func didStartLoadingFeed() {
         errorView.display(.noError)
         loadingView.display(FeedLoadingViewModel(isLoading: true))
     }
     
     func didFinishLoadingFeed(with feed: [FeedImage]) {
-        self.feedView.display(FeedViewModel(feed: feed))
-        self.loadingView.display(FeedLoadingViewModel(isLoading: false))
+        feedView.display(FeedViewModel(feed: feed))
+        loadingView.display(FeedLoadingViewModel(isLoading: false))
+    }
+    
+    func didFinishLaodingFeed(with error: Error) {
+        errorView.display(.error(message: feedLoadError))
+        loadingView.display(FeedLoadingViewModel(isLoading: false))
     }
 }
 
@@ -116,9 +138,19 @@ class FeedPresenterTests: XCTestCase {
         XCTAssertEqual(view.messages, [
             .display(feed: [feed]),
             .display(isLoading: false)])
-
+    }
+    
+    func test_didFinishLoadingFeedWithError_displaysLocalizedErrorMessageAndStopsLoading() {
+        let (sut, view) = makeSUT()
+        
+        sut.didFinishLaodingFeed(with: anyError())
+        
+        XCTAssertEqual(view.messages, [
+            .display(errorMessage: localized("FEED_VIEW_CONNECTION_ERROR")),
+            .display(isLoading: false)])
     }
 }
+
 
 // MARK: - factory methods
 
@@ -133,6 +165,16 @@ extension FeedPresenterTests {
     
     func uniqueFeedImage() -> FeedImage {
         return FeedImage(id: UUID(), description: "Any description", location: "A location", url: URL(string: "Http://any-url.com")!)
+    }
+    
+    func localized(_ key: String, file: StaticString = #file, line: UInt = #line) -> String {
+        let table = "Feed"
+        let bundle = Bundle(for: FeedViewController.self)
+        let value = bundle.localizedString(forKey: key, value: nil, table: table)
+        if key == value {
+            XCTFail("MIssing loclized string for key: \(key) in table: \(table)", file: file, line: line)
+        }
+        return value
     }
 }
 
