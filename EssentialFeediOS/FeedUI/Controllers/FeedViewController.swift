@@ -115,7 +115,7 @@ extension FeedViewController: FeedLoadingView {
         delegate?.didRequestFeedRefresh()
     }
     
-    func display(_ viewModel: FeedLoadingViewModel) {
+    public func display(_ viewModel: FeedLoadingViewModel) {
         refreshControl?.update(isRefreshing: viewModel.isLoading)
     }
 }
@@ -124,7 +124,7 @@ extension FeedViewController: FeedLoadingView {
 // MARK: - Error view protocol
 
 extension FeedViewController: FeedErrorView {
-    func display(_ viewModel: FeedErrorViewModel) {
+    public func display(_ viewModel: FeedErrorViewModel) {
         errorView?.message = viewModel.message
     }
 }
