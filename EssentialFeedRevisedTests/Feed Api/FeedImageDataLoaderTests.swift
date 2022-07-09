@@ -17,11 +17,27 @@ final class RemoteFeedImageDataLoader {
         self.client = client
     }
     
+    public enum Error: Swift.Error {
+        case invalidData
+        case clientError
+    }
+    
+//    private struct HTTPTaskWrapper: FeedImageDataLoaderTask {
+//        let wrapped: HTTPClientTask
+//
+//        func cancel() {
+//            wrapped.cancel()
+//        }
+//    }
+    
+    // @discardableResult
     func loadImageData(from url: URL, completion: @escaping (FeedImageDataLoader.Result) -> Void) {
         client.get(from: url, completion: { result in
             switch result {
-            case let .failure(error): completion(.failure(error))
-            default: break
+            case let .success(_, _):
+                completion(.failure(Error.invalidData))
+            case .failure:
+                completion(.failure(Error.clientError))
             }
         })
     }
@@ -56,10 +72,10 @@ class FeedImageDataLoaderTests: XCTestCase {
     
     // Connectivity error
     func test_loadImageDataFromURL_deliversErrorOnClientError() {
-        let clientError = anyError()
+        let clientError = NSError(domain: "a client error", code: 0)
         let (sut, loader) = makeSUT()
         
-        expect(sut: sut, toCompleteWith: .failure(clientError)) {
+        expect(sut: sut, toCompleteWith: failure(.clientError)) {
             loader.complete(with: clientError)
         }
         
@@ -80,7 +96,20 @@ class FeedImageDataLoaderTests: XCTestCase {
         loader.complete(with: clientError)
 
         wait(for: [exp], timeout: 1.0)
-         */
+        */
+    }
+    
+    // Invalid data on non 200 Https response
+    
+    func test_loadImageDataFromURL_deliversInvalidDataErrorONNon200HTTPResponse() {
+        let (sut, clinet) = makeSUT()
+
+        let samples = [199, 201, 300, 400, 500]
+        samples.enumerated().forEach { index, code in
+            expect(sut: sut, toCompleteWith: failure(.invalidData)) {
+                clinet.complete(withStatusCode: code, data: anyData(), at: index)
+            }
+        }
     }
 }
 
@@ -93,6 +122,14 @@ extension FeedImageDataLoaderTests {
         return (sut, loader)
     }
     
+    private func anyData() -> Data {
+        return Data("any data".utf8)
+    }
+    
+    private func failure(_ error: RemoteFeedImageDataLoader.Error) -> FeedImageDataLoader.Result {
+        return .failure(error)
+    }
+    
     private func expect(sut: RemoteFeedImageDataLoader, toCompleteWith expectedResult: FeedImageDataLoader.Result, when action: () -> Void, file: StaticString = #file, line: UInt = #line) {
         let url = anyURL()
         let exp = expectation(description: "Wait for load completion...")
@@ -102,9 +139,9 @@ extension FeedImageDataLoaderTests {
             case let (.success(receivedData), .success(expectedData)):
                 XCTAssertEqual(receivedData, expectedData, file: file, line: line)
                 
-            case let (.failure(receivedError as NSError), .failure(expectedError as NSError)):
+            case let (.failure(receivedError as RemoteFeedImageDataLoader.Error), .failure(expectedError as RemoteFeedImageDataLoader.Error)):
                 XCTAssertEqual(receivedError, expectedError, file: file, line: line)
-                
+
             default:
                 XCTFail("Expeceted to complete with \(expectedResult), Got \(receivedResult) instead.", file: file, line: line)
             }
@@ -127,12 +164,24 @@ extension FeedImageDataLoaderTests {
             return messages.map { $0.url }
         }
         
+        var cancelledURLs = [URL]()
+        
         func get(from url: URL, completion: @escaping (HTTPClientResult) -> Void) {
             messages.append((url, completion))
         }
         
         func complete(with error: NSError, at index: Int = 0) {
             messages[index].completion(.failure(error))
+        }
+        
+        func complete(withStatusCode code: Int, data: Data, at index: Int = 0) {
+            let response = HTTPURLResponse(
+                url: requestedURLs[index],
+                statusCode: code,
+                httpVersion: nil,
+                headerFields: nil
+            )!
+            messages[index].completion(.success(data, response))
         }
     }
 }

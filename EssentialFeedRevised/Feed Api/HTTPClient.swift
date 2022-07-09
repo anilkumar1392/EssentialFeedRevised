@@ -12,10 +12,15 @@ public enum HTTPClientResult {
     case failure(Error)
 }
 
+public protocol HTTPClientTask {
+    func cancel()
+}
+
 public protocol HTTPClient {
     /// Completion handler can be invoked in any thread.
     /// Clients are responsible to dispatch to appropriate thread, if needed.
-    /// 
+    ///
+    @discardableResult
     func get(from url: URL, completion: @escaping (HTTPClientResult) -> Void)
     // func get(from urlRequest: URLRequest, completion: @escaping (HTTPClientResult) -> Void)
 }
