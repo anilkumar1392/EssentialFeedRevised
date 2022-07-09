@@ -158,7 +158,16 @@ extension FeedImageDataLoaderTests {
 // MARK: - Cancel get from URLTask cancels URL request
 
 extension FeedImageDataLoaderTests {
+    func test_canceLoadImageDataURLTask_cancelsClientURLRequest() {
+        let (sut, client) = makeSUT()
+        let url = anyURL()
 
+        let task = sut.loadImageData(from: anyURL()) { _ in }
+        XCTAssertTrue(client.cancelledURLs.isEmpty, "Expeceted no cancelled url until task are cancelled")
+        
+        task.cancel()
+        XCTAssertEqual(client.cancelledURLs, [url], "Expeceted cancelled url after task is cancelled")
+    }
 }
 
 extension FeedImageDataLoaderTests {
@@ -205,22 +214,26 @@ extension FeedImageDataLoaderTests {
 
 
 extension FeedImageDataLoaderTests {
+    
     class HTTPClientSpy: HTTPClient {
         private struct Task: HTTPClientTask {
-            func cancel() { }
+            let callback: () -> Void
+            func cancel() { callback() }
         }
         
         private var messages = [(url: URL, completion: (HTTPClientResult) -> Void)]()
+        
         private(set) var cancelledURLs = [URL]()
 
         var requestedURLs: [URL] {
             return messages.map { $0.url }
         }
-        
 
         func get(from url: URL, completion: @escaping (HTTPClientResult) -> Void) -> HTTPClientTask {
             messages.append((url, completion))
-            return Task()
+            return Task { [weak self] in
+                self?.cancelledURLs.append(url)
+            }
         }
         
         func complete(with error: NSError, at index: Int = 0) {
