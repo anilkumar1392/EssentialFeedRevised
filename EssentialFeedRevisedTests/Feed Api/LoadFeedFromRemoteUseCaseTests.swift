@@ -234,20 +234,26 @@ extension LoadFeedFromRemoteUseCaseTests {
     private func failure(_ error: RemoteFeedLoader.Error) -> RemoteFeedLoader.Result {
         return .failure(error)
     }
+    
     private func makeItemJson(_ items: [[String: Any]]) -> Data {
         let json = ["items": items]
         return try! JSONSerialization.data(withJSONObject: json)
     }
     
     private class HTTPClientSpy: HTTPClient {
-
+        private struct Task: HTTPClientTask {
+            func cancel() { }
+        }
+        
         private var messages = [(url: URL, completions: (HTTPClientResult) -> Void)]()
+        
         var requestedURLs: [URL] {
             return messages.map { $0.url }
         }
-
-        func get(from url: URL, completion: @escaping (HTTPClientResult) -> Void) {
+        
+        func get(from url: URL, completion: @escaping (HTTPClientResult) -> Void) -> HTTPClientTask {
             messages.append((url, completion))
+            return Task()
         }
         
         func complete(with error: Error, at index: Int = 0) {
@@ -263,6 +269,5 @@ extension LoadFeedFromRemoteUseCaseTests {
             
             messages[index].completions(.success(data, httpsResponse))
         }
-         
     }
 }

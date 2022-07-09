@@ -53,6 +53,25 @@ class URLSessionHTTPClinetURLProtocolTests: XCTestCase {
         wait(for: [exp], timeout: 1.0)
     }
     
+    func test_cancelGetFromURLTask_cancelsURLRequest() {
+        let url = anyURL()
+        let exp = expectation(description: "Wait for request")
+
+        let task = makeSUT().get(from: url) { result in
+            switch result {
+            case let .failure(error as NSError) where error.code == URLError.cancelled.rawValue:
+                break
+
+            default:
+                XCTFail("Expected cancelled result, got \(result) instead")
+            }
+            exp.fulfill()
+        }
+
+        task.cancel()
+        wait(for: [exp], timeout: 1.0)
+    }
+    
     /*
      We can use the same technique to test POST requests and also investigate the body of the request and query.
      */
@@ -240,7 +259,7 @@ class URLSessionHTTPClinetURLProtocolTests: XCTestCase {
 
 extension URLSessionHTTPClinetURLProtocolTests {
     func makeSUT(file: StaticString = #file, line: UInt = #line) -> HTTPClientURLSession {
-        var configuration = URLSessionConfiguration.ephemeral
+        let configuration = URLSessionConfiguration.ephemeral
         configuration.protocolClasses = [URLProtocolStub.self]
         let session = URLSession(configuration: configuration)
         

@@ -21,7 +21,6 @@ public protocol HTTPClient {
     /// Clients are responsible to dispatch to appropriate thread, if needed.
     ///
     @discardableResult
-    func get(from url: URL, completion: @escaping (HTTPClientResult) -> Void)
-    // func get(from urlRequest: URLRequest, completion: @escaping (HTTPClientResult) -> Void)
+    func get(from url: URL, completion: @escaping (HTTPClientResult) -> Void) -> HTTPClientTask
 }
 

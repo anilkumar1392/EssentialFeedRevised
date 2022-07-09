@@ -22,17 +22,17 @@ final class RemoteFeedImageDataLoader {
         case clientError
     }
     
-//    private struct HTTPTaskWrapper: FeedImageDataLoaderTask {
-//        let wrapped: HTTPClientTask
-//
-//        func cancel() {
-//            wrapped.cancel()
-//        }
-//    }
+    private struct HTTPTaskWrapper: FeedImageDataLoaderTask {
+        let wrapped: HTTPClientTask
+
+        func cancel() {
+            wrapped.cancel()
+        }
+    }
     
-    // @discardableResult
-    func loadImageData(from url: URL, completion: @escaping (FeedImageDataLoader.Result) -> Void) {
-        client.get(from: url, completion: { [weak self] result in
+    @discardableResult
+    func loadImageData(from url: URL, completion: @escaping (FeedImageDataLoader.Result) -> Void) -> FeedImageDataLoaderTask {
+        return HTTPTaskWrapper(wrapped: client.get(from: url, completion: { [weak self] result in
             guard self != nil else { return }
             
             switch result {
@@ -45,7 +45,7 @@ final class RemoteFeedImageDataLoader {
             case .failure:
                 completion(.failure(Error.clientError))
             }
-        })
+        }))
     }
 }
 
@@ -155,6 +155,12 @@ extension FeedImageDataLoaderTests {
     }
 }
 
+// MARK: - Cancel get from URLTask cancels URL request
+
+extension FeedImageDataLoaderTests {
+
+}
+
 extension FeedImageDataLoaderTests {
     private func makeSUT(url: URL = anyURL(), file: StaticString = #file, line: UInt = #line) -> (sut: RemoteFeedImageDataLoader, loader: HTTPClientSpy){
         let client = HTTPClientSpy()
@@ -200,16 +206,21 @@ extension FeedImageDataLoaderTests {
 
 extension FeedImageDataLoaderTests {
     class HTTPClientSpy: HTTPClient {
+        private struct Task: HTTPClientTask {
+            func cancel() { }
+        }
+        
         private var messages = [(url: URL, completion: (HTTPClientResult) -> Void)]()
+        private(set) var cancelledURLs = [URL]()
 
         var requestedURLs: [URL] {
             return messages.map { $0.url }
         }
         
-        var cancelledURLs = [URL]()
-        
-        func get(from url: URL, completion: @escaping (HTTPClientResult) -> Void) {
+
+        func get(from url: URL, completion: @escaping (HTTPClientResult) -> Void) -> HTTPClientTask {
             messages.append((url, completion))
+            return Task()
         }
         
         func complete(with error: NSError, at index: Int = 0) {
