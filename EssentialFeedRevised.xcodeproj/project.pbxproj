@@ -27,6 +27,9 @@
 		F56F94BF285EDB7400CFBC5E /* Screenshot 2022-06-19 at 9.35.37 AM.png in Resources */ = {isa = PBXBuildFile; fileRef = F56F94BD285EDB7400CFBC5E /* Screenshot 2022-06-19 at 9.35.37 AM.png */; };
 		F570DBA7284DBED8000ADC03 /* Screenshot 2022-06-06 at 10.18.50 AM.png in Resources */ = {isa = PBXBuildFile; fileRef = F570DBA6284DBED8000ADC03 /* Screenshot 2022-06-06 at 10.18.50 AM.png */; };
 		F578EF362879218300CD43F3 /* FeedLocalizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DC7BCD2877BF7F009B801D /* FeedLocalizationTests.swift */; };
+		F578EF3828793CBC00CD43F3 /* UI+Module+keyInsights.md in Resources */ = {isa = PBXBuildFile; fileRef = F578EF3728793CBC00CD43F3 /* UI+Module+keyInsights.md */; };
+		F578EF3A2879434100CD43F3 /* UI+Architecture_final.png in Resources */ = {isa = PBXBuildFile; fileRef = F578EF392879434100CD43F3 /* UI+Architecture_final.png */; };
+		F578EF3E287943AC00CD43F3 /* Main+Module+lecture+01.md in Resources */ = {isa = PBXBuildFile; fileRef = F578EF3D287943AC00CD43F3 /* Main+Module+lecture+01.md */; };
 		F586E6C828410FDB00E219D2 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F586E6C728410FDB00E219D2 /* README.md */; };
 		F5AEE6EC284C4439004D7655 /* URLSessionHTTPClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AEE6EB284C4439004D7655 /* URLSessionHTTPClientTests.swift */; };
 		F5AEE6EE284C8A0F004D7655 /* URLSessionClientWithURLProtocolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AEE6ED284C8A0F004D7655 /* URLSessionClientWithURLProtocolTests.swift */; };
@@ -344,6 +347,9 @@
 		F56F94BC285EDB7400CFBC5E /* Screenshot 2022-06-19 at 9.46.58 AM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screenshot 2022-06-19 at 9.46.58 AM.png"; sourceTree = "<group>"; };
 		F56F94BD285EDB7400CFBC5E /* Screenshot 2022-06-19 at 9.35.37 AM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screenshot 2022-06-19 at 9.35.37 AM.png"; sourceTree = "<group>"; };
 		F570DBA6284DBED8000ADC03 /* Screenshot 2022-06-06 at 10.18.50 AM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screenshot 2022-06-06 at 10.18.50 AM.png"; sourceTree = "<group>"; };
+		F578EF3728793CBC00CD43F3 /* UI+Module+keyInsights.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "UI+Module+keyInsights.md"; sourceTree = "<group>"; };
+		F578EF392879434100CD43F3 /* UI+Architecture_final.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UI+Architecture_final.png"; sourceTree = "<group>"; };
+		F578EF3D287943AC00CD43F3 /* Main+Module+lecture+01.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "Main+Module+lecture+01.md"; sourceTree = "<group>"; };
 		F586E6C728410FDB00E219D2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F5AEE6EB284C4439004D7655 /* URLSessionHTTPClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClientTests.swift; sourceTree = "<group>"; };
 		F5AEE6ED284C8A0F004D7655 /* URLSessionClientWithURLProtocolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionClientWithURLProtocolTests.swift; sourceTree = "<group>"; };
@@ -711,6 +717,22 @@
 			path = "Ref For Persistance Module";
 			sourceTree = "<group>";
 		};
+		F578EF3B2879437900CD43F3 /* Main Module + Readme */ = {
+			isa = PBXGroup;
+			children = (
+				F578EF3C2879439000CD43F3 /* Main_module+lecture+01 */,
+			);
+			path = "Main Module + Readme";
+			sourceTree = "<group>";
+		};
+		F578EF3C2879439000CD43F3 /* Main_module+lecture+01 */ = {
+			isa = PBXGroup;
+			children = (
+				F578EF3D287943AC00CD43F3 /* Main+Module+lecture+01.md */,
+			);
+			path = "Main_module+lecture+01";
+			sourceTree = "<group>";
+		};
 		F5AEE6F2284CB3A4004D7655 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -968,6 +990,7 @@
 				F5D5074028505EE900B16343 /* Narrative.md */,
 				F5B1BCFD285B255200AA9D75 /* PersistanceModuleLeaning.md */,
 				F5B9B272284F0E5D00ADA20C /* feed-case-study-test-api-feed.json */,
+				F578EF3B2879437900CD43F3 /* Main Module + Readme */,
 				F5D35173287012B000C94DB5 /* UI + Presentation Module+ Readme */,
 				F570DBA8284DBEDE000ADC03 /* Ref For Persistance Module */,
 				F5B87D07283F5CA800D86464 /* Feed Feature */,
@@ -1058,6 +1081,8 @@
 				F5D3517C2870162D00C94DB5 /* UI_Lecture_03 */,
 				F5D35177287014CE00C94DB5 /* UI_Lecture_02 */,
 				F5D35174287012CD00C94DB5 /* UI_Lecture_1 */,
+				F578EF3728793CBC00CD43F3 /* UI+Module+keyInsights.md */,
+				F578EF392879434100CD43F3 /* UI+Architecture_final.png */,
 			);
 			path = "UI + Presentation Module+ Readme";
 			sourceTree = "<group>";
@@ -1469,6 +1494,7 @@
 				F56F94BF285EDB7400CFBC5E /* Screenshot 2022-06-19 at 9.35.37 AM.png in Resources */,
 				F5D5D792285DE7EC007493F4 /* Screenshot 2022-06-18 at 4.20.04 PM.png in Resources */,
 				F5B300C4285F434500253FAC /* Screenshot 2022-06-19 at 5.06.54 PM.png in Resources */,
+				F578EF3E287943AC00CD43F3 /* Main+Module+lecture+01.md in Resources */,
 				F5B0F13128754ED00062C513 /* MVP+FLOW+1.png in Resources */,
 				F5B0F12D28754ED00062C513 /* MVP_4.png in Resources */,
 				F5B200E52874968B00966F41 /* dependency.png in Resources */,
@@ -1499,6 +1525,7 @@
 				F56F94A9285EAD3900CFBC5E /* Persistacne_lecture_15.md in Resources */,
 				F5AF14A42872A1250004B4C2 /* REfactor_4.png in Resources */,
 				F5DC8FC92871DB6D00FB425D /* Open Closed Principle_2.png in Resources */,
+				F578EF3828793CBC00CD43F3 /* UI+Module+keyInsights.md in Resources */,
 				F5DCB31D285C4998003C9547 /* Persistance_lecture_9_testWithSideEffectsInNewFile.md in Resources */,
 				F5B9B263284F0A4800ADA20C /* Screenshot 2022-06-06 at 10.23.32 AM.png in Resources */,
 				F560D4C628740EE5003F6D26 /* lecture_6_1.png in Resources */,
@@ -1527,6 +1554,7 @@
 				F5DC9DF12875F1DF0022D457 /* MVP_01.png in Resources */,
 				F5B49A1D28768C8200A3E16F /* Initializer Injection and Storyboards on iOS13.png in Resources */,
 				F5AEE6F1284C9626004D7655 /* HTTPClient.md in Resources */,
+				F578EF3A2879434100CD43F3 /* UI+Architecture_final.png in Resources */,
 				F56F94BE285EDB7400CFBC5E /* Screenshot 2022-06-19 at 9.46.58 AM.png in Resources */,
 				F5B0F12F28754ED00062C513 /* MVP+adapter.png in Resources */,
 				F5B200F828749CEE00966F41 /* MVVM_1.png in Resources */,
@@ -1917,7 +1945,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1972,7 +2000,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

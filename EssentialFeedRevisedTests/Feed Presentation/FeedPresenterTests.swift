@@ -9,43 +9,6 @@ import Foundation
 import XCTest
 @testable import EssentialFeediOS
 
-/*
- What does feed presenter do it receives events
- and translate those events in to presentable viewData or viewModels.
- So it's a translation layer it sends message to the view.
- 
- View is the collaborator but now we need the action the initializer.
-
- */
-
-// So if we create a feed Presenter with that view the view should not receive any messages.
-/*
- We recommend you to start from the degenerate simple and trival behaviour first.
-*/
-
-/*
- Just to capture the received value we can create an enum.
- */
-
-/*
- First behaviour tested but now their are two things happening so now add second behaviour in to it.
- */
-
-/*
- we have no temporal coupling the order does not matter
- So chaning order should not break the tests.
- */
-
-/*
- Moving code from one module to another is an delicate process we need to do it step by step.
- fi you don't have test for your code usign this TDD approach to existing code it's going to help you mistakes.
- */
-
-/*
- Now we have isolated tests in cross paltform module
- and integration test in the iOS module.
- */
-
 class FeedPresenterTests: XCTestCase {
     
     func test_title_isLocalized() {
