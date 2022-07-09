@@ -29,7 +29,6 @@ class URLSessionHTTPClinetURLProtocolTests: XCTestCase {
         URLProtocolStub.removeStub()
     }
     
-    
     // Request data form the provided URL.
     // 1. Requested URl
     func test_loadFromURL_performGetRequestWithURL() {
@@ -45,8 +44,6 @@ class URLSessionHTTPClinetURLProtocolTests: XCTestCase {
 
             exp.fulfill()
         }
-        
-        // makeSUT().get(from: url) { _ in }
 
         makeSUT().get(from: url) { _ in }
 
@@ -54,22 +51,9 @@ class URLSessionHTTPClinetURLProtocolTests: XCTestCase {
     }
     
     func test_cancelGetFromURLTask_cancelsURLRequest() {
-        let url = anyURL()
-        let exp = expectation(description: "Wait for request")
+        let receivedError = resultErrorFor(taskHandler: { $0.cancel() }) as NSError?
 
-        let task = makeSUT().get(from: url) { result in
-            switch result {
-            case let .failure(error as NSError) where error.code == URLError.cancelled.rawValue:
-                break
-
-            default:
-                XCTFail("Expected cancelled result, got \(result) instead")
-            }
-            exp.fulfill()
-        }
-
-        task.cancel()
-        wait(for: [exp], timeout: 1.0)
+        XCTAssertEqual(receivedError?.code, URLError.cancelled.rawValue)
     }
     
     /*
@@ -86,7 +70,7 @@ class URLSessionHTTPClinetURLProtocolTests: XCTestCase {
      Error = value
      result: delivers failure
      */
-    func test_loadFromUrl_failsOnRequestError() {
+    func test_getFromURL_failsOnRequestError() {
         /*
         let url = anyURL()
         let error = NSError(domain: "any error", code: 1)
@@ -113,11 +97,9 @@ class URLSessionHTTPClinetURLProtocolTests: XCTestCase {
         
         let requestError = anyError()
 
-        let receivedError = resultErrorFor(nil, nil, requestError) as? NSError
-        
-        XCTAssertEqual(receivedError?.localizedDescription, requestError.localizedDescription)
+        let receivedError = resultErrorFor((data: nil, response: nil, error: requestError)) as NSError?
+
         XCTAssertEqual(receivedError?.code, requestError.code)
-        XCTAssertEqual(receivedError?.domain, requestError.domain)
     }
     
     /*
@@ -149,7 +131,7 @@ class URLSessionHTTPClinetURLProtocolTests: XCTestCase {
         wait(for: [exp], timeout: 3.0)
         */
         
-        XCTAssertNotNil(resultErrorFor(nil, nil, nil))
+        XCTAssertNotNil(resultErrorFor(_:taskHandler:file:line:))
     }
     
     /*
@@ -164,11 +146,12 @@ class URLSessionHTTPClinetURLProtocolTests: XCTestCase {
         let nonHTTPURLResponse = anyNonHTTPURLResponse()
         let anyHTTPURLResponse = anyHTTPURLResponse()
         
-        XCTAssertNotNil(resultErrorFor(nil, nonHTTPURLResponse, nil))
-        // XCTAssertNotNil(resultErrorFor(nil, anyHTTPURLResponse, nil))
+        XCTAssertNotNil(resultErrorFor((data: nil, response: nonHTTPURLResponse, error: nil)))
+
         /*
          Handled saperately
          */
+        /*
         XCTAssertNotNil(resultErrorFor(anyData, nil, nil))
         XCTAssertNotNil(resultErrorFor(anyData, nil, anyError))
         XCTAssertNotNil(resultErrorFor(nil, nonHTTPURLResponse, anyError))
@@ -176,6 +159,16 @@ class URLSessionHTTPClinetURLProtocolTests: XCTestCase {
         XCTAssertNotNil(resultErrorFor(anyData, nonHTTPURLResponse, anyError))
         XCTAssertNotNil(resultErrorFor(anyData, anyHTTPURLResponse, anyError))
         XCTAssertNotNil(resultErrorFor(anyData, nonHTTPURLResponse, nil))
+        */
+        
+        XCTAssertNotNil(resultErrorFor((data: anyData, response: nil, error: nil)))
+        XCTAssertNotNil(resultErrorFor((data: anyData, response: nil, error: anyError)))
+        XCTAssertNotNil(resultErrorFor((data: nil, response: nonHTTPURLResponse, error: anyError)))
+        XCTAssertNotNil(resultErrorFor((data: nil, response: anyHTTPURLResponse, error: anyError)))
+        XCTAssertNotNil(resultErrorFor((data: anyData, response: nonHTTPURLResponse, error: anyError)))
+        XCTAssertNotNil(resultErrorFor((data: anyData, response: anyHTTPURLResponse, error: anyError)))
+        XCTAssertNotNil(resultErrorFor((data: anyData, response: nonHTTPURLResponse, error: anyError)))
+
     }
     
     func test_loadFromURL_suceedsOnHTTPSURLResponseWithData() {
@@ -209,8 +202,9 @@ class URLSessionHTTPClinetURLProtocolTests: XCTestCase {
         let anyData = anyData()
         let anyHTTPURLResponse = anyHTTPURLResponse()
         
-        let receivedValues = resultValuesFor(anyData, anyHTTPURLResponse, nil)
-        
+        // let receivedValues = resultValuesFor(anyData, anyHTTPURLResponse, nil)
+        let receivedValues = resultValuesFor((data: anyData, response: anyHTTPURLResponse, error: nil))
+
         XCTAssertEqual(receivedValues?.data, anyData)
         XCTAssertEqual(receivedValues?.response.url, anyHTTPURLResponse.url)
         XCTAssertEqual(receivedValues?.response.statusCode, anyHTTPURLResponse.statusCode)
@@ -244,13 +238,15 @@ class URLSessionHTTPClinetURLProtocolTests: XCTestCase {
         wait(for: [exp], timeout: 2.0)
         */
         
-        let anyHTTPURLResponse = anyHTTPURLResponse()
-        let receivedValues = resultValuesFor(nil, anyHTTPURLResponse, nil)
+        let response = anyHTTPURLResponse()
+        // let receivedValues = resultValuesFor(nil, anyHTTPURLResponse, nil)
+        let receivedValues = resultValuesFor((data: nil, response: response, error: nil))
+
         let emptyData = Data()
 
         XCTAssertEqual(receivedValues?.data, emptyData)
-        XCTAssertEqual(receivedValues?.response.url, anyHTTPURLResponse.url)
-        XCTAssertEqual(receivedValues?.response.statusCode, anyHTTPURLResponse.statusCode)
+        XCTAssertEqual(receivedValues?.response.url, response.url)
+        XCTAssertEqual(receivedValues?.response.statusCode, response.statusCode)
 
     }
 }
@@ -267,6 +263,50 @@ extension URLSessionHTTPClinetURLProtocolTests {
         trackForMemoryLeaks(sut)
         return sut
     }
+
+    func resultValuesFor(_ values: (data: Data?, response: URLResponse?, error: Error?), taskHandler: (HTTPClientTask) -> Void = { _ in }, file: StaticString = #file, line: UInt = #line) -> (data: Data, response: HTTPURLResponse)? {
+        
+        let result = resultFor(values, file: file, line: line)
+        
+        switch result {
+        case .success(let data, let response):
+            return (data, response)
+            
+        default:
+            XCTFail("Expected success, got \(result) instead", file: file, line: line)
+            return nil
+        }
+    }
+    
+    private func resultErrorFor(_ values: (data: Data?, response: URLResponse?, error: Error?)? = nil, taskHandler: (HTTPClientTask) -> Void = { _ in }, file: StaticString = #file, line: UInt = #line) -> Error? {
+
+        let result = resultFor(values, taskHandler: taskHandler, file: file, line: line)
+
+        switch result {
+        case let .failure(error):
+            return error
+        default:
+            XCTFail("Expected failure, got \(result) instead", file: file, line: line)
+            return nil
+        }
+    }
+    
+    private func resultFor(_ values: (data: Data?, response: URLResponse?, error: Error?)?, taskHandler: (HTTPClientTask) -> Void = { _ in },  file: StaticString = #file, line: UInt = #line) -> HTTPClientResult {
+
+        values.map { URLProtocolStub.stub(data: $0, response: $1, error: $2) }
+
+        let sut = makeSUT(file: file, line: line)
+        let exp = expectation(description: "Wait for completion")
+        
+        var receivedResult: HTTPClientResult!
+        taskHandler(sut.get(from: anyURL()) { result in
+            receivedResult = result
+            exp.fulfill()
+        })
+        
+        wait(for: [exp], timeout: 1.0)
+        return receivedResult
+    }
     
     func anyNonHTTPURLResponse() -> URLResponse {
         return URLResponse(url: anyURL(), mimeType: nil, expectedContentLength: 0, textEncodingName: nil)
@@ -274,99 +314,6 @@ extension URLSessionHTTPClinetURLProtocolTests {
     
     func anyHTTPURLResponse() -> HTTPURLResponse {
         return HTTPURLResponse(url: anyURL(), mimeType: nil, expectedContentLength: 0, textEncodingName: nil)
-    }
-    
-    func resultErrorFor(_ data: Data?, _ response: URLResponse?, _ error: Error?, file: StaticString = #file, line: UInt = #line) -> Error? {
-        /*
-        let url = anyURL()
-        let sut = makeSUT(file: file, line: line)
-        URLProtocolStub.stub(data: data, response: response, error: error)
-        
-        let exp = expectation(description: "Wait for load completion")
-        
-        var receivedError: Error?
-        sut.get(from: url) { result in
-            switch result {
-            case .failure(let error):
-                receivedError = error
-                
-            default:
-                XCTFail("Expected to complete with error got \(result) instead", file: file, line: line)
-            }
-            
-            exp.fulfill()
-        }
-        
-        wait(for: [exp], timeout: 3.0)
-         */
-        
-        
-        let receivedResult = resultFor(data, response, error)
-        var receivedError: Error?
-
-        switch receivedResult {
-        case .failure(let error):
-            receivedError = error
-            
-        default:
-            XCTFail("Expected to complete with error got \(receivedResult) instead", file: file, line: line)
-        }
-        
-        return receivedError
-    }
-    
-    func resultValuesFor(_ data: Data?, _ response: URLResponse?, _ error: Error?, file: StaticString = #file, line: UInt = #line) -> (data: Data, response: HTTPURLResponse)? {
-        
-        /*
-        let url = anyURL()
-        let sut = makeSUT(file: file, line: line)
-        URLProtocolStub.stub(data: data, response: response, error: error)
-        
-        let exp = expectation(description: "Wait for load completion")
-        
-        var receivedData: (data: Data, response: HTTPURLResponse)?
-        sut.get(from: url) { result in
-            switch result {
-            case .success(let data, let response):
-                receivedData = (data, response)
-
-            default:
-                XCTFail("Expected to complete with error got \(result) instead", file: file, line: line)
-            }
-            
-            exp.fulfill()
-        }
-        
-        wait(for: [exp], timeout: 3.0) */
-        
-        let receivedResult = resultFor(data, response, error)
-        var receivedData: (data: Data, response: HTTPURLResponse)?
-
-        switch receivedResult {
-        case .success(let data, let response):
-            receivedData = (data, response)
-            
-        case .failure(let error):
-            XCTFail("Expected success got \(error) instead", file: file, line: line)
-        }
-        return receivedData
-    }
-    
-    func resultFor(_ data: Data?, _ response: URLResponse?, _ error: Error?, file: StaticString = #file, line: UInt = #line) -> HTTPClientResult {
-        URLProtocolStub.stub(data: data, response: response, error: error)
-        let sut = makeSUT(file: file, line: line)
-
-        let exp = expectation(description: "Wait for load completion")
-        
-        var receivedResult: HTTPClientResult!
-        sut.get(from: anyURL()) { result in
-            receivedResult = result
-            
-            exp.fulfill()
-        }
-        
-        wait(for: [exp], timeout: 1.0)
-        return receivedResult
     }
 }
 
@@ -435,19 +382,20 @@ extension URLSessionHTTPClinetURLProtocolTests {
                 return requestObserver(request)
             }
             
-            if let data = URLProtocolStub.stub?.data {
+            guard let stub = URLProtocolStub.stub else { return }
+            if let data = stub.data {
                 client?.urlProtocol(self, didLoad: data)
             }
             
-            if let response = URLProtocolStub.stub?.response {
+            if let response = stub.response {
                 client?.urlProtocol(self, didReceive: response, cacheStoragePolicy: .notAllowed)
             }
             
-            if let error = URLProtocolStub.stub?.error {
+            if let error = stub.error {
                 client?.urlProtocol(self, didFailWithError: error)
+            } else {
+                client?.urlProtocolDidFinishLoading(self)
             }
-            
-            client?.urlProtocolDidFinishLoading(self)
         }
         
         override func stopLoading() {
