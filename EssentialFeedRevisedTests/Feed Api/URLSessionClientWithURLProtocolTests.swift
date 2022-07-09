@@ -15,19 +15,19 @@ import EssentialFeedRevised
 
 class URLSessionHTTPClinetURLProtocolTests: XCTestCase {
     
-//    override func setUp() {
-//        URLProtocolStub.startInterseptingRequest()
-//    }
-//
-//    override func tearDown() {
-//        URLProtocolStub.stopInterseptingRequest()
-//    }
-    
-    override func tearDown() {
-        super.tearDown()
-
-        URLProtocolStub.removeStub()
+    override func setUp() {
+        URLProtocolStub.startInterseptingRequest()
     }
+
+    override func tearDown() {
+        URLProtocolStub.stopInterseptingRequest()
+    }
+    
+//    override func tearDown() {
+//        super.tearDown()
+//
+//        URLProtocolStub.removeStub()
+//    }
     
     // Request data form the provided URL.
     // 1. Requested URl
@@ -320,37 +320,48 @@ extension URLSessionHTTPClinetURLProtocolTests {
 extension URLSessionHTTPClinetURLProtocolTests {
     private class URLProtocolStub: URLProtocol {
         
-        private static var stub: Stub? // [URL: Stub]()
-        private static var requestObserver: ((URLRequest) -> Void)?
+//        private static var stub: Stub? // [URL: Stub]()
+//        private static var requestObserver: ((URLRequest) -> Void)?
         
         private struct Stub {
             let data: Data?
             let response: URLResponse?
             let error: Error?
+            let requestReceiver: ((URLRequest) -> Void)?
         }
         
-//        static func startInterseptingRequest() {
-//            URLProtocol.registerClass(URLProtocolStub.self)
-//        }
-//
-//        static func stopInterseptingRequest() {
-//            URLProtocol.unregisterClass(URLProtocolStub.self)
-//            // stub = [:]
-//            stub = nil
-//            requestObserver = nil
-//        }
+        private static var _stub: Stub?
+        private static var stub: Stub? {
+            get { return queue.sync { _stub } }
+            set { queue.sync { _stub = newValue } }
+        }
         
-        static func removeStub() {
+        private static let queue = DispatchQueue(label: "URLProtocolStub.queue")
+
+        static func startInterseptingRequest() {
+            URLProtocol.registerClass(URLProtocolStub.self)
+        }
+
+        static func stopInterseptingRequest() {
+            URLProtocol.unregisterClass(URLProtocolStub.self)
+            // stub = [:]
             stub = nil
+            // requestObserver = nil
         }
         
-        static func observeRequests(observer: @escaping (URLRequest) -> Void) {
-            requestObserver = observer
-        }
+//        static func removeStub() {
+//            stub = nil
+//        }
         
         static func stub(data: Data?, response: URLResponse?, error: Error?) {
             // stub[url] = Stub(data: data, response: response, error: error)
-            stub = Stub(data: data, response: response, error: error)
+            // stub = Stub(data: data, response: response, error: error)
+            stub = Stub(data: data, response: response, error: error, requestReceiver: nil)
+        }
+        
+        static func observeRequests(observer: @escaping (URLRequest) -> Void) {
+            // requestObserver = observer
+            stub = Stub(data: nil, response: nil, error: nil, requestReceiver: observer)
         }
         
         // Return status if you can handle it.
@@ -377,12 +388,13 @@ extension URLSessionHTTPClinetURLProtocolTests {
         override func startLoading() {
             // guard let url = request.url, let stub = URLProtocolStub.stub[url] else { return }
             
-            if let requestObserver = URLProtocolStub.requestObserver {
-                client?.urlProtocolDidFinishLoading(self)
-                return requestObserver(request)
-            }
+//            if let requestObserver = URLProtocolStub.requestObserver {
+//                client?.urlProtocolDidFinishLoading(self)
+//                return requestObserver(request)
+//            }
             
             guard let stub = URLProtocolStub.stub else { return }
+            
             if let data = stub.data {
                 client?.urlProtocol(self, didLoad: data)
             }
@@ -396,6 +408,8 @@ extension URLSessionHTTPClinetURLProtocolTests {
             } else {
                 client?.urlProtocolDidFinishLoading(self)
             }
+            
+            stub.requestReceiver?(request)
         }
         
         override func stopLoading() {
