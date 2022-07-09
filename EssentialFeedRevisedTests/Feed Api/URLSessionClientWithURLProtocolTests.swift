@@ -15,19 +15,19 @@ import EssentialFeedRevised
 
 class URLSessionHTTPClinetURLProtocolTests: XCTestCase {
     
-    override func setUp() {
-        URLProtocolStub.startInterseptingRequest()
-    }
-
-    override func tearDown() {
-        URLProtocolStub.stopInterseptingRequest()
-    }
-    
-//    override func tearDown() {
-//        super.tearDown()
-//
-//        URLProtocolStub.removeStub()
+//    override func setUp() {
+//        URLProtocolStub.startInterseptingRequest()
 //    }
+//
+//    override func tearDown() {
+//        URLProtocolStub.stopInterseptingRequest()
+//    }
+    
+    override func tearDown() {
+        super.tearDown()
+
+        URLProtocolStub.removeStub()
+    }
     
     // Request data form the provided URL.
     // 1. Requested URl
@@ -338,20 +338,20 @@ extension URLSessionHTTPClinetURLProtocolTests {
         
         private static let queue = DispatchQueue(label: "URLProtocolStub.queue")
 
-        static func startInterseptingRequest() {
-            URLProtocol.registerClass(URLProtocolStub.self)
-        }
-
-        static func stopInterseptingRequest() {
-            URLProtocol.unregisterClass(URLProtocolStub.self)
-            // stub = [:]
-            stub = nil
-            // requestObserver = nil
-        }
-        
-//        static func removeStub() {
-//            stub = nil
+//        static func startInterseptingRequest() {
+//            URLProtocol.registerClass(URLProtocolStub.self)
 //        }
+//
+//        static func stopInterseptingRequest() {
+//            URLProtocol.unregisterClass(URLProtocolStub.self)
+//            // stub = [:]
+//            stub = nil
+//            // requestObserver = nil
+//        }
+        
+        static func removeStub() {
+            stub = nil
+        }
         
         static func stub(data: Data?, response: URLResponse?, error: Error?) {
             // stub[url] = Stub(data: data, response: response, error: error)
