@@ -22,7 +22,7 @@ class FeedImageDataLoaderTests: XCTestCase {
         let url = anyURL()
         let (sut, loader) = makeSUT(url: url)
         
-        sut.loadImageData(from: url) { _ in }
+        _ = sut.loadImageData(from: url) { _ in }
         
         XCTAssertEqual(loader.requestedURLs, [url])
     }
@@ -31,8 +31,8 @@ class FeedImageDataLoaderTests: XCTestCase {
         let url = anyURL()
         let (sut, loader) = makeSUT(url: url)
         
-        sut.loadImageData(from: url) { _ in }
-        sut.loadImageData(from: url) { _ in }
+        _ = sut.loadImageData(from: url) { _ in }
+        _ = sut.loadImageData(from: url) { _ in }
 
         XCTAssertEqual(loader.requestedURLs, [url, url])
     }
@@ -107,7 +107,7 @@ extension FeedImageDataLoaderTests {
         
         var capturedResults = [FeedImageDataLoader.Result]()
         
-        sut?.loadImageData(from: anyURL(), completion: { capturedResults.append($0) })
+        _ = sut?.loadImageData(from: anyURL(), completion: { capturedResults.append($0) })
         
         sut = nil
         client.complete(withStatusCode: 200, data: anyData())
@@ -163,7 +163,7 @@ extension FeedImageDataLoaderTests {
         let url = anyURL()
         let exp = expectation(description: "Wait for load completion...")
         
-        sut.loadImageData(from: url) { receivedResult in
+        _ = sut.loadImageData(from: url) { receivedResult in
             switch (receivedResult, expectedResult) {
             case let (.success(receivedData), .success(expectedData)):
                 XCTAssertEqual(receivedData, expectedData, file: file, line: line)
