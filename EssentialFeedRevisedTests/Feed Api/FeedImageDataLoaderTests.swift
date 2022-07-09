@@ -34,8 +34,12 @@ final class RemoteFeedImageDataLoader {
     func loadImageData(from url: URL, completion: @escaping (FeedImageDataLoader.Result) -> Void) {
         client.get(from: url, completion: { result in
             switch result {
-            case let .success(_, _):
-                completion(.failure(Error.invalidData))
+            case let .success(data, response):
+                if response.statusCode == 200, !data.isEmpty {
+                    completion(.success(data))
+                } else {
+                    completion(.failure(Error.invalidData))
+                }
             case .failure:
                 completion(.failure(Error.clientError))
             }
@@ -118,6 +122,15 @@ class FeedImageDataLoaderTests: XCTestCase {
         expect(sut: sut, toCompleteWith: failure(.invalidData)) {
             let emptyData = Data()
             client.complete(withStatusCode: 200, data: emptyData)
+        }
+    }
+    
+    func test_loadImageDataFromURL_delviersDataOnNonEmptyData() {
+        let (sut, client) = makeSUT()
+        let nonEmptyData = Data("any data".utf8)
+
+        expect(sut: sut, toCompleteWith: .success(nonEmptyData)) {
+            client.complete(withStatusCode: 200, data: nonEmptyData)
         }
     }
 }
@@ -215,6 +228,10 @@ extension FeedImageDataLoaderTests {
 
 #### Invalid data – error course (sad path):
 1. System delivers invalid data error.
+ {
+ 1. Delivers error on non 200 HTTPResponse
+ 2. Delivers error on emptyData with 200 HTTP response
+ }
 
 #### No connectivity – error course (sad path):
 1. System delivers connectivity error.
