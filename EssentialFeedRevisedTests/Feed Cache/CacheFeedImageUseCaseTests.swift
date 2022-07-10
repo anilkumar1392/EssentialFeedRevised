@@ -25,6 +25,26 @@ class CacheFeedImageUseCasesTests: XCTestCase {
         
         XCTAssertEqual(store.receivedMessages, [.insert(data: data, forUrl: url)])
     }
+    
+    func test_saveImageDataForURL_failsOnStoreInsertionError() {
+        let (sut, store) = makeSUT()
+
+        let exp = expectation(description: "wait for save completion...")
+        sut.insert(anyData(), forUrl: anyURL()) { result in
+            switch result {
+            case let .failure(error):
+                XCTAssertNotNil(error)
+                
+            default:
+                XCTFail("Expected to complete with failure, got \(result) instead.")
+            }
+            exp.fulfill()
+        }
+        
+        store.completeInsertion(with: anyError())
+        
+        wait(for: [exp], timeout: 1.0)
+    }
 }
 
 

@@ -18,8 +18,14 @@ class LocalFeedImageDataLoader {
 extension LocalFeedImageDataLoader {
     typealias SaveResult = Swift.Result<Void, Swift.Error>
     
+    public enum SaveError: Swift.Error {
+        case failed
+    }
+    
     func insert(_ data: Data, forUrl url: URL, completion: @escaping (SaveResult) -> Void) {
-        store.insert(data, forUrl: url, completion: { _ in })
+        store.insert(data, forUrl: url, completion: { result in
+            completion(.failure(SaveError.failed))
+        })
     }
 }
 

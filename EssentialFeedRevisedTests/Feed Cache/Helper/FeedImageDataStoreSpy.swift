@@ -38,4 +38,8 @@ class StoreSpy: FeedImageDataStore {
         receivedMessages.append(.insert(data: data, forUrl: url))
         insertionCompletions.append(completion)
     }
+    
+    func completeInsertion(with error: Error, at index: Int = 0) {
+        insertionCompletions[index](.failure(error))
+    }
 }
