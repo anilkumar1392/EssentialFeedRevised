@@ -10,7 +10,7 @@ import XCTest
 import EssentialFeedRevised
 import EssentialFeediOS
 
-class FeedImageDataLoaderTests: XCTestCase {
+class LoadFeedImageDataFromRemoteUseCaseTests: XCTestCase {
     
     func test_init_doesNotPerformAnyURLRequest() {
         let (_ , loader) = makeSUT()
@@ -100,7 +100,7 @@ class FeedImageDataLoaderTests: XCTestCase {
 
 // MARK: - Deallocated after instance has been deallocated
 
-extension FeedImageDataLoaderTests {
+extension LoadFeedImageDataFromRemoteUseCaseTests {
     func test_loadImageDataFromURL_doesNotDelviverResultAfterSUTInstanceHasBeenDeallocated() {
         let client = HTTPClientSpy()
         var sut: RemoteFeedImageDataLoader? = RemoteFeedImageDataLoader(client: client)
@@ -118,7 +118,7 @@ extension FeedImageDataLoaderTests {
 
 // MARK: - Cancel get from URLTask cancels URL request
 
-extension FeedImageDataLoaderTests {
+extension LoadFeedImageDataFromRemoteUseCaseTests {
     func test_canceLoadImageDataURLTask_cancelsClientURLRequest() {
         let (sut, client) = makeSUT()
         let url = anyURL()
@@ -146,7 +146,7 @@ extension FeedImageDataLoaderTests {
     }
 }
 
-extension FeedImageDataLoaderTests {
+extension LoadFeedImageDataFromRemoteUseCaseTests {
     private func makeSUT(url: URL = anyURL(), file: StaticString = #file, line: UInt = #line) -> (sut: RemoteFeedImageDataLoader, loader: HTTPClientSpy){
         let client = HTTPClientSpy()
         let sut = RemoteFeedImageDataLoader(client: client)
