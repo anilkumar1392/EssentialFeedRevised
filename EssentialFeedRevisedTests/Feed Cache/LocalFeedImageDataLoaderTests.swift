@@ -15,8 +15,24 @@ protocol FeedImageDataStore {
 }
 
 class LocalFeedImageDataLoader: FeedImageDataLoader {
-    private struct Task: FeedImageDataLoaderTask {
-        func cancel() { }
+    private class Task: FeedImageDataLoaderTask {
+        private var completion: ((FeedImageDataLoader.Result) -> Void)?
+        
+        init(_ completion: @escaping (FeedImageDataLoader.Result) -> Void) {
+            self.completion = completion
+        }
+        
+        func complete(with result: FeedImageDataLoader.Result) {
+            completion?(result)
+        }
+        
+        func cancel() {
+            preventFurtherCompeltions()
+        }
+        
+        private func preventFurtherCompeltions() {
+            completion = nil
+        }
     }
     
     let store: FeedImageDataStore
@@ -31,14 +47,15 @@ class LocalFeedImageDataLoader: FeedImageDataLoader {
     }
     
     func loadImageData(from url: URL, completion: @escaping (FeedImageDataLoader.Result) -> Void) -> FeedImageDataLoaderTask {
+        let task = Task(completion)
         store.retrieve(dataFromURL: url, completion: { result in
-            completion(result
+            task.complete(with: result
                 .mapError { _ in Error.failed }
                 .flatMap { data in
                     data.map { .success($0) } ?? .failure(Error.notFound)
                 })
         })
-        return Task()
+        return task
     }
     
 }
@@ -94,7 +111,7 @@ extension LocalFeedImageDataLoaderTests {
         wait(for: [exp], timeout: 1.0)
          */
         
-        expect(sut, toCompleteWith: failed()) {
+        _ = expect(sut, toCompleteWith: failed()) {
             let retrievalError = anyError()
             store.complete(with: retrievalError)
         }
@@ -103,21 +120,41 @@ extension LocalFeedImageDataLoaderTests {
     func test_loadImageDataFromURL_delviersNotFoundErrorOnNotFound() {
         let (sut, store) = makeSUT()
 
-        expect(sut, toCompleteWith: notFound()) {
+        _ = expect(sut, toCompleteWith: notFound()) {
             store.complete(with: .none)
         }
     }
 }
 
 // MARK: - Success course
+
 extension LocalFeedImageDataLoaderTests {
     func test_loadImageDataFromURL_deliversStoreDataOnFoundData() {
         let (sut, store) = makeSUT()
         let foundData = Data("any valid data".utf8)
         
-        expect(sut, toCompleteWith: .success(foundData)) {
+        _ = expect(sut, toCompleteWith: .success(foundData)) {
             store.complete(with: foundData)
         }
+    }
+}
+
+//MARK:- Task cancelled
+
+extension LocalFeedImageDataLoaderTests {
+    func test_loadImageDataFromURL_doesNotDeliverResultAfterTaskHasBeenCacnelled() {
+        let (sut, store) = makeSUT()
+        let foundData = anyData()
+
+        var received = [FeedImageDataLoader.Result]()
+        let task = sut.loadImageData(from: anyURL()) { received.append($0) }
+        task.cancel()
+        
+        store.complete(with: foundData)
+        store.complete(with: .none)
+        store.complete(with: anyError())
+        
+        XCTAssertTrue(received.isEmpty, "Expecetd no result after cancelling the task")
     }
 }
 
@@ -138,11 +175,11 @@ extension LocalFeedImageDataLoaderTests {
         return .failure(LocalFeedImageDataLoader.Error.notFound)
     }
     
-    private func expect(_ sut: LocalFeedImageDataLoader, toCompleteWith expectedResult: FeedImageDataLoader.Result, when action: () -> Void, file: StaticString = #file, line: UInt = #line) {
+    private func expect(_ sut: LocalFeedImageDataLoader, toCompleteWith expectedResult: FeedImageDataLoader.Result, when action: () -> Void, file: StaticString = #file, line: UInt = #line) -> FeedImageDataLoaderTask {
         let exp = expectation(description: "wait for load completion...")
         let url = anyURL()
         
-        _ = sut.loadImageData(from: url) { receivedResult in
+        let task = sut.loadImageData(from: url) { receivedResult in
             switch (receivedResult, expectedResult) {
             case let (.success(receivedData), .success(expectedData)):
                 XCTAssertEqual(receivedData, expectedData, file: file, line: line)
@@ -160,6 +197,8 @@ extension LocalFeedImageDataLoaderTests {
         action()
         
         wait(for: [exp], timeout: 5.0)
+        
+        return task
     }
 }
 
