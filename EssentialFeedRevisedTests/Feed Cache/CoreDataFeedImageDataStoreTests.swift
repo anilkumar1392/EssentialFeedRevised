@@ -42,6 +42,34 @@ class CoreDataFeedImageDataStoreTests: XCTestCase {
         
         expect(sut, toCompleteWith: notFound(), for: url)
     }
+    
+    func test_retrieveImageData_deliversNotFoundWhenStoredDataURLDoesNotMatch() {
+        let sut = makeSUT()
+        let url = URL(string: "http://a-url.com")!
+        let notMatchingUrl = URL(string: "http://another-url.com")!
+        let image = localImage(url: url)
+        let data = anyData()
+
+        let exp = expectation(description: "Wait for insert completion...")
+        
+        sut.insert([image], timestamp: Date()) { error in
+            if let error = error {
+                XCTFail("Expected to complete with success, Got \(error) instead")
+            } else {
+                sut.insert(data, forUrl: url) { result in
+                    if case let Result.failure(error) = result {
+                        XCTFail("Failed to insert \(data) with error \(error)")
+                    }
+                }
+            }
+            
+            exp.fulfill()
+        }
+        
+        wait(for: [exp], timeout: 1.0)
+        
+        expect(sut, toCompleteWith: notFound(), for: notMatchingUrl)
+    }
 }
 
 extension CoreDataFeedImageDataStoreTests {
@@ -55,6 +83,10 @@ extension CoreDataFeedImageDataStoreTests {
     
     private func notFound() -> FeedImageDataStore.RetrievalResult {
         return .success(.none)
+    }
+    
+    private func localImage(url: URL) -> LocalFeedImage {
+        return LocalFeedImage(id: UUID(), description: "any", location: "any", url: url)
     }
     
     private func expect(_ sut: CoreDataFeedStore, toCompleteWith expectedResult: FeedImageDataStore.RetrievalResult, for url: URL, file: StaticString = #file, line: UInt = #line) {
@@ -75,3 +107,9 @@ extension CoreDataFeedImageDataStoreTests {
         wait(for: [exp], timeout: 1.0)
     }
 }
+
+
+/*
+ // Commits
+ 1. CoreDataFeedStore.retrieveImageData delivers image data not found when empty
+ */
