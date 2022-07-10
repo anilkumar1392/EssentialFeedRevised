@@ -10,6 +10,7 @@ import XCTest
 
 protocol FeedImageDataStore {
     typealias Result = Swift.Result<Data?, Error>
+    
     func retrieve(dataFromURL url: URL, completion: @escaping (Result) -> Void)
 }
 
@@ -31,24 +32,11 @@ class LocalFeedImageDataLoader: FeedImageDataLoader {
     
     func loadImageData(from url: URL, completion: @escaping (FeedImageDataLoader.Result) -> Void) -> FeedImageDataLoaderTask {
         store.retrieve(dataFromURL: url, completion: { result in
-            
             completion(result
                 .mapError { _ in Error.failed }
-                .flatMap { _ in .failure(Error.notFound) }
-            )
-            
-            /*
-            switch result {
-            case let .success(data):
-                if let data = data {
-                    completion(.success(data))
-                } else {
-                    completion(.failure(Error.failed))
-                }
-                
-            case .failure:
-                completion(.failure(Error.failed))
-            }*/
+                .flatMap { data in
+                    data.map { .success($0) } ?? .failure(Error.notFound)
+                })
         })
         return Task()
     }
@@ -117,6 +105,18 @@ extension LocalFeedImageDataLoaderTests {
 
         expect(sut, toCompleteWith: notFound()) {
             store.complete(with: .none)
+        }
+    }
+}
+
+// MARK: - Success course
+extension LocalFeedImageDataLoaderTests {
+    func test_loadImageDataFromURL_deliversStoreDataOnFoundData() {
+        let (sut, store) = makeSUT()
+        let foundData = Data("any valid data".utf8)
+        
+        expect(sut, toCompleteWith: .success(foundData)) {
+            store.complete(with: foundData)
         }
     }
 }
