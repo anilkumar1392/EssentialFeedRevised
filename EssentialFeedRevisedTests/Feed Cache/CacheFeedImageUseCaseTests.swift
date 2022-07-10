@@ -64,7 +64,6 @@ class CacheFeedImageUseCasesTests: XCTestCase {
 // MARK: - does not delvier result after instacne has been deallcoated
 
 extension CacheFeedImageUseCasesTests {
-
     func test_saveDataImageForUrl_doesNotDeliverResultAfterSUTInstacneHasBeenDeallcoated() {
         let store = StoreSpy()
         var sut: LocalFeedImageDataLoader? = LocalFeedImageDataLoader(store: store)
