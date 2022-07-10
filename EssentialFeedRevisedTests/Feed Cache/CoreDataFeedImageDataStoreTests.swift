@@ -112,4 +112,6 @@ extension CoreDataFeedImageDataStoreTests {
 /*
  // Commits
  1. CoreDataFeedStore.retrieveImageData delivers image data not found when empty
+ 
+ 2. CoreDataFeedStore.retrieveImageData delivers image data not found when store is not empty but there's no image with matching URL
  */
