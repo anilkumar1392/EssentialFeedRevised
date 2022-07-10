@@ -25,34 +25,34 @@ class EssentialFeedCacheIntegrationTests: XCTestCase {
         undoStoreSideEffects()
     }
     
-    func test_load_deliversNoItemsOnEmptyCache() {
+    func test_loadFeed_deliversNoItemsOnEmptyCache() {
         let sut = makeFeedLoader()
         
         expect(sut: sut, toLoad: [])
     }
     
-    func test_load_deliversItemsSavedOnDifferentThread() {
-        let sutToPerformSave = makeFeedLoader()
-        let sutToPerformLoad = makeFeedLoader()
+    func test_loadFeed_deliversItemsSavedOnDifferentThread() {
+        let feedLoaderToPerformSave = makeFeedLoader()
+        let feedLoaderToPerformLoad = makeFeedLoader()
         let feed = uniqueImage()
 
-        save([feed], with: sutToPerformSave)
+        save([feed], with: feedLoaderToPerformSave)
 
-        expect(sut: sutToPerformLoad, toLoad: [feed])
+        expect(sut: feedLoaderToPerformLoad, toLoad: [feed])
     }
     
-    func test_save_overridesItemsSavedOnSeparateInstacne() {
-        let sutToPerformFirstSave = makeFeedLoader()
-        let sutToPerformSecondSave = makeFeedLoader()
-        let sutToPerformLoad = makeFeedLoader()
+    func test_saveFeed_overridesItemsSavedOnSeparateInstacne() {
+        let feedLoaderToPerformFirstSave = makeFeedLoader()
+        let feedLoaderToPerformLastSave = makeFeedLoader()
+        let feedLoaderToPerformLoad = makeFeedLoader()
 
         let firstFeed = uniqueImage()
         let secondFeed = uniqueImage()
         
-        save([firstFeed], with: sutToPerformFirstSave)
-        save([secondFeed], with: sutToPerformSecondSave)
+        save([firstFeed], with: feedLoaderToPerformFirstSave)
+        save([secondFeed], with: feedLoaderToPerformLastSave)
 
-        expect(sut: sutToPerformLoad, toLoad: [secondFeed])
+        expect(sut: feedLoaderToPerformLoad, toLoad: [secondFeed])
     }
     
     func test_loadImageData_deliversSavedDataOnASeparateInstance() {
