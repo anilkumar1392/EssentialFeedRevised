@@ -9,15 +9,6 @@ import Foundation
 import XCTest
 import EssentialFeedRevised
 
-extension CoreDataFeedStore: FeedImageDataStore {
-    func insert(_ data: Data, forUrl url: URL, completion: @escaping (InsertionResult) -> Void) {
-    }
-    
-    func retrieve(dataFromURL url: URL, completion: @escaping (RetrievalResult) -> Void) {
-        completion(.success(.none))
-    }
-}
-
 class CoreDataFeedImageDataStoreTests: XCTestCase {
     func test_retrieveImageData_deliversNotFoundWhenEmpty() {
         let sut = makeSUT()
