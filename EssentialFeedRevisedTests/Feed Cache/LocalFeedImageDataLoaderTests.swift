@@ -107,6 +107,20 @@ extension LocalFeedImageDataLoaderTests {
     }
 }
 
+// MARK: - Save oprations test
+
+extension LocalFeedImageDataLoaderTests {
+    func test_saveImageDataForURL_requestsImageDataInsertionForURL() {
+        let (sut, store) = makeSUT()
+        let data = anyData()
+        let url = anyURL()
+
+        sut.insert(data, forUrl: url, completion: { _ in })
+        
+        XCTAssertEqual(store.receivedMessages, [.insert(data: data, forUrl: url)])
+    }
+}
+
 extension LocalFeedImageDataLoaderTests {
     private func makeSUT(currentDate: @escaping () -> Date = Date.init, file: StaticString = #file, line: UInt = #line) -> (sut: LocalFeedImageDataLoader, store: StoreSpy) {
         let store = StoreSpy()
@@ -156,11 +170,13 @@ extension LocalFeedImageDataLoaderTests {
     private class StoreSpy: FeedImageDataStore {
         enum Message: Equatable {
             case retrieve(dataFor: URL)
+            case insert(data: Data, forUrl: URL)
         }
         
         private(set) var receivedMessages = [Message]()
         private var completions = [(FeedImageDataStore.Result) -> Void]()
-        
+        private var insertionCompletions = [(InsertionResult) -> Void]()
+
         func retrieve(dataFromURL url: URL, completion: @escaping (FeedImageDataStore.Result) -> Void) {
             receivedMessages.append(.retrieve(dataFor: url))
             completions.append(completion)
@@ -172,6 +188,13 @@ extension LocalFeedImageDataLoaderTests {
         
         func complete(with data: Data?, at index: Int = 0) {
             completions[index](.success(data))
+        }
+        
+        // MARK: - Insertion
+        
+        func insert(_ data: Data, forUrl url: URL, completion: @escaping (FeedImageDataStore.InsertionResult) -> Void) {
+            receivedMessages.append(.insert(data: data, forUrl: url))
+            insertionCompletions.append(completion)
         }
     }
 }

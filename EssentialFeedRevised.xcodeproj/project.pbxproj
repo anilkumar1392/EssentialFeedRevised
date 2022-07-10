@@ -916,10 +916,10 @@
 			isa = PBXGroup;
 			children = (
 				F56F94AE285EB2D200CFBC5E /* Infrastructure */,
+				F5B1BCEE285ACE8900AA9D75 /* FeedStore.swift */,
 				F5B1BCEC285ACE2600AA9D75 /* LocalFeedLoader.swift */,
 				F5DCB31E285C5614003C9547 /* FeedCachePolicy.swift */,
 				F5B1BCF6285ADBC200AA9D75 /* LocalFeedImage.swift */,
-				F5B1BCEE285ACE8900AA9D75 /* FeedStore.swift */,
 				F5D629A5287AA9600075714A /* FeedImageDataStore.swift */,
 				F5D629A3287AA9230075714A /* LocalFeedImageDataLoader.swift */,
 			);
