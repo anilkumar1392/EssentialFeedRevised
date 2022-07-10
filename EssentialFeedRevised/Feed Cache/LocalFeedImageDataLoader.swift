@@ -7,8 +7,26 @@
 
 import Foundation
 
-class LocalFeedImageDataLoader: FeedImageDataLoader {
-    private class Task: FeedImageDataLoaderTask {
+class LocalFeedImageDataLoader {
+    let store: FeedImageDataStore
+    
+    init(store: FeedImageDataStore) {
+        self.store = store
+    }
+}
+
+extension LocalFeedImageDataLoader {
+    typealias SaveResult = Swift.Result<Void, Swift.Error>
+    
+    func insert(_ data: Data, forUrl url: URL, completion: @escaping (SaveResult) -> Void) {
+        store.insert(data, forUrl: url, completion: { _ in })
+    }
+}
+
+extension LocalFeedImageDataLoader: FeedImageDataLoader {
+    typealias LoadResult = FeedImageDataLoader.Result
+
+    private class LoadImageDataTask: FeedImageDataLoaderTask {
         private var completion: ((FeedImageDataLoader.Result) -> Void)?
         
         init(_ completion: @escaping (FeedImageDataLoader.Result) -> Void) {
@@ -27,36 +45,21 @@ class LocalFeedImageDataLoader: FeedImageDataLoader {
             completion = nil
         }
     }
-    
-    let store: FeedImageDataStore
-    
-    init(store: FeedImageDataStore) {
-        self.store = store
-    }
-    
-    public enum Error: Swift.Error {
+
+    public enum LoadError: Swift.Error {
         case failed
         case notFound
     }
     
     func loadImageData(from url: URL, completion: @escaping (FeedImageDataLoader.Result) -> Void) -> FeedImageDataLoaderTask {
-        let task = Task(completion)
+        let task = LoadImageDataTask(completion)
         store.retrieve(dataFromURL: url, completion: { result in
             task.complete(with: result
-                .mapError { _ in Error.failed }
+                .mapError { _ in LoadError.failed }
                 .flatMap { data in
-                    data.map { .success($0) } ?? .failure(Error.notFound)
+                    data.map { .success($0) } ?? .failure(LoadError.notFound)
                 })
         })
         return task
-    }
-    
-    
-    // MARK: - Save operations
-    
-    typealias SaveResult = Swift.Result<Void, Swift.Error>
-    
-    func insert(_ data: Data, forUrl url: URL, completion: @escaping (SaveResult) -> Void) {
-        store.insert(data, forUrl: url, completion: { _ in })
     }
 }
