@@ -9,6 +9,10 @@ import Foundation
 import XCTest
 import EssentialFeedRevised
 
+/*
+ We are testing with real coredata implementation so we do nto need any coordinator and and mock class.
+ */
+
 class CoreDataFeedImageDataStoreTests: XCTestCase {
     func test_retrieveImageData_deliversNotFoundWhenEmpty() {
         let sut = makeSUT()
@@ -87,6 +91,27 @@ class CoreDataFeedImageDataStoreTests: XCTestCase {
         expect(sut, toCompleteWith: found(lastStoredData), for: url)
     }
     
+    func test_sideEffects_runSerially() {
+        let sut = makeSUT()
+        let url = anyURL()
+        
+        let op1 = expectation(description: "Operation 1")
+        sut.insert([localImage(url: url)], timestamp: Date()) { _ in
+            op1.fulfill()
+        }
+        
+        let op2 = expectation(description: "Operation 2")
+        sut.insert(anyData(), forUrl: url) { _ in
+            op2.fulfill()
+        }
+        
+        let op3 = expectation(description: "Operation 3")
+        sut.insert(anyData(), forUrl: url) { _ in
+            op3.fulfill()
+        }
+        
+        wait(for: [op1, op2, op3], timeout: 5.0, enforceOrder: true)
+    }
 }
 
 extension CoreDataFeedImageDataStoreTests {
@@ -116,14 +141,15 @@ extension CoreDataFeedImageDataStoreTests {
         sut.insert([image], timestamp: Date()) { error in
             if let error = error {
                 XCTFail("Expected to complete with success, Got \(error) instead")
+                exp.fulfill()
             } else {
                 sut.insert(data, forUrl: url) { result in
                     if case let Result.failure(error) = result {
                         XCTFail("Failed to insert \(data) with error \(error)")
                     }
+                    exp.fulfill()
                 }
             }
-            exp.fulfill()
         }
         wait(for: [exp], timeout: 1.0)
     }
@@ -157,4 +183,13 @@ extension CoreDataFeedImageDataStoreTests {
  3. CoreDataFeedStore.retrieveImageData delivers stored data when there's an image with a matching URL in the store
  
  4. CoreDataFeedStore.retrieveImageData delivers last inserted value (overwriting previous values)
+ 
+ 5. Add test to guarantee that CoreDataFeedStore side effects run serially to prevent unexpected behavior
+ 
+ // CoreData operation will perform serially
+ Write in completion like:
+ completion(Result {
+     return try ManagedFeedImage.first(with: url, in: context)?.data
+ })
+ 
  */
