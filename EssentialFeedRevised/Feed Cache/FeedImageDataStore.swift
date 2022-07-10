@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol FeedImageDataStore {
+public protocol FeedImageDataStore {
     typealias RetrievalResult = Swift.Result<Data?, Error>
     typealias InsertionResult = Swift.Result<Void, Error>
 

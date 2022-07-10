@@ -8,10 +8,10 @@
 import Foundation
 
 extension CoreDataFeedStore: FeedImageDataStore {
-    func insert(_ data: Data, forUrl url: URL, completion: @escaping (InsertionResult) -> Void) {
+    public func insert(_ data: Data, forUrl url: URL, completion: @escaping (FeedImageDataStore.InsertionResult) -> Void) {
     }
-    
-    func retrieve(dataFromURL url: URL, completion: @escaping (RetrievalResult) -> Void) {
+
+    public func retrieve(dataFromURL url: URL, completion: @escaping (FeedImageDataStore.RetrievalResult) -> Void) {
         completion(.success(.none))
     }
 }

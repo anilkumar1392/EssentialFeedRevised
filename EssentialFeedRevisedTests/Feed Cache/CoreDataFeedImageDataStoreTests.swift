@@ -38,9 +38,8 @@ class CoreDataFeedImageDataStoreTests: XCTestCase {
         let sut = makeSUT()
         let url = URL(string: "http://a-url.com")!
         let notMatchingUrl = URL(string: "http://another-url.com")!
-        let image = localImage(url: url)
-        let data = anyData()
 
+        /*
         let exp = expectation(description: "Wait for insert completion...")
         
         sut.insert([image], timestamp: Date()) { error in
@@ -59,6 +58,10 @@ class CoreDataFeedImageDataStoreTests: XCTestCase {
         
         wait(for: [exp], timeout: 1.0)
         
+        */
+        
+        insert(anyData(), for: url, into: sut)
+
         expect(sut, toCompleteWith: notFound(), for: notMatchingUrl)
     }
 }
@@ -78,6 +81,24 @@ extension CoreDataFeedImageDataStoreTests {
     
     private func localImage(url: URL) -> LocalFeedImage {
         return LocalFeedImage(id: UUID(), description: "any", location: "any", url: url)
+    }
+    
+    private func insert(_ data: Data, for url: URL, into sut: CoreDataFeedStore, file: StaticString = #file, line: UInt = #line) {
+        let exp = expectation(description: "Wait for cache insertion")
+        let image = localImage(url: url)
+        sut.insert([image], timestamp: Date()) { error in
+            if let error = error {
+                XCTFail("Expected to complete with success, Got \(error) instead")
+            } else {
+                sut.insert(data, forUrl: url) { result in
+                    if case let Result.failure(error) = result {
+                        XCTFail("Failed to insert \(data) with error \(error)")
+                    }
+                }
+            }
+            exp.fulfill()
+        }
+        wait(for: [exp], timeout: 1.0)
     }
     
     private func expect(_ sut: CoreDataFeedStore, toCompleteWith expectedResult: FeedImageDataStore.RetrievalResult, for url: URL, file: StaticString = #file, line: UInt = #line) {
