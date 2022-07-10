@@ -12,5 +12,5 @@ public protocol FeedImageDataStore {
     typealias InsertionResult = Swift.Result<Void, Error>
 
     func retrieve(dataFromURL url: URL, completion: @escaping (RetrievalResult) -> Void)
-    func insert(_ data: Data, forUrl url: URL, completion : @escaping (InsertionResult) -> Void)
+    func insert(_ data: Data, for url: URL, completion : @escaping (InsertionResult) -> Void)
 }

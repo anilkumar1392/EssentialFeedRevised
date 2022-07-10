@@ -7,23 +7,23 @@
 
 import Foundation
 
-class LocalFeedImageDataLoader {
+public class LocalFeedImageDataLoader {
     let store: FeedImageDataStore
     
-    init(store: FeedImageDataStore) {
+    public init(store: FeedImageDataStore) {
         self.store = store
     }
 }
 
 extension LocalFeedImageDataLoader {
-    typealias SaveResult = Swift.Result<Void, Swift.Error>
+    public typealias SaveResult = Swift.Result<Void, Swift.Error>
     
     public enum SaveError: Swift.Error {
         case failed
     }
     
-    func insert(_ data: Data, forUrl url: URL, completion: @escaping (SaveResult) -> Void) {
-        store.insert(data, forUrl: url, completion: { [weak self] result in
+    public func save(_ data: Data, for url: URL, completion: @escaping (SaveResult) -> Void) {
+        store.insert(data, for: url, completion: { [weak self] result in
             guard self != nil else { return }
             
             completion(result
@@ -61,7 +61,7 @@ extension LocalFeedImageDataLoader: FeedImageDataLoader {
         case notFound
     }
     
-    func loadImageData(from url: URL, completion: @escaping (FeedImageDataLoader.Result) -> Void) -> FeedImageDataLoaderTask {
+    public func loadImageData(from url: URL, completion: @escaping (FeedImageDataLoader.Result) -> Void) -> FeedImageDataLoaderTask {
         let task = LoadImageDataTask(completion)
         store.retrieve(dataFromURL: url, completion: { result in
             task.complete(with: result

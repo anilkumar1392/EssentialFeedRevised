@@ -101,12 +101,12 @@ class CoreDataFeedImageDataStoreTests: XCTestCase {
         }
         
         let op2 = expectation(description: "Operation 2")
-        sut.insert(anyData(), forUrl: url) { _ in
+        sut.insert(anyData(), for: url) { _ in
             op2.fulfill()
         }
         
         let op3 = expectation(description: "Operation 3")
-        sut.insert(anyData(), forUrl: url) { _ in
+        sut.insert(anyData(), for: url) { _ in
             op3.fulfill()
         }
         
@@ -143,7 +143,7 @@ extension CoreDataFeedImageDataStoreTests {
                 XCTFail("Expected to complete with success, Got \(error) instead")
                 exp.fulfill()
             } else {
-                sut.insert(data, forUrl: url) { result in
+                sut.insert(data, for: url) { result in
                     if case let Result.failure(error) = result {
                         XCTFail("Failed to insert \(data) with error \(error)")
                     }

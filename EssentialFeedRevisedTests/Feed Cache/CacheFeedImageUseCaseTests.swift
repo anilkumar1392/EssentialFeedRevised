@@ -21,7 +21,7 @@ class CacheFeedImageUseCasesTests: XCTestCase {
         let data = anyData()
         let url = anyURL()
 
-        sut.insert(data, forUrl: url, completion: { _ in })
+        sut.save(data, for: url, completion: { _ in })
         
         XCTAssertEqual(store.receivedMessages, [.insert(data: data, forUrl: url)])
     }
@@ -69,7 +69,7 @@ extension CacheFeedImageUseCasesTests {
         var sut: LocalFeedImageDataLoader? = LocalFeedImageDataLoader(store: store)
         
         var recevied = [LocalFeedImageDataLoader.SaveResult]()
-        sut?.insert(anyData(), forUrl: anyURL(), completion: { recevied.append($0) })
+        sut?.save(anyData(), for: anyURL(), completion: { recevied.append($0) })
         
         sut = nil
         store.completeInsertion(with: anyError())
@@ -95,7 +95,7 @@ extension CacheFeedImageUseCasesTests {
         
         let exp = expectation(description: "wait for save completion...")
 
-        sut.insert(anyData(), forUrl: anyURL()) { receivedResult in
+        sut.save(anyData(), for: anyURL()) { receivedResult in
             switch (receivedResult, expectedResult) {
             case let (.failure(receivedError as LocalFeedImageDataLoader.SaveError), .failure(expecetdError as LocalFeedImageDataLoader.SaveError)):
                 XCTAssertEqual(receivedError, expecetdError, file: file, line: line)
@@ -108,7 +108,7 @@ extension CacheFeedImageUseCasesTests {
             }
             exp.fulfill()
         }
-        
+
         action()
         
         wait(for: [exp], timeout: 1.0)
