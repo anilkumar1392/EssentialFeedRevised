@@ -195,7 +195,7 @@
 		F5D5D794285DE88B007493F4 /* XCTestCase+FailableDeleteFeedStoreSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D5D793285DE88B007493F4 /* XCTestCase+FailableDeleteFeedStoreSpecs.swift */; };
 		F5D5D796285DED9F007493F4 /* XCTestCase+FailableRetrieveFeedStoreSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D5D795285DED9F007493F4 /* XCTestCase+FailableRetrieveFeedStoreSpecs.swift */; };
 		F5D5D798285DEDD5007493F4 /* SCTestCase+FailableInsertFeedStoreSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D5D797285DEDD5007493F4 /* SCTestCase+FailableInsertFeedStoreSpecs.swift */; };
-		F5D629A2287A6DE90075714A /* LocalFeedImageDataLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D629A1287A6DE90075714A /* LocalFeedImageDataLoaderTests.swift */; };
+		F5D629A2287A6DE90075714A /* LoadFeedImageDataFromCacheUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D629A1287A6DE90075714A /* LoadFeedImageDataFromCacheUseCaseTests.swift */; };
 		F5D629A4287AA9230075714A /* LocalFeedImageDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D629A3287AA9230075714A /* LocalFeedImageDataLoader.swift */; };
 		F5D629A6287AA9600075714A /* FeedImageDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D629A5287AA9600075714A /* FeedImageDataStore.swift */; };
 		F5D629A7287AA9B00075714A /* FeedImageDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D629A5287AA9600075714A /* FeedImageDataStore.swift */; };
@@ -518,7 +518,7 @@
 		F5D5D793285DE88B007493F4 /* XCTestCase+FailableDeleteFeedStoreSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+FailableDeleteFeedStoreSpecs.swift"; sourceTree = "<group>"; };
 		F5D5D795285DED9F007493F4 /* XCTestCase+FailableRetrieveFeedStoreSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+FailableRetrieveFeedStoreSpecs.swift"; sourceTree = "<group>"; };
 		F5D5D797285DEDD5007493F4 /* SCTestCase+FailableInsertFeedStoreSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCTestCase+FailableInsertFeedStoreSpecs.swift"; sourceTree = "<group>"; };
-		F5D629A1287A6DE90075714A /* LocalFeedImageDataLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFeedImageDataLoaderTests.swift; sourceTree = "<group>"; };
+		F5D629A1287A6DE90075714A /* LoadFeedImageDataFromCacheUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadFeedImageDataFromCacheUseCaseTests.swift; sourceTree = "<group>"; };
 		F5D629A3287AA9230075714A /* LocalFeedImageDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFeedImageDataLoader.swift; sourceTree = "<group>"; };
 		F5D629A5287AA9600075714A /* FeedImageDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataStore.swift; sourceTree = "<group>"; };
 		F5DA76C72859675F00AA1586 /* CacheFeedUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheFeedUseCaseTests.swift; sourceTree = "<group>"; };
@@ -1249,7 +1249,7 @@
 				F5DCB314285C21C9003C9547 /* ValidateFeedCacheUseCaseTests.swift */,
 				F5DCB328285CAB8A003C9547 /* CodableFeedStoreTests.swift */,
 				F56F94AA285EAF8600CFBC5E /* CoreDataFeedStoreTests.swift */,
-				F5D629A1287A6DE90075714A /* LocalFeedImageDataLoaderTests.swift */,
+				F5D629A1287A6DE90075714A /* LoadFeedImageDataFromCacheUseCaseTests.swift */,
 			);
 			path = "Feed Cache";
 			sourceTree = "<group>";
@@ -1747,7 +1747,7 @@
 				F5D5D794285DE88B007493F4 /* XCTestCase+FailableDeleteFeedStoreSpecs.swift in Sources */,
 				F5D5D796285DED9F007493F4 /* XCTestCase+FailableRetrieveFeedStoreSpecs.swift in Sources */,
 				F5DA76C82859675F00AA1586 /* CacheFeedUseCaseTests.swift in Sources */,
-				F5D629A2287A6DE90075714A /* LocalFeedImageDataLoaderTests.swift in Sources */,
+				F5D629A2287A6DE90075714A /* LoadFeedImageDataFromCacheUseCaseTests.swift in Sources */,
 				F5D5D798285DEDD5007493F4 /* SCTestCase+FailableInsertFeedStoreSpecs.swift in Sources */,
 				F578EF512879B7D800CD43F3 /* URLProtocolStub.swift in Sources */,
 				F5DCB315285C21C9003C9547 /* ValidateFeedCacheUseCaseTests.swift in Sources */,

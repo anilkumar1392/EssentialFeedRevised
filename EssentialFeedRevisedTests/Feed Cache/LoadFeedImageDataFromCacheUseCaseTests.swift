@@ -9,7 +9,7 @@ import Foundation
 import XCTest
 import EssentialFeedRevised
 
-class LocalFeedImageDataLoaderTests: XCTestCase {
+class LoadFeedImageDataFromCacheUseCaseTests: XCTestCase {
     func test_init_doesNotMessageStoreUponCreation() {
         let (_, store) = makeSUT()
         
@@ -38,7 +38,7 @@ class LocalFeedImageDataLoaderTests: XCTestCase {
 
 // MARK: - Error Course
 
-extension LocalFeedImageDataLoaderTests {
+extension LoadFeedImageDataFromCacheUseCaseTests {
     func test_loadImageDataFromUrl_failsOnStoreError() {
         let (sut, store) = makeSUT()
 
@@ -77,7 +77,7 @@ extension LocalFeedImageDataLoaderTests {
 
 // MARK: - Success course
 
-extension LocalFeedImageDataLoaderTests {
+extension LoadFeedImageDataFromCacheUseCaseTests {
     func test_loadImageDataFromURL_deliversStoreDataOnFoundData() {
         let (sut, store) = makeSUT()
         let foundData = Data("any valid data".utf8)
@@ -90,7 +90,7 @@ extension LocalFeedImageDataLoaderTests {
 
 //MARK:- Task cancelled and sut instance deallcoated
 
-extension LocalFeedImageDataLoaderTests {
+extension LoadFeedImageDataFromCacheUseCaseTests {
     func test_loadImageDataFromURL_doesNotDeliverResultAfterTaskHasBeenCacnelled() {
         let (sut, store) = makeSUT()
         let foundData = anyData()
@@ -109,7 +109,7 @@ extension LocalFeedImageDataLoaderTests {
 
 // MARK: - Save oprations test
 
-extension LocalFeedImageDataLoaderTests {
+extension LoadFeedImageDataFromCacheUseCaseTests {
     func test_saveImageDataForURL_requestsImageDataInsertionForURL() {
         let (sut, store) = makeSUT()
         let data = anyData()
@@ -121,7 +121,7 @@ extension LocalFeedImageDataLoaderTests {
     }
 }
 
-extension LocalFeedImageDataLoaderTests {
+extension LoadFeedImageDataFromCacheUseCaseTests {
     private func makeSUT(currentDate: @escaping () -> Date = Date.init, file: StaticString = #file, line: UInt = #line) -> (sut: LocalFeedImageDataLoader, store: StoreSpy) {
         let store = StoreSpy()
         let sut = LocalFeedImageDataLoader(store: store)
@@ -166,7 +166,7 @@ extension LocalFeedImageDataLoaderTests {
 }
 
 // MARK: - Spy helper
-extension LocalFeedImageDataLoaderTests {
+extension LoadFeedImageDataFromCacheUseCaseTests {
     private class StoreSpy: FeedImageDataStore {
         enum Message: Equatable {
             case retrieve(dataFor: URL)
