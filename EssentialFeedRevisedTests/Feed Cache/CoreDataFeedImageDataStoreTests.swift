@@ -74,6 +74,19 @@ class CoreDataFeedImageDataStoreTests: XCTestCase {
         
         expect(sut, toCompleteWith: found(storedData), for: matchingURL)
     }
+    
+    func test_retrieveImageData_deliversLastInsertedValue() {
+        let sut = makeSUT()
+        let firstStoredData = Data("first".utf8)
+        let lastStoredData = Data("last".utf8)
+        let url = URL(string: "http://a-url.com")!
+
+        insert(firstStoredData, for: url, into: sut)
+        insert(lastStoredData, for: url, into: sut)
+
+        expect(sut, toCompleteWith: found(lastStoredData), for: url)
+    }
+    
 }
 
 extension CoreDataFeedImageDataStoreTests {
@@ -140,4 +153,8 @@ extension CoreDataFeedImageDataStoreTests {
  1. CoreDataFeedStore.retrieveImageData delivers image data not found when empty
  
  2. CoreDataFeedStore.retrieveImageData delivers image data not found when store is not empty but there's no image with matching URL
+ 
+ 3. CoreDataFeedStore.retrieveImageData delivers stored data when there's an image with a matching URL in the store
+ 
+ 4. CoreDataFeedStore.retrieveImageData delivers last inserted value (overwriting previous values)
  */
