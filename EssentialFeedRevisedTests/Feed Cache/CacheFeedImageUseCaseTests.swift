@@ -61,6 +61,23 @@ class CacheFeedImageUseCasesTests: XCTestCase {
     }
 }
 
+// MARK: - does not delvier result after instacne has been deallcoated
+
+extension CacheFeedImageUseCasesTests {
+
+    func test_saveDataImageForUrl_doesNotDeliverResultAfterSUTInstacneHasBeenDeallcoated() {
+        let store = StoreSpy()
+        var sut: LocalFeedImageDataLoader? = LocalFeedImageDataLoader(store: store)
+        
+        var recevied = [LocalFeedImageDataLoader.SaveResult]()
+        sut?.insert(anyData(), forUrl: anyURL(), completion: { recevied.append($0) })
+        
+        sut = nil
+        store.completeInsertion(with: anyError())
+        
+        XCTAssertTrue(recevied.isEmpty)
+    }
+}
 
 extension CacheFeedImageUseCasesTests {
     private func makeSUT(currentDate: @escaping () -> Date = Date.init, file: StaticString = #file, line: UInt = #line) -> (sut: LocalFeedImageDataLoader, store: StoreSpy) {
