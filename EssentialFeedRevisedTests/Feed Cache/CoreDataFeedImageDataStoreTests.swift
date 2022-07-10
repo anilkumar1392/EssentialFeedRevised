@@ -64,6 +64,16 @@ class CoreDataFeedImageDataStoreTests: XCTestCase {
 
         expect(sut, toCompleteWith: notFound(), for: notMatchingUrl)
     }
+    
+    func test_retrieveImageData_deliversFoundDataWhenTheirIsAStoredImageDataMatchingThatURL() {
+        let sut = makeSUT()
+        let storedData = anyData()
+        let matchingURL = URL(string: "http://a-url.com")!
+        
+        insert(storedData, for: matchingURL, into: sut)
+        
+        expect(sut, toCompleteWith: found(storedData), for: matchingURL)
+    }
 }
 
 extension CoreDataFeedImageDataStoreTests {
@@ -73,6 +83,10 @@ extension CoreDataFeedImageDataStoreTests {
         let sut = try! CoreDataFeedStore(storeURL: storeURL, bundle: bundle)
         trackForMemoryLeaks(sut)
         return sut
+    }
+    
+    private func found(_ data: Data?) -> FeedImageDataStore.RetrievalResult {
+        return .success(data)
     }
     
     private func notFound() -> FeedImageDataStore.RetrievalResult {
