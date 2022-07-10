@@ -107,20 +107,6 @@ extension LoadFeedImageDataFromCacheUseCaseTests {
     }
 }
 
-// MARK: - Save oprations test
-
-extension LoadFeedImageDataFromCacheUseCaseTests {
-    func test_saveImageDataForURL_requestsImageDataInsertionForURL() {
-        let (sut, store) = makeSUT()
-        let data = anyData()
-        let url = anyURL()
-
-        sut.insert(data, forUrl: url, completion: { _ in })
-        
-        XCTAssertEqual(store.receivedMessages, [.insert(data: data, forUrl: url)])
-    }
-}
-
 extension LoadFeedImageDataFromCacheUseCaseTests {
     private func makeSUT(currentDate: @escaping () -> Date = Date.init, file: StaticString = #file, line: UInt = #line) -> (sut: LocalFeedImageDataLoader, store: StoreSpy) {
         let store = StoreSpy()
