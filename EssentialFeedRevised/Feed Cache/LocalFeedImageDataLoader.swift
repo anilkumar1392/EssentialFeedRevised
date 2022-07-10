@@ -73,3 +73,4 @@ extension LocalFeedImageDataLoader: FeedImageDataLoader {
         return task
     }
 }
+

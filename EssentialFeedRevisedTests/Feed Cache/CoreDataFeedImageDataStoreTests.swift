@@ -192,4 +192,6 @@ extension CoreDataFeedImageDataStoreTests {
      return try ManagedFeedImage.first(with: url, in: context)?.data
  })
  
+ 6. Refactor procedural code into a chain of map operations
+
  */
