@@ -29,11 +29,18 @@ public class CoreDataFeedStore: FeedStore {
             } catch {
                 completion(.failure(error))
             }
+            
+//            completion(Result {
+//                try ManagedCache.find(in: context) {
+//                    CachedFeed(feed: $0.localFeed, timestamp: $0.timestamp)
+//                }
+//            })
         }
     }
     
     public func insert(_ feed: [LocalFeedImage], timestamp: Date, completion: @escaping InsertionCompletion) {
         perform { context in
+
             do {
                 let managedCache = try ManagedCache.newUniqueInstance(in: context) //ManagedCache(context: context)
                 managedCache.timestamp = timestamp
@@ -44,6 +51,13 @@ public class CoreDataFeedStore: FeedStore {
             } catch {
                 completion(error)
             }
+            
+            //            completion(Result {
+            //                let managedCache = try ManagedCache.newUniqueInstance(in: context)
+            //                managedCache.timestamp = timestamp
+            //                managedCache.feed = ManagedFeedImage.images(from: feed, in: context)
+            //                try context.save()
+            //            })
         }
     }
     

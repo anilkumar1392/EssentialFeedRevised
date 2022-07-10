@@ -20,11 +20,20 @@ extension CoreDataFeedStore: FeedImageDataStore {
     public func insert(_ data: Data, forUrl url: URL, completion: @escaping (InsertionResult) -> Void) {
         perform { context in
             // CoreData operation will perform serially
-
+//            guard let image = try? ManagedFeedImage.first(with: url, in: context) else { return }
+//            image.data = data
+//            try? context.save()
+            
+//            completion(Result {
+//                let image = try ManagedFeedImage.first(with: url, in: context)
+//                image?.data = data
+//                try? context.save()
+//            })
+            
             completion(Result {
-                guard let image = try? ManagedFeedImage.first(with: url, in: context) else { return }
-                image.data = data
-                try? context.save()
+                try ManagedFeedImage.first(with: url, in: context)
+                    .map { $0.data =  data }
+                    .map(context.save)
             })
         }
     }
