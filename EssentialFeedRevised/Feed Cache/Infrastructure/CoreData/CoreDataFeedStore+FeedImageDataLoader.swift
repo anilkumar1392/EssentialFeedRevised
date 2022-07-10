@@ -12,7 +12,7 @@ extension CoreDataFeedStore: FeedImageDataStore {
         perform { context in
             // CoreData operation will perform serially
             completion(Result {
-                return try ManagedFeedImage.first(with: url, in: context)?.data
+                try ManagedFeedImage.first(with: url, in: context)?.data
             })
         }
     }
