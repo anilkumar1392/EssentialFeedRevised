@@ -139,7 +139,7 @@ extension LocalFeedImageDataLoaderTests {
     }
 }
 
-//MARK:- Task cancelled
+//MARK:- Task cancelled and sut instance deallcoated
 
 extension LocalFeedImageDataLoaderTests {
     func test_loadImageDataFromURL_doesNotDeliverResultAfterTaskHasBeenCacnelled() {
