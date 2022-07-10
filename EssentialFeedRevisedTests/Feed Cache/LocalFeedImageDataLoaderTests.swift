@@ -9,7 +9,8 @@ import Foundation
 import XCTest
 
 protocol FeedImageDataStore {
-    func retrieve(dataFromURL url: URL)
+    typealias Result = Swift.Result<Data?, Error>
+    func retrieve(dataFromURL url: URL, completion: @escaping (Result) -> Void)
 }
 
 class LocalFeedImageDataLoader: FeedImageDataLoader {
@@ -23,8 +24,24 @@ class LocalFeedImageDataLoader: FeedImageDataLoader {
         self.store = store
     }
     
+    public enum Error: Swift.Error {
+        case failed
+    }
+    
     func loadImageData(from url: URL, completion: @escaping (FeedImageDataLoader.Result) -> Void) -> FeedImageDataLoaderTask {
-        store.retrieve(dataFromURL: url)
+        store.retrieve(dataFromURL: url, completion: { result in
+            switch result {
+            case let .success(data):
+                if let data = data {
+                    completion(.success(data))
+                } else {
+                    completion(.failure(Error.failed))
+                }
+                
+            case .failure:
+                completion(.failure(Error.failed))
+            }
+        })
         return Task()
     }
     
@@ -57,6 +74,36 @@ class LocalFeedImageDataLoaderTests: XCTestCase {
       }
 }
 
+// MARK: - Error Course
+extension LocalFeedImageDataLoaderTests {
+    func test_loadImageDataFromUrl_failsOnStoreError() {
+        let (sut, store) = makeSUT()
+
+        /*
+        let exp = expectation(description: "Wait for load completion...")
+        _ = sut.loadImageData(from: anyURL()) { result in
+            switch result {
+            case .success:
+                XCTFail("Expecetd failure, got \(result) instead")
+                
+            case .failure(let error):
+                XCTAssertNotNil(error)
+            }
+            
+            exp.fulfill()
+        }
+        store.complete(with: retrievalError)
+        
+        wait(for: [exp], timeout: 1.0)
+         */
+        
+        expect(sut, toCompleteWith: failed()) {
+            let retrievalError = anyError()
+            store.complete(with: retrievalError)
+        }
+    }
+}
+
 extension LocalFeedImageDataLoaderTests {
     private func makeSUT(currentDate: @escaping () -> Date = Date.init, file: StaticString = #file, line: UInt = #line) -> (sut: LocalFeedImageDataLoader, store: StoreSpy) {
         let store = StoreSpy()
@@ -64,6 +111,34 @@ extension LocalFeedImageDataLoaderTests {
         trackForMemoryLeaks(store)
         trackForMemoryLeaks(sut)
         return (sut, store)
+    }
+    
+    private func failed() -> FeedImageDataLoader.Result {
+        return .failure(LocalFeedImageDataLoader.Error.failed)
+    }
+    
+    private func expect(_ sut: LocalFeedImageDataLoader, toCompleteWith expectedResult: FeedImageDataLoader.Result, when action: () -> Void, file: StaticString = #file, line: UInt = #line) {
+        let exp = expectation(description: "wait for load completion...")
+        let url = anyURL()
+        
+        sut.loadImageData(from: url) { receivedResult in
+            switch (receivedResult, expectedResult) {
+            case let (.success(receivedData), .success(expectedData)):
+                XCTAssertEqual(receivedData, expectedData, file: file, line: line)
+                
+            case let (.failure(receivedError as LocalFeedImageDataLoader.Error), .failure(expectedError as LocalFeedImageDataLoader.Error)):
+                XCTAssertEqual(receivedError, expectedError, file: file, line: line)
+
+            default:
+                XCTFail("Expected \(expectedResult), Got \(receivedResult) instead.")
+                
+            }
+            exp.fulfill()
+        }
+        
+        action()
+        
+        wait(for: [exp], timeout: 5.0)
     }
 }
 
@@ -75,9 +150,15 @@ extension LocalFeedImageDataLoaderTests {
         }
         
         private(set) var receivedMessages = [Message]()
+        private var completions = [(FeedImageDataStore.Result) -> Void]()
         
-        func retrieve(dataFromURL url: URL) {
+        func retrieve(dataFromURL url: URL, completion: @escaping (FeedImageDataStore.Result) -> Void) {
             receivedMessages.append(.retrieve(dataFor: url))
+            completions.append(completion)
+        }
+        
+        func complete(with error: Error, at index: Int = 0) {
+            completions[index](.failure(error))
         }
     }
 }
