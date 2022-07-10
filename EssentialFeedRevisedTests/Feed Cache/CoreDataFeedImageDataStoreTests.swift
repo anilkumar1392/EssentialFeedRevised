@@ -22,6 +22,8 @@ class CoreDataFeedImageDataStoreTests: XCTestCase {
     func test_retrieveImageData_deliversNotFoundWhenEmpty() {
         let sut = makeSUT()
         let url = anyURL()
+
+        /*
         
         let exp = expectation(description: "wait for retrieval..")
         sut.retrieve(dataFromURL: url) { result in
@@ -36,6 +38,9 @@ class CoreDataFeedImageDataStoreTests: XCTestCase {
         }
         
         wait(for: [exp], timeout: 1.0)
+         */
+        
+        expect(sut, toCompleteWith: notFound(), for: url)
     }
 }
 
@@ -50,5 +55,23 @@ extension CoreDataFeedImageDataStoreTests {
     
     private func notFound() -> FeedImageDataStore.RetrievalResult {
         return .success(.none)
+    }
+    
+    private func expect(_ sut: CoreDataFeedStore, toCompleteWith expectedResult: FeedImageDataStore.RetrievalResult, for url: URL, file: StaticString = #file, line: UInt = #line) {
+       
+        let exp = expectation(description: "wait for retrieval..")
+        
+        sut.retrieve(dataFromURL: url) { receivedResult in
+            switch (receivedResult, expectedResult) {
+            case let (.success(receivedData), .success(expectedData)):
+                XCTAssertEqual(receivedData, expectedData, file: file, line: line)
+
+            default:
+                XCTFail("Expected \(expectedResult), got \(receivedResult) instead", file: file, line: line)
+            }
+            exp.fulfill()
+        }
+        
+        wait(for: [exp], timeout: 1.0)
     }
 }
